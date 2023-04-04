@@ -9,12 +9,16 @@ public class MouseLook : MonoBehaviour
 
     public Transform cam;
 
+    public Transform orientation;   // Stores the direction the character is facing
+
     private float xRotation = 0f;
-    
+    private float yRotation = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -25,14 +29,22 @@ public class MouseLook : MonoBehaviour
 
     void LookWithMouse()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        yRotation += mouseX;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // Changes camera rotation
+        cam.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
-        transform.Rotate(Vector3.up * mouseX);
+        // Use to rotate player
+        orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
+
+        // Changes the direction the player character is facing
+        //cam.rotation = Quaternion.Euler(xRotation, 0f, 0f);
+        //transform.Rotate(Vector3.up * mouseX);
     }
 }
