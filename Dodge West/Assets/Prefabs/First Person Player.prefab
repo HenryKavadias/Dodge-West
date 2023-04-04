@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 161012298981736519}
   - component: {fileID: 161012298981736518}
   - component: {fileID: 161012298981736536}
+  - component: {fileID: 2150544480436074437}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -44,9 +45,17 @@ CharacterController:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161012298981736517}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Height: 3.8
   m_Radius: 0.6
   m_SlopeLimit: 45
@@ -74,6 +83,20 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2150544480436074437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b52b7b6ae1f64faa0417b5d63dcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 300
+  cam: {fileID: 161012299946361884}
 --- !u!1 &161012299386307288
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +222,6 @@ GameObject:
   - component: {fileID: 161012299946361884}
   - component: {fileID: 161012299946361883}
   - component: {fileID: 161012299946361882}
-  - component: {fileID: 161012299946361885}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -236,9 +258,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -273,17 +303,3 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161012299946361881}
   m_Enabled: 1
---- !u!114 &161012299946361885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161012299946361881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0b52b7b6ae1f64faa0417b5d63dcf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 318
-  playerBody: {fileID: 161012298981736519}

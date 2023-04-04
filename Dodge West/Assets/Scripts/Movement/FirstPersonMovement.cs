@@ -13,5 +13,8 @@ public class FirstPersonMovement : PlayerMovement
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+
+
+        //Debug.Log("");
     }
 }
