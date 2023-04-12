@@ -79,14 +79,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   groundDrag: 5
-  jumpForce: 8
+  jumpForce: 14
   airMultiplier: 0.4
   jumpCooldown: 0.25
   cameraObject: {fileID: 2842492982393607670, guid: 56b6b330fc5833e4a8a82d19c18d4768, type: 3}
   playerHeight: 3.6
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   orientation: {fileID: 8657622561209081978}
 --- !u!114 &2150544480436074437
 MonoBehaviour:
@@ -118,9 +118,11 @@ MonoBehaviour:
   pickupMask:
     serializedVersion: 2
     m_Bits: 128
-  playerCamera: {fileID: 0}
   pickupTarget: {fileID: 588626649139957462}
   pickupRange: 10
+  objectSpeedModifier: 12
+  maxObjectSpeed: 20
+  throwPower: 25
 --- !u!1 &161012299386307288
 GameObject:
   m_ObjectHideFlags: 0
