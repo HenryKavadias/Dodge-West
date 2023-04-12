@@ -5,18 +5,15 @@ using UnityEngine;
 public class PhysicsPickup : MonoBehaviour
 {
     [SerializeField] private LayerMask pickupMask;
-    [SerializeField] private Camera playerCamera;
+    private Camera playerCamera;
     [SerializeField] private Transform pickupTarget;
     [Space]
     [SerializeField] private float pickupRange;
+    [SerializeField] private float objectSpeedModifier = 12f;
+    [SerializeField] private float maxObjectSpeed = 20f;
+    [SerializeField] private float throwPower = 25f;
     private Rigidbody currentObject;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void SetCamera(Camera cam)
     {
         playerCamera = cam;
@@ -25,9 +22,10 @@ public class PhysicsPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Pickup object
         if (Input.GetButtonDown("Pickup"))
         {
+            // Drop object
             if (currentObject)
             {
                 currentObject.useGravity = true;
@@ -46,6 +44,14 @@ public class PhysicsPickup : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetButtonDown("Fire1") && currentObject)
+        {
+            currentObject.useGravity = true;
+            currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
+            currentObject = null;
+            return;
+        }
     }
 
     void FixedUpdate()
@@ -55,7 +61,14 @@ public class PhysicsPickup : MonoBehaviour
             Vector3 directionToPoint = pickupTarget.position - currentObject.position;
             float distanceToPoint = directionToPoint.magnitude;
 
-            currentObject.velocity = directionToPoint * distanceToPoint * 12f;
+            currentObject.velocity = directionToPoint * distanceToPoint * objectSpeedModifier;
+
+            if (currentObject.velocity.magnitude > maxObjectSpeed)
+            {
+                currentObject.velocity = Vector3.ClampMagnitude(currentObject.velocity, maxObjectSpeed);
+            }
+
+            //Mathf.Clamp()
         }
     }
 }
