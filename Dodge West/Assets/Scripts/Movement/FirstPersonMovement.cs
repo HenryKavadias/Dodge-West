@@ -43,6 +43,17 @@ public class FirstPersonMovement : MonoBehaviour
             GameObject camTemp = Instantiate(cameraObject);
 
             camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<MouseLook>().cam);
+
+            // Camera needs to be the first child object
+            Camera camReal = camTemp.transform.GetChild(0).GetComponent<Camera>();
+            if (camReal != null )
+            {
+                gameObject.GetComponent<PhysicsPickup>().SetCamera(camReal);
+            }
+            else
+            {
+                Debug.Log("Camera object has no object or compenent/objects are ill-positioned");
+            }
         }
         else
         {
