@@ -9,7 +9,7 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private Transform pickupTarget;
     [Space]
     [SerializeField] private float pickupRange;
-    [SerializeField] private float objectSpeedModifier = 12f;
+    [SerializeField] private float objectTrackingSpeedModifier = 12f;
     [SerializeField] private float maxObjectSpeed = 20f;
     [SerializeField] private float throwPower = 25f;
     private Rigidbody currentObject;
@@ -61,7 +61,7 @@ public class PhysicsPickup : MonoBehaviour
             Vector3 directionToPoint = pickupTarget.position - currentObject.position;
             float distanceToPoint = directionToPoint.magnitude;
 
-            currentObject.velocity = directionToPoint * distanceToPoint * objectSpeedModifier;
+            currentObject.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
 
             if (currentObject.velocity.magnitude > maxObjectSpeed)
             {
