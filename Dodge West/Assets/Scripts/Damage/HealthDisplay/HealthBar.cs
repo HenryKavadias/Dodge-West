@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Image _fillImage;      // Image for the health bar
     [SerializeField] private Gradient _gradient;    // Used to determine the Colour of the health bar
 
-    private Camera _cam;
+    //private Camera _cam;
     //[SerializeField] private float reduceSpeed = 2;
 
     private void Start()

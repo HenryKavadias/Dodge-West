@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 712992741}
   - component: {fileID: 712992740}
   - component: {fileID: 712992739}
+  - component: {fileID: 712992744}
   m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
@@ -411,6 +412,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712992744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712992738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f42954f12fee934085e2de383e8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  minDamageVelocity: 1
+  velocityThreshold: 0
 --- !u!1 &1278700944
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +545,7 @@ GameObject:
   - component: {fileID: 2076498071}
   - component: {fileID: 2076498070}
   - component: {fileID: 2076498074}
+  - component: {fileID: 2076498075}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -649,6 +666,21 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2076498075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076498069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f42954f12fee934085e2de383e8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  minDamageVelocity: 1
+  velocityThreshold: 0
 --- !u!1 &2136968490
 GameObject:
   m_ObjectHideFlags: 0
