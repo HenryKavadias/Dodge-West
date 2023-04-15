@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    // Target camera position
     Transform cameraPosition = null;
 
     public void SetTarget(Transform target)
@@ -11,10 +12,13 @@ public class CameraFollow : MonoBehaviour
         cameraPosition = target;
     }
 
-    // Update is called once per frame
+    // Camera position and rotation matches the targets
     void Update()
     {
-        transform.position = cameraPosition.position;
-        transform.rotation = cameraPosition.rotation;
+        if (cameraPosition) 
+        {
+            transform.position = cameraPosition.position;
+            transform.rotation = cameraPosition.rotation;
+        }
     }
 }

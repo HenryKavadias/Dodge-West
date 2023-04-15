@@ -45,7 +45,7 @@ public abstract class Progressive : MonoBehaviour
     {
         Current -= amount;
 
-        OnChange?.Invoke();
+        OnChange?.Invoke(); // for UI changes
 
         if (Current < 0)
         {
