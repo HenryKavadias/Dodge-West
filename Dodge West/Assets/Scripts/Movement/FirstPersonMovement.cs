@@ -69,7 +69,6 @@ public class FirstPersonMovement : MonoBehaviour
     void Update()
     {
         // Grounded check
-        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
 
         PlayerInput();
@@ -102,7 +101,7 @@ public class FirstPersonMovement : MonoBehaviour
             readyToJump = false;
 
             Jump();
-
+            // allows player to keep jump when the jump button is held down
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
@@ -114,10 +113,12 @@ public class FirstPersonMovement : MonoBehaviour
 
         if (isGrounded)
         {
+            // on ground
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
         else if (!isGrounded)
         {
+            // in the air
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
 
