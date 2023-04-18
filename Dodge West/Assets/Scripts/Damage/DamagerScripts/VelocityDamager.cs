@@ -6,8 +6,20 @@ using UnityEngine;
 public class VelocityDamager : Damager
 {
     private Rigidbody rb;
+    // used to prevent the carrier from damaging
+    // themselves with the object they are carrying
+    private GameObject currentHolder = null; 
 
-    // Start is called before the first frame update
+    public void Pickup(GameObject holder)
+    {
+        currentHolder = holder;
+    }
+
+    public void Drop()
+    {
+        currentHolder = null;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -18,16 +30,19 @@ public class VelocityDamager : Damager
 
     private void OnCollisionEnter(Collision collision)
     {
-        Damageable damageable = collision.gameObject.GetComponent<Damageable>();
-        
-        // if object is damageable
-        if (damageable)
+        if (collision.gameObject != currentHolder)
         {
-            float damageFactor = rb.velocity.magnitude / minDamageVelocity;
+            Damageable damageable = collision.gameObject.GetComponent<Damageable>();
 
-            if (damageFactor > velocityThreshold)
+            // if object is damageable
+            if (damageable)
             {
-                damageable.Damage(damage * damageFactor);
+                float damageFactor = rb.velocity.magnitude / minDamageVelocity;
+
+                if (damageFactor > velocityThreshold)
+                {
+                    damageable.Damage(damage * damageFactor);
+                }
             }
         }
     }

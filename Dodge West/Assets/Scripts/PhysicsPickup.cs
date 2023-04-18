@@ -18,26 +18,31 @@ public class PhysicsPickup : MonoBehaviour
     {
         playerCamera = cam;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        // Pickup object
+        // When picking up or dropping an object you must modifiy 3 of it attributes:
+        // - It's Velocity damager script, tell it if it's pickup or dropped
+        // - Use gravity if dropped, don't use if picked up
+        // - the reference of "currentObject", null if dropped, set reference to picked up object
         if (Input.GetButtonDown("Pickup"))
         {
             // Drop object
             if (currentObject)
             {
+                currentObject.GetComponent<VelocityDamager>().Drop();
                 currentObject.useGravity = true;
                 currentObject = null;
                 return;
             }
             else
             {
+                // Pickup object
                 Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
                 {
                     currentObject = hitInfo.rigidbody;
+                    currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
                     currentObject.useGravity = false;
 
                     return;
@@ -45,8 +50,10 @@ public class PhysicsPickup : MonoBehaviour
             }
         }
 
+        // Throw object
         if (Input.GetButtonDown("Fire1") && currentObject)
         {
+            currentObject.GetComponent<VelocityDamager>().Drop();
             currentObject.useGravity = true;
             currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
             currentObject = null;
@@ -56,6 +63,7 @@ public class PhysicsPickup : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Makes current object travel to the pick up point of the player
         if (currentObject)
         {
             Vector3 directionToPoint = pickupTarget.position - currentObject.position;
