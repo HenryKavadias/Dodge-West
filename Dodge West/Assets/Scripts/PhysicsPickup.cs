@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PhysicsPickup : MonoBehaviour
 {
@@ -13,7 +14,21 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private float maxObjectSpeed = 20f;
     [SerializeField] private float throwPower = 25f;
     private Rigidbody currentObject;
-    
+
+    private bool pickedup = false;
+    private bool thrown = false;
+
+    // Todo: new input system triggers actions multiple times with one button press, NEED TO FIX
+    public void OnPickup(InputAction.CallbackContext context)
+    {
+        pickedup = context.action.IsPressed();
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        thrown = context.action.IsPressed();
+    }
+
     public void SetCamera(Camera cam)
     {
         playerCamera = cam;
@@ -25,11 +40,21 @@ public class PhysicsPickup : MonoBehaviour
         // - It's Velocity damager script, tell it if it's pickup or dropped
         // - Use gravity if dropped, don't use if picked up
         // - the reference of "currentObject", null if dropped, set reference to picked up object
+
+        AltPickupAndThrow();
+        //PickupAndThrow();
+    }
+
+    void PickupAndThrow()
+    {
         if (Input.GetButtonDown("Pickup"))
         {
+            Debug.Log("E is pressed");
             // Drop object
             if (currentObject)
             {
+                Debug.Log("Drop");
+
                 currentObject.GetComponent<VelocityDamager>().Drop();
                 currentObject.useGravity = true;
                 currentObject = null;
@@ -38,6 +63,8 @@ public class PhysicsPickup : MonoBehaviour
             else
             {
                 // Pickup object
+                Debug.Log("Pickup");
+
                 Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
                 {
@@ -57,6 +84,55 @@ public class PhysicsPickup : MonoBehaviour
             currentObject.useGravity = true;
             currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
             currentObject = null;
+            return;
+        }
+    }
+
+    // Note: Regarding the new input system, for single action input events (ONE BUTTON PRESS = ONE ACTION EVENT),
+    // after the event is performed that actions relative bolean variable must be reset to "false" to avoid multiple
+    // actions being performed from one button press.
+    
+    // This should NOT be the case with actions that require holding down buttons like movement
+    void AltPickupAndThrow()
+    {
+        // Input variable
+        if (pickedup)
+        {
+            if (currentObject)
+            {
+                // Drop object
+                currentObject.GetComponent<VelocityDamager>().Drop();
+                currentObject.useGravity = true;
+                currentObject = null;
+            }
+            else
+            {
+                // Pickup object
+                Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+                {
+                    currentObject = hitInfo.rigidbody;
+                    currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                    currentObject.useGravity = false;
+                }
+            }
+
+            // Input boolean variable must be reset to false from one button press
+            // to emulate the functionality of the old input system
+            pickedup = false;
+            return;
+        }
+
+        // Input variable
+        if (thrown && currentObject)
+        {
+            // Throw object
+            currentObject.GetComponent<VelocityDamager>().Drop();
+            currentObject.useGravity = true;
+            currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
+            currentObject = null;
+
+            thrown = false; // Avoids multiple actions from one input
             return;
         }
     }

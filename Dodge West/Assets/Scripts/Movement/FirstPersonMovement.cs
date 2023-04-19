@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FirstPersonMovement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float moveSpeed = 6f;
 
     public float groundDrag = 0.5f;
+    public float airDrag = 0.2f;
 
     public float jumpForce = 7f;
     public float airMultiplier = 0.4f;
@@ -35,7 +37,9 @@ public class FirstPersonMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    // Start is called before the first frame update
+    private Vector2 movementInput = Vector2.zero;
+    private bool jumped = false;
+
     void Start()
     {
         if (cameraObject != null && GetComponent<MouseLook>().cam != null)
@@ -48,7 +52,15 @@ public class FirstPersonMovement : MonoBehaviour
             Camera camReal = camTemp.transform.GetChild(0).GetComponent<Camera>();
             if (camReal != null )
             {
+                // set camera to the pickup script
                 gameObject.GetComponent<PhysicsPickup>().SetCamera(camReal);
+
+                // Set camera to player input component
+                if(gameObject.GetComponent<PlayerInput>())
+                {
+                    gameObject.GetComponent<PlayerInput>().camera = camReal;
+                }
+
             }
             else
             {
@@ -64,14 +76,29 @@ public class FirstPersonMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        jumped = context.action.triggered;
     }
 
     void Update()
     {
         // Grounded check
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
+        isGrounded = Physics.Raycast(
+            transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
 
-        PlayerInput();
+        AltPlayerInput();
+        //PlayerInput();
         SpeedControl();
 
 
@@ -82,13 +109,29 @@ public class FirstPersonMovement : MonoBehaviour
         }
         else
         {
-            rb.drag = 0.0f;
+            rb.drag = airDrag;
         }
     }
 
     void FixedUpdate()
     {
         MovePlayer();
+    }
+
+    // For new "Player Input" system (interacts with the Player Input component)
+    void AltPlayerInput()
+    {
+        horizontalIput = movementInput.x;
+        verticalIput = movementInput.y;
+
+        if (jumped && isGrounded && readyToJump)
+        {
+            readyToJump = false;
+
+            Jump();
+            // allows player to keep jump when the jump button is held down
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     void PlayerInput()
