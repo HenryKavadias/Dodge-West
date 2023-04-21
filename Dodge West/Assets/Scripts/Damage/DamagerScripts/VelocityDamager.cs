@@ -20,6 +20,11 @@ public class VelocityDamager : Damager
         currentHolder = null;
     }
 
+    public bool IsHeld()
+    {
+        return currentHolder != null;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

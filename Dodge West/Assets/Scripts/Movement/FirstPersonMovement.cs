@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class FirstPersonMovement : MonoBehaviour
-{
+{    
     [Header("Movement")]
     public float moveSpeed = 6f;
 
@@ -16,9 +16,6 @@ public class FirstPersonMovement : MonoBehaviour
     public float airMultiplier = 0.4f;
     public float jumpCooldown = 0.25f;
     bool readyToJump;
-
-    [Header("Camera Object")]
-    public GameObject cameraObject;
 
     [Header("Ground Check")]
 
@@ -42,36 +39,6 @@ public class FirstPersonMovement : MonoBehaviour
 
     void Start()
     {
-        if (cameraObject != null && GetComponent<MouseLook>().cam != null)
-        {
-            GameObject camTemp = Instantiate(cameraObject);
-
-            camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<MouseLook>().cam);
-
-            // Camera needs to be the first child object
-            Camera camReal = camTemp.transform.GetChild(0).GetComponent<Camera>();
-            if (camReal != null )
-            {
-                // set camera to the pickup script
-                gameObject.GetComponent<PhysicsPickup>().SetCamera(camReal);
-
-                // Set camera to player input component
-                if(gameObject.GetComponent<PlayerInput>())
-                {
-                    gameObject.GetComponent<PlayerInput>().camera = camReal;
-                }
-
-            }
-            else
-            {
-                Debug.Log("Camera object has no object or compenent/objects are ill-positioned");
-            }
-        }
-        else
-        {
-            Debug.Log("Player is without camera!!!");
-        }
-
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 

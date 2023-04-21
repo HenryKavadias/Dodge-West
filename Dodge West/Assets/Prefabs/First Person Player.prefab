@@ -10,10 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 161012298981736519}
   - component: {fileID: 2204055126249072917}
+  - component: {fileID: 863659293782736370}
   - component: {fileID: 5592908173298442694}
   - component: {fileID: 6564627801541138462}
   - component: {fileID: 1989670095775980032}
   - component: {fileID: 882741623857242509}
+  - component: {fileID: 4623668194168864861}
   - component: {fileID: 161012298981736536}
   - component: {fileID: 2150544480436074437}
   - component: {fileID: 618608792782935704}
@@ -69,6 +71,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &863659293782736370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc356878a7a29d149a598dc5ccb82344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
 --- !u!114 &5592908173298442694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +247,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4623668194168864861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691da00a3f2359a47a5a8a95dafda7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObject: {fileID: 2842492982393607670, guid: 56b6b330fc5833e4a8a82d19c18d4768, type: 3}
 --- !u!114 &161012298981736536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,10 +274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   groundDrag: 5
+  airDrag: 0.2
   jumpForce: 14
   airMultiplier: 0.4
   jumpCooldown: 0.25
-  cameraObject: {fileID: 2842492982393607670, guid: 56b6b330fc5833e4a8a82d19c18d4768, type: 3}
   playerHeight: 3.6
   groundMask:
     serializedVersion: 2

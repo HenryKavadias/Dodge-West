@@ -41,59 +41,14 @@ public class PhysicsPickup : MonoBehaviour
         // - Use gravity if dropped, don't use if picked up
         // - the reference of "currentObject", null if dropped, set reference to picked up object
 
-        AltPickupAndThrow();
-        //PickupAndThrow();
+        PickupAndThrow();
     }
-
-    void PickupAndThrow()
-    {
-        if (Input.GetButtonDown("Pickup"))
-        {
-            Debug.Log("E is pressed");
-            // Drop object
-            if (currentObject)
-            {
-                Debug.Log("Drop");
-
-                currentObject.GetComponent<VelocityDamager>().Drop();
-                currentObject.useGravity = true;
-                currentObject = null;
-                return;
-            }
-            else
-            {
-                // Pickup object
-                Debug.Log("Pickup");
-
-                Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
-                {
-                    currentObject = hitInfo.rigidbody;
-                    currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                    currentObject.useGravity = false;
-
-                    return;
-                }
-            }
-        }
-
-        // Throw object
-        if (Input.GetButtonDown("Fire1") && currentObject)
-        {
-            currentObject.GetComponent<VelocityDamager>().Drop();
-            currentObject.useGravity = true;
-            currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
-            currentObject = null;
-            return;
-        }
-    }
-
     // Note: Regarding the new input system, for single action input events (ONE BUTTON PRESS = ONE ACTION EVENT),
     // after the event is performed that actions relative bolean variable must be reset to "false" to avoid multiple
     // actions being performed from one button press.
     
     // This should NOT be the case with actions that require holding down buttons like movement
-    void AltPickupAndThrow()
+    void PickupAndThrow()
     {
         // Input variable
         if (pickedup)
@@ -111,9 +66,12 @@ public class PhysicsPickup : MonoBehaviour
                 Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
                 if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
                 {
-                    currentObject = hitInfo.rigidbody;
-                    currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                    currentObject.useGravity = false;
+                    if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                    {
+                        currentObject = hitInfo.rigidbody;
+                        currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                        currentObject.useGravity = false;
+                    }
                 }
             }
 
