@@ -62,10 +62,11 @@ public class FirstPersonMovement : MonoBehaviour
     {
         // Grounded check
         isGrounded = Physics.Raycast(
-            transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
+            transform.position, Vector3.down, 
+            playerHeight * 0.5f + 0.2f, groundMask);
 
-        AltPlayerInput();
-        //PlayerInput();
+        PlayerInput();
+        
         SpeedControl();
 
 
@@ -86,27 +87,12 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     // For new "Player Input" system (interacts with the Player Input component)
-    void AltPlayerInput()
+    void PlayerInput()
     {
         horizontalIput = movementInput.x;
         verticalIput = movementInput.y;
 
         if (jumped && isGrounded && readyToJump)
-        {
-            readyToJump = false;
-
-            Jump();
-            // allows player to keep jump when the jump button is held down
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-    }
-
-    void PlayerInput()
-    {
-        horizontalIput = Input.GetAxisRaw("Horizontal");
-        verticalIput = Input.GetAxisRaw("Vertical");
-
-        if(Input.GetButton("Jump") && isGrounded && readyToJump)
         {
             readyToJump = false;
 

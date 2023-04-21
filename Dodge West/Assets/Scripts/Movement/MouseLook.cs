@@ -34,34 +34,13 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AltLookWithMouse();
-    }
-
-    void AltLookWithMouse()
-    {
-        float mouseX = mouseInput.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = mouseInput.y * mouseSensitivity * Time.deltaTime;
-
-        yRotation += mouseX;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        // Changes camera rotation
-        cam.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
-        // Use to rotate player
-        orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
-
-        // Changes the direction the player character is facing
-        //cam.rotation = Quaternion.Euler(xRotation, 0f, 0f);
-        //transform.Rotate(Vector3.up * mouseX);
+        LookWithMouse();
     }
 
     void LookWithMouse()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = mouseInput.x * mouseSensitivity * Time.deltaTime;
+        float mouseY = mouseInput.y * mouseSensitivity * Time.deltaTime;
 
         yRotation += mouseX;
 

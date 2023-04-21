@@ -18,7 +18,6 @@ public class PhysicsPickup : MonoBehaviour
     private bool pickedup = false;
     private bool thrown = false;
 
-    // Todo: new input system triggers actions multiple times with one button press, NEED TO FIX
     public void OnPickup(InputAction.CallbackContext context)
     {
         pickedup = context.action.IsPressed();
