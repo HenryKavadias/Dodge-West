@@ -7,40 +7,105 @@ public class CameraModifier : MonoBehaviour
 {
     public Camera cam;
 
-    private GameObject player = null;
-
-    public void SetPlayer(GameObject p)
+    public void SetPlayer(GameObject player)
     {
-        player = p;
-        ModifyCamera(player.GetComponent<PlayerID>().Get());
+        GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
+
+        if (player && 
+            player.GetComponent<PlayerID>() && 
+            gameController && 
+            gameController.GetComponent<GameController>().gameMode == GameMode.LocalMultiplayer)
+        {
+            ModifyCamera(
+                player.GetComponent<PlayerID>().Get(), 
+                gameController.GetComponent<GameController>().localMultiplayerLimit);
+        }
     }
 
-    private void ModifyCamera(int newID)
+    private void ModifyCamera(int playerID, int playerCount)
     {
-        //if (newID != 0)
-        //{
-        //    //Debug.Log("Player " + newID + " camera has been modified.");
-        //}
-        
-
-        switch (newID)
+        switch (playerCount)
         {
-            case 0:
-                //Debug.Log("No change to ID");
-
+            case 2:
+                TwoPlayerSetUp(playerID);
                 break;
+            case 3:
+                ThreePlayerSetUp(playerID);
+                break;
+            case 4:
+                FourPlayerSetUp(playerID);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void TwoPlayerSetUp(int playerID)
+    {
+        switch (playerID)
+        {
             case 1:
-                //Debug.Log("Player " + newID + " camera has been modified.");
                 // X, Y, Width, Height
                 cam.rect = new Rect(0f, 0f, 0.5f, 1f);
 
                 break;
 
             case 2:
-                //Debug.Log("Player " + newID + " camera has been modified.");
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
 
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Camera value sets need to be change
+    private void ThreePlayerSetUp(int playerID)
+    {
+        switch (playerID)
+        {
+            case 1:
+                // X, Y, Width, Height
+                cam.rect = new Rect(0f, 0f, 0.5f, 1f);
+
+                break;
+
+            case 2:
+                // X, Y, Width, Height
+                cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+
+                break;
+
+            case 3:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void FourPlayerSetUp(int playerID)
+    {
+        // Camera value sets need to be change
+        switch (playerID)
+        {
+            case 1:
+                // X, Y, Width, Height
+                cam.rect = new Rect(0f, 0f, 0.5f, 1f);
+
+                break;
+
+            case 2:
+                // X, Y, Width, Height
+                cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+
+                break;
+
+            case 3:
+                
+                break;
+            case 4:
+                
                 break;
             default:
                 break;

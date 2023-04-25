@@ -14,10 +14,13 @@ public class CameraManager : MonoBehaviour
     {
         if (cameraObject != null && GetComponent<MouseLook>().cam != null)
         {
+            // Create camera object
             GameObject camTemp = Instantiate(cameraObject);
 
+            // Set camera modifier script
             camTemp.GetComponent<CameraModifier>().SetPlayer(gameObject);
 
+            // Set camera controls script
             camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<MouseLook>().cam);
 
             // Camera needs to be the first child object
@@ -27,7 +30,7 @@ public class CameraManager : MonoBehaviour
                 // set camera to the pickup script
                 gameObject.GetComponent<PhysicsPickup>().SetCamera(camReal);
 
-                // The code below may be unnecessary
+                // Note: The code below may be unnecessary
 
                 // Set camera to player input component
                 if (gameObject.GetComponent<PlayerInput>())
