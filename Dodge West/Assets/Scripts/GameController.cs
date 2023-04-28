@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XInput;
 
 public enum GameMode
 {
@@ -39,6 +41,44 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        NewSystem();
+
+        //OldSystem();
+    }
+    void NewSystem()
+    {
+        
+        // Comment out if loading sence from local multiplayer setup
+        // Note: this code is temperary
+        if (gameMode == GameMode.SinglePlayer)
+        {
+            var player = Instantiate(
+                playerObject,
+                spawnPosition[0].GetComponent<Transform>().position,
+                spawnRot);
+            player.GetComponent<PlayerInputHandler>().InitializePlayer();
+
+        }
+        else
+        {
+            var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
+
+            for (int i = 0; i < playerConfigs.Length; i++)
+            {
+                var player = Instantiate(
+                    playerObject,
+                    spawnPosition[i].GetComponent<Transform>().position,
+                    spawnRot);
+                player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i], i + 1);
+
+                AddPlayer(player);
+            }
+        }
+    }
+
+
+    void OldSystem()
+    {
         if (playerObject)
         {
             GameObject initPlayer = null;
@@ -47,10 +87,19 @@ public class GameController : MonoBehaviour
             {
                 if (spawnPosition[0] && spawnPosition[1])
                 {
+                    //Debug.Log(Input.GetJoystickNames());
+
+                    //Input.GetJoystickNames();
+
                     // Spawn player one
                     initPlayer = Instantiate(playerObject,
                         spawnPosition[0].GetComponent<Transform>().position, spawnRot);
                     initPlayer.GetComponent<PlayerID>().ChangePlayerNumber(1);
+
+                    //string scheme = "Controller";
+
+                    // temp controller scheme assignment
+                    //initPlayer.GetComponent<PlayerInput>().SwitchCurrentControlScheme(scheme, Gamepad.current);
 
                     AddPlayer(initPlayer);
 
@@ -60,6 +109,9 @@ public class GameController : MonoBehaviour
                     initPlayer.GetComponent<PlayerID>().ChangePlayerNumber(2);
 
                     AddPlayer(initPlayer);
+
+                    // temp controller scheme assignment
+                    //initPlayer.GetComponent<PlayerInput>().SwitchCurrentControlScheme(scheme, Gamepad.current);
                 }
             }
             else if (gameMode == GameMode.SinglePlayer)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput), typeof(MouseLook), typeof(PhysicsPickup))]
+[RequireComponent(typeof(MouseLook), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour
 {
     [Header("Camera Object")]
@@ -33,10 +33,10 @@ public class CameraManager : MonoBehaviour
                 // Note: The code below may be unnecessary
 
                 // Set camera to player input component
-                if (gameObject.GetComponent<PlayerInput>())
-                {
-                    gameObject.GetComponent<PlayerInput>().camera = camReal;
-                }
+                //if (gameObject.GetComponent<PlayerInput>())
+                //{
+                //    gameObject.GetComponent<PlayerInput>().camera = camReal;
+                //}
 
             }
             else
