@@ -9,9 +9,11 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    // For local multiplayer controls
+    // (Single player controls are with the
+    // Player Input component with Unity Events)
     private PlayerConfiguration playerConfig;
 
-    // TODO?: player control scripts
     private FirstPersonMovement movement;
     private MouseLook look;
     private PhysicsPickup pickup;
@@ -19,6 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField]
     private MeshRenderer playerMesh;
 
+    // For control map checking
     private PlayerControls controls;
 
     private void Awake()
@@ -28,6 +31,16 @@ public class PlayerInputHandler : MonoBehaviour
         pickup = GetComponent<PhysicsPickup>();
 
         controls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     // Player ID needs to be set first before this function is called
