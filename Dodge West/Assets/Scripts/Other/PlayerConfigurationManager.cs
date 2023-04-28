@@ -57,8 +57,6 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public void ReadyPlayer(int index)
     {
-        // TODO: This needs to be changed to account for a player counts of 2, 3, and 4
-
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         {
