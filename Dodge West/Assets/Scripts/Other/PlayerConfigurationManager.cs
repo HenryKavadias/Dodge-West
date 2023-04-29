@@ -35,12 +35,27 @@ public class PlayerConfigurationManager : MonoBehaviour
     public void HandlePlayerJoin(PlayerInput pi)
     {
         Debug.Log("player joined " + pi.playerIndex);
-        //pi.transform.SetParent(transform);
 
         if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
             pi.transform.SetParent(transform);
             playerConfigs.Add(new PlayerConfiguration(pi));
+        }
+    }
+
+    // needs work
+    public void HandlePlayerLeave(PlayerInput pi)
+    {
+        Debug.Log("player left " + pi.playerIndex);
+        if (playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
+        {
+            // Still need to figure out how to remove a player config
+            // from list and scene without breaking things
+
+            Destroy(transform.GetChild(pi.playerIndex).gameObject);
+            var player = playerConfigs.Find(p => p.PlayerIndex == pi.playerIndex);
+            //playerConfigs.RemoveAt(pi.playerIndex);
+            playerConfigs.Remove(player);
         }
     }
 
@@ -52,22 +67,38 @@ public class PlayerConfigurationManager : MonoBehaviour
     // might not be necessary for later builds
     public void SetPlayerColor(int index, Material color)
     {
-        playerConfigs[index].playerMaterial = color;
+        //playerConfigs[index].playerMaterial = color;
+        playerConfigs.Find(p => p.PlayerIndex == index).playerMaterial = color;
     }
 
+    // may need work
     public void ReadyPlayer(int index)
     {
-        playerConfigs[index].isReady = true;
+        //playerConfigs[index].isReady = true;
+        playerConfigs.Find(p => p.PlayerIndex == index).isReady = true;
+        //Debug.Log(playerConfigs.Count);
+
         if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         {
+            //Debug.Log(playerConfigs.All(p => p.isReady == true));
+
+            foreach (var config in playerConfigs)
+            {
+                Debug.Log(config.isReady + " " + config.PlayerIndex);
+            }
+
             if (playerConfigs.All(p => p.isReady == true))
             {
                 SceneManager.LoadScene(nextScene);
-                //Debug.Log("Works!!! " + playerConfigs.Count);
-
-
             }
         }
+    }
+
+    // needs work (may need work)
+    public void UnReadyPlayer(int index)
+    {
+        //playerConfigs[index].isReady = false;
+        playerConfigs.Find(p => p.PlayerIndex == index).isReady = false;
     }
 }
 
