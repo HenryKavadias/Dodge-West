@@ -42,6 +42,10 @@ public class PlayerConfigurationManager : MonoBehaviour
             pi.transform.SetParent(transform);
             playerConfigs.Add(new PlayerConfiguration(pi));
         }
+        else
+        {
+            Debug.Log("Can't spawn existing players: " + pi.playerIndex);
+        }
     }
 
     public List<PlayerConfiguration> GetPlayerConfigs()
@@ -59,6 +63,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
+        //if (playerConfigs.Count == minPlayers)
         {
             if (playerConfigs.All(p => p.isReady == true))
             {
