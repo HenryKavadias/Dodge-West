@@ -44,23 +44,15 @@ public class GameController : MonoBehaviour
     {
         NewSystem();
 
-        //var playera = Instantiate(playerObject);
-
-        //OldSystem();
-    }
-    void NewSystem()
-    {
         //Instantiate(
         //            new GameObject(),
         //            spawnPosition[0].GetComponent<Transform>().position,
         //            spawnRot);
 
-        //var playera = Instantiate(
-        //        playerObject,
-        //        spawnPosition[0].GetComponent<Transform>().position,
-        //        spawnRot);
-
-        //Debug.Log("Bang");
+        //OldSystem();
+    }
+    void NewSystem()
+    {
 
         // Comment out if loading sence from local multiplayer setup
         // Note: this code is temperary
