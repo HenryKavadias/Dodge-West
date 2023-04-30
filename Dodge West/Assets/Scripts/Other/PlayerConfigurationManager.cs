@@ -34,17 +34,19 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public void HandlePlayerJoin(PlayerInput pi)
     {
-        Debug.Log("player joined " + pi.playerIndex);
+        //Debug.Log("player joined " + pi.playerIndex);
         //pi.transform.SetParent(transform);
 
         if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
+            Debug.Log("player joined " + pi.playerIndex);
             pi.transform.SetParent(transform);
             playerConfigs.Add(new PlayerConfiguration(pi));
         }
         else
         {
             Debug.Log("Can't spawn existing players: " + pi.playerIndex);
+            Debug.Log("Player controls list: " + playerConfigs.Count);
         }
     }
 
@@ -61,16 +63,25 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public void ReadyPlayer(int index)
     {
+        //playerConfigs[index].isReady = true;
+        //if (playerConfigs.Count == minPlayers && playerConfigs.All(p => p.isReady == true))
+        //{
+        //    SceneManager.LoadScene(nextScene);
+        //}
+
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         //if (playerConfigs.Count == minPlayers)
         {
             if (playerConfigs.All(p => p.isReady == true))
             {
+                // This is required to prevent a bug with the player input manager,
+                // causing it to respawn the existing players when instantiated in
+                // the Game controller script in the next scene
+                gameObject.GetComponent<PlayerInputManager>().enabled = false;
+                
                 SceneManager.LoadScene(nextScene);
                 //Debug.Log("Works!!! " + playerConfigs.Count);
-
-
             }
         }
     }

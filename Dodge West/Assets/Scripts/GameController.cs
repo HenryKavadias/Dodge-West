@@ -44,6 +44,8 @@ public class GameController : MonoBehaviour
     {
         NewSystem();
 
+        //var playera = Instantiate(playerObject);
+
         //OldSystem();
     }
     void NewSystem()
@@ -52,6 +54,11 @@ public class GameController : MonoBehaviour
         //            new GameObject(),
         //            spawnPosition[0].GetComponent<Transform>().position,
         //            spawnRot);
+
+        //var playera = Instantiate(
+        //        playerObject,
+        //        spawnPosition[0].GetComponent<Transform>().position,
+        //        spawnRot);
 
         //Debug.Log("Bang");
 
