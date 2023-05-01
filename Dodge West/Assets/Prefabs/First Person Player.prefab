@@ -145,7 +145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161012298981736517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -243,6 +243,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e69b4022-ddbb-42bb-9d39-4e4ced033760
     m_ActionName: Player/Throw[/Mouse/leftButton,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 800b3782-8880-4acc-a849-74edc0577874
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c01e6e13-b253-4ea9-a8d6-3e53a50cf715
+    m_ActionName: UI/Confirm[/Keyboard/space,/Keyboard/e,/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89be9dcb-59b5-4355-a824-a045623dc734
+    m_ActionName: UI/Back[/Keyboard/q,/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

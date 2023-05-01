@@ -49,7 +49,6 @@ public class CameraModifier : MonoBehaviour
                 cam.rect = new Rect(0f, 0f, 0.5f, 1f);
 
                 break;
-
             case 2:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
@@ -67,17 +66,18 @@ public class CameraModifier : MonoBehaviour
         {
             case 1:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0f, 0f, 0.5f, 1f);
+                cam.rect = new Rect(0f, 0f, 0.5f, 0.5f);
 
                 break;
-
             case 2:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+                cam.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
 
                 break;
-
             case 3:
+                // X, Y, Width, Height
+                cam.rect = new Rect(0f, 0f, 1f, 0.5f);
+
                 break;
             default:
                 break;

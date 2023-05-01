@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XInput;
@@ -43,11 +44,16 @@ public class GameController : MonoBehaviour
     {
         NewSystem();
 
+        //Instantiate(
+        //            new GameObject(),
+        //            spawnPosition[0].GetComponent<Transform>().position,
+        //            spawnRot);
+
         //OldSystem();
     }
     void NewSystem()
     {
-        
+
         // Comment out if loading sence from local multiplayer setup
         // Note: this code is temperary
         if (gameMode == GameMode.SinglePlayer)
@@ -59,7 +65,7 @@ public class GameController : MonoBehaviour
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
         }
-        else
+        else if (gameMode == GameMode.LocalMultiplayer)
         {
             var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
 
