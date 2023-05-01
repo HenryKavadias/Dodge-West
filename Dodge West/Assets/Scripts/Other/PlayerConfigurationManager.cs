@@ -39,12 +39,9 @@ public class PlayerConfigurationManager : MonoBehaviour
     // if greater than the limit, remove/block any extras
     public void HandlePlayerJoin(PlayerInput pi)
     {
-<<<<<<< HEAD
-        Debug.Log("player joined " + pi.playerIndex);
-=======
+
         //Debug.Log("player joined " + pi.playerIndex);
         //pi.transform.SetParent(transform);
->>>>>>> master
 
         if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
@@ -90,20 +87,9 @@ public class PlayerConfigurationManager : MonoBehaviour
     // may need work
     public void ReadyPlayer(int index)
     {
-        //playerConfigs[index].isReady = true;
-<<<<<<< HEAD
         playerConfigs.Find(p => p.PlayerIndex == index).isReady = true;
-        //Debug.Log(playerConfigs.Count);
 
-=======
-        //if (playerConfigs.Count == minPlayers && playerConfigs.All(p => p.isReady == true))
-        //{
-        //    gameObject.GetComponent<PlayerInputManager>().enabled = false;
-        //    SceneManager.LoadScene(nextScene);
-        //}
-
-        playerConfigs[index].isReady = true;
->>>>>>> master
+        //playerConfigs[index].isReady = true;
         if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         //if (playerConfigs.Count == minPlayers)
         {
@@ -116,9 +102,6 @@ public class PlayerConfigurationManager : MonoBehaviour
 
             if (playerConfigs.All(p => p.isReady == true))
             {
-<<<<<<< HEAD
-                SceneManager.LoadScene(nextScene);
-=======
                 // This line of code is required to prevent a bug with the player,
                 // input manager causing it to respawn the existing players when
                 // instantiated in the Game controller script in the next scene.
@@ -128,7 +111,6 @@ public class PlayerConfigurationManager : MonoBehaviour
 
                 SceneManager.LoadScene(nextScene);
                 //Debug.Log("Works!!! " + playerConfigs.Count);
->>>>>>> master
             }
         }
     }
