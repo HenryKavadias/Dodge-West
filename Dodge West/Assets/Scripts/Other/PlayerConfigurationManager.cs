@@ -90,15 +90,15 @@ public class PlayerConfigurationManager : MonoBehaviour
         playerConfigs.Find(p => p.PlayerIndex == index).isReady = true;
 
         //playerConfigs[index].isReady = true;
-        if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         //if (playerConfigs.Count == minPlayers)
+        if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         {
             //Debug.Log(playerConfigs.All(p => p.isReady == true));
 
-            foreach (var config in playerConfigs)
-            {
-                Debug.Log(config.isReady + " " + config.PlayerIndex);
-            }
+            //foreach (var config in playerConfigs)
+            //{
+            //    Debug.Log(config.isReady + " " + config.PlayerIndex);
+            //}
 
             if (playerConfigs.All(p => p.isReady == true))
             {
