@@ -88,7 +88,6 @@ public class PlayerSetupMenuController : MonoBehaviour
         readyButton.interactable = true;
         menuPanel.SetActive(false);
         readyButton.Select();
-
     }
 
     public void UnSelectColor()
@@ -99,6 +98,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         readyPanel.SetActive(false);
         readyButton.interactable = false;
         menuPanel.SetActive(true);
+        redButton.interactable = true;
         redButton.Select();
     }
 

@@ -59,9 +59,11 @@ public class PlayerConfigurationManager : MonoBehaviour
     // needs work
     public void HandlePlayerLeave(PlayerInput pi)
     {
-        Debug.Log("player left " + pi.playerIndex);
+        //Debug.Log("player left " + pi.playerIndex);
         if (playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
+            Debug.Log("player left " + pi.playerIndex);
+
             // Still need to figure out how to remove a player config
             // from list and scene without breaking things
 

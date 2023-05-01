@@ -43,13 +43,6 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         NewSystem();
-
-        //Instantiate(
-        //            new GameObject(),
-        //            spawnPosition[0].GetComponent<Transform>().position,
-        //            spawnRot);
-
-        //OldSystem();
     }
     void NewSystem()
     {
