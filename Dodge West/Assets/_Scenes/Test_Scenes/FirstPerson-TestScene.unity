@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 882741623857242509, guid: d27a3a93c8226b44ca57a5a37d37c3cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -626,7 +630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8422d85cb2b58c241bae08ef947479df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLimit: 2
 --- !u!114 &1914415485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,12 +637,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914415481}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6061a45206385934ca1c3d59b2260268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twoPlayer: 0
+  gameMode: 0
+  localMultiplayerLimit: 2
   playerObject: {fileID: 0}
   spawnPosition: []
 --- !u!1 &2076498069
