@@ -18,7 +18,7 @@ public class CameraModifier : MonoBehaviour
         {
             ModifyCamera(
                 player.GetComponent<PlayerID>().Get(), 
-                gameController.GetComponent<GameController>().localMultiplayerLimit);
+                gameController.GetComponent<GameController>().LivePlayerCount());
         }
     }
 
@@ -66,17 +66,17 @@ public class CameraModifier : MonoBehaviour
         {
             case 1:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0f, 0f, 0.5f, 0.5f);
+                cam.rect = new Rect(0f, 0.5f, 0.5f, 0.5f);
 
                 break;
             case 2:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
+                cam.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
 
                 break;
             case 3:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0f, 0f, 1f, 0.5f);
+                cam.rect = new Rect(0.25f, 0f, 0.5f, 0.5f);
 
                 break;
             default:
@@ -91,21 +91,25 @@ public class CameraModifier : MonoBehaviour
         {
             case 1:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0f, 0f, 0.5f, 1f);
+                cam.rect = new Rect(0f, 0.5f, 0.5f, 0.5f);
 
                 break;
 
             case 2:
                 // X, Y, Width, Height
-                cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+                cam.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
 
                 break;
 
             case 3:
-                
+                // X, Y, Width, Height
+                cam.rect = new Rect(0f, 0f, 0.5f, 0.5f);
+
                 break;
             case 4:
-                
+                // X, Y, Width, Height
+                cam.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
+
                 break;
             default:
                 break;

@@ -14,10 +14,7 @@ public enum GameMode
 
 public class GameController : MonoBehaviour
 {
-    public GameMode gameMode = GameMode.SinglePlayer;
-
-    [Range(2, 4)]
-    public int localMultiplayerLimit = 2;
+    public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
 
     public GameObject playerObject;
 
@@ -40,17 +37,23 @@ public class GameController : MonoBehaviour
         livePlayers.Remove(player);
     }
 
+    public int LivePlayerCount()
+    {
+        return livePlayers.Count;
+    }
+
     private void Start()
     {
         NewSystem();
     }
     void NewSystem()
     {
-
-        // Comment out if loading sence from local multiplayer setup
-        // Note: this code is temperary
-        if (gameMode == GameMode.SinglePlayer)
+        // Single player instance if the scene is loaded directly, local multiplayer if player 
+        // configuration manager exsists
+        if (!PlayerConfigurationManager.Instance)
         {
+            gameMode = GameMode.SinglePlayer;
+            
             var player = Instantiate(
                 playerObject,
                 spawnPosition[0].GetComponent<Transform>().position,
@@ -58,8 +61,10 @@ public class GameController : MonoBehaviour
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
         }
-        else if (gameMode == GameMode.LocalMultiplayer)
+        else if (PlayerConfigurationManager.Instance)
         {
+            gameMode = GameMode.LocalMultiplayer;
+
             var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
 
             for (int i = 0; i < playerConfigs.Length; i++)
@@ -74,57 +79,4 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
-
-    void OldSystem()
-    {
-        if (playerObject)
-        {
-            GameObject initPlayer = null;
-
-            if (gameMode == GameMode.LocalMultiplayer && localMultiplayerLimit == 2)
-            {
-                if (spawnPosition[0] && spawnPosition[1])
-                {
-                    //Debug.Log(Input.GetJoystickNames());
-
-                    //Input.GetJoystickNames();
-
-                    // Spawn player one
-                    initPlayer = Instantiate(playerObject,
-                        spawnPosition[0].GetComponent<Transform>().position, spawnRot);
-                    initPlayer.GetComponent<PlayerID>().ChangePlayerNumber(1);
-
-                    //string scheme = "Controller";
-
-                    // temp controller scheme assignment
-                    //initPlayer.GetComponent<PlayerInput>().SwitchCurrentControlScheme(scheme, Gamepad.current);
-
-                    AddPlayer(initPlayer);
-
-                    // Spawn player two
-                    initPlayer = Instantiate(playerObject,
-                        spawnPosition[1].GetComponent<Transform>().position, spawnRot);
-                    initPlayer.GetComponent<PlayerID>().ChangePlayerNumber(2);
-
-                    AddPlayer(initPlayer);
-
-                    // temp controller scheme assignment
-                    //initPlayer.GetComponent<PlayerInput>().SwitchCurrentControlScheme(scheme, Gamepad.current);
-                }
-            }
-            else if (gameMode == GameMode.SinglePlayer)
-            {
-                if (spawnPosition[0])
-                {
-                    initPlayer = Instantiate(playerObject,
-                    spawnPosition[0].GetComponent<Transform>().position, spawnRot);
-                    initPlayer.GetComponent<PlayerID>().ChangePlayerNumber(0);
-
-                    AddPlayer(initPlayer);
-                }
-            }
-        }
-    }
-
 }
