@@ -19,7 +19,7 @@
                     "type": "Button",
                     "id": "f2ab9090-a47a-4c2c-a04d-aab001b2d7c7",
                     "expectedControlType": "Button",
-                    "processors": "",
+                    "processors": "AxisDeadzone",
                     "interactions": "",
                     "initialStateCheck": false
                 },
@@ -66,6 +66,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "a269214c-7632-4ae7-92ce-337e7612fbe2",
+                    "expectedControlType": "Button",
+                    "processors": "AxisDeadzone",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -238,7 +247,7 @@
                 {
                     "name": "",
                     "id": "e3bfede3-0e2f-45a8-85b8-efae49d57f10",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<Gamepad>/leftStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -260,11 +269,33 @@
                 {
                     "name": "",
                     "id": "0deaee92-96eb-4282-b5a7-7beb8c1cd1a9",
-                    "path": "<Gamepad>/rightStick/down",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.5)",
+                    "groups": "Controller",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1251bbbc-6aaf-43d9-a8e5-f0ad66a94b85",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "541727b8-65ca-40af-b829-3003e4ad1a37",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Crouch",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

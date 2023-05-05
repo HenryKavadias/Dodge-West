@@ -12,10 +12,15 @@ public class FirstPersonMovement : MonoBehaviour
     public float sprintSpeed;
     public bool enableSprint = false;
 
-    [Header("Jump")]
+    public float dashSpeed;
+    public float dashSpeedChangeFactor;
+
+    public float maxYSpeed;
+
     public float groundDrag = 0.5f;
     public float airDrag = 0.2f;
 
+    [Header("Jump")]
     public float jumpForce = 7f;
     public float airMultiplier = 0.4f;
     public float jumpCooldown = 0.25f;
@@ -41,8 +46,8 @@ public class FirstPersonMovement : MonoBehaviour
 
     public Transform orientation;
 
-    float horizontalIput;
-    float verticalIput;
+    float horizontalInput;
+    float verticalInput;
 
     Vector3 moveDirection;
 
@@ -55,10 +60,19 @@ public class FirstPersonMovement : MonoBehaviour
         walking,
         sprinting,
         crouching,
+        dashing,
         air
     }
 
+    public bool dashing;
+
     private Vector2 movementInput = Vector2.zero;
+
+    public Vector2 currentMoveInput
+    {
+        get { return movementInput; }
+    }
+
     private bool jumped = false;
     private bool sprinting = false;
     private bool crouching = false;
@@ -130,7 +144,9 @@ public class FirstPersonMovement : MonoBehaviour
         StateHandler();
 
         // Handle drag
-        if (isGrounded)
+        if (state == MovementState.walking || 
+            state == MovementState.sprinting || 
+            state == MovementState.crouching)
         {
             rb.drag = groundDrag;
         }
@@ -148,8 +164,8 @@ public class FirstPersonMovement : MonoBehaviour
     // For new "Player Input" system (interacts with the Player Input component)
     void PlayerInput()
     {
-        horizontalIput = movementInput.x;
-        verticalIput = movementInput.y;
+        horizontalInput = movementInput.x;
+        verticalInput = movementInput.y;
 
         if (jumped && isGrounded && readyToJump)
         {
@@ -186,36 +202,100 @@ public class FirstPersonMovement : MonoBehaviour
         }
     }
 
+    private float desiredMoveSpeed;
+    private float lastDesiredMoveSpeed;
+    private MovementState lastState;
+    private bool keepMomentum;
+
     private void StateHandler()
     {
+        // Mode - Dashing
+        if (dashing)
+        {
+            state = MovementState.dashing;
+            desiredMoveSpeed = dashSpeed;
+            speedChangeFactor = dashSpeedChangeFactor;
+        }
         // Mode - Sprinting
-        if (isGrounded && sprinting && enableSprint)
+        else if (isGrounded && sprinting && enableSprint)
         {
             state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
+            desiredMoveSpeed = sprintSpeed;
         }
         else if (crouching)
         {
             state = MovementState.crouching;
-            moveSpeed = crouchSpeed;
+            desiredMoveSpeed = crouchSpeed;
         }
         // Mode - Walking
         else if (isGrounded)
         {
             state = MovementState.walking;
-            moveSpeed = walkSpeed;
+            desiredMoveSpeed = walkSpeed;
         }
         // Mode - Air
         else
         {
             state = MovementState.air;
+
+            if(desiredMoveSpeed < sprintSpeed)
+            {
+                desiredMoveSpeed = walkSpeed;
+            }
+            else { desiredMoveSpeed = sprintSpeed; }
         }
+
+        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+
+        if (lastState == MovementState.dashing) { keepMomentum = true; }
+
+        if (desiredMoveSpeedHasChanged)
+        {
+            if (keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpMoveSpeed());
+            }
+            else
+            {
+                StopAllCoroutines();
+                moveSpeed = desiredMoveSpeed;
+            }
+        }
+
+        lastDesiredMoveSpeed = desiredMoveSpeed;
+        lastState = state;
+    }
+
+    private float speedChangeFactor;
+    private IEnumerator SmoothlyLerpMoveSpeed()
+    {
+        // smoothly lerp movementSpeed to desired value
+        float time = 0;
+        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+        float startValue = moveSpeed;
+
+        float boostFactor = speedChangeFactor;
+
+        while (time < difference)
+        {
+            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+
+            time += Time.deltaTime * boostFactor;
+            yield return null;
+        }
+
+        moveSpeed = desiredMoveSpeed;
+        speedChangeFactor = 1f;
+        keepMomentum = false;
     }
 
     void MovePlayer()
     {
+        if (state == MovementState.dashing) { return; }
+        
         // calculate movement direction
-        moveDirection = orientation.forward * verticalIput + orientation.right * horizontalIput;
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on slope
         // Note: if crouching, movement slower than 5 on a
@@ -268,6 +348,12 @@ public class FirstPersonMovement : MonoBehaviour
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
+
+        // limit y velocity
+        if (maxYSpeed != 0 && rb.velocity.y > maxYSpeed)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, maxYSpeed, rb.velocity.z);
+        }
     }
 
     void Jump()
@@ -298,15 +384,6 @@ public class FirstPersonMovement : MonoBehaviour
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0f;
         }
-        //else if (crouching && Physics.Raycast(
-        //    transform.position,
-        //    Vector3.down,
-        //    out slopeHit,
-        //    currentHeight * 0.25f + 0.3f))
-        //{
-        //    float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
-        //    return angle < maxSlopeAngle && angle != 0f;
-        //}
 
         return false;
     }

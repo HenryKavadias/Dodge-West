@@ -17,6 +17,7 @@ public class PlayerInputHandler : MonoBehaviour
     private FirstPersonMovement movement;
     private MouseLook look;
     private PhysicsPickup pickup;
+    private Dash dash;
 
     [SerializeField]
     private MeshRenderer playerMesh;
@@ -29,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
         movement = GetComponent<FirstPersonMovement>();
         look = GetComponent<MouseLook>();
         pickup = GetComponent<PhysicsPickup>();
+        dash = GetComponent<Dash>();
 
         controls = new PlayerControls();
     }
@@ -100,6 +102,24 @@ public class PlayerInputHandler : MonoBehaviour
         {
             OnThrow(obj);
         }
+
+        // OnSprint
+        if (actionName == controls.Player.Sprint.name)
+        {
+            OnSprint(obj);
+        }
+
+        // OnCrouch
+        if (actionName == controls.Player.Crouch.name)
+        {
+            OnCrouch(obj);
+        }
+
+        // OnDash
+        if (actionName == controls.Player.Dash.name)
+        {
+            OnDash(obj);
+        }
     }
 
     private void OnMove(CallbackContext context)
@@ -139,6 +159,30 @@ public class PlayerInputHandler : MonoBehaviour
         if (pickup)
         {
             pickup.OnThrow(context);
+        }
+    }
+
+    public void OnSprint(CallbackContext context)
+    {
+        if (movement)
+        {
+            movement.OnSprint(context);
+        }
+    }
+
+    public void OnCrouch(CallbackContext context)
+    {
+        if (movement)
+        {
+            movement.OnCrouch(context);
+        }
+    }
+
+    public void OnDash(CallbackContext context)
+    {
+        if (dash)
+        {
+            dash.OnDash(context);
         }
     }
 }

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 882741623857242509}
   - component: {fileID: 161012298981736536}
   - component: {fileID: 2150544480436074437}
+  - component: {fileID: -7550171255638960453}
   - component: {fileID: 618608792782935704}
   - component: {fileID: 6776642873579140908}
   m_Layer: 0
@@ -300,6 +301,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fffd6179-573d-43db-90ef-bed80f65afd3
     m_ActionName: Player/Crouch[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7550171255638960453}
+        m_TargetAssemblyTypeName: Dash, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a269214c-7632-4ae7-92ce-337e7612fbe2
+    m_ActionName: Player/Dash[/Keyboard/alt,/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -320,6 +337,9 @@ MonoBehaviour:
   walkSpeed: 8
   sprintSpeed: 16
   enableSprint: 0
+  dashSpeed: 36
+  dashSpeedChangeFactor: 50
+  maxYSpeed: 0
   groundDrag: 5
   airDrag: 0.2
   jumpForce: 14
@@ -334,6 +354,7 @@ MonoBehaviour:
   playerModel: {fileID: 161012299386307288}
   orientation: {fileID: 8657622561209081978}
   state: 0
+  dashing: 0
 --- !u!114 &2150544480436074437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +368,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 25
-  cam: {fileID: 7357810024215858348}
+  camPos: {fileID: 7357810024215858348}
   orientation: {fileID: 8657622561209081978}
+--- !u!114 &-7550171255638960453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669ab95abb0377e48b6994a95d103a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 8657622561209081978}
+  dashForce: 40
+  dashUpwardForce: 0
+  maxDashYSpeed: 15
+  dashDuration: 0.25
+  cam: {fileID: 2150544480436074437}
+  dashFov: 70
+  defaultFov: 60
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 1
+  resetVel: 1
+  camEffects: 1
+  dashCd: 1.5
 --- !u!114 &618608792782935704
 MonoBehaviour:
   m_ObjectHideFlags: 0
