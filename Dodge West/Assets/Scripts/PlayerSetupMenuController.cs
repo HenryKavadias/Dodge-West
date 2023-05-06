@@ -20,7 +20,6 @@ public class PlayerSetupMenuController : MonoBehaviour
     [SerializeField]
     private Button readyButton;
 
-    // needs work (note)
     [SerializeField]
     private Button redButton;
     [SerializeField]
@@ -60,22 +59,29 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         if (uiNavigate.cancel.action.triggered)
         {
-            var player = PlayerConfigurationManager.Instance.
-                GetPlayerConfigs().Find(p => p.PlayerIndex == playerIndex);
+            // total reset at any point in the selection.
+            // Doing this until the source of the UI nav-bug can be fixed
+            
+            spawnScriptRef.PlayerLeaves();
 
-            if (player.isReady)
-            {
-                UnReadyPlayer();
-            }
-            else if (readyPanel.activeSelf)
-            {
-                UnSelectColor();
-            }
-            else if (menuPanel.activeSelf && spawnScriptRef)
-            {
-                // This needs fixing
-                spawnScriptRef.PlayerLeaves();
-            }
+
+            // Note: Do Not delete the below code
+            //var player = PlayerConfigurationManager.Instance.
+            //    GetPlayerConfigs().Find(p => p.PlayerIndex == playerIndex);
+
+            //if (player.isReady)
+            //{
+            //    UnReadyPlayer();
+            //}
+            //else if (readyPanel.activeSelf)
+            //{
+            //    UnSelectColor();
+            //}
+            //else if (menuPanel.activeSelf && spawnScriptRef)
+            //{
+            //    // This needs fixing
+            //    spawnScriptRef.PlayerLeaves();
+            //}
         }
     }
 
