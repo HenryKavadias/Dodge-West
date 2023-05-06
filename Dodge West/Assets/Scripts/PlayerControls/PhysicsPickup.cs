@@ -100,6 +100,8 @@ public class PhysicsPickup : MonoBehaviour
         if (currentObject)
         {
             Vector3 directionToPoint = pickupTarget.position - currentObject.position;
+            // Not sure how to do it with the selected objects center of mass
+            //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
             float distanceToPoint = directionToPoint.magnitude;
 
             currentObject.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
