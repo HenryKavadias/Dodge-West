@@ -53,11 +53,15 @@ public class GameController : MonoBehaviour
         if (!PlayerConfigurationManager.Instance)
         {
             gameMode = GameMode.SinglePlayer;
-            
+
             var player = Instantiate(
                 playerObject,
                 spawnPosition[0].GetComponent<Transform>().position,
                 spawnRot);
+            //var player = Instantiate(
+            //    playerObject,
+            //    spawnPosition[0].GetComponent<Transform>().position,
+            //    spawnPosition[0].GetComponent<Transform>().rotation);
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
         }
@@ -73,6 +77,10 @@ public class GameController : MonoBehaviour
                     playerObject,
                     spawnPosition[i].GetComponent<Transform>().position,
                     spawnRot);
+                //var player = Instantiate(
+                //    playerObject,
+                //    spawnPosition[i].GetComponent<Transform>().position,
+                //    spawnPosition[i].GetComponent<Transform>().rotation);
                 player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i], i + 1);
 
                 AddPlayer(player);

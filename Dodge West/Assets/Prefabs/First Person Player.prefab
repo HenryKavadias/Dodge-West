@@ -54,7 +54,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161012298981736517}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -334,15 +334,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110933544519a18438fce0d480ca45a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 8
-  sprintSpeed: 16
-  enableSprint: 0
-  dashSpeed: 36
-  dashSpeedChangeFactor: 50
+  walkSpeed: 80
+  sprintSpeed: 160
+  enableSprint: 1
+  dashSpeed: 360
+  dashSpeedChangeFactor: 500
   maxYSpeed: 0
   groundDrag: 5
-  airDrag: 0.2
-  jumpForce: 14
+  airDrag: 2
+  jumpForce: 140
   airMultiplier: 0.4
   jumpCooldown: 0.25
   crouchSpeed: 5
@@ -388,7 +388,7 @@ MonoBehaviour:
   maxDashYSpeed: 15
   dashDuration: 0.25
   cam: {fileID: 2150544480436074437}
-  dashFov: 70
+  dashFov: 65
   defaultFov: 60
   useCameraForward: 1
   allowAllDirections: 1
@@ -413,9 +413,9 @@ MonoBehaviour:
     m_Bits: 128
   pickupTarget: {fileID: 588626649139957462}
   pickupRange: 10
-  objectTrackingSpeedModifier: 12
-  maxObjectSpeed: 20
-  throwPower: 25
+  objectTrackingSpeedModifier: 20
+  maxObjectSpeed: 30
+  throwPower: 150
 --- !u!114 &6776642873579140908
 MonoBehaviour:
   m_ObjectHideFlags: 0
