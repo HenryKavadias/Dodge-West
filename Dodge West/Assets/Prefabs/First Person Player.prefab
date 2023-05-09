@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 863659293782736370}
   - component: {fileID: 5592908173298442694}
   - component: {fileID: 6564627801541138462}
-  - component: {fileID: 1989670095775980032}
+  - component: {fileID: 567987932633823572}
   - component: {fileID: 4623668194168864861}
   - component: {fileID: 882741623857242509}
   - component: {fileID: 161012298981736536}
@@ -115,9 +115,9 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1989670095775980032}
-        m_TargetAssemblyTypeName: Destroyer, Assembly-CSharp
-        m_MethodName: DestroyThis
+      - m_Target: {fileID: 567987932633823572}
+        m_TargetAssemblyTypeName: DisableOnDie, Assembly-CSharp
+        m_MethodName: DisableThis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -126,8 +126,8 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
---- !u!114 &1989670095775980032
+        m_CallState: 2
+--- !u!114 &567987932633823572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 161012298981736517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5405b15e2662aba4e98c53f8d8472298, type: 3}
+  m_Script: {fileID: 11500000, guid: 92358f8663285b548a7d8aa36ba80d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4623668194168864861

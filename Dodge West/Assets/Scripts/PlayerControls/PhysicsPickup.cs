@@ -45,7 +45,16 @@ public class PhysicsPickup : MonoBehaviour
     // Note: Regarding the new input system, for single action input events (ONE BUTTON PRESS = ONE ACTION EVENT),
     // after the event is performed that actions relative bolean variable must be reset to "false" to avoid multiple
     // actions being performed from one button press.
-    
+    public void DropObject()
+    {
+        if (currentObject)
+        {
+            // Drop object
+            currentObject.GetComponent<VelocityDamager>().Drop();
+            currentObject.useGravity = true;
+            currentObject = null;
+        }
+    }
     // This should NOT be the case with actions that require holding down buttons like movement
     void PickupAndThrow()
     {

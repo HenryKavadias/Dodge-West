@@ -26,13 +26,13 @@ public class GameController : MonoBehaviour
     private List<GameObject> livePlayers = new List<GameObject>();
 
     // Add player to player list
-    public void AddPlayer(GameObject player)
+    void AddPlayer(GameObject player)
     {
         livePlayers.Add(player);
     }
 
     // Remove player from player list
-    public void RemovePlayer(GameObject player)
+    void RemovePlayer(GameObject player)
     {
         livePlayers.Remove(player);
     }
@@ -40,6 +40,37 @@ public class GameController : MonoBehaviour
     public int LivePlayerCount()
     {
         return livePlayers.Count;
+    }
+
+    // player might not be useful
+    public void PlayerDies(GameObject player)
+    {
+        if (gameMode != GameMode.SinglePlayer)
+        {
+            int activePlayers = 0;
+
+            GameObject livingPlayer = null;
+
+            foreach (GameObject p in livePlayers)
+            {
+                if (p.activeSelf)
+                {
+                    activePlayers++;
+                    livingPlayer = p;
+                }
+            }
+
+            if (activePlayers == 1)
+            {
+                // Win UI and scene transition behavour here
+                Debug.Log("Player " + livingPlayer.GetComponent<PlayerID>().GetID() + " Wins!!!");
+            }
+            else if (activePlayers == 0)
+            {
+                Debug.Log("All Players Are Dead!!!");
+            }
+            //livePlayers.Find(p => p == player);
+        }
     }
 
     private void Start()
@@ -58,12 +89,16 @@ public class GameController : MonoBehaviour
                 playerObject,
                 spawnPosition[0].GetComponent<Transform>().position,
                 spawnRot);
+            // if you spawn the player with a spawn position with altered rotation,
+            // then the camera needs to be aware and respond to the change
+
             //var player = Instantiate(
             //    playerObject,
             //    spawnPosition[0].GetComponent<Transform>().position,
             //    spawnPosition[0].GetComponent<Transform>().rotation);
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
+            AddPlayer(player);
         }
         else if (PlayerConfigurationManager.Instance)
         {

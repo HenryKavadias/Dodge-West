@@ -19,7 +19,7 @@ public class PlayerID : MonoBehaviour
         }
     }
 
-    public int Get() 
+    public int GetID() 
     { 
         return playerNumber;
     }

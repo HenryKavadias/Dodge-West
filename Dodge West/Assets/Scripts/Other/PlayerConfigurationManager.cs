@@ -5,8 +5,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+// doesn't work, need to find a different method to make a global string list of scene names
+//public static string[] scenes = { "Prototype_1", "Multiplayer-TestScene", "LocalMultiplayerSetup" };
+
 public class PlayerConfigurationManager : MonoBehaviour
 {
+    // String name must be accurate
+    [SerializeField]
     private string nextScene = "Multiplayer-TestScene";
 
     private List<PlayerConfiguration> playerConfigs;
@@ -47,6 +52,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             Debug.Log("player joined " + pi.playerIndex);
             pi.transform.SetParent(transform);
+
             playerConfigs.Add(new PlayerConfiguration(pi));
         }
         else
@@ -64,12 +70,9 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             Debug.Log("player left " + pi.playerIndex);
 
-            // Still need to figure out how to remove a player config
-            // from list and scene without breaking things
-
-            Destroy(transform.GetChild(pi.playerIndex).gameObject);
+            // this line of code is useless, player config object destorys itself with "PlayerLeaves()"
+            //Destroy(transform.GetChild(pi.playerIndex).gameObject);
             var player = playerConfigs.Find(p => p.PlayerIndex == pi.playerIndex);
-            //playerConfigs.RemoveAt(pi.playerIndex);
             playerConfigs.Remove(player);
         }
     }
@@ -134,6 +137,7 @@ public class PlayerConfiguration
     }
 
     public PlayerInput Input { get; private set; }
+    //public int PlayerIndex { get; set; } // was Set Private, changed for error prevention
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
     public Material playerMaterial { get; set; } // might not be necessary for later builds

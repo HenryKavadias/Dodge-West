@@ -17,7 +17,7 @@ public class CameraModifier : MonoBehaviour
             gameController.GetComponent<GameController>().gameMode == GameMode.LocalMultiplayer)
         {
             ModifyCamera(
-                player.GetComponent<PlayerID>().Get(), 
+                player.GetComponent<PlayerID>().GetID(), 
                 gameController.GetComponent<GameController>().LivePlayerCount());
         }
     }

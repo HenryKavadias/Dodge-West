@@ -38,7 +38,7 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
         {
             // This needs fixing
             Destroy(spawnedMenu);
-            Destroy(gameObject);
+            Destroy(gameObject); // error here
         }
     }
 }
