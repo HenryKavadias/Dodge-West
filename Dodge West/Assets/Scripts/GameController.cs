@@ -64,13 +64,22 @@ public class GameController : MonoBehaviour
             {
                 // Win UI and scene transition behavour here
                 Debug.Log("Player " + livingPlayer.GetComponent<PlayerID>().GetID() + " Wins!!!");
+
+                TriggerSceneTransition();
             }
             else if (activePlayers == 0)
             {
                 Debug.Log("All Players Are Dead!!!");
+
+                TriggerSceneTransition();
             }
             //livePlayers.Find(p => p == player);
         }
+    }
+
+    void TriggerSceneTransition()
+    {
+        GetComponent<SceneTransition>().enabled = true;
     }
 
     private void Start()

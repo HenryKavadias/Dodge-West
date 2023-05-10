@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2902792763052483428}
   - component: {fileID: 2902792763052483426}
+  - component: {fileID: 8924331996250536188}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -147,6 +148,20 @@ MonoBehaviour:
   - {fileID: 2902792763263594534}
   - {fileID: 2902792761619715521}
   - {fileID: 2902792762463533444}
+--- !u!114 &8924331996250536188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902792763052483430}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94287d800626d054eab83ba8fcf50922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: LocalMultiplayerSetup
+  timeLeft: 5
 --- !u!1 &2902792763263594534
 GameObject:
   m_ObjectHideFlags: 0
