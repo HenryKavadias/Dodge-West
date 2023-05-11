@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,15 @@ public class CameraManager : MonoBehaviour
     [Header("Camera Object")]
     public GameObject cameraObject;
 
-    public GameObject currentCam { get; private set; }
+    [Header("UI Canvas")]
+    public GameObject playerUI;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject currentCam { get; private set; }
+    public GameObject currentUI { get; private set; }
+
+    void SetupCamera()
     {
+        // Spawn and setup the Camera
         if (cameraObject != null && GetComponent<MouseLook>().camPos != null)
         {
             // Create camera object
@@ -31,7 +36,7 @@ public class CameraManager : MonoBehaviour
             // ...Same here
             gameObject.GetComponent<Dash>().SetPlayerCamera(camTemp.transform.GetChild(0).transform);
 
-            // Keep the camera as a reference
+            // Keep the camera object as a reference
             currentCam = camTemp.transform.GetChild(0).gameObject;
 
             if (camReal != null)
@@ -57,5 +62,31 @@ public class CameraManager : MonoBehaviour
         {
             Debug.Log("Player is without camera!!!");
         }
+    }
+
+    void SetupUI()
+    {
+        // Spawn and setup the UI
+        if (playerUI != null && currentCam != null)
+        {
+            currentUI = Instantiate(playerUI);
+
+            currentUI.GetComponent<Canvas>().worldCamera = currentCam.GetComponent<Camera>();
+            currentUI.GetComponent<Canvas>().planeDistance = 1f;
+
+            PlayerUIManager puim = currentUI.GetComponent<PlayerUIManager>();
+
+            puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
+
+            gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
+            gameObject.GetComponent<HealthBar>().Start();
+        }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        SetupCamera();
+
+        SetupUI();
     }
 }

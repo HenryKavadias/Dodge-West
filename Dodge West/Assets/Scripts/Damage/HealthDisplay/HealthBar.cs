@@ -12,19 +12,26 @@ public class HealthBar : MonoBehaviour
     //private Camera _cam;
     //[SerializeField] private float reduceSpeed = 2;
 
-    private void Start()
+    public void SetHealth(Progressive health)
+    {
+        _health = health;
+    }
+
+    public void SetImage(Image image)
+    {
+        _fillImage = image;
+    }
+
+    public void Start()
     {
         //_cam = Camera.main;
-        _fillImage.color = _gradient.Evaluate(_health.Ratio);
+        if (_fillImage != null)
+        {
+            _fillImage.color = _gradient.Evaluate(_health.Ratio);
+        }
 
         //_fillImage.transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
     }
-
-    //private void Update()
-    //{
-    //    //_fillImage.transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
-    //    //_fillImage.fillAmount = Mathf.MoveTowards(_fillImage.fillAmount, _health.Ratio, reduceSpeed * Time.deltaTime);
-    //}
 
     // The two functions below update the health bar when the health object invokes the "OnChange" action variable
 
