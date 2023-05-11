@@ -10,8 +10,6 @@ public class PlayerUIManager : MonoBehaviour
 
     public TextMeshProUGUI playerNumberText;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {

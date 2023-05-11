@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XInput;
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour
     public GameObject playerObject;
 
     public GameObject[] spawnPosition;
+
+    public TextMeshProUGUI winningPlayerText;
 
     private Quaternion spawnRot = Quaternion.identity;
 
@@ -65,11 +68,22 @@ public class GameController : MonoBehaviour
                 // Win UI and scene transition behavour here
                 Debug.Log("Player " + livingPlayer.GetComponent<PlayerID>().GetID() + " Wins!!!");
 
+                string message = "Player " + livingPlayer.GetComponent<PlayerID>().GetID().ToString() + " wins!!!";
+
+                winningPlayerText.enabled = true;
+
+                winningPlayerText.text = message;
+
                 TriggerSceneTransition();
             }
             else if (activePlayers == 0)
             {
                 Debug.Log("All Players Are Dead!!!");
+
+                string message = "All Players Are Dead!!!";
+
+                winningPlayerText.text = message;
+                winningPlayerText.enabled = true;
 
                 TriggerSceneTransition();
             }
@@ -84,6 +98,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        winningPlayerText.enabled = false;
+
         NewSystem();
     }
     void NewSystem()
