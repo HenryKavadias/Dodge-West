@@ -257,6 +257,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""87a07119-9410-4843-a842-1596493df536"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""78664156-c0f2-49b0-967e-faa4856a52d8"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",

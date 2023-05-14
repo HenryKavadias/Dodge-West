@@ -53,7 +53,8 @@ public class SceneTransition : MonoBehaviour
 
     void CancelDontNotDestroyOnLoad()
     {
-        GameObject configManager = GameObject.FindGameObjectWithTag("ConfigurationManager");
+        GameObject configManager = 
+            GameObject.FindGameObjectWithTag("ConfigurationManager");
         
         Destroy(configManager);
     }

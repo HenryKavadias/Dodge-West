@@ -59,7 +59,23 @@ public class PhysicsPickup : MonoBehaviour
     void PickupAndThrow()
     {
         // Input variable
-        if (pickedup)
+        if (thrown && currentObject)
+        {
+            // Throw object
+            currentObject.GetComponent<VelocityDamager>().Drop();
+            currentObject.useGravity = true;
+
+            // TODO: calculate relative to mass
+            currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
+            currentObject = null;
+
+            pickedup = false;
+            thrown = false; // Avoids multiple actions from one input
+            return;
+        }
+
+        // Input variable
+        if (pickedup || thrown)
         {
             if (currentObject)
             {
@@ -85,20 +101,8 @@ public class PhysicsPickup : MonoBehaviour
 
             // Input boolean variable must be reset to false from one button press
             // to emulate the functionality of the old input system
+            thrown = false;
             pickedup = false;
-            return;
-        }
-
-        // Input variable
-        if (thrown && currentObject)
-        {
-            // Throw object
-            currentObject.GetComponent<VelocityDamager>().Drop();
-            currentObject.useGravity = true;
-            currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
-            currentObject = null;
-
-            thrown = false; // Avoids multiple actions from one input
             return;
         }
     }

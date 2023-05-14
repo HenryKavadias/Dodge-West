@@ -387,9 +387,8 @@ MonoBehaviour:
   dashSpeedChangeFactor: 500
   maxYSpeed: 0
   groundDrag: 5
-  airDrag: 2
   jumpForce: 140
-  airMultiplier: 0.4
+  airMultiplier: 0.1
   jumpCooldown: 0.25
   crouchSpeed: 5
   crouchYScale: 0.5
@@ -429,19 +428,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 8657622561209081978}
-  dashForce: 40
-  dashUpwardForce: 0
-  maxDashYSpeed: 15
+  dashForce: 100
+  dashUpwardForce: 1
+  maxDashYSpeed: 100
   dashDuration: 0.25
   cam: {fileID: 2150544480436074437}
-  dashFov: 65
+  dashFov: 62
   defaultFov: 60
   useCameraForward: 1
   allowAllDirections: 1
   disableGravity: 1
-  resetVel: 1
+  resetVel: 0
   camEffects: 1
-  dashCd: 1.5
+  dashCd: 1
 --- !u!114 &618608792782935704
 MonoBehaviour:
   m_ObjectHideFlags: 0

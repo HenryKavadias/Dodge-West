@@ -18,7 +18,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float maxYSpeed;
 
     public float groundDrag = 0.5f;
-    public float airDrag = 0.2f;
+    //public float airDrag = 0.2f;
 
     [Header("Jump")]
     public float jumpForce = 7f;
@@ -152,7 +152,7 @@ public class FirstPersonMovement : MonoBehaviour
         }
         else
         {
-            rb.drag = airDrag;
+            rb.drag = 0f;
         }
     }
 
