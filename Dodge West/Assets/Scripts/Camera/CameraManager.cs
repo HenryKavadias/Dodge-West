@@ -79,6 +79,7 @@ public class CameraManager : MonoBehaviour
             puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
 
             gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
+            gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
             gameObject.GetComponent<HealthBar>().Start();
         }
     }

@@ -12,7 +12,8 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private float pickupRange;
     [SerializeField] private float objectTrackingSpeedModifier = 12f;
     [SerializeField] private float maxObjectSpeed = 20f;
-    [SerializeField] private float throwPower = 25f;
+    [SerializeField] private float flatThrowPowerPerUnit = 20f; // Power per units of object mass
+    [SerializeField] private bool enableThrowPowerWithCap = true;
     private Rigidbody currentObject;
 
     private bool pickedup = false;
@@ -55,6 +56,55 @@ public class PhysicsPickup : MonoBehaviour
             currentObject = null;
         }
     }
+
+    // Used to balance object throw power
+    float DynamicForceToObject()
+    {
+        // Throw power ideal guide:
+
+        // Power per Units - ppu
+        // CAP ppu
+        // mass 1 - 100 ppu
+        // mass 5 - 50 ppu
+        // mass 10 - 35 ppu
+        // mass 20 - 25 ppu
+        // mass 100 - 20 ppu
+        // CAP ppu
+
+        //powerPerUnits = (-0.4476f * Mathf.Log(currentObject.mass)) + 58.176f;
+
+        // Using all data points for a power function gives:
+        // y = 89.206x^-0.362
+
+        // Modified version from 80 to 1
+        // y = y = 107.38x^-0.98
+
+        float result = 0;
+
+        if (currentObject.mass < 1)
+        {
+            result = 100 * currentObject.mass;
+            return result;
+        }
+
+
+        if (enableThrowPowerWithCap)
+        {
+            float powerPerUnits = 107.38f * Mathf.Pow(currentObject.mass, -0.98f);
+
+            result = (powerPerUnits + flatThrowPowerPerUnit) * currentObject.mass;
+        }
+        else
+        {
+            float powerPerUnits = 89.206f * Mathf.Pow(currentObject.mass, -0.362f);
+
+            result = powerPerUnits * currentObject.mass;
+        }
+
+
+        return result;
+    }
+
     // This should NOT be the case with actions that require holding down buttons like movement
     void PickupAndThrow()
     {
@@ -65,8 +115,10 @@ public class PhysicsPickup : MonoBehaviour
             currentObject.GetComponent<VelocityDamager>().Drop();
             currentObject.useGravity = true;
 
-            // TODO: calculate relative to mass
-            currentObject.AddForce(pickupTarget.forward * throwPower, ForceMode.Impulse);
+            //Debug.Log("Force applied: " + DynamicForceToObject() +
+            //        ", Mass of Object: " + currentObject.mass);
+            currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
+
             currentObject = null;
 
             pickedup = false;

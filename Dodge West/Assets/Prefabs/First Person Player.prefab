@@ -131,6 +131,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  _textDisplay: {fileID: 0}
 --- !u!114 &5592908173298442694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +461,8 @@ MonoBehaviour:
   pickupRange: 10
   objectTrackingSpeedModifier: 40
   maxObjectSpeed: 80
-  throwPower: 150
+  flatThrowPowerPerUnit: 20
+  enableThrowPowerWithCap: 0
 --- !u!114 &6776642873579140908
 MonoBehaviour:
   m_ObjectHideFlags: 0

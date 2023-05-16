@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Progressive _health;   // Health object (used to manage health amount)
     [SerializeField] private Image _fillImage;      // Image for the health bar
     [SerializeField] private Gradient _gradient;    // Used to determine the Colour of the health bar
+    [SerializeField] private TextMeshProUGUI _textDisplay;
 
     //private Camera _cam;
     //[SerializeField] private float reduceSpeed = 2;
@@ -22,12 +24,18 @@ public class HealthBar : MonoBehaviour
         _fillImage = image;
     }
 
+    public void SetTextDisplay(TextMeshProUGUI text)
+    {
+        _textDisplay = text;
+    }
+
     public void Start()
     {
         //_cam = Camera.main;
-        if (_fillImage != null)
+        if (_fillImage != null && _textDisplay)
         {
-            _fillImage.color = _gradient.Evaluate(_health.Ratio);
+            //_fillImage.color = _gradient.Evaluate(_health.Ratio);
+            UpdateBar();
         }
 
         //_fillImage.transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
@@ -50,6 +58,10 @@ public class HealthBar : MonoBehaviour
     {
         _fillImage.fillAmount = _health.Ratio;
         _fillImage.color = _gradient.Evaluate(_health.Ratio);
+
+        float hp = Mathf.Round(_health.Current * 10.0f) * 0.1f;
+
+        _textDisplay.text = hp.ToString();
 
         //_fillImage.fillAmount = Mathf.MoveTowards(_fillImage.fillAmount, _health.Ratio, reduceSpeed * Time.deltaTime);
     }
