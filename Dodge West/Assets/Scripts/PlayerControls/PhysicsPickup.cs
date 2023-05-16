@@ -90,12 +90,14 @@ public class PhysicsPickup : MonoBehaviour
 
         if (enableThrowPowerWithCap)
         {
+            // 80ppu to 1ppu with a flat value
             float powerPerUnits = 107.38f * Mathf.Pow(currentObject.mass, -0.98f);
 
             result = (powerPerUnits + flatThrowPowerPerUnit) * currentObject.mass;
         }
         else
         {
+            // 100ppu to 20ppu without a flat value
             float powerPerUnits = 89.206f * Mathf.Pow(currentObject.mass, -0.362f);
 
             result = powerPerUnits * currentObject.mass;
