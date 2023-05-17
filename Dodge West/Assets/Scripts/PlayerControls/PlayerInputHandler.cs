@@ -120,6 +120,12 @@ public class PlayerInputHandler : MonoBehaviour
         {
             OnDash(obj);
         }
+
+        // OnLoadItem
+        if (actionName == controls.Player.LoadItem.name)
+        {
+            OnLoadItem(obj);
+        }
     }
 
     private void OnMove(CallbackContext context)
@@ -183,6 +189,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (dash)
         {
             dash.OnDash(context);
+        }
+    }
+
+    public void OnLoadItem(CallbackContext context)
+    {
+        if (pickup)
+        {
+            pickup.OnLoadItem(context);
         }
     }
 }

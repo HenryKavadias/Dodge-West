@@ -18,6 +18,7 @@ public class PhysicsPickup : MonoBehaviour
 
     private bool pickedup = false;
     private bool thrown = false;
+    private bool loadedItem = false;
 
     public void OnPickup(InputAction.CallbackContext context)
     {
@@ -27,6 +28,11 @@ public class PhysicsPickup : MonoBehaviour
     public void OnThrow(InputAction.CallbackContext context)
     {
         thrown = context.action.IsPressed();
+    }
+
+    public void OnLoadItem(InputAction.CallbackContext context)
+    {
+        loadedItem = context.action.IsPressed();
     }
 
     public void SetCamera(Camera cam)
@@ -70,8 +76,6 @@ public class PhysicsPickup : MonoBehaviour
         // mass 20 - 25 ppu
         // mass 100 - 20 ppu
         // CAP ppu
-
-        //powerPerUnits = (-0.4476f * Mathf.Log(currentObject.mass)) + 58.176f;
 
         // Using all data points for a power function gives:
         // y = 89.206x^-0.362
@@ -157,6 +161,13 @@ public class PhysicsPickup : MonoBehaviour
             // to emulate the functionality of the old input system
             thrown = false;
             pickedup = false;
+            return;
+        }
+
+        if (loadedItem)
+        {
+
+            loadedItem = false;
             return;
         }
     }

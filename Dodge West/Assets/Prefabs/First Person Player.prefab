@@ -364,6 +364,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a269214c-7632-4ae7-92ce-337e7612fbe2
     m_ActionName: Player/Dash[/Keyboard/alt,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 618608792782935704}
+        m_TargetAssemblyTypeName: PhysicsPickup, Assembly-CSharp
+        m_MethodName: OnLoadItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a7ae0065-e2b2-4fd4-b3b8-b64fb40f66e1
+    m_ActionName: Player/LoadItem[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

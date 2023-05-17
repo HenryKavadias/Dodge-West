@@ -76,6 +76,15 @@
                     "processors": "AxisDeadzone",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LoadItem",
+                    "type": "Button",
+                    "id": "a7ae0065-e2b2-4fd4-b3b8-b64fb40f66e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -307,6 +316,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34d5fc07-3e5c-433d-84ba-310182fbbfc7",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "LoadItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
