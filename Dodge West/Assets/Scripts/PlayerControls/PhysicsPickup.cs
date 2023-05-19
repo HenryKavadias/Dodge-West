@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PhysicsPickup : MonoBehaviour
 {
+    [SerializeField] private bool transparentPickup = false;
+    [Range(0f, 1f)]
+    [SerializeField] private float transparencyRatio = 0.5f;
+
     [SerializeField] private LayerMask pickupMask;
     private Camera playerCamera;
     [SerializeField] private Transform pickupTarget;
@@ -125,6 +129,8 @@ public class PhysicsPickup : MonoBehaviour
             //        ", Mass of Object: " + currentObject.mass);
             currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
 
+            ResetMaterial();
+
             currentObject = null;
 
             pickedup = false;
@@ -140,6 +146,9 @@ public class PhysicsPickup : MonoBehaviour
                 // Drop object
                 currentObject.GetComponent<VelocityDamager>().Drop();
                 currentObject.useGravity = true;
+
+                ResetMaterial();
+
                 currentObject = null;
             }
             else
@@ -153,6 +162,8 @@ public class PhysicsPickup : MonoBehaviour
                         currentObject = hitInfo.rigidbody;
                         currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
                         currentObject.useGravity = false;
+
+                        MakeTransparent();
                     }
                 }
             }
@@ -169,6 +180,44 @@ public class PhysicsPickup : MonoBehaviour
 
             loadedItem = false;
             return;
+        }
+    }
+
+    // Make picked up object transparent (so it doesn't block the players view)
+    void MakeTransparent()
+    {
+        if (transparentPickup && currentObject)
+        {
+            GameObject curObj = currentObject.gameObject;
+
+            Material mat = curObj.transform.GetChild(0).
+                gameObject.GetComponent<MeshRenderer>().material;
+
+            mat = StandardShaderUtils.ChangeRenderMode(
+                mat, StandardShaderUtils.BlendMode.Transparent);
+
+            Color color = mat.color;
+            color.a = transparencyRatio;
+            mat.color = color;
+        }
+    }
+
+    // Revert the picked up object to the render mode they were before
+    void ResetMaterial()
+    {
+        if (transparentPickup && currentObject)
+        {
+            GameObject curObj = currentObject.gameObject;
+
+            Material mat = curObj.transform.GetChild(0).
+                gameObject.GetComponent<MeshRenderer>().material;
+
+            mat = StandardShaderUtils.ChangeRenderMode(
+                mat, StandardShaderUtils.BlendMode.Opaque);
+
+            Color color = mat.color;
+            color.a = 1f;
+            mat.color = color;
         }
     }
 
