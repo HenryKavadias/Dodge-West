@@ -73,9 +73,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f42954f12fee934085e2de383e8ae1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  minDamageVelocity: 10
+  damage: 8
+  minDamageVelocity: 20
   velocityThreshold: 0.4
+  minThrownDamageVelocity: 10
+  thrownVelocityThreshold: 0.2
+  minHeldDamageVelocity: 15
+  heldVelocityThreshold: 0.5
+  minIdleDamageVelocity: 30
+  idleVelocityThreshold: 0.7
 --- !u!1 &7295154873541221229
 GameObject:
   m_ObjectHideFlags: 0

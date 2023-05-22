@@ -78,29 +78,47 @@ public class VelocityDamager : Damager
             // if object is damageable
             if (damageable)
             {
+                float damageFactor = 0f;
+
                 // Different damage thresholds for different states
                 switch (state)
                 {
                     case ObjectState.Idle:
+                        
+                        damageFactor = rb.velocity.magnitude / minIdleDamageVelocity;
 
+                        if (damageFactor > idleVelocityThreshold)
+                        {
+                            damageable.Damage(damage * damageFactor);
+                        }
                         break;
-                    case ObjectState.Held: 
+                    case ObjectState.Held:
                         
+                        damageFactor = rb.velocity.magnitude / minHeldDamageVelocity;
+
+                        if (damageFactor > heldVelocityThreshold)
+                        {
+                            damageable.Damage(damage * damageFactor);
+                        }
                         break;
-                    case ObjectState.Thrown: 
+                    case ObjectState.Thrown:
                         
+                        damageFactor = rb.velocity.magnitude / minThrownDamageVelocity;
+
+                        if (damageFactor > thrownVelocityThreshold)
+                        {
+                            damageable.Damage(damage * damageFactor);
+                        }
                         break;
                     default:
+                        
+                        damageFactor = rb.velocity.magnitude / minDamageVelocity;
 
+                        if (damageFactor > velocityThreshold)
+                        {
+                            damageable.Damage(damage * damageFactor);
+                        }
                         break;
-                }
-
-
-                float damageFactor = rb.velocity.magnitude / minDamageVelocity;
-
-                if (damageFactor > velocityThreshold)
-                {
-                    damageable.Damage(damage * damageFactor);
                 }
             }
         }
