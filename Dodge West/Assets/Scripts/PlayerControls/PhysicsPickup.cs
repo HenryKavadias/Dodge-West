@@ -122,7 +122,7 @@ public class PhysicsPickup : MonoBehaviour
         if (thrown && currentObject)
         {
             // Throw object
-            currentObject.GetComponent<VelocityDamager>().Drop();
+            currentObject.GetComponent<VelocityDamager>().Drop(true);
             currentObject.useGravity = true;
 
             //Debug.Log("Force applied: " + DynamicForceToObject() +
