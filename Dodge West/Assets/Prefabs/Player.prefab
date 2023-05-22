@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 618608792782935704}
   - component: {fileID: 6776642873579140908}
   m_Layer: 0
-  m_Name: First Person Player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,8 +479,8 @@ MonoBehaviour:
   pickupRange: 10
   objectTrackingSpeedModifier: 40
   maxObjectSpeed: 80
-  flatThrowPowerPerUnit: 20
-  enableThrowPowerWithCap: 0
+  flatThrowPowerPerUnit: 25
+  enableThrowPowerWithCap: 1
 --- !u!114 &6776642873579140908
 MonoBehaviour:
   m_ObjectHideFlags: 0
