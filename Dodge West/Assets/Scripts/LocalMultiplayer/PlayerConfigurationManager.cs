@@ -13,6 +13,8 @@ public class PlayerConfigurationManager : MonoBehaviour
     // String name must be accurate
     [SerializeField]
     private string nextScene = "Multiplayer-TestScene";
+    [SerializeField]
+    private string previousScene = "Start-Scene";
 
     private List<PlayerConfiguration> playerConfigs;
     //[SerializeField]
@@ -74,6 +76,14 @@ public class PlayerConfigurationManager : MonoBehaviour
             //Destroy(transform.GetChild(pi.playerIndex).gameObject);
             var player = playerConfigs.Find(p => p.PlayerIndex == pi.playerIndex);
             playerConfigs.Remove(player);
+        }
+
+        // if all players backed out load previous scene and destroy player config manager
+        if (!playerConfigs.Any())
+        {
+            SceneManager.LoadScene(previousScene);
+
+            Destroy(gameObject);
         }
     }
 

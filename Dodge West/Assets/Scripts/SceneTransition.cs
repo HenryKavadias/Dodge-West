@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField]
-    private string nextScene = "Multiplayer-TestScene";
+    private string nextScene = "Start-Scene";
 
     [SerializeField]
     private float timeLeft = 5f;
