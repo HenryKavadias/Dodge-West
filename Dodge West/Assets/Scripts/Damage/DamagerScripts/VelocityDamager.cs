@@ -64,6 +64,16 @@ public class VelocityDamager : Damager
     public float minIdleDamageVelocity = 3f;
     [Range(0f, 1f)] public float idleVelocityThreshold = 0.7f;
 
+    private void CalculateAndApplyDamage(Damageable damageScript, float minDamageVel, float velThreshold)
+    {
+        float damageFactor = rb.velocity.magnitude / minDamageVel;
+
+        if (damageFactor > velThreshold)
+        {
+            damageScript.Damage(damage * damageFactor);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!currentHolder && state != ObjectState.Thrown)
@@ -78,46 +88,28 @@ public class VelocityDamager : Damager
             // if object is damageable
             if (damageable)
             {
-                float damageFactor = 0f;
-
                 // Different damage thresholds for different states
                 switch (state)
                 {
                     case ObjectState.Idle:
-                        
-                        damageFactor = rb.velocity.magnitude / minIdleDamageVelocity;
 
-                        if (damageFactor > idleVelocityThreshold)
-                        {
-                            damageable.Damage(damage * damageFactor);
-                        }
+                        CalculateAndApplyDamage(damageable, minIdleDamageVelocity, idleVelocityThreshold);
+
                         break;
                     case ObjectState.Held:
                         
-                        damageFactor = rb.velocity.magnitude / minHeldDamageVelocity;
+                        CalculateAndApplyDamage(damageable, minHeldDamageVelocity, heldVelocityThreshold);
 
-                        if (damageFactor > heldVelocityThreshold)
-                        {
-                            damageable.Damage(damage * damageFactor);
-                        }
                         break;
                     case ObjectState.Thrown:
-                        
-                        damageFactor = rb.velocity.magnitude / minThrownDamageVelocity;
 
-                        if (damageFactor > thrownVelocityThreshold)
-                        {
-                            damageable.Damage(damage * damageFactor);
-                        }
+                        CalculateAndApplyDamage(damageable, minThrownDamageVelocity, thrownVelocityThreshold);
+
                         break;
                     default:
                         
-                        damageFactor = rb.velocity.magnitude / minDamageVelocity;
+                        CalculateAndApplyDamage(damageable, minDamageVelocity, velocityThreshold);
 
-                        if (damageFactor > velocityThreshold)
-                        {
-                            damageable.Damage(damage * damageFactor);
-                        }
                         break;
                 }
             }

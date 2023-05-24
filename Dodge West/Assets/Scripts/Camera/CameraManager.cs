@@ -81,6 +81,15 @@ public class CameraManager : MonoBehaviour
             gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
             gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
             gameObject.GetComponent<HealthBar>().Start();
+
+            // Set lives here
+            LifeDisplay lD = gameObject.GetComponent<LifeDisplay>();
+            if (lD)
+            {
+                lD.SetTextDisplay(puim.playerLivesText);
+                lD.Start();
+            }
+
         }
     }
     // Start is called before the first frame update

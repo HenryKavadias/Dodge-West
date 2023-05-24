@@ -11,10 +11,13 @@ GameObject:
   - component: {fileID: 161012298981736519}
   - component: {fileID: 2204055126249072917}
   - component: {fileID: 863659293782736370}
+  - component: {fileID: 764410434663232148}
+  - component: {fileID: 3873356216170661244}
+  - component: {fileID: 567987932633823572}
   - component: {fileID: 4331496530323724574}
   - component: {fileID: 5592908173298442694}
   - component: {fileID: 6564627801541138462}
-  - component: {fileID: 567987932633823572}
+  - component: {fileID: 8000511160865669590}
   - component: {fileID: 4623668194168864861}
   - component: {fileID: 882741623857242509}
   - component: {fileID: 161012298981736536}
@@ -87,6 +90,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
+--- !u!114 &764410434663232148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf4b43f16e2ec946b4488d94ce2c9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lives: {fileID: 3873356216170661244}
+  _livesTextDisplay: {fileID: 0}
+--- !u!114 &3873356216170661244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d9082fe36873a4c844bd455314dc13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initial: 3
+  OnZeroLives:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 567987932633823572}
+        m_TargetAssemblyTypeName: DisableOnDie, Assembly-CSharp
+        m_MethodName: DisableThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnLooseALife:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5592908173298442694}
+        m_TargetAssemblyTypeName: Progressive, Assembly-CSharp
+        m_MethodName: Add
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 100
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8000511160865669590}
+        m_TargetAssemblyTypeName: ReSpawner, Assembly-CSharp
+        m_MethodName: BackToSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &567987932633823572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92358f8663285b548a7d8aa36ba80d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4331496530323724574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +215,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  _textDisplay: {fileID: 0}
+  _healthTextDisplay: {fileID: 0}
 --- !u!114 &5592908173298442694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,19 +245,19 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 567987932633823572}
-        m_TargetAssemblyTypeName: DisableOnDie, Assembly-CSharp
-        m_MethodName: DisableThis
-        m_Mode: 1
+      - m_Target: {fileID: 3873356216170661244}
+        m_TargetAssemblyTypeName: LifeCounter, Assembly-CSharp
+        m_MethodName: Sub
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &567987932633823572
+--- !u!114 &8000511160865669590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +266,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 161012298981736517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92358f8663285b548a7d8aa36ba80d52, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b6189128ac1a2e49be34c2ecd212eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4623668194168864861
@@ -380,8 +464,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a7ae0065-e2b2-4fd4-b3b8-b64fb40f66e1
     m_ActionName: Player/LoadItem[/Keyboard/q]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
