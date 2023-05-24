@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
 
     public GameObject[] spawnPosition;
 
+    public GameObject endGamePanel;
+
     public TextMeshProUGUI winningPlayerText;
 
     private Quaternion spawnRot = Quaternion.identity;
@@ -70,9 +72,8 @@ public class GameController : MonoBehaviour
 
                 string message = "Player " + livingPlayer.GetComponent<PlayerID>().GetID().ToString() + " wins!!!";
 
-                winningPlayerText.enabled = true;
-
                 winningPlayerText.text = message;
+                endGamePanel.SetActive(true);
 
                 TriggerSceneTransition();
             }
@@ -83,7 +84,7 @@ public class GameController : MonoBehaviour
                 string message = "All Players Are Dead!!!";
 
                 winningPlayerText.text = message;
-                winningPlayerText.enabled = true;
+                endGamePanel.SetActive(true);
 
                 TriggerSceneTransition();
             }
@@ -98,7 +99,9 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        winningPlayerText.enabled = false;
+        //winningPlayerText.enabled = false;
+
+        endGamePanel.SetActive(false);
 
         NewSystem();
     }

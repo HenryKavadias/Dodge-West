@@ -12,8 +12,37 @@ public class StartScreenUI : MonoBehaviour
     [SerializeField]
     private string LocalMultiplayerScene = "LocalMultiplayerSetup";
 
+    [SerializeField]
+    private GameObject startPanel;
+    [SerializeField]
+    private GameObject controlsPanel;
+    [SerializeField]
+    private GameObject creditsPanel;
+    [SerializeField]
+    private GameObject backButton;
+
+    [SerializeField]
+    private Button[] menuButtons;
+
+    //[SerializeField]
+    //private Button firstButton;
+    //[SerializeField]
+    //private Button secondButton;
+    //[SerializeField]
+    //private Button thirdButton;
+
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
+
+    private void Start()
+    {
+        // Begining setup
+        startPanel.SetActive(true);
+        controlsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        backButton.SetActive(false);
+        menuButtons[0].Select();
+    }
 
     // Update is called once per frame
     void Update()
@@ -36,6 +65,11 @@ public class StartScreenUI : MonoBehaviour
         if (!inputEnabled) { return; }
 
         // Show Control Panel
+
+        startPanel.SetActive(false);
+        controlsPanel.SetActive(true);
+        backButton.SetActive(true);
+        backButton.GetComponent<Button>().Select();
     }
 
     public void SelectCredits()
@@ -43,6 +77,40 @@ public class StartScreenUI : MonoBehaviour
         if (!inputEnabled) { return; }
 
         // Show Credits Panel
+
+        startPanel.SetActive(false);
+        creditsPanel.SetActive(true);
+        backButton.SetActive(true);
+        backButton.GetComponent<Button>().Select();
+    }
+
+    // Returns user to start screen
+    public void BackToStartMenu()
+    {
+        if (!inputEnabled) { return; }
+
+        if (backButton.activeSelf)
+        {
+            if (controlsPanel.activeSelf)
+            {
+                startPanel.SetActive(true);
+                controlsPanel.SetActive(false);
+                backButton.SetActive(false);
+                menuButtons[1].Select();
+            }
+            else if (creditsPanel.activeSelf)
+            {
+                startPanel.SetActive(true);
+                creditsPanel.SetActive(false);
+                backButton.SetActive(false);
+                menuButtons[2].Select();
+            }
+            else
+            {
+                backButton.SetActive(true);
+                menuButtons[0].Select();
+            }
+        }
     }
 
     public void SelectQuit()
