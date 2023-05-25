@@ -85,7 +85,7 @@ public class PhysicsPickup : MonoBehaviour
         // y = 89.206x^-0.362
 
         // Modified version from 80 to 1
-        // y = y = 107.38x^-0.98
+        // y = 107.38x^-0.98
 
         float result = 0;
 
