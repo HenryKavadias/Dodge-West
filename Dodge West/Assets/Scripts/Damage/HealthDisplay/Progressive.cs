@@ -21,7 +21,7 @@ public abstract class Progressive : MonoBehaviour
             // Used to change the display bar for the value
             // without needing to rely on an update function.
             // (Saves on processing space)
-            OnChange?.Invoke();
+            OnChange?.Invoke(); // for UI changes
         }
     }
 
@@ -45,7 +45,7 @@ public abstract class Progressive : MonoBehaviour
     {
         Current -= amount;
 
-        OnChange?.Invoke(); // for UI changes
+        //OnChange?.Invoke();
 
         if (Current < 0)
         {

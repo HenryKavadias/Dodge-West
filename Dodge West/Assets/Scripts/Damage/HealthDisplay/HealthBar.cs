@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Progressive _health;   // Health object (used to manage health amount)
     [SerializeField] private Image _fillImage;      // Image for the health bar
     [SerializeField] private Gradient _gradient;    // Used to determine the Colour of the health bar
-    [SerializeField] private TextMeshProUGUI _textDisplay;
+    [SerializeField] private TextMeshProUGUI _healthTextDisplay;
 
     //private Camera _cam;
     //[SerializeField] private float reduceSpeed = 2;
@@ -24,15 +24,15 @@ public class HealthBar : MonoBehaviour
         _fillImage = image;
     }
 
-    public void SetTextDisplay(TextMeshProUGUI text)
+    public void SetTextDisplay(TextMeshProUGUI healthText)
     {
-        _textDisplay = text;
+        _healthTextDisplay = healthText;
     }
 
     public void Start()
     {
         //_cam = Camera.main;
-        if (_fillImage != null && _textDisplay)
+        if (_fillImage != null && _healthTextDisplay)
         {
             //_fillImage.color = _gradient.Evaluate(_health.Ratio);
             UpdateBar();
@@ -61,7 +61,7 @@ public class HealthBar : MonoBehaviour
 
         float hp = Mathf.Round(_health.Current * 10.0f) * 0.1f;
 
-        _textDisplay.text = hp.ToString();
+        _healthTextDisplay.text = hp.ToString();
 
         //_fillImage.fillAmount = Mathf.MoveTowards(_fillImage.fillAmount, _health.Ratio, reduceSpeed * Time.deltaTime);
     }

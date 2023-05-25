@@ -12,6 +12,8 @@ public class PlayerUIManager : MonoBehaviour
 
     public TextMeshProUGUI playerHealthText;
 
+    public TextMeshProUGUI playerLivesText;
+
     // Start is called before the first frame update
     void Start()
     {
