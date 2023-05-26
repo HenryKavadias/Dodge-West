@@ -92,7 +92,12 @@ public class CameraManager : MonoBehaviour
 
         }
     }
-    // Start is called before the first frame update
+    
+    public void TriggerPlayerDeathUI()
+    {
+        currentUI.GetComponent<PlayerUIManager>().TriggerDead();
+    }
+
     void Start()
     {
         SetupCamera();

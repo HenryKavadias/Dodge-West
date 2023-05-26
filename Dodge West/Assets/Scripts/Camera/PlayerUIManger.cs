@@ -14,9 +14,31 @@ public class PlayerUIManager : MonoBehaviour
 
     public TextMeshProUGUI playerLivesText;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject crosshair;
+
+    public GameObject deathMessage;
+
+    public void TriggerDead()
     {
-        
+        healthImage.enabled = false;
+        playerNumberText.enabled = false;
+        playerHealthText.enabled = false;
+        playerLivesText.enabled = false;
+
+        crosshair.SetActive(false);
+
+        deathMessage.SetActive(true);
+    }
+
+    public void TriggerResurrection()
+    {
+        healthImage.enabled = true;
+        playerNumberText.enabled = true;
+        playerHealthText.enabled = true;
+        playerLivesText.enabled = true;
+
+        crosshair.SetActive(true);
+
+        deathMessage.SetActive(false);
     }
 }
