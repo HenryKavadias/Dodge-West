@@ -41,4 +41,16 @@ public class PlayerUIManager : MonoBehaviour
 
         deathMessage.SetActive(false);
     }
+
+    public void DisablePlayerUI()
+    {
+        healthImage.enabled = false;
+        playerNumberText.enabled = false;
+        playerHealthText.enabled = false;
+        playerLivesText.enabled = false;
+
+        crosshair.SetActive(false);
+
+        deathMessage.SetActive(false);
+    }
 }

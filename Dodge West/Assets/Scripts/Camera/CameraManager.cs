@@ -98,6 +98,11 @@ public class CameraManager : MonoBehaviour
         currentUI.GetComponent<PlayerUIManager>().TriggerDead();
     }
 
+    public void DisableUI()
+    {
+        currentUI.GetComponent<PlayerUIManager>().DisablePlayerUI();
+    }
+
     void Start()
     {
         SetupCamera();

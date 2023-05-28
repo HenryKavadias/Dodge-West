@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     private MouseLook look;
     private PhysicsPickup pickup;
     private Dash dash;
+    private PauseControls pause;
 
     [SerializeField]
     private MeshRenderer playerMesh;
@@ -31,6 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
         look = GetComponent<MouseLook>();
         pickup = GetComponent<PhysicsPickup>();
         dash = GetComponent<Dash>();
+        pause = GetComponent<PauseControls>();
 
         controls = new PlayerControls();
     }
@@ -126,6 +128,12 @@ public class PlayerInputHandler : MonoBehaviour
         {
             OnLoadItem(obj);
         }
+
+        // OnPause
+        if (actionName == controls.Player.Pause.name)
+        {
+            OnPause(obj);
+        }
     }
 
     private void OnMove(CallbackContext context)
@@ -197,6 +205,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (pickup)
         {
             pickup.OnLoadItem(context);
+        }
+    }
+
+    public void OnPause(CallbackContext context)
+    {
+        if (pause)
+        {
+            pause.OnPause(context);
         }
     }
 }

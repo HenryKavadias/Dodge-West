@@ -10,7 +10,10 @@ using UnityEngine.SceneManagement;
 public class StartScreenUI : MonoBehaviour
 {
     [SerializeField]
-    private string LocalMultiplayerScene = "LocalMultiplayerSetup";
+    private string tutorialScene = "Tutorial-Scene";
+
+    [SerializeField]
+    private string localMultiplayerScene = "LocalMultiplayerSetup";
 
     [SerializeField]
     private GameObject startPanel;
@@ -23,13 +26,6 @@ public class StartScreenUI : MonoBehaviour
 
     [SerializeField]
     private Button[] menuButtons;
-
-    //[SerializeField]
-    //private Button firstButton;
-    //[SerializeField]
-    //private Button secondButton;
-    //[SerializeField]
-    //private Button thirdButton;
 
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
@@ -53,11 +49,18 @@ public class StartScreenUI : MonoBehaviour
         }
     }
 
+    public void SelectTutorial()
+    {
+        if (!inputEnabled) { return; }
+
+        SceneManager.LoadScene(tutorialScene);
+    }
+
     public void SelectLocalMultiplayer()
     {
         if (!inputEnabled) { return; }
 
-        SceneManager.LoadScene(LocalMultiplayerScene);
+        SceneManager.LoadScene(localMultiplayerScene);
     }
 
     public void SelectControls()
@@ -96,14 +99,14 @@ public class StartScreenUI : MonoBehaviour
                 startPanel.SetActive(true);
                 controlsPanel.SetActive(false);
                 backButton.SetActive(false);
-                menuButtons[1].Select();
+                menuButtons[2].Select(); // Controls button
             }
             else if (creditsPanel.activeSelf)
             {
                 startPanel.SetActive(true);
                 creditsPanel.SetActive(false);
                 backButton.SetActive(false);
-                menuButtons[2].Select();
+                menuButtons[3].Select(); // Credits button
             }
             else
             {

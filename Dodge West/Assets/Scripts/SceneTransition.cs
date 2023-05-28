@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    public bool instantTransition = false;
+    
     [SerializeField]
     private string nextScene = "Start-Scene";
 
@@ -33,7 +35,7 @@ public class SceneTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerOn)
+        if (timerOn && !instantTransition)
         {
             if (timeLeft > 0)
             {
@@ -49,6 +51,13 @@ public class SceneTransition : MonoBehaviour
                 LoadNextScene();
             }
         }
+        else if (instantTransition)
+        {
+            timerOn = false;
+            Time.timeScale = 1.0f; // unpauses game
+            CancelDontNotDestroyOnLoad();
+            LoadNextScene();
+        }
     }
 
     void CancelDontNotDestroyOnLoad()
@@ -56,7 +65,10 @@ public class SceneTransition : MonoBehaviour
         GameObject configManager = 
             GameObject.FindGameObjectWithTag("ConfigurationManager");
         
-        Destroy(configManager);
+        if (configManager != null)
+        {
+            Destroy(configManager);
+        }
     }
 
     void LoadNextScene()

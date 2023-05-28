@@ -29,6 +29,11 @@ public class LifeCounter : MonoBehaviour
         }
     }
 
+    public void SetLives(int lives)
+    {
+        _current = lives;
+    }
+
     // Set inital (also is the maximum amount)
     public int Initial => _initial;
 

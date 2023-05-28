@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XInput;
+using UnityEngine.UI;
 
 public enum GameMode
 {
@@ -22,7 +23,6 @@ public class GameController : MonoBehaviour
     public GameObject[] spawnPosition;
 
     public GameObject endGamePanel;
-
     public TextMeshProUGUI winningPlayerText;
 
     private Quaternion spawnRot = Quaternion.identity;
@@ -67,6 +67,8 @@ public class GameController : MonoBehaviour
 
             if (activePlayers == 1)
             {
+                DisableAllPlayerUI();
+
                 // Win UI and scene transition behavour here
                 Debug.Log("Player " + livingPlayer.GetComponent<PlayerID>().GetID() + " Wins!!!");
 
@@ -79,7 +81,7 @@ public class GameController : MonoBehaviour
             }
             else if (activePlayers == 0)
             {
-                Debug.Log("All Players Are Dead!!!");
+                DisableAllPlayerUI();
 
                 string message = "All Players Are Dead!!!";
 
@@ -90,6 +92,25 @@ public class GameController : MonoBehaviour
             }
             //livePlayers.Find(p => p == player);
         }
+        else if (gameMode == GameMode.SinglePlayer)
+        {
+            DisableAllPlayerUI();
+
+            string message = "You Are Dead";
+
+            winningPlayerText.text = message;
+            endGamePanel.SetActive(true);
+
+            TriggerSceneTransition();
+        }
+    }
+
+    void DisableAllPlayerUI()
+    {
+        foreach (GameObject p in livePlayers)
+        {
+            p.GetComponent<CameraManager>().DisableUI();
+        }
     }
 
     void TriggerSceneTransition()
@@ -97,13 +118,23 @@ public class GameController : MonoBehaviour
         GetComponent<SceneTransition>().enabled = true;
     }
 
+    public void TriggerInstantSceneTransition()
+    {
+        GetComponent<SceneTransition>().enabled = true;
+        GetComponent<SceneTransition>().instantTransition = true;
+    }
+
     private void Start()
     {
-        //winningPlayerText.enabled = false;
-
         endGamePanel.SetActive(false);
 
-        NewSystem();
+        NewSystem();    // game mode is set in this function
+
+        if (gameMode != GameMode.SinglePlayer)
+        {
+            GetComponent<Pause>().enabled = false; // works fine if you leave it on for local multiplayer
+        }
+
     }
     void NewSystem()
     {
@@ -126,6 +157,8 @@ public class GameController : MonoBehaviour
             //    spawnPosition[0].GetComponent<Transform>().rotation);
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
+            player.GetComponent<LifeCounter>().SetLives(1);
+
             AddPlayer(player);
         }
         else if (PlayerConfigurationManager.Instance)
@@ -145,6 +178,8 @@ public class GameController : MonoBehaviour
                 //    spawnPosition[i].GetComponent<Transform>().position,
                 //    spawnPosition[i].GetComponent<Transform>().rotation);
                 player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i], i + 1);
+
+                //player.GetComponent<LifeCounter>().SetLives(1); // for test purposes
 
                 AddPlayer(player);
             }

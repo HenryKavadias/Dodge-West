@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: -7550171255638960453}
   - component: {fileID: 618608792782935704}
   - component: {fileID: 6776642873579140908}
+  - component: {fileID: 612988788595045758}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -476,7 +477,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a7ae0065-e2b2-4fd4-b3b8-b64fb40f66e1
     m_ActionName: Player/LoadItem[/Keyboard/q]
-  m_NeverAutoSwitchControlSchemes: 1
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 612988788595045758}
+        m_TargetAssemblyTypeName: PauseControls, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 37fd6ec7-4fe5-4715-a524-8bbec4a47697
+    m_ActionName: Player/Pause[/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -590,6 +607,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMesh: {fileID: 161012299386307291}
+--- !u!114 &612988788595045758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6614c265f7085cd4bb0f5a21fde165be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &161012299386307288
 GameObject:
   m_ObjectHideFlags: 0
