@@ -105,6 +105,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // if making online multiplayer, this may need to be modified for it
     void DisableAllPlayerUI()
     {
         foreach (GameObject p in livePlayers)
