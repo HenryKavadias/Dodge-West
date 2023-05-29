@@ -183,6 +183,8 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    private Material originalMaterial = null;
+
     // Make picked up object transparent (so it doesn't block the players view)
     void MakeTransparent()
     {
@@ -193,10 +195,13 @@ public class PhysicsPickup : MonoBehaviour
             Material mat = curObj.transform.GetChild(0).
                 gameObject.GetComponent<MeshRenderer>().material;
 
+            originalMaterial = new Material(mat); // store a copy of the original material
+
             mat = StandardShaderUtils.ChangeRenderMode(
                 mat, StandardShaderUtils.BlendMode.Transparent);
 
             Color color = mat.color;
+
             color.a = transparencyRatio;
             mat.color = color;
         }
@@ -209,15 +214,10 @@ public class PhysicsPickup : MonoBehaviour
         {
             GameObject curObj = currentObject.gameObject;
 
-            Material mat = curObj.transform.GetChild(0).
-                gameObject.GetComponent<MeshRenderer>().material;
+            // reset it with original material
+            curObj.transform.GetChild(0).
+                gameObject.GetComponent<MeshRenderer>().material = originalMaterial;
 
-            mat = StandardShaderUtils.ChangeRenderMode(
-                mat, StandardShaderUtils.BlendMode.Opaque);
-
-            Color color = mat.color;
-            color.a = 1f;
-            mat.color = color;
         }
     }
 
