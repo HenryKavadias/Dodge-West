@@ -16,6 +16,9 @@ public class PlayerConfigurationManager : MonoBehaviour
     [SerializeField]
     private string previousScene = "Start-Scene";
 
+    [SerializeField]
+    private GameObject blankScreen;
+
     private List<PlayerConfiguration> playerConfigs;
     //[SerializeField]
     //[Range(2, 4)]
@@ -123,6 +126,11 @@ public class PlayerConfigurationManager : MonoBehaviour
 
                 // Also prevents adding extra unwanted player configurations into the next scene
                 gameObject.GetComponent<PlayerInputManager>().enabled = false;
+
+                // Hides previous scene UI
+                GameObject rootMenu = GameObject.Find("MainLayout");
+                GameObject bs = Instantiate(blankScreen, rootMenu.transform);
+                bs.transform.SetAsFirstSibling();
 
                 SceneManager.LoadScene(nextScene);
                 //Debug.Log("Works!!! " + playerConfigs.Count);
