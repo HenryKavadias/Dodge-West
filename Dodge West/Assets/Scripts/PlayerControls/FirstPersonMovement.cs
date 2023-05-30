@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 
 public class FirstPersonMovement : MonoBehaviour
 {    
@@ -32,8 +34,13 @@ public class FirstPersonMovement : MonoBehaviour
     private float startYScale;
 
     [Header("Ground Check")]
-    private float currentHeight;
     public LayerMask groundMask;
+    public Collider playerCollider;
+    public float distanceOfCheck = 0.2f;
+    [Range(0.001f, 1f)]
+    public float groundCheckBoxSizeMultiplier = 0.8f;
+    private float currentHeight;
+    private Vector3 groundCheckBoxSize;
     bool isGrounded;
 
     [Header("Slope Handling")]
@@ -90,6 +97,10 @@ public class FirstPersonMovement : MonoBehaviour
         if (playerModel)
         {
             currentHeight = playerModel.transform.localScale.y * 2;
+            groundCheckBoxSize = new Vector3(
+                playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
+                , 0.05f, 
+                playerModel.transform.localScale.z * groundCheckBoxSizeMultiplier);
         }
         else
         {
@@ -131,11 +142,69 @@ public class FirstPersonMovement : MonoBehaviour
         }
     }
 
+    // shows the ground box cast check
+    private void OnDrawGizmos()
+    {
+        float maxDistance = currentHeight * 0.5f + distanceOfCheck;
+        RaycastHit hit;
+
+        bool isHit = Physics.BoxCast(
+            playerCollider.bounds.center,
+            new Vector3(0.2f, 0.2f, 0.2f),
+            Vector3.down,
+            out hit,
+            transform.rotation,
+            maxDistance,
+            groundMask);
+
+        if (isHit)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, Vector3.down * hit.distance);
+            //Gizmos.DrawWireCube(transform.position + (Vector3.down * hit.distance), groundCheckBoxSize);
+            Gizmos.DrawWireSphere(transform.position + (Vector3.down * maxDistance), groundCheckBoxSize.x / 2);
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector3.down * maxDistance);
+        //Gizmos.DrawWireCube(transform.position + (Vector3.down * maxDistance), groundCheckBoxSize);
+        Gizmos.DrawWireSphere(transform.position + (Vector3.down * maxDistance), groundCheckBoxSize.x / 2);
+
+    }
+    bool RayCastCheck()
+    {
+        return Physics.Raycast(
+            transform.position, Vector3.down,
+            currentHeight * 0.5f + distanceOfCheck, 
+            groundMask);
+    }
+
+    bool BoxCastCheck()
+    {
+        return Physics.BoxCast(
+            playerCollider.bounds.center,
+            groundCheckBoxSize,
+            Vector3.down,
+            transform.rotation,
+            currentHeight * 0.5f + distanceOfCheck,
+            groundMask);
+    }
+
+    bool SphereCastCheck()
+    {
+        return Physics.SphereCast(
+            playerCollider.bounds.center,
+            groundCheckBoxSize.x / 2,
+            Vector3.down, out RaycastHit hit,
+            currentHeight * 0.5f + distanceOfCheck,
+            groundMask);
+    }
+
     void Update()
     {
-        isGrounded = Physics.Raycast(
-            transform.position, Vector3.down,
-            currentHeight * 0.5f + 0.2f, groundMask);
+        // checks if the player is touching the ground
+
+        isGrounded = SphereCastCheck();
 
         PlayerInput();
         
