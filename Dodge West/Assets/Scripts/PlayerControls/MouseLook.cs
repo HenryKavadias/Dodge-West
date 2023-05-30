@@ -14,6 +14,8 @@ public class MouseLook : MonoBehaviour
 
     public Transform orientation;   // Stores the direction the character is facing
 
+    public GameObject Model;
+
     private float xRotation = 0f;
     private float yRotation = 0f;
 
@@ -53,9 +55,8 @@ public class MouseLook : MonoBehaviour
         // Use to rotate player
         orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
 
-        // Changes the direction the player character is facing
-        //cam.rotation = Quaternion.Euler(xRotation, 0f, 0f);
-        //transform.Rotate(Vector3.up * mouseX);
+        // Apply player rotation to model
+        Model.transform.rotation = orientation.rotation;
     }
 
     public void DoFov(float endValue)

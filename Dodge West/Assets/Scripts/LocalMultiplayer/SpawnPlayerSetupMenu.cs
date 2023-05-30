@@ -31,14 +31,12 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
 
     }
 
-    // needs work
     public void PlayerLeaves()
     {
         if (rootMenu != null)
         {
-            // This needs fixing
             Destroy(spawnedMenu);
-            Destroy(gameObject); // error here
+            Destroy(gameObject); 
         }
     }
 }
