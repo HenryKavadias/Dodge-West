@@ -118,7 +118,7 @@ public class PhysicsPickup : MonoBehaviour
     // This should NOT be the case with actions that require holding down buttons like movement
     void PickupAndThrow()
     {
-        // Input variable
+        // Throw functionality must be put before pickup/drop functionality
         if (thrown && currentObject)
         {
             // Throw object
@@ -129,7 +129,8 @@ public class PhysicsPickup : MonoBehaviour
             //        ", Mass of Object: " + currentObject.mass);
             currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
 
-            ResetMaterial();
+            RestoreToOriginalMaterials();
+            //ResetMaterial();
 
             currentObject = null;
 
@@ -147,7 +148,8 @@ public class PhysicsPickup : MonoBehaviour
                 currentObject.GetComponent<VelocityDamager>().Drop();
                 currentObject.useGravity = true;
 
-                ResetMaterial();
+                RestoreToOriginalMaterials();
+                //ResetMaterial();
 
                 currentObject = null;
             }
@@ -163,7 +165,8 @@ public class PhysicsPickup : MonoBehaviour
                         currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
                         currentObject.useGravity = false;
 
-                        MakeTransparent();
+                        MakeObjectsTransparent();
+                        //MakeTransparent();
                     }
                 }
             }
@@ -183,41 +186,133 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    private Material originalMaterial = null;
+    // Experimental system for pickupable objects with multiple models
+    //private List<Material> contactedMaterials = new List<Material>();
+    private List<Material> objectMaterials;
+    private int objectMaterialCount = 0;
+    private int objectMaterialCounter = 0;
 
-    // Make picked up object transparent (so it doesn't block the players view)
-    void MakeTransparent()
+    void ResetMaterialVariables()
+    {
+        objectMaterials = new List<Material>();
+        objectMaterialCount = 0;
+        objectMaterialCounter = 0;
+    }
+
+    void MakeObjectsTransparent()
     {
         if (transparentPickup && currentObject)
         {
-            GameObject curObj = currentObject.gameObject;
+            //objectMaterials = new List<Material>();
+            ResetMaterialVariables();
 
-            Material mat = curObj.transform.GetChild(0).
-                gameObject.GetComponent<MeshRenderer>().material;
-
-            originalMaterial = new Material(mat); // store a copy of the original material
-
-            mat = StandardShaderUtils.ChangeRenderMode(
-                mat, StandardShaderUtils.BlendMode.Transparent);
-
-            Color color = mat.color;
-
-            color.a = transparencyRatio;
-            mat.color = color;
+            if (currentObject.gameObject.transform.childCount > 0)
+            {
+                ModifyObjectMaterial(currentObject.gameObject.transform);
+            }
         }
     }
 
-    // Revert the picked up object to the render mode they were before
-    void ResetMaterial()
+    // NOTE: all materials must be added to the Resources/Materials file location
+    void ModifyObjectMaterial(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            // Check to see if object has a model
+            if (child.gameObject.GetComponent<MeshRenderer>() != null)
+            {
+                GameObject curObj = child.gameObject;
+
+                Material mat = curObj.GetComponent<MeshRenderer>().material;
+
+                // Note: might be worth making the array a script variable
+                // instead of a local function variable (maybe set it up in the start function)
+                Object[] matArray = Resources.LoadAll("Materials", typeof(Material));
+                
+                bool foundMaterial = false;
+
+                foreach (Object obj in matArray)
+                {
+                    Material curMat = (Material)obj;
+
+                    if (mat.name.ToString().Contains(curMat.name))
+                    {
+                        objectMaterials.Add(new Material(curMat));
+                        foundMaterial = true;
+                        break;
+                    }
+                }
+
+                if (!foundMaterial)
+                {
+                    objectMaterials.Add(new Material(mat));
+                    Debug.Log("WARNING, material hasn't been added to " +
+                        "Resources/Materials, please correct");
+                }
+
+                // makes object transparent
+                MakeMaterialTransparent(mat);
+            }
+
+            if (child.childCount > 0)
+            {
+                ModifyObjectMaterial(child);
+            }
+        }
+    }
+
+    void MakeMaterialTransparent(Material mat)
+    {
+        // makes object transparent
+        mat = StandardShaderUtils.ChangeRenderMode(
+            mat, StandardShaderUtils.BlendMode.Transparent);
+
+        Color color = mat.color;
+        color.a = transparencyRatio;
+        mat.color = color;
+    }
+
+    void RestoreToOriginalMaterials()
     {
         if (transparentPickup && currentObject)
         {
-            GameObject curObj = currentObject.gameObject;
+            if (currentObject.gameObject.transform.childCount > 0)
+            {
+                objectMaterialCount = objectMaterials.Count;
+                ResetObjectMaterial(currentObject.gameObject.transform);
 
-            // reset it with original material
-            curObj.transform.GetChild(0).
-                gameObject.GetComponent<MeshRenderer>().material = originalMaterial;
+                ResetMaterialVariables();
+            }
+        }
+    }
 
+    //public MaterialContainer matContainer;
+    void ResetObjectMaterial(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            // Check to see if object has a model
+            if (child.gameObject.GetComponent<MeshRenderer>() != null && 
+                objectMaterialCounter < objectMaterialCount)
+            {
+                GameObject curObj = child.gameObject;
+
+                // When re-applying the old material, find a way to get its copy from the assets folder
+
+                curObj.GetComponent<MeshRenderer>().material = objectMaterials[objectMaterialCounter];
+
+                objectMaterialCounter++;
+
+            }
+            else if (objectMaterialCounter >= objectMaterialCount)
+            {
+                return;
+            }
+
+            if (child.childCount > 0)
+            {
+                ResetObjectMaterial(child);
+            }
         }
     }
 
