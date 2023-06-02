@@ -291,7 +291,8 @@ public class FirstPersonMovement : MonoBehaviour
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
         }
-        else if (crouching)
+        // Mode crouching
+        else if (isGrounded && crouching)
         {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
