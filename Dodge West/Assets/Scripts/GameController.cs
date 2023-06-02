@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
     public GameObject endGamePanel;
     public TextMeshProUGUI winningPlayerText;
 
+    public GameObject transitionHandler;
+
     private Quaternion spawnRot = Quaternion.identity;
 
     // list of live Players
@@ -45,6 +47,23 @@ public class GameController : MonoBehaviour
     public int LivePlayerCount()
     {
         return livePlayers.Count;
+    }
+
+    public void TogglePlayerControls(bool toggle)
+    {
+        foreach (GameObject player in livePlayers)
+        {
+            if (player.GetComponent<PlayerInput>())
+            {
+                player.GetComponent<PlayerInput>().enabled = toggle;
+
+                //player.GetComponent<FirstPersonMovement>().enabled = toggle;
+                //player.GetComponent<MouseLook>().enabled = toggle;
+                //player.GetComponent<Dash>().enabled = toggle;
+                //player.GetComponent<PhysicsPickup>().enabled = toggle;
+                //player.GetComponent<PlayerInputHandler>().enabled = toggle;
+            }
+        }
     }
 
     // player might not be useful
@@ -116,13 +135,24 @@ public class GameController : MonoBehaviour
 
     void TriggerSceneTransition()
     {
-        GetComponent<SceneTransition>().enabled = true;
+        if (transitionHandler)
+        {
+            transitionHandler.GetComponent<SceneTransition>().enabled = true;
+        }
+        else
+        {
+            Debug.Log("ERROR, transition handler is missing, please fix.");
+        }
+        
+        //GetComponent<SceneTransition>().enabled = true;
     }
 
     public void TriggerInstantSceneTransition()
     {
-        GetComponent<SceneTransition>().enabled = true;
-        GetComponent<SceneTransition>().instantTransition = true;
+        if (transitionHandler)
+        {
+            transitionHandler.GetComponent<SceneTransition>().LoadNextScene();
+        }
     }
 
     private void Start()

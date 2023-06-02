@@ -236,8 +236,22 @@ public class FirstPersonMovement : MonoBehaviour
         horizontalInput = movementInput.x;
         verticalInput = movementInput.y;
 
+        //if (GetComponent<PauseControls>())
+        //{
+        //    Debug.Log(GetComponent<PauseControls>().isPaused);
+        //    if (jumped && isGrounded && readyToJump && 
+        //        !GetComponent<PauseControls>().isPaused)
+        //    {
+        //        readyToJump = false;
+
+        //        Jump();
+        //        // allows player to keep jump when the jump button is held down
+        //        Invoke(nameof(ResetJump), jumpCooldown);
+        //    }
+        //}
+        //else
         if (jumped && isGrounded && readyToJump)
-        {
+        {   
             readyToJump = false;
 
             Jump();

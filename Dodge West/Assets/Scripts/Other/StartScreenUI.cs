@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class StartScreenUI : MonoBehaviour
 {
+    public GameObject transitionHandler;
+    
     [SerializeField]
     private string tutorialScene = "Tutorial-Scene";
 
@@ -53,14 +55,17 @@ public class StartScreenUI : MonoBehaviour
     {
         if (!inputEnabled) { return; }
 
-        SceneManager.LoadScene(tutorialScene);
+        transitionHandler.GetComponent<SceneTransition>().LoadNextScene(tutorialScene);
+
+        //SceneManager.LoadScene(tutorialScene);
     }
 
     public void SelectLocalMultiplayer()
     {
         if (!inputEnabled) { return; }
 
-        SceneManager.LoadScene(localMultiplayerScene);
+        transitionHandler.GetComponent<SceneTransition>().LoadNextScene(localMultiplayerScene);
+        //SceneManager.LoadScene(localMultiplayerScene);
     }
 
     public void SelectControls()

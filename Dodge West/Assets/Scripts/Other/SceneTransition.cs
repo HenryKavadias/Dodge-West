@@ -1,20 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// NOTE: if any other Canvas exist in the scene, make sure the
+// cross fade image canvas has the HIGHEST "sort order"
 public class SceneTransition : MonoBehaviour
 {
-    public bool instantTransition = false;
+    public Animator transition;
+    public float transitionDuration = 1.0f;
+
+    //public bool instantTransition = false;
     
     [SerializeField]
     private string nextScene = "Start-Scene";
+
+    private bool bypassDNDOL = false;
 
     [SerializeField]
     private float timeLeft = 5f;
     private bool timerOn = false;
 
-    
+    public void SetNextScene(string Scene, bool ignoreDNDOL = false)
+    {
+        nextScene = Scene;
+        bypassDNDOL = ignoreDNDOL;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +47,7 @@ public class SceneTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerOn && !instantTransition)
+        if (timerOn)
         {
             if (timeLeft > 0)
             {
@@ -47,16 +59,9 @@ public class SceneTransition : MonoBehaviour
                 timeLeft = 0;
                 timerOn = false;
 
-                CancelDontNotDestroyOnLoad();
+                //CancelDontNotDestroyOnLoad();
                 LoadNextScene();
             }
-        }
-        else if (instantTransition)
-        {
-            timerOn = false;
-            Time.timeScale = 1.0f; // unpauses game
-            CancelDontNotDestroyOnLoad();
-            LoadNextScene();
         }
     }
 
@@ -71,11 +76,36 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    void LoadNextScene()
+    public void LoadNextScene(string scene = null, bool ignoreDNDOL = false)
     {
-
-        SceneManager.LoadScene(nextScene);
+        Time.timeScale = 1.0f; // unpauses game
+        bypassDNDOL = ignoreDNDOL;
+        if (scene == null)
+        {
+            StartCoroutine(LoadScene(nextScene));
+        }
+        else
+        {
+            StartCoroutine(LoadScene(scene));
+        }
     }    
+
+    IEnumerator LoadScene(string scene)
+    {
+        // Play animation
+        transition.SetTrigger("Start");
+
+        // Wait
+        yield return new WaitForSeconds(transitionDuration);
+
+        // Load Scene
+        SceneManager.LoadScene(scene);
+
+        if (!bypassDNDOL)
+        {
+            CancelDontNotDestroyOnLoad();
+        }
+    }
 
     void UpdateTimer(float currentTime)
     {

@@ -5,18 +5,19 @@ using UnityEngine.InputSystem;
 
 public class PauseControls : MonoBehaviour
 {
-    private bool paused = false;
+    private bool pausing = false;
+    //public bool isPaused { get; private set; } = false;
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        paused = context.action.triggered;
+        pausing = context.action.triggered;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (paused)
+        if (pausing)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -26,9 +27,10 @@ public class PauseControls : MonoBehaviour
             if (gm != null && gm.GetComponent<Pause>().isActiveAndEnabled)
             {
                 gm.GetComponent<Pause>().TogglePauseState();
+                //isPaused = gm.GetComponent<Pause>().isPaused;
             }
 
-            paused = false;
+            pausing = false;
             return;
         }
     }

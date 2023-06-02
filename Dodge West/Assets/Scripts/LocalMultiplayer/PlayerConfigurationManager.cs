@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
+    public GameObject transitionHandler;
+
     // String name must be accurate
     [SerializeField]
     private string nextScene = "Multiplayer-TestScene";
@@ -31,7 +33,8 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.Log("[Singleton] Trying to instantiate a seccond instance of a singleton class.");
+            Debug.Log("[Singleton] Trying to instantiate a second instance of a singleton class.");
+            Destroy(gameObject); // removes the duplicate 
         }
         else
         {
@@ -84,9 +87,22 @@ public class PlayerConfigurationManager : MonoBehaviour
         // if all players backed out load previous scene and destroy player config manager
         if (!playerConfigs.Any())
         {
-            SceneManager.LoadScene(previousScene);
+            if (transitionHandler)
+            {
+                transitionHandler.GetComponent<SceneTransition>().LoadNextScene(previousScene);
 
-            Destroy(gameObject);
+                //transitionHandler = null;
+            }
+            else
+            {
+                SceneManager.LoadScene(previousScene);
+
+                Destroy(gameObject);
+            }
+
+            //SceneManager.LoadScene(previousScene);
+
+            //Destroy(gameObject);
         }
     }
 
@@ -132,7 +148,18 @@ public class PlayerConfigurationManager : MonoBehaviour
                 GameObject bs = Instantiate(blankScreen, rootMenu.transform);
                 bs.transform.SetAsFirstSibling();
 
-                SceneManager.LoadScene(nextScene);
+                if (transitionHandler)
+                {
+                    transitionHandler.GetComponent<SceneTransition>().LoadNextScene(nextScene, true);
+
+                    //transitionHandler = null;
+                }
+                else
+                {
+                    SceneManager.LoadScene(nextScene);
+                }
+
+                //SceneManager.LoadScene(nextScene);
                 //Debug.Log("Works!!! " + playerConfigs.Count);
             }
         }
