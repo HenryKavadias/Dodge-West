@@ -144,9 +144,11 @@ public class PlayerConfigurationManager : MonoBehaviour
                 gameObject.GetComponent<PlayerInputManager>().enabled = false;
 
                 // Hides previous scene UI
-                GameObject rootMenu = GameObject.Find("MainLayout");
-                GameObject bs = Instantiate(blankScreen, rootMenu.transform);
-                bs.transform.SetAsFirstSibling();
+                GameObject bs = Instantiate(blankScreen);
+
+                //GameObject rootMenu = GameObject.Find("CoverLayout");
+                //GameObject bs = Instantiate(blankScreen, rootMenu.transform);
+                //bs.transform.SetAsFirstSibling();
 
                 if (transitionHandler)
                 {

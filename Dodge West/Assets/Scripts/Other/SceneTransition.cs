@@ -8,10 +8,12 @@ using UnityEngine.SceneManagement;
 // cross fade image canvas has the HIGHEST "sort order"
 public class SceneTransition : MonoBehaviour
 {
-    public Animator transition;
     public float transitionDuration = 1.0f;
+    public Animator transition;
 
-    //public bool instantTransition = false;
+    public GameObject transitionCanvas;
+    public int canvasSortOrder = 1;
+    
     
     [SerializeField]
     private string nextScene = "Start-Scene";
@@ -80,6 +82,10 @@ public class SceneTransition : MonoBehaviour
     {
         Time.timeScale = 1.0f; // unpauses game
         bypassDNDOL = ignoreDNDOL;
+
+        // Set canvas sort order
+        transitionCanvas.GetComponent<Canvas>().sortingOrder = canvasSortOrder;
+
         if (scene == null)
         {
             StartCoroutine(LoadScene(nextScene));
