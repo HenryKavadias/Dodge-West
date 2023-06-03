@@ -161,7 +161,7 @@ public class GameController : MonoBehaviour
 
         NewSystem();    // game mode is set in this function
 
-        GetComponent<Pause>().UnPauseGame();
+        //GetComponent<Pause>().UnPauseGame();
 
         if (gameMode != GameMode.SinglePlayer)
         {
