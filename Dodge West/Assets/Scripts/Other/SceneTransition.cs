@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // NOTE: if any other Canvas exist in the scene, make sure the
 // cross fade image canvas has the HIGHEST "sort order"
@@ -28,12 +30,6 @@ public class SceneTransition : MonoBehaviour
     {
         nextScene = Scene;
         bypassDNDOL = ignoreDNDOL;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //timerOn = true;
     }
 
     private void OnEnable()
@@ -94,7 +90,11 @@ public class SceneTransition : MonoBehaviour
         {
             StartCoroutine(LoadScene(scene));
         }
-    }    
+    }
+
+    public GameObject loadingScreen;
+    public Slider slider;
+    public TextMeshProUGUI progressText;
 
     IEnumerator LoadScene(string scene)
     {
@@ -105,11 +105,26 @@ public class SceneTransition : MonoBehaviour
         yield return new WaitForSeconds(transitionDuration);
 
         // Load Scene
-        SceneManager.LoadScene(scene);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
+
+        //SceneManager.LoadScene(scene);
 
         if (!bypassDNDOL)
         {
             CancelDontNotDestroyOnLoad();
+        }
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            
+            slider.value = progress;
+            // limited to 1 decimal point
+            progressText.text = (progress * 100f).ToString("F1") + "%";
+
+            yield return null;
         }
     }
 
