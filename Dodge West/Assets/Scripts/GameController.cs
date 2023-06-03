@@ -161,6 +161,8 @@ public class GameController : MonoBehaviour
 
         NewSystem();    // game mode is set in this function
 
+        GetComponent<Pause>().UnPauseGame();
+
         if (gameMode != GameMode.SinglePlayer)
         {
             GetComponent<Pause>().enabled = false; // works fine if you leave it on for local multiplayer

@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94287d800626d054eab83ba8fcf50922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 8822089886211082758}
   transitionDuration: 1
-  instantTransition: 0
+  transition: {fileID: 8822089886211082758}
+  transitionCanvas: {fileID: 4903360001805572318}
+  canvasSortOrder: 1
   nextScene: Start-Scene
   timeLeft: 5
 --- !u!1 &1921225168323512203
@@ -84,10 +85,10 @@ RectTransform:
   m_Father: {fileID: 217147793685500360}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 1930, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3554643433385697824
 CanvasRenderer:
