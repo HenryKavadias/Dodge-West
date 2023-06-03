@@ -115,6 +115,7 @@ public class SceneTransition : MonoBehaviour
         }
 
         loadingScreen.SetActive(true);
+        loadingScreen.GetComponent<Canvas>().sortingOrder = canvasSortOrder + 1;
 
         while (!operation.isDone)
         {
