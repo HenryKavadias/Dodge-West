@@ -56,6 +56,10 @@ public class Pause : MonoBehaviour
         GetComponent<GameController>().TogglePlayerControls(false);
 
         // pause audio
+        if (GetComponent<MusicContoller>())
+        {
+            GetComponent<MusicContoller>().PauseMusic();
+        }
 
         Time.timeScale = 0.0f; // pauses game
         isPaused = true;
@@ -69,6 +73,11 @@ public class Pause : MonoBehaviour
         GetComponent<GameController>().TogglePlayerControls(true);
 
         // unpause audio
+        if (GetComponent<MusicContoller>())
+        {
+            GetComponent<MusicContoller>().PauseMusic(false);
+        }
+
         Time.timeScale = 1.0f; // unpauses game
         isPaused = false;
     }

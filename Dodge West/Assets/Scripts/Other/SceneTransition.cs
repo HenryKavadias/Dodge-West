@@ -104,6 +104,14 @@ public class SceneTransition : MonoBehaviour
         // Wait
         yield return new WaitForSeconds(transitionDuration);
 
+        // Unpause audio
+        GameObject gm = GameObject.FindWithTag("GameController");
+        if (gm && gm.GetComponent<MusicContoller>() && gm.GetComponent<MusicContoller>().isPaused)
+        {
+            gm.GetComponent<MusicContoller>().PauseMusic(false);
+        }
+
+
         // Load Scene
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
 
