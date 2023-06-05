@@ -5,6 +5,8 @@ using UnityEngine.InputSystem.UI;
 
 public class MuteManager : MonoBehaviour
 {
+    private bool pauseEnabled = true;
+    
     private bool isMuted;
     private InputSystemUIInputModule iSUIIMMuteControl;
     private AudioSource audioSource;
@@ -18,7 +20,7 @@ public class MuteManager : MonoBehaviour
         //AudioListener.pause = isMuted;
         if (isMuted)
         {
-            audioSource.Pause();
+            Pause();
             AudioListener.volume = 0;
         }
     }
@@ -33,6 +35,22 @@ public class MuteManager : MonoBehaviour
         }
     }
 
+    private void Pause()
+    {
+        if (pauseEnabled)
+        {
+            audioSource.Pause();
+        }
+    }
+
+    private void UnPause()
+    {
+        if (pauseEnabled || !audioSource.isPlaying)
+        {
+            audioSource.UnPause();
+        }
+    }
+
     // Toggle mute state
     public void MutePressed()
     {
@@ -40,12 +58,12 @@ public class MuteManager : MonoBehaviour
         PlayerPrefs.SetInt("MUTED", isMuted ? 1 : 0);
         if (isMuted)
         {
-            audioSource.Pause();
+            Pause();
             AudioListener.volume = 0; 
         }
         else
         {
-            audioSource.UnPause();
+            UnPause();
             AudioListener.volume = 1; 
         }
     }
@@ -57,7 +75,7 @@ public class MuteManager : MonoBehaviour
         //AudioListener.pause = isMuted;
         if (isMuted)
         {
-            audioSource.Pause();
+            Pause();
             AudioListener.volume = 0;
         }
     }
@@ -69,7 +87,7 @@ public class MuteManager : MonoBehaviour
         //AudioListener.pause = isMuted;
         if (isMuted)
         {
-            audioSource.UnPause();
+            UnPause();
             AudioListener.volume = 1;
         }
     }
