@@ -25,7 +25,7 @@ public class MusicContoller : MonoBehaviour
 
     public void PauseMusic(bool pause = true)
     {
-        if (pause)
+        if (pause && audioSource.isPlaying)
         {
             audioSource.Pause();
         }

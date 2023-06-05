@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 
 public class MuteManager : MonoBehaviour
 {
     private bool isMuted;
+    private InputSystemUIInputModule iSUIIMMuteControl;
+    private AudioSource audioSource;
 
     // Get mute state on start
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        iSUIIMMuteControl = GetComponent<InputSystemUIInputModule>();
         isMuted = PlayerPrefs.GetInt("MUTED") == 1;
         //AudioListener.pause = isMuted;
         if (isMuted)
         {
+            audioSource.Pause();
             AudioListener.volume = 0;
         }
     }
@@ -20,11 +26,11 @@ public class MuteManager : MonoBehaviour
     private void Update()
     {
         // Note: need to figure out control method for muting audio
-        
-        //if ()
-        //{
-        //    MutePressed();
-        //}
+
+        if (iSUIIMMuteControl.cancel.action.triggered)
+        {
+            MutePressed();
+        }
     }
 
     // Toggle mute state
@@ -33,9 +39,15 @@ public class MuteManager : MonoBehaviour
         isMuted = !isMuted;
         PlayerPrefs.SetInt("MUTED", isMuted ? 1 : 0);
         if (isMuted)
-        { AudioListener.volume = 0; }
+        {
+            audioSource.Pause();
+            AudioListener.volume = 0; 
+        }
         else
-        { AudioListener.volume = 1; }
+        {
+            audioSource.UnPause();
+            AudioListener.volume = 1; 
+        }
     }
 
     public void Mute()
@@ -45,6 +57,7 @@ public class MuteManager : MonoBehaviour
         //AudioListener.pause = isMuted;
         if (isMuted)
         {
+            audioSource.Pause();
             AudioListener.volume = 0;
         }
     }
@@ -56,7 +69,8 @@ public class MuteManager : MonoBehaviour
         //AudioListener.pause = isMuted;
         if (isMuted)
         {
-            AudioListener.volume = 0;
+            audioSource.UnPause();
+            AudioListener.volume = 1;
         }
     }
 }
