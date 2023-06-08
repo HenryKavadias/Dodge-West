@@ -19,7 +19,7 @@ public class Dash : MonoBehaviour
     public float dashDuration;
 
     [Header("CameraEffects")]
-    public MouseLook cam;
+    public CameraControl cam;
     public float dashFov;
     public float defaultFov = 60f;
 

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using DG.Tweening;
 
-public class MouseLook : MonoBehaviour
+public class CameraControl : MonoBehaviour
 {
     [Range(1f, 100f)]
     public float mouseSensitivity = 20f;

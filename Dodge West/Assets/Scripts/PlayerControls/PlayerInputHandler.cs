@@ -15,7 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerConfiguration playerConfig;
 
     private FirstPersonMovement movement;
-    private MouseLook look;
+    private CameraControl look;
     private PhysicsPickup pickup;
     private Dash dash;
     private PauseControls pause;
@@ -29,7 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<FirstPersonMovement>();
-        look = GetComponent<MouseLook>();
+        look = GetComponent<CameraControl>();
         pickup = GetComponent<PhysicsPickup>();
         dash = GetComponent<Dash>();
         pause = GetComponent<PauseControls>();

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(MouseLook), typeof(PhysicsPickup))]
+[RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour
 {
     [Header("Camera Object")]
@@ -19,7 +19,7 @@ public class CameraManager : MonoBehaviour
     void SetupCamera()
     {
         // Spawn and setup the Camera
-        if (cameraObject != null && GetComponent<MouseLook>().camPos != null)
+        if (cameraObject != null && GetComponent<CameraControl>().camPos != null)
         {
             // Create camera object
             GameObject camTemp = Instantiate(cameraObject);
@@ -28,7 +28,7 @@ public class CameraManager : MonoBehaviour
             camTemp.GetComponent<CameraModifier>().SetPlayer(gameObject);
 
             // Set camera controls script
-            camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<MouseLook>().camPos);
+            camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<CameraControl>().camPos);
 
             // Camera needs to be the first child object
             Camera camReal = camTemp.transform.GetChild(0).GetComponent<Camera>();
