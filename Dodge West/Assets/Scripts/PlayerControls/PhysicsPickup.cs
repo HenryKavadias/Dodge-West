@@ -63,6 +63,7 @@ public class PhysicsPickup : MonoBehaviour
             // Drop object
             currentObject.GetComponent<VelocityDamager>().Drop();
             currentObject.useGravity = true;
+            RestoreToOriginalMaterials();
             currentObject = null;
         }
     }
