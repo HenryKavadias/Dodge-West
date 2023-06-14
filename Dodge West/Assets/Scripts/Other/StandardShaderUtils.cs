@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Manages the ultered material state for an object
+
 public static class StandardShaderUtils
 {
     public enum BlendMode

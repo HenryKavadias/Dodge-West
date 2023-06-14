@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 
 public class LifeDisplay : MonoBehaviour
 {
     [SerializeField] private LifeCounter _lives;
@@ -27,6 +28,7 @@ public class LifeDisplay : MonoBehaviour
         }
     }
 
+    // Two functions below add the UpdateText function to the OnCountChange action variable
     private void OnEnable()
     {
         _lives.OnCountChange += UpdateText;

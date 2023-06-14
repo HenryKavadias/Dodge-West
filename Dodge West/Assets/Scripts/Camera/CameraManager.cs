@@ -7,12 +7,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour
 {
+    // Plyaer Camera and UI prefabs
     [Header("Camera Object")]
     public GameObject cameraObject;
 
     [Header("UI Canvas")]
     public GameObject playerUI;
 
+    // Current player camera and UI references
     public GameObject currentCam { get; private set; }
     public GameObject currentUI { get; private set; }
 
@@ -64,16 +66,18 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    // Spawn and setup the Player UI
     void SetupUI()
     {
-        // Spawn and setup the UI
         if (playerUI != null && currentCam != null)
         {
-            currentUI = Instantiate(playerUI);
+            currentUI = Instantiate(playerUI);  // Create
 
+            // Assign to camera
             currentUI.GetComponent<Canvas>().worldCamera = currentCam.GetComponent<Camera>();
             currentUI.GetComponent<Canvas>().planeDistance = 1f;
 
+            // Set UI values
             PlayerUIManager puim = currentUI.GetComponent<PlayerUIManager>();
 
             puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
@@ -93,11 +97,13 @@ public class CameraManager : MonoBehaviour
         }
     }
     
+    // Triggers death state for player UI
     public void TriggerPlayerDeathUI()
     {
         currentUI.GetComponent<PlayerUIManager>().TriggerDead();
     }
-
+    
+    // Disables player UI
     public void DisableUI()
     {
         currentUI.GetComponent<PlayerUIManager>().DisablePlayerUI();

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
+// Holds the player ID for the player
 public class PlayerID : MonoBehaviour
 {
     [Header("Player Number")]

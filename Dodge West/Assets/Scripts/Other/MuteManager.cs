@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.UI;
 
+// Allows the player to mute the audio for the game
 public class MuteManager : MonoBehaviour
 {
+    // The mute state is saved, even when the game is turned off
+    
+    // Tracks pause state
     private bool pauseEnabled = true;
     
-    private bool isMuted;
-    private InputSystemUIInputModule iSUIIMMuteControl;
-    private AudioSource audioSource;
+    private bool isMuted;   // Tracks mute state
+    private InputSystemUIInputModule iSUIIMMuteControl; // Reference to component that holds the controls for the mute button
+    private AudioSource audioSource;    // Reference to audio sources
 
     // Get mute state on start
     void Start()
@@ -27,7 +31,8 @@ public class MuteManager : MonoBehaviour
 
     private void Update()
     {
-        // Note: need to figure out control method for muting audio
+        // Note: need to figure out control method for muting audio.
+        // Currently just uses a seperate UI controller to manage mute state
 
         if (iSUIIMMuteControl.cancel.action.triggered)
         {
@@ -35,6 +40,7 @@ public class MuteManager : MonoBehaviour
         }
     }
 
+    // Pause audio
     private void Pause()
     {
         if (pauseEnabled)
@@ -43,6 +49,7 @@ public class MuteManager : MonoBehaviour
         }
     }
 
+    // Unpause Audio
     private void UnPause()
     {
         if (pauseEnabled || !audioSource.isPlaying)
@@ -68,6 +75,7 @@ public class MuteManager : MonoBehaviour
         }
     }
 
+    // Mute audio
     public void Mute()
     {
         isMuted = true;
@@ -80,6 +88,7 @@ public class MuteManager : MonoBehaviour
         }
     }
 
+    // Unmute audio
     public void Unmute()
     {
         isMuted = false;

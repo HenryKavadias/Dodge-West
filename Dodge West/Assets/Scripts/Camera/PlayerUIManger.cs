@@ -4,20 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Manages the players UI elements
 public class PlayerUIManager : MonoBehaviour
 {
+    // Player UI element references
     public Image healthImage;
-
     public TextMeshProUGUI playerNumberText;
-
     public TextMeshProUGUI playerHealthText;
-
     public TextMeshProUGUI playerLivesText;
-
     public GameObject crosshair;
-
     public GameObject deathMessage;
 
+    // Disable all elements, enable death message
     public void TriggerDead()
     {
         healthImage.enabled = false;
@@ -30,6 +28,7 @@ public class PlayerUIManager : MonoBehaviour
         deathMessage.SetActive(true);
     }
 
+    // Enable all elements, disnable death message
     public void TriggerResurrection()
     {
         healthImage.enabled = true;
@@ -42,6 +41,7 @@ public class PlayerUIManager : MonoBehaviour
         deathMessage.SetActive(false);
     }
 
+    // Disable all UI elements
     public void DisablePlayerUI()
     {
         healthImage.enabled = false;

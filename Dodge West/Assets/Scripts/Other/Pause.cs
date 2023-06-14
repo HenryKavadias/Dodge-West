@@ -7,14 +7,14 @@ using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.XInput;
 using UnityEngine.UI;
 
-
+// Controls the pause state of the game (must be attached to game manager/controller)
 [RequireComponent(typeof(GameController))]
 public class Pause : MonoBehaviour
 {
-    public GameObject pausePanel;
-    public Button resumeButton;
+    public GameObject pausePanel;   // Reference to pause panle (holds pause UI)
+    public Button resumeButton;     // Reference to resume button (used for pause UI)
 
-    public GameObject eventSystem;
+    public GameObject eventSystem;  // Reference to event system
 
     public bool isPaused { get; private set; } = false;
 
@@ -30,11 +30,13 @@ public class Pause : MonoBehaviour
         }
     }
 
+    // Unpause game when it states
     void Start()
     {
         UnPauseGame();
     }
 
+    // Toggles the pause state of the game
     public void TogglePauseState()
     {
         if (isPaused)
@@ -47,38 +49,40 @@ public class Pause : MonoBehaviour
         }
     }
 
+    // Pause game 
     public void PauseGame()
     {
         pausePanel.SetActive(true);
         resumeButton.Select();
 
-        // disable player controls
+        // Disable player controls
         GetComponent<GameController>().TogglePlayerControls(false);
 
-        // pause audio
+        // Pause audio
         if (GetComponent<MusicContoller>())
         {
             GetComponent<MusicContoller>().PauseMusic();
         }
 
-        Time.timeScale = 0.0f; // pauses game
+        Time.timeScale = 0.0f; // Pauses game
         isPaused = true;
     }
 
+    // Unpuase game
     public void UnPauseGame()
     {
         pausePanel.SetActive(false);
 
-        // enable player controls
+        // Enable player controls
         GetComponent<GameController>().TogglePlayerControls(true);
 
-        // unpause audio
+        // Unpause audio
         if (GetComponent<MusicContoller>())
         {
             GetComponent<MusicContoller>().PauseMusic(false);
         }
 
-        Time.timeScale = 1.0f; // unpauses game
+        Time.timeScale = 1.0f; // Unpauses game
         isPaused = false;
     }
 }

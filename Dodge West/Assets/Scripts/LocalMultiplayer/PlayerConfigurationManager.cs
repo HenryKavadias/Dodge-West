@@ -10,27 +10,33 @@ using UnityEngine.SceneManagement;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
+    // Reference to transition handler
     public GameObject transitionHandler;
 
-    // String name must be accurate
+    // String name must be accurate for scene names
     [SerializeField]
     private string nextScene = "Multiplayer-TestScene";
     [SerializeField]
     private string previousScene = "Start-Scene";
 
+    // UI element that covers everything when everyone is ready
     [SerializeField]
     private GameObject blankScreen;
 
+    // List of player control configurations (1 per player controller)
     private List<PlayerConfiguration> playerConfigs;
     //[SerializeField]
     //[Range(2, 4)]
     private int maxPlayers = 4;
     private int minPlayers = 2;
 
+    // Reference to the configuration manager (only one player configuration manager may be active at a time)
     public static PlayerConfigurationManager Instance { get; private set; }
 
     private void Awake()
     {
+        // Create instance of player configuration manager, store it in static variable,
+        // assign object to don't destroy on load instance (destory self if another already exists)
         if (Instance != null)
         {
             Debug.Log("[Singleton] Trying to instantiate a second instance of a singleton class.");
@@ -50,12 +56,11 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     // Todo?: check if the system semi allows for adding more than 4 players,
     // if greater than the limit, remove/block any extras
+
+    // Add new player configuration to list
     public void HandlePlayerJoin(PlayerInput pi)
     {
-
-        //Debug.Log("player joined " + pi.playerIndex);
-        //pi.transform.SetParent(transform);
-
+        // avoid adding duplicate, and more than the maximum players
         if (!playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
         {
             Debug.Log("player joined " + pi.playerIndex);
@@ -70,7 +75,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         }
     }
 
-    // needs work
+    // Remove an existing player when they back out
     public void HandlePlayerLeave(PlayerInput pi)
     {
         //Debug.Log("player left " + pi.playerIndex);
@@ -78,20 +83,16 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             Debug.Log("player left " + pi.playerIndex);
 
-            // this line of code is useless, player config object destorys itself with "PlayerLeaves()"
-            //Destroy(transform.GetChild(pi.playerIndex).gameObject);
             var player = playerConfigs.Find(p => p.PlayerIndex == pi.playerIndex);
             playerConfigs.Remove(player);
         }
 
-        // if all players backed out load previous scene and destroy player config manager
+        // If all players backed out load previous scene and destroy player config manager
         if (!playerConfigs.Any())
         {
             if (transitionHandler)
             {
                 transitionHandler.GetComponent<SceneTransition>().LoadNextScene(previousScene);
-
-                //transitionHandler = null;
             }
             else
             {
@@ -99,41 +100,33 @@ public class PlayerConfigurationManager : MonoBehaviour
 
                 Destroy(gameObject);
             }
-
-            //SceneManager.LoadScene(previousScene);
-
-            //Destroy(gameObject);
         }
     }
 
+    // Return list of player configurations 
     public List<PlayerConfiguration> GetPlayerConfigs()
     {
         return playerConfigs;
     }
 
-    // might not be necessary for later builds
+    // might be change for character model for later builds
     public void SetPlayerColor(int index, Material color)
     {
+        // If player configuration exists, set colour
         //playerConfigs[index].playerMaterial = color;
         playerConfigs.Find(p => p.PlayerIndex == index).playerMaterial = color;
     }
 
-    // may need work
+    // Handles players going into ready state
     public void ReadyPlayer(int index)
     {
+        // If player exists, ready them up
         playerConfigs.Find(p => p.PlayerIndex == index).isReady = true;
 
-        //playerConfigs[index].isReady = true;
-        //if (playerConfigs.Count == minPlayers)
+        // If player configuration list count is above or at the minimum and is below or at the maximum
         if (playerConfigs.Count <= maxPlayers && playerConfigs.Count >= minPlayers)
         {
-            //Debug.Log(playerConfigs.All(p => p.isReady == true));
-
-            //foreach (var config in playerConfigs)
-            //{
-            //    Debug.Log(config.isReady + " " + config.PlayerIndex);
-            //}
-
+            // If all players have readied up
             if (playerConfigs.All(p => p.isReady == true))
             {
                 // This line of code is required to prevent a bug with the player,
@@ -146,10 +139,7 @@ public class PlayerConfigurationManager : MonoBehaviour
                 // Hides previous scene UI
                 GameObject bs = Instantiate(blankScreen);
 
-                //GameObject rootMenu = GameObject.Find("CoverLayout");
-                //GameObject bs = Instantiate(blankScreen, rootMenu.transform);
-                //bs.transform.SetAsFirstSibling();
-
+                // Begin scene transition
                 if (transitionHandler)
                 {
                     transitionHandler.GetComponent<SceneTransition>().LoadNextScene(nextScene, true);
@@ -160,9 +150,6 @@ public class PlayerConfigurationManager : MonoBehaviour
                 {
                     SceneManager.LoadScene(nextScene);
                 }
-
-                //SceneManager.LoadScene(nextScene);
-                //Debug.Log("Works!!! " + playerConfigs.Count);
             }
         }
     }
@@ -175,6 +162,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     }
 }
 
+// Player configuration object class
 public class PlayerConfiguration
 {
     public PlayerConfiguration(PlayerInput pi)
@@ -184,8 +172,7 @@ public class PlayerConfiguration
     }
 
     public PlayerInput Input { get; private set; }
-    //public int PlayerIndex { get; set; } // was Set Private, changed for error prevention
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
-    public Material playerMaterial { get; set; } // might not be necessary for later builds
+    public Material playerMaterial { get; set; } // might be change for models in later builds
 }

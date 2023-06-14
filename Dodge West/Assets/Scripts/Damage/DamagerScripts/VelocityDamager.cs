@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Pickupable object states. Used to control the
+// sensitivity to damage that the object has
 public enum ObjectState
 {
     Idle,
@@ -12,22 +14,27 @@ public enum ObjectState
 [RequireComponent(typeof(Rigidbody))]
 public class VelocityDamager : Damager
 {
-    private Rigidbody rb;
+    private Rigidbody rb;   // Objects rigidbody
+
     // used to prevent the carrier from damaging
     // themselves with the object they are carrying
     private GameObject currentHolder = null; 
 
+    // Current object sate
     private ObjectState state { get; set; } = ObjectState.Idle;
 
+    // Set object to picked up/held state and set holder
     public void Pickup(GameObject holder)
     {
         currentHolder = holder;
         state = ObjectState.Held;
     }
 
+    // Set object to a thrown or idle state depending if the object was "thrown" or "dropped"
     public void Drop(bool thrown = false)
     {
         currentHolder = null;
+        // Note: might change this to so dropped objects are in a throw state
         if (thrown)
         {
             state = ObjectState.Thrown;
@@ -38,6 +45,7 @@ public class VelocityDamager : Damager
         }
     }
 
+    // Check if object is held
     public bool IsHeld()
     {
         return currentHolder != null;
@@ -48,6 +56,7 @@ public class VelocityDamager : Damager
         rb = GetComponent<Rigidbody>();
     }
 
+    // Object damage velocities and thresholds (sensitivities) for each object state
     [Header("Default")]
     public float minDamageVelocity = 2f;
     [Range(0f, 1f)] public float velocityThreshold = 0.3f;
@@ -64,6 +73,13 @@ public class VelocityDamager : Damager
     public float minIdleDamageVelocity = 3f;
     [Range(0f, 1f)] public float idleVelocityThreshold = 0.7f;
 
+    // Thrown: when object is thrown by a player. Goes to Idle when it collides with another object (after applying damage)
+
+    // Held: when object is held by a player. Goes to Idle when dropped, goes to Thrown when thrown by player
+
+    // Idle: when object isn't being directly interacted with
+
+    // Calculate and apply the damage to the damageable object (if it passes the threshold)
     private void CalculateAndApplyDamage(Damageable damageScript, float minDamageVel, float velThreshold)
     {
         float damageFactor = rb.velocity.magnitude / minDamageVel;
@@ -76,40 +92,34 @@ public class VelocityDamager : Damager
 
     private void OnCollisionEnter(Collision collision)
     {
+        // if object isn't help or in a thrown state, set to Idle
         if (!currentHolder && state != ObjectState.Thrown)
         {
             state = ObjectState.Idle;
         }
 
+        // Avoids damaging the holder of the object
         if (collision.gameObject != currentHolder)
         {
             Damageable damageable = collision.gameObject.GetComponent<Damageable>();
 
-            // if object is damageable
+            // If object is damageable
             if (damageable)
             {
-                // Different damage thresholds for different states
+                // Calcualte the damage based on the current state
                 switch (state)
                 {
                     case ObjectState.Idle:
-
                         CalculateAndApplyDamage(damageable, minIdleDamageVelocity, idleVelocityThreshold);
-
                         break;
                     case ObjectState.Held:
-                        
                         CalculateAndApplyDamage(damageable, minHeldDamageVelocity, heldVelocityThreshold);
-
                         break;
                     case ObjectState.Thrown:
-
                         CalculateAndApplyDamage(damageable, minThrownDamageVelocity, thrownVelocityThreshold);
-
                         break;
                     default:
-                        
                         CalculateAndApplyDamage(damageable, minDamageVelocity, velocityThreshold);
-
                         break;
                 }
             }

@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Controller for the players ability to pause the game
 public class PauseControls : MonoBehaviour
 {
+    // Input pause variable
     private bool pausing = false;
-    //public bool isPaused { get; private set; } = false;
 
+    // Input function for pause
     public void OnPause(InputAction.CallbackContext context)
     {
         pausing = context.action.triggered;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (pausing)
         {
+            // Re-enable Cursor
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            // do the stuff
+            // Tells the game controler/manager to pause the game
             GameObject gm = GameObject.FindGameObjectWithTag("GameController");
             if (gm != null && gm.GetComponent<Pause>().isActiveAndEnabled)
             {
                 gm.GetComponent<Pause>().TogglePauseState();
-                //isPaused = gm.GetComponent<Pause>().isPaused;
             }
 
             pausing = false;

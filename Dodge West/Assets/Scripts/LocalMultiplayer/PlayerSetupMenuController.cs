@@ -6,10 +6,12 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem;
 
+// Controls the menu functions for a join player in the local multiplayer setup scene
 public class PlayerSetupMenuController : MonoBehaviour
 {
     private int playerIndex;
 
+    // UI elements
     [SerializeField]
     private TextMeshProUGUI titleText;
     [SerializeField]
@@ -18,7 +20,6 @@ public class PlayerSetupMenuController : MonoBehaviour
     private GameObject menuPanel;
     [SerializeField]
     private Button readyButton;
-
     [SerializeField]
     private Button redButton;
     [SerializeField]
@@ -26,13 +27,17 @@ public class PlayerSetupMenuController : MonoBehaviour
 
     private SpawnPlayerSetupMenu spawnScriptRef;
 
+    // Sets the reference of the spawn script for the player menu
     public void SetSpawnerReference(SpawnPlayerSetupMenu spawnRef)
     {
         spawnScriptRef = spawnRef;
     }
 
-    private float ignoreInputTime = 1.5f;
+    // Controls inital input delay (blocks player input for a time when UI is spawned in)
+    private float ignoreInputTime = 1.0f;
     private bool inputEnabled;
+
+    // Set the player index and text for player menu UI
     public void SetPlayerIndex(int pi)
     {
         playerIndex = pi;
@@ -50,6 +55,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         BackAndCancel();
     }
 
+    // Controls the players' ability to back out of the UI
     void BackAndCancel()
     {
         if (!inputEnabled) { return; }
@@ -84,6 +90,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         }
     }
 
+    // Set the player colour (Note: might change to "set model")
     public void SelectColor(Material mat)
     {
         if (!inputEnabled) { return; }
@@ -95,6 +102,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         readyButton.Select();
     }
 
+    // Undoes selected colour
     public void UnSelectColor()
     {
         if (!inputEnabled) { return; }
@@ -107,6 +115,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         redButton.Select();
     }
 
+    // Set the player to a ready state
     public void ReadyPlayer()
     {
         if (!inputEnabled) { return; }
@@ -115,9 +124,11 @@ public class PlayerSetupMenuController : MonoBehaviour
         readyButton.gameObject.SetActive(false);
     }
 
+    // Unready player
     public void UnReadyPlayer()
     {
         if (!inputEnabled) { return; }
+
         PlayerConfigurationManager.Instance.UnReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(true);
     }

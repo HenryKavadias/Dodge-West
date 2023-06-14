@@ -3,27 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Manages the players ability to pickup objects in the game
+// (Objects are picked up with physics)
 public class PhysicsPickup : MonoBehaviour
 {
+    // Variables for pickup ability
+
+    // Trasparent pickup variables
     [SerializeField] private bool transparentPickup = false;
     [Range(0f, 1f)]
     [SerializeField] private float transparencyRatio = 0.5f;
 
-    [SerializeField] private LayerMask pickupMask;
-    private Camera playerCamera;
-    [SerializeField] private Transform pickupTarget;
+    [SerializeField] private LayerMask pickupMask;  // Layer(s) players can pickup objects on
+    private Camera playerCamera;                    // Reference to player camera
+    [SerializeField] private Transform pickupTarget;// Point where the picked up object will travel to
     [Space]
-    [SerializeField] private float pickupRange;
+    [SerializeField] private float pickupRange;     // Distance that players can pick up an object
+
+    // Variables that control the speed in which pickedup objects travel to the "pickupTarget"
     [SerializeField] private float objectTrackingSpeedModifier = 12f;
     [SerializeField] private float maxObjectSpeed = 20f;
+
+    // Controls the force applied to the an object when thrown
     [SerializeField] private float flatThrowPowerPerUnit = 20f; // Power per units of object mass
     [SerializeField] private bool enableThrowPowerWithCap = true;
-    private Rigidbody currentObject;
+    [SerializeField] private float minThrowPower = 100f;
 
+    private Rigidbody currentObject;    // Reference to current picked up object
+
+    // Input variables
     private bool pickedup = false;
     private bool thrown = false;
     private bool loadedItem = false;
 
+    // Input functions (OnPickup is used for pick and drop for an object)
     public void OnPickup(InputAction.CallbackContext context)
     {
         pickedup = context.action.IsPressed();
@@ -39,6 +52,7 @@ public class PhysicsPickup : MonoBehaviour
         loadedItem = context.action.IsPressed();
     }
 
+    // Set Camera reference
     public void SetCamera(Camera cam)
     {
         playerCamera = cam;
@@ -74,13 +88,13 @@ public class PhysicsPickup : MonoBehaviour
         // Throw power ideal guide:
 
         // Power per Units - ppu
-        // CAP ppu
+        // CAP ppu beyond this point
         // mass 1 - 100 ppu
         // mass 5 - 50 ppu
         // mass 10 - 35 ppu
         // mass 20 - 25 ppu
         // mass 100 - 20 ppu
-        // CAP ppu
+        // CAP ppu beyond this point
 
         // Using all data points for a power function gives:
         // y = 89.206x^-0.362
@@ -90,13 +104,14 @@ public class PhysicsPickup : MonoBehaviour
 
         float result = 0;
 
+        // Cap the force power for objects lighter than 1 mass
         if (currentObject.mass < 1)
         {
-            result = 100 * currentObject.mass;
+            result = minThrowPower * currentObject.mass;
             return result;
         }
 
-
+        // Calculates the throw force value for current object
         if (enableThrowPowerWithCap)
         {
             // 80ppu to 1ppu with a flat value
@@ -112,35 +127,35 @@ public class PhysicsPickup : MonoBehaviour
             result = powerPerUnits * currentObject.mass;
         }
 
-
         return result;
     }
 
-    // This should NOT be the case with actions that require holding down buttons like movement
+    // Manages the players ability to pickup, drop, and throw objects
     void PickupAndThrow()
     {
+        // Can only throw/drop an object if the player is carrying one
+        // Can only pickup an object if the player is looking at an object on the
+        // pickup layer, is in range, and isn't already holding an object
+        
         // Throw functionality must be put before pickup/drop functionality
         if (thrown && currentObject)
         {
             // Throw object
             currentObject.GetComponent<VelocityDamager>().Drop(true);
             currentObject.useGravity = true;
-
-            //Debug.Log("Force applied: " + DynamicForceToObject() +
-            //        ", Mass of Object: " + currentObject.mass);
             currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
 
+            // Restore to original material state
             RestoreToOriginalMaterials();
-            //ResetMaterial();
 
             currentObject = null;
 
+            // Avoids multiple actions from one input
             pickedup = false;
-            thrown = false; // Avoids multiple actions from one input
+            thrown = false; 
             return;
         }
 
-        // Input variable
         if (pickedup || thrown)
         {
             if (currentObject)
@@ -149,8 +164,8 @@ public class PhysicsPickup : MonoBehaviour
                 currentObject.GetComponent<VelocityDamager>().Drop();
                 currentObject.useGravity = true;
 
+                // Restore to original material state
                 RestoreToOriginalMaterials();
-                //ResetMaterial();
 
                 currentObject = null;
             }
@@ -179,6 +194,7 @@ public class PhysicsPickup : MonoBehaviour
             return;
         }
 
+        // Note: load system still needs implementing
         if (loadedItem)
         {
 
@@ -187,12 +203,15 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    // Experimental system for pickupable objects with multiple models
-    //private List<Material> contactedMaterials = new List<Material>();
-    private List<Material> objectMaterials;
-    private int objectMaterialCount = 0;
-    private int objectMaterialCounter = 0;
+    // System for pickupable objects with multiple models
+    // NOTE: all materials must be added to the Resources/Materials file location
 
+    // Object model material variables
+    private List<Material> objectMaterials; // Copies all the materials attached to an object model structure
+    private int objectMaterialCount = 0;    // Number of materials attached to object
+    private int objectMaterialCounter = 0;  // Current material being reset in object model structure
+
+    // Resets object model material variables
     void ResetMaterialVariables()
     {
         objectMaterials = new List<Material>();
@@ -200,13 +219,14 @@ public class PhysicsPickup : MonoBehaviour
         objectMaterialCounter = 0;
     }
 
+    // Make object materials transparent and save their previous materials and structure
     void MakeObjectsTransparent()
     {
         if (transparentPickup && currentObject)
         {
-            //objectMaterials = new List<Material>();
             ResetMaterialVariables();
 
+            // If object has children, start the relevent recursion function
             if (currentObject.gameObject.transform.childCount > 0)
             {
                 ModifyObjectMaterial(currentObject.gameObject.transform);
@@ -214,7 +234,8 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    // NOTE: all materials must be added to the Resources/Materials file location
+    // Uses a recursion function to dynamically apply the material change to a
+    // pickupable object no matter what object structure it has
     void ModifyObjectMaterial(Transform parent)
     {
         foreach (Transform child in parent)
@@ -224,26 +245,32 @@ public class PhysicsPickup : MonoBehaviour
             {
                 GameObject curObj = child.gameObject;
 
+                // Get material of current object
                 Material mat = curObj.GetComponent<MeshRenderer>().material;
 
-                // Note: might be worth making the array a script variable
-                // instead of a local function variable (maybe set it up in the start function)
+                // Note: should change this to be called only once (make a function for this)
+
+                // Get all materials
                 Object[] matArray = Resources.LoadAll("Materials", typeof(Material));
                 
                 bool foundMaterial = false;
 
+                // Search for the material of current object
                 foreach (Object obj in matArray)
                 {
                     Material curMat = (Material)obj;
 
+                    // If material is found in the array of materials...
                     if (mat.name.ToString().Contains(curMat.name))
                     {
+                        // Add a copy of that material to the object material reference list
                         objectMaterials.Add(new Material(curMat));
                         foundMaterial = true;
                         break;
                     }
                 }
 
+                // Error if material isn't in resources folder
                 if (!foundMaterial)
                 {
                     objectMaterials.Add(new Material(mat));
@@ -251,10 +278,11 @@ public class PhysicsPickup : MonoBehaviour
                         "Resources/Materials, please correct");
                 }
 
-                // makes object transparent
+                // Makes object transparent
                 MakeMaterialTransparent(mat);
             }
 
+            // If the current object has children, trigger recursion will passing in current object
             if (child.childCount > 0)
             {
                 ModifyObjectMaterial(child);
@@ -262,21 +290,25 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    // Make object transparent
     void MakeMaterialTransparent(Material mat)
     {
-        // makes object transparent
+        // Makes object transparent (render mode)
         mat = StandardShaderUtils.ChangeRenderMode(
             mat, StandardShaderUtils.BlendMode.Transparent);
 
+        // Alter the transparency (alpha value) of the object
         Color color = mat.color;
         color.a = transparencyRatio;
         mat.color = color;
     }
 
+    // Restores object materials to their previous states
     void RestoreToOriginalMaterials()
     {
         if (transparentPickup && currentObject)
         {
+            // If object has children, start the relevent recursion function
             if (currentObject.gameObject.transform.childCount > 0)
             {
                 objectMaterialCount = objectMaterials.Count;
@@ -287,12 +319,13 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    //public MaterialContainer matContainer;
+    // Uses a recursion function to dynamically restores the material previous material states
+    // to a pickupable object no matter what object structure it has
     void ResetObjectMaterial(Transform parent)
     {
         foreach (Transform child in parent)
         {
-            // Check to see if object has a model
+            // Check to see if object has a model, and if their are still materails to revert
             if (child.gameObject.GetComponent<MeshRenderer>() != null && 
                 objectMaterialCounter < objectMaterialCount)
             {
@@ -300,6 +333,7 @@ public class PhysicsPickup : MonoBehaviour
 
                 // When re-applying the old material, find a way to get its copy from the assets folder
 
+                // Re-apply object material stored in the materials list
                 curObj.GetComponent<MeshRenderer>().material = objectMaterials[objectMaterialCounter];
 
                 objectMaterialCounter++;
@@ -310,6 +344,7 @@ public class PhysicsPickup : MonoBehaviour
                 return;
             }
 
+            // If the current object has children, trigger recursion will passing in current object
             if (child.childCount > 0)
             {
                 ResetObjectMaterial(child);
@@ -317,6 +352,7 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    // Controls the physics behind picking up an object
     void FixedUpdate()
     {
         // Makes current object travel to the pick up point of the player

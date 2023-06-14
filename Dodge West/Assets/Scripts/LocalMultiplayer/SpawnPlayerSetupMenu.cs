@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class SpawnPlayerSetupMenu : MonoBehaviour
 {
+    
     public GameObject playerSetupMenuPrefab;
 
     private GameObject rootMenu;
@@ -19,10 +20,7 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
         rootMenu = GameObject.Find("MainLayout"); 
         if (rootMenu != null)
         {
-            //var menu = Instantiate(playerSetupMenuPrefab, rootMenu.transform);
-            //input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
-            //menu.GetComponent<PlayerSetupMenuController>().SetPlayerIndex(input.playerIndex);
-
+            // Spawns the player setup menu under a parent object and sets its variables
             spawnedMenu = Instantiate(playerSetupMenuPrefab, rootMenu.transform);
             input.uiInputModule = spawnedMenu.GetComponentInChildren<InputSystemUIInputModule>();
             spawnedMenu.GetComponent<PlayerSetupMenuController>().SetPlayerIndex(input.playerIndex);
@@ -31,6 +29,7 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
 
     }
 
+    // Controls when player leaves/backs out of local multiplayer setup scene
     public void PlayerLeaves()
     {
         if (rootMenu != null)

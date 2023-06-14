@@ -4,6 +4,7 @@ using System.Collections.Generic;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+// Used to control modifiable float values (e.g. health, stamina, mana, etc)
 public abstract class Progressive : MonoBehaviour
 {
     [SerializeField] private float _initial;    // initial value
@@ -33,7 +34,7 @@ public abstract class Progressive : MonoBehaviour
 
     // Used to trigger changes for the visual display (e.g. the health bar,
     // which changes in accordance to the ratio of its assigned progressive object)
-    public Action OnChange;
+    public Action OnChange; // Note: might change variable name
 
     private void Awake()
     {

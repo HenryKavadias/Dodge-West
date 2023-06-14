@@ -9,14 +9,15 @@ using UnityEngine.SceneManagement;
 
 public class StartScreenUI : MonoBehaviour
 {
-    public GameObject transitionHandler;
+    public GameObject transitionHandler;    // Reference for scene transition handler
     
+    // Scene names the player can go to (MUST be accurate)
     [SerializeField]
     private string tutorialScene = "Tutorial-Scene";
-
     [SerializeField]
     private string localMultiplayerScene = "LocalMultiplayerSetup";
 
+    // UI elements for start scene
     [SerializeField]
     private GameObject startPanel;
     [SerializeField]
@@ -26,15 +27,17 @@ public class StartScreenUI : MonoBehaviour
     [SerializeField]
     private GameObject backButton;
 
+    // Buttons for start scenes
     [SerializeField]
     private Button[] menuButtons;
 
-    private float ignoreInputTime = 1.5f;
+    // Input delay duration variables
+    private float ignoreInputTime = 1.0f;
     private bool inputEnabled;
 
+    // Set beginning state of start menu UI
     private void Start()
     {
-        // Begining setup
         startPanel.SetActive(true);
         controlsPanel.SetActive(false);
         creditsPanel.SetActive(false);
@@ -42,7 +45,7 @@ public class StartScreenUI : MonoBehaviour
         menuButtons[0].Select();
     }
 
-    // Update is called once per frame
+    // Delay player input after scene loads
     void Update()
     {
         if (Time.time > ignoreInputTime)
@@ -51,28 +54,26 @@ public class StartScreenUI : MonoBehaviour
         }
     }
 
+    // Go to single player tutorial scene
     public void SelectTutorial()
     {
         if (!inputEnabled) { return; }
 
         transitionHandler.GetComponent<SceneTransition>().LoadNextScene(tutorialScene);
-
-        //SceneManager.LoadScene(tutorialScene);
     }
 
+    // Go to local multiplayer setup scene
     public void SelectLocalMultiplayer()
     {
         if (!inputEnabled) { return; }
 
         transitionHandler.GetComponent<SceneTransition>().LoadNextScene(localMultiplayerScene);
-        //SceneManager.LoadScene(localMultiplayerScene);
     }
 
+    // Show Control Panel
     public void SelectControls()
     {
         if (!inputEnabled) { return; }
-
-        // Show Control Panel
 
         startPanel.SetActive(false);
         controlsPanel.SetActive(true);
@@ -80,11 +81,10 @@ public class StartScreenUI : MonoBehaviour
         backButton.GetComponent<Button>().Select();
     }
 
+    // Show Credits Panel
     public void SelectCredits()
     {
         if (!inputEnabled) { return; }
-
-        // Show Credits Panel
 
         startPanel.SetActive(false);
         creditsPanel.SetActive(true);
@@ -116,11 +116,12 @@ public class StartScreenUI : MonoBehaviour
             else
             {
                 backButton.SetActive(true);
-                menuButtons[0].Select();
+                menuButtons[0].Select(); // First button in menu
             }
         }
     }
 
+    // Quits out of the game
     public void SelectQuit()
     {
         if (!inputEnabled) { return; }

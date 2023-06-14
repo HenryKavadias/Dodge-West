@@ -562,10 +562,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0b52b7b6ae1f64faa0417b5d63dcf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 25
+  cameraSensitivity: 20
   camPos: {fileID: 7357810024215858348}
   orientation: {fileID: 8657622561209081978}
-  Model: {fileID: 161012299386307288}
+  model: {fileID: 161012299386307288}
 --- !u!114 &-7550171255638960453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +615,7 @@ MonoBehaviour:
   maxObjectSpeed: 80
   flatThrowPowerPerUnit: 25
   enableThrowPowerWithCap: 1
+  minThrowPower: 100
 --- !u!114 &612988788595045758
 MonoBehaviour:
   m_ObjectHideFlags: 0

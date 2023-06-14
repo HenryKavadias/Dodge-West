@@ -9,7 +9,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    // For local multiplayer controls
+    // Reference for local multiplayer controls
     // (Single player controls are with the
     // Player Input component with Unity Events)
     private PlayerConfiguration playerConfig;
@@ -26,6 +26,7 @@ public class PlayerInputHandler : MonoBehaviour
     // For control map checking
     private PlayerControls controls;
 
+    // Get references to all scripts that have the player controls
     private void Awake()
     {
         movement = GetComponent<FirstPersonMovement>();
@@ -50,27 +51,32 @@ public class PlayerInputHandler : MonoBehaviour
     // Player ID needs to be set first before this function is called
     public void InitializePlayer(PlayerConfiguration config = null, int id = 0)
     {
-        // if single player, enable native controls,
+        // If single player, enable native controls,
         // Otherwise access the script for player controls
         // TODO?: may need to change it to just the script
 
         if (id == 0)
         {
+            // Native controls (Single player)
             GetComponent<PlayerID>().ChangePlayerNumber(id);
             gameObject.GetComponent<PlayerInput>().enabled = true;
         }
         else
         {
+            // Player configuration controls (Local multiplayer
             GetComponent<PlayerID>().ChangePlayerNumber(id);
 
             gameObject.GetComponent<PlayerInput>().enabled = false;
 
             playerConfig = config;
             playerMesh.material = config.playerMaterial;
+
+            // Assign the player controls to the player configuration
             config.Input.onActionTriggered += Input_onActionTriggered;
         }
     }
 
+    // Assigns the controls to the player configuration with script
     private void Input_onActionTriggered(CallbackContext obj)
     {
         string actionName = obj.action.name;
@@ -135,6 +141,8 @@ public class PlayerInputHandler : MonoBehaviour
             OnPause(obj);
         }
     }
+
+    // All the control function references for all the player abilities
 
     private void OnMove(CallbackContext context)
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls the music for the scene
 public class MusicContoller : MonoBehaviour
 {
     public GameObject objectMusic;
@@ -11,18 +12,19 @@ public class MusicContoller : MonoBehaviour
     private float musicVolume = 0.5f;
     private AudioSource audioSource;
     
-    // Start is called before the first frame update
+    // Gets music source, gets the audio source from it, and sets its volume
     void Start()
     {
         objectMusic = GameObject.FindWithTag("GameMusic");
         audioSource = objectMusic.GetComponent<AudioSource>();
 
         audioSource.volume = musicVolume;
-
     }
 
+    // Tracks pause state of music
     public bool isPaused { get; private set; }
 
+    // Toggles pause state of music
     public void PauseMusic(bool pause = true)
     {
         if (pause && audioSource.isPlaying)

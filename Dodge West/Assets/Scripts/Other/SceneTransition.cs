@@ -7,19 +7,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // NOTE: if any other Canvas exist in the scene, make sure the
-// cross fade image canvas has the HIGHEST "sort order"
+// cross fade image canvas has the HIGHEST value for "sort order"
+
+// Handles the transitions between scene
 public class SceneTransition : MonoBehaviour
 {
-    public float transitionDuration = 1.0f;
-    public Animator transition;
+    public float transitionDuration = 1.0f; // Duration of transition (should allow for length of the animation)
+    public Animator transition;             // Holds reference to animation
 
+    // Transtion UI variables
     public GameObject transitionCanvas;
     public int canvasSortOrder = 1;
     
-    
+    // Next scene name (MUST be accurate)
     [SerializeField]
     private string nextScene = "Start-Scene";
 
+    // Don't Destroy On Load by pass
     private bool bypassDNDOL = false;
 
     [SerializeField]
@@ -32,6 +36,7 @@ public class SceneTransition : MonoBehaviour
         bypassDNDOL = ignoreDNDOL;
     }
 
+    // Enables timer when script is enabled
     private void OnEnable()
     {
         timerOn = true;
@@ -42,7 +47,7 @@ public class SceneTransition : MonoBehaviour
         timerOn = false;
     }
 
-    // Update is called once per frame
+    // When timer is finished, start scene transition
     void Update()
     {
         if (timerOn)
@@ -57,12 +62,12 @@ public class SceneTransition : MonoBehaviour
                 timeLeft = 0;
                 timerOn = false;
 
-                //CancelDontNotDestroyOnLoad();
                 LoadNextScene();
             }
         }
     }
 
+    // Destroy Player configuration manager from don't destroy on load if the bypass variable is false
     void CancelDontNotDestroyOnLoad()
     {
         GameObject configManager = 
@@ -92,6 +97,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    // Loading bar variables
     public GameObject loadingScreen;
     public Slider slider;
     public TextMeshProUGUI progressText;
@@ -112,19 +118,20 @@ public class SceneTransition : MonoBehaviour
         }
 
 
-        // Load Scene
+        // Load Scene asynchronously
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
 
-        //SceneManager.LoadScene(scene);
-
+        // Destroy player configuration manager if triggered to
         if (!bypassDNDOL)
         {
             CancelDontNotDestroyOnLoad();
         }
 
+        // Activate loading bar
         loadingScreen.SetActive(true);
         loadingScreen.GetComponent<Canvas>().sortingOrder = canvasSortOrder + 1;
 
+        // Update loading bar until next scene is loaded
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);

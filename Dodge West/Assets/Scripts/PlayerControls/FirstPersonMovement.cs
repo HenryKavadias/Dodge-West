@@ -6,21 +6,26 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
 
+// Manages basic movement for the player
+// (camera controls are done in the camera controls script)
+
+// Note: movement is done with physics manipulation of the
+// players rigidbody, NOT manipulation of the players transform
 public class FirstPersonMovement : MonoBehaviour
 {    
+    // Variables for first person movement controls
+
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
     public bool enableSprint = false;
 
+    // Dash variables (used by dash script)
     public float dashSpeed;
     public float dashSpeedChangeFactor;
-
     public float maxYSpeed;
-
     public float groundDrag = 0.5f;
-    //public float airDrag = 0.2f;
 
     [Header("Jump")]
     public float jumpForce = 7f;
@@ -50,18 +55,15 @@ public class FirstPersonMovement : MonoBehaviour
 
     [Header("Other")]
     public GameObject playerModel;
-
     public Transform orientation;
+    private float horizontalInput;
+    private float verticalInput;
+    private Vector3 moveDirection;
+    private Rigidbody rb;
 
-    float horizontalInput;
-    float verticalInput;
-
-    Vector3 moveDirection;
-
-    Rigidbody rb;
-
+    // Manages the movement states of the player
+    // (Used to manage the different physics forces applied to the player)
     public MovementState state;
-
     public enum MovementState
     {
         walking,
@@ -71,19 +73,20 @@ public class FirstPersonMovement : MonoBehaviour
         air
     }
 
+    // Tracks if the player is dashing
     public bool dashing;
 
+    // Movement control variables
     private Vector2 movementInput = Vector2.zero;
-
     public Vector2 currentMoveInput
     {
         get { return movementInput; }
     }
-
     private bool jumped = false;
     private bool sprinting = false;
     private bool crouching = false;
     private bool stillCrouching = false;
+
 
     void Start()
     {
@@ -92,11 +95,14 @@ public class FirstPersonMovement : MonoBehaviour
 
         readyToJump = true;
 
+        // Used for crouching
         startYScale = transform.localScale.y;
 
+        // Get player character height and set the ground check size
         if (playerModel)
         {
             currentHeight = playerModel.transform.localScale.y * 2;
+            // Note: also used for Sphere Cast
             groundCheckBoxSize = new Vector3(
                 playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
                 , 0.05f, 
@@ -107,10 +113,12 @@ public class FirstPersonMovement : MonoBehaviour
             Debug.Log("Error, can't get players scale");
         }
 
+        // Disables cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    // Movement controls functions
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
@@ -142,7 +150,7 @@ public class FirstPersonMovement : MonoBehaviour
         }
     }
 
-    // shows the ground box cast check
+    // Shows the ground box cast check
     private void OnDrawGizmos()
     {
         float maxDistance = currentHeight * 0.5f + distanceOfCheck;
@@ -190,6 +198,7 @@ public class FirstPersonMovement : MonoBehaviour
             groundMask);
     }
 
+    // This is currently used for ground checking
     bool SphereCastCheck()
     {
         return Physics.SphereCast(
@@ -200,19 +209,17 @@ public class FirstPersonMovement : MonoBehaviour
             groundMask);
     }
 
+    // Used for player inputs
     void Update()
     {
-        // checks if the player is touching the ground
-
+        // Checks if the player is touching the ground
         isGrounded = SphereCastCheck();
 
         PlayerInput();
-        
         SpeedControl();
-
         StateHandler();
 
-        // Handle drag
+        // Handles drag
         if (state == MovementState.walking || 
             state == MovementState.sprinting || 
             state == MovementState.crouching)
@@ -225,31 +232,20 @@ public class FirstPersonMovement : MonoBehaviour
         }
     }
 
+    // Used for player movement (based on physics applied to the rigidbody)
     void FixedUpdate()
     {
         MovePlayer();
     }
 
-    // For new "Player Input" system (interacts with the Player Input component)
+    // Handles the inputs of the player (interacts with the Player Input component)
     void PlayerInput()
     {
+        // Handles 2D player movement
         horizontalInput = movementInput.x;
         verticalInput = movementInput.y;
 
-        //if (GetComponent<PauseControls>())
-        //{
-        //    Debug.Log(GetComponent<PauseControls>().isPaused);
-        //    if (jumped && isGrounded && readyToJump && 
-        //        !GetComponent<PauseControls>().isPaused)
-        //    {
-        //        readyToJump = false;
-
-        //        Jump();
-        //        // allows player to keep jump when the jump button is held down
-        //        Invoke(nameof(ResetJump), jumpCooldown);
-        //    }
-        //}
-        //else
+        // Handles jump
         if (jumped && isGrounded && readyToJump)
         {   
             readyToJump = false;
@@ -259,14 +255,16 @@ public class FirstPersonMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        // start crouch
+        // Start crouching
         if (crouching)
         {
+            // Modify character model (NOTE: may get swapped with an animation)
             transform.localScale = new Vector3(
                 transform.localScale.x, 
                 crouchYScale, 
                 transform.localScale.z);
 
+            // Forces the player character to the ground
             if (!stillCrouching)
             {
                 rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
@@ -274,7 +272,7 @@ public class FirstPersonMovement : MonoBehaviour
             }
         }
 
-        // stop crouch
+        // Stop crouching 
         if (!crouching && stillCrouching)
         {
             transform.localScale = new Vector3(
@@ -285,11 +283,13 @@ public class FirstPersonMovement : MonoBehaviour
         }
     }
 
+    // Physics movement variables
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
     private MovementState lastState;
     private bool keepMomentum;
 
+    // Handles the movement state of the player
     private void StateHandler()
     {
         // Mode - Dashing
@@ -329,10 +329,12 @@ public class FirstPersonMovement : MonoBehaviour
             else { desiredMoveSpeed = sprintSpeed; }
         }
 
+        // Tracks if desired player movement speed speed
         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
 
         if (lastState == MovementState.dashing) { keepMomentum = true; }
 
+        // Controls the smooth change of the movement speed to desired value
         if (desiredMoveSpeedHasChanged)
         {
             if (keepMomentum)
@@ -352,9 +354,10 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     private float speedChangeFactor;
+
+    // Smoothly lerp movementSpeed to desired value
     private IEnumerator SmoothlyLerpMoveSpeed()
     {
-        // smoothly lerp movementSpeed to desired value
         float time = 0;
         float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
         float startValue = moveSpeed;
@@ -374,6 +377,7 @@ public class FirstPersonMovement : MonoBehaviour
         keepMomentum = false;
     }
 
+    // Controls the physics of how the player is moving based on the movement state
     void MovePlayer()
     {
         if (state == MovementState.dashing) { return; }
@@ -381,7 +385,7 @@ public class FirstPersonMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // on slope
+        // On slope
         // Note: if crouching, movement slower than 5 on a
         // slope of 30 degrees will result in snale paced movement
         if (OnSlope() && !exitingSlope)
@@ -410,6 +414,7 @@ public class FirstPersonMovement : MonoBehaviour
 
     }
 
+    // Controls the speed of the player under certin circumstances
     void SpeedControl()
     {
         // limiting speed on slope
@@ -440,6 +445,7 @@ public class FirstPersonMovement : MonoBehaviour
         }
     }
 
+    // Controls the physics behind the jump ability
     void Jump()
     {
         exitingSlope = true;
@@ -457,6 +463,7 @@ public class FirstPersonMovement : MonoBehaviour
         exitingSlope = false;
     }
 
+    // Controls how the player moves up and down slopes
     private bool OnSlope()
     {
         if (Physics.Raycast(
@@ -472,6 +479,7 @@ public class FirstPersonMovement : MonoBehaviour
         return false;
     }
 
+    // Get the direct the player is moving on a slope
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;

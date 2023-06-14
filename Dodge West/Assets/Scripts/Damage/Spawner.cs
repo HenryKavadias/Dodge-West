@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    //public GameObject prefab;
+    public GameObject prefabObj = null;
 
     public void Spawn(GameObject prefab)
     {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        if (prefab)
+        {
+            Instantiate(prefab, transform.position, Quaternion.identity);
+        }
+        else if (prefabObj)
+        {
+            Instantiate(prefabObj, transform.position, Quaternion.identity);
+        }
+
     }
 }

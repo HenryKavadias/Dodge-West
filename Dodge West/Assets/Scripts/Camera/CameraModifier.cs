@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(CameraFollow))]
+// Modifies the player camera depending on the game mode
 public class CameraModifier : MonoBehaviour
 {
     public Camera cam;
@@ -11,6 +11,7 @@ public class CameraModifier : MonoBehaviour
     {
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
 
+        // Only modifies the camera if the game mode is local multiplayer
         if (player && 
             player.GetComponent<PlayerID>() && 
             gameController && 
@@ -22,6 +23,7 @@ public class CameraModifier : MonoBehaviour
         }
     }
 
+    // Changes the camera dimensions and position relative to the players ID
     private void ModifyCamera(int playerID, int playerCount)
     {
         switch (playerCount)
@@ -40,6 +42,7 @@ public class CameraModifier : MonoBehaviour
         }
     }
 
+    // Sets the camera for two players
     private void TwoPlayerSetUp(int playerID)
     {
         switch (playerID)
@@ -47,19 +50,17 @@ public class CameraModifier : MonoBehaviour
             case 1:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0f, 0f, 0.5f, 1f);
-
                 break;
             case 2:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);
-
                 break;
             default:
                 break;
         }
     }
 
-    // Camera value sets need to be change
+    // Sets the camera for three players
     private void ThreePlayerSetUp(int playerID)
     {
         switch (playerID)
@@ -67,49 +68,40 @@ public class CameraModifier : MonoBehaviour
             case 1:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0f, 0.5f, 0.5f, 0.5f);
-
                 break;
             case 2:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
-
                 break;
             case 3:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.25f, 0f, 0.5f, 0.5f);
-
                 break;
             default:
                 break;
         }
     }
 
+    // Sets the camera for four players
     private void FourPlayerSetUp(int playerID)
     {
-        // Camera value sets need to be change
         switch (playerID)
         {
             case 1:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0f, 0.5f, 0.5f, 0.5f);
-
                 break;
-
             case 2:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
-
                 break;
-
             case 3:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0f, 0f, 0.5f, 0.5f);
-
                 break;
             case 4:
                 // X, Y, Width, Height
                 cam.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
-
                 break;
             default:
                 break;

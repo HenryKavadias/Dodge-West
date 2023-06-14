@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XInput;
 using UnityEngine.UI;
 
+// Game modes for the game
 public enum GameMode
 {
     SinglePlayer,
@@ -16,15 +17,22 @@ public enum GameMode
 
 public class GameController : MonoBehaviour
 {
+    // Variables for the game controller
+
+    // Tracks the current game mode
     public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
 
+    // Player character object
     public GameObject playerObject;
 
+    // Spawn positions for the player
     public GameObject[] spawnPosition;
 
+    // End game UI variables
     public GameObject endGamePanel;
     public TextMeshProUGUI winningPlayerText;
 
+    // Transition handler reference variable
     public GameObject transitionHandler;
 
     private Quaternion spawnRot = Quaternion.identity;
@@ -44,17 +52,21 @@ public class GameController : MonoBehaviour
         livePlayers.Remove(player);
     }
 
+    // Returns the number of live players
     public int LivePlayerCount()
     {
         return livePlayers.Count;
     }
 
+    // Switches the players controls on and off
     public void TogglePlayerControls(bool toggle)
     {
         foreach (GameObject player in livePlayers)
         {
             if (player.GetComponent<PlayerInput>())
             {
+                // Disables the players input system, WARNING: might not work for
+                // local multiplayer (although it is currently switched off for it)
                 player.GetComponent<PlayerInput>().enabled = toggle;
 
                 //player.GetComponent<FirstPersonMovement>().enabled = toggle;
@@ -133,6 +145,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Triggers delayed scene transition
     void TriggerSceneTransition()
     {
         if (transitionHandler)
@@ -147,6 +160,7 @@ public class GameController : MonoBehaviour
         //GetComponent<SceneTransition>().enabled = true;
     }
 
+    // Triggers immediate scene transition
     public void TriggerInstantSceneTransition()
     {
         if (transitionHandler)
@@ -175,6 +189,8 @@ public class GameController : MonoBehaviour
         // configuration manager exsists
         if (!PlayerConfigurationManager.Instance)
         {
+            // Setup for single player
+
             gameMode = GameMode.SinglePlayer;
 
             var player = Instantiate(
@@ -196,6 +212,8 @@ public class GameController : MonoBehaviour
         }
         else if (PlayerConfigurationManager.Instance)
         {
+            // Setup for local multiplayer
+            
             gameMode = GameMode.LocalMultiplayer;
 
             var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();

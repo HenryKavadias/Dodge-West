@@ -4,22 +4,10 @@ using UnityEngine;
 
 public class DisableOnDie : MonoBehaviour
 {
+    // Game controller reference
     private GameController gameController;
-    
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    GameObject gm = GameObject.FindGameObjectWithTag("GameController");
-    //    if (gm && gm.GetComponent<GameController>())
-    //    {
-    //        gameController = gm.GetComponent<GameController>();
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Can't find game manager or it script!");
-    //    }
-    //}
 
+    // Disable player character (triggered when the player enters a death state)
     public void DisableThis()
     {
         GameObject gm = GameObject.FindGameObjectWithTag("GameController");

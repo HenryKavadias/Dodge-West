@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Used to control modifiable int values
 public class LifeCounter : MonoBehaviour
 {
     [SerializeField] private int _initial;    // initial value
@@ -41,7 +42,7 @@ public class LifeCounter : MonoBehaviour
     public float Ratio => _current / _initial;
 
     // Used to trigger changes for the visual display (LifeDisplay)
-    public Action OnCountChange;
+    public Action OnCountChange;    // Note: might change variable name
 
     private void Awake()
     {
@@ -79,17 +80,20 @@ public class LifeCounter : MonoBehaviour
         }
     }
 
+    // Trigger OnZeroLives event immediately 
     private void TriggerDead()
     {
         OnZeroLives.Invoke();
     }
 
+    // Trigger OnZeroLives event after 1 frame
     private IEnumerator SlowTriggerDead()
     {
         yield return null;
         OnZeroLives.Invoke();
     }
 
+    // Trigger OnLooseALife event after 1 frame
     private IEnumerator SlowTriggerLoose()
     {
         yield return null;

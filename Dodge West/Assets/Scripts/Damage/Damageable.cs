@@ -39,11 +39,13 @@ public class Damageable : MonoBehaviour
         _health.Add(heal);
     }
 
+    // Trigger OnDie event immediately 
     protected void Die()
     {
         OnDie.Invoke();
     }
 
+    // Trigger OnDie event after next frame
     protected IEnumerator SlowDie()
     {
         yield return null;
