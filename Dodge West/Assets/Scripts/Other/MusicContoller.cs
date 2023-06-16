@@ -5,7 +5,7 @@ using UnityEngine;
 // Controls the music for the scene
 public class MusicContoller : MonoBehaviour
 {
-    public GameObject objectMusic;
+    public GameObject objectMusic = null;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -16,9 +16,13 @@ public class MusicContoller : MonoBehaviour
     void Start()
     {
         objectMusic = GameObject.FindWithTag("GameMusic");
-        audioSource = objectMusic.GetComponent<AudioSource>();
 
-        audioSource.volume = musicVolume;
+        if (objectMusic)
+        {
+            audioSource = objectMusic.GetComponent<AudioSource>();
+
+            audioSource.volume = musicVolume;
+        }
     }
 
     // Tracks pause state of music
@@ -27,6 +31,8 @@ public class MusicContoller : MonoBehaviour
     // Toggles pause state of music
     public void PauseMusic(bool pause = true)
     {
+        if (!audioSource) { return; }
+
         if (pause && audioSource.isPlaying)
         {
             audioSource.Pause();
