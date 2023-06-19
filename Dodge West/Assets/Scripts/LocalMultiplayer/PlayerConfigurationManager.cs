@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -39,7 +40,8 @@ public class PlayerConfigurationManager : MonoBehaviour
         // assign object to don't destroy on load instance (destory self if another already exists)
         if (Instance != null)
         {
-            Debug.Log("[Singleton] Trying to instantiate a second instance of a singleton class.");
+            Debug.Log("[Singleton] Trying to instantiate a second " +
+                "instance of a singleton class (player configuration manager).");
             Destroy(gameObject); // removes the duplicate 
         }
         else
@@ -52,6 +54,27 @@ public class PlayerConfigurationManager : MonoBehaviour
             playerConfigs = new List<PlayerConfiguration>();
         }
 
+        // Set the next level
+        SetNextLevel();
+    }
+
+    private void SetNextLevel()
+    {
+        GameObject levelData = GameObject.FindGameObjectWithTag("DataContainer");
+
+        if (levelData && levelData.GetComponent<LevelDataContainer>().selectedLevel != string.Empty)
+        {
+            nextScene = levelData.GetComponent<LevelDataContainer>().selectedLevel;
+
+            levelData.GetComponent<LevelDataContainer>().selectedLevel = string.Empty;
+
+            // This might be redundant in the future as the data container object may have more uses
+            levelData.GetComponent<LevelDataContainer>().DestroySelf();
+        }
+        else
+        {
+            Debug.Log("Error, data container is missing!!!");
+        }
     }
 
     // Todo?: check if the system semi allows for adding more than 4 players,

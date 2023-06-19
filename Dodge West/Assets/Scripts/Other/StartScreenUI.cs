@@ -17,15 +17,24 @@ public class StartScreenUI : MonoBehaviour
     [SerializeField]
     private string localMultiplayerScene = "LocalMultiplayerSetup";
 
+    [SerializeField]
+    private string[] levelSceneNames;
+
     // UI elements for start scene
     [SerializeField]
     private GameObject startPanel;
     [SerializeField]
+    private GameObject levelSelectPanel;
+    [SerializeField]
     private GameObject controlsPanel;
     [SerializeField]
     private GameObject creditsPanel;
+
     [SerializeField]
-    private GameObject backButton;
+    private GameObject[] backButtons;
+
+    [SerializeField]
+    private GameObject levelSelectButtonOne;
 
     // Buttons for start scenes
     [SerializeField]
@@ -39,9 +48,9 @@ public class StartScreenUI : MonoBehaviour
     private void Start()
     {
         startPanel.SetActive(true);
+        levelSelectPanel.SetActive(false);
         controlsPanel.SetActive(false);
         creditsPanel.SetActive(false);
-        backButton.SetActive(false);
         menuButtons[0].Select();
     }
 
@@ -67,8 +76,46 @@ public class StartScreenUI : MonoBehaviour
     {
         if (!inputEnabled) { return; }
 
-        transitionHandler.GetComponent<SceneTransition>().LoadNextScene(localMultiplayerScene);
+        //transitionHandler.GetComponent<SceneTransition>().LoadNextScene(localMultiplayerScene);
+        startPanel.SetActive(false);
+        levelSelectPanel.SetActive(true);
+        levelSelectButtonOne.GetComponent<Button>().Select();
     }
+
+    // Select a level to play
+    public void SelectLevel(int scene)
+    {
+        switch (scene)
+        {
+            case 0:
+                StoreLevelData(levelSceneNames[0]);
+                break; 
+            case 1:
+                StoreLevelData(levelSceneNames[1]);
+                break;
+            case 2:
+                StoreLevelData(levelSceneNames[2]);
+                break;
+            default: 
+                break;
+        }
+    }
+
+    void StoreLevelData(string scene)
+    {
+        GameObject data = GameObject.FindGameObjectWithTag("DataContainer");
+
+        if (data)
+        {
+            data.GetComponent<LevelDataContainer>().selectedLevel = scene;
+
+            transitionHandler.GetComponent<SceneTransition>().LoadNextScene(localMultiplayerScene);
+        }
+        else
+        {
+            Debug.Log("Error, data container is missing!!!");
+        }
+    }    
 
     // Show Control Panel
     public void SelectControls()
@@ -77,8 +124,7 @@ public class StartScreenUI : MonoBehaviour
 
         startPanel.SetActive(false);
         controlsPanel.SetActive(true);
-        backButton.SetActive(true);
-        backButton.GetComponent<Button>().Select();
+        backButtons[1].GetComponent<Button>().Select();
     }
 
     // Show Credits Panel
@@ -88,8 +134,7 @@ public class StartScreenUI : MonoBehaviour
 
         startPanel.SetActive(false);
         creditsPanel.SetActive(true);
-        backButton.SetActive(true);
-        backButton.GetComponent<Button>().Select();
+        backButtons[2].GetComponent<Button>().Select();
     }
 
     // Returns user to start screen
@@ -97,27 +142,27 @@ public class StartScreenUI : MonoBehaviour
     {
         if (!inputEnabled) { return; }
 
-        if (backButton.activeSelf)
+        if (levelSelectPanel.activeSelf)
         {
-            if (controlsPanel.activeSelf)
-            {
-                startPanel.SetActive(true);
-                controlsPanel.SetActive(false);
-                backButton.SetActive(false);
-                menuButtons[2].Select(); // Controls button
-            }
-            else if (creditsPanel.activeSelf)
-            {
-                startPanel.SetActive(true);
-                creditsPanel.SetActive(false);
-                backButton.SetActive(false);
-                menuButtons[3].Select(); // Credits button
-            }
-            else
-            {
-                backButton.SetActive(true);
-                menuButtons[0].Select(); // First button in menu
-            }
+            startPanel.SetActive(true);
+            levelSelectPanel.SetActive(false);
+            menuButtons[1].Select(); // Local multiplayer button
+        }
+        else if (controlsPanel.activeSelf)
+        {
+            startPanel.SetActive(true);
+            controlsPanel.SetActive(false);
+            menuButtons[2].Select(); // Controls button
+        }
+        else if (creditsPanel.activeSelf)
+        {
+            startPanel.SetActive(true);
+            creditsPanel.SetActive(false);
+            menuButtons[3].Select(); // Credits button
+        }
+        else
+        {
+            menuButtons[0].Select(); // First button in menu
         }
     }
 
