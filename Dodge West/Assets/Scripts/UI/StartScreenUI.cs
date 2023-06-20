@@ -53,12 +53,21 @@ public class StartScreenUI : MonoBehaviour
         menuButtons[0].Select();
     }
 
+    public GameObject eventSystem;  // Reference to event system
+
     // Delay player input after scene loads
     void Update()
     {
         if (Time.time > ignoreInputTime)
         {
             inputEnabled = true;
+        }
+
+        // Back button
+        if (eventSystem.GetComponent<InputSystemUIInputModule>().
+            cancel.action.triggered)
+        {
+            BackToStartMenu();
         }
     }
 
@@ -91,7 +100,7 @@ public class StartScreenUI : MonoBehaviour
 
         startPanel.SetActive(false);
         controlsPanel.SetActive(true);
-        backButtons[1].GetComponent<Button>().Select();
+        backButtons[0].GetComponent<Button>().Select();
     }
 
     // Show Credits Panel
@@ -101,7 +110,7 @@ public class StartScreenUI : MonoBehaviour
 
         startPanel.SetActive(false);
         creditsPanel.SetActive(true);
-        backButtons[2].GetComponent<Button>().Select();
+        backButtons[1].GetComponent<Button>().Select();
     }
 
     // Returns user to start screen

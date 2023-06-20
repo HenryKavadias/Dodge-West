@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -28,6 +29,8 @@ public class LevelSelectScreenUI : MonoBehaviour
 
     private GameObject dataContainer = null;
 
+    public GameObject eventSystem;  // Reference to event system
+
     void Start()
     {
         menuButtons[0].Select();
@@ -41,6 +44,13 @@ public class LevelSelectScreenUI : MonoBehaviour
         if (Time.time > ignoreInputTime)
         {
             inputEnabled = true;
+        }
+
+        // Back button
+        if (eventSystem.GetComponent<InputSystemUIInputModule>().
+            cancel.action.triggered)
+        {
+            BackToPreviousScene();
         }
     }
 

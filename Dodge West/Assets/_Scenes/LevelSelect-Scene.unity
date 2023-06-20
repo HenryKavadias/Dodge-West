@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionHandler: {fileID: 730326802}
   previousScene: Start-Scene
+  nextScene: LocalMultiplayerSetup
   levelSceneNames:
   - Alpha_SmallLevel
   - Alpha_MediumLevel
@@ -419,6 +420,7 @@ MonoBehaviour:
   - {fileID: 1163943343}
   - {fileID: 593848863}
   - {fileID: 1670103636}
+  eventSystem: {fileID: 183266301}
 --- !u!1 &420936612
 GameObject:
   m_ObjectHideFlags: 0
