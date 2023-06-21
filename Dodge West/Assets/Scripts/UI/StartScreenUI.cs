@@ -35,16 +35,17 @@ public class StartScreenUI : MonoBehaviour
     private float ignoreInputTime = 1.0f;
     private bool inputEnabled;
 
-    private GameObject dataContainer = null;
+    private LevelDataContainer dataContainer = null;
 
     // Set beginning state of start menu UI
     private void Start()
     {
-        dataContainer = GameObject.FindGameObjectWithTag("DataContainer");
+        GameObject data = GameObject.FindGameObjectWithTag("DataContainer");
 
-        if (dataContainer)
+        if (data)
         {
-            dataContainer.GetComponent<LevelDataContainer>().ResetSceneVariables();
+            dataContainer = data.GetComponent<LevelDataContainer>();
+            dataContainer.ResetSceneVariables();
         }
 
         startPanel.SetActive(true);
@@ -86,8 +87,7 @@ public class StartScreenUI : MonoBehaviour
 
         if (dataContainer)
         {
-            dataContainer.GetComponent<LevelDataContainer>().AddScene(SceneManager.GetActiveScene().name);
-            dataContainer.GetComponent<LevelDataContainer>().nextScene = nextScenes[2];
+            dataContainer.StoreDataToNextScene(SceneManager.GetActiveScene().name, nextScenes[2]);
         }
 
         transitionHandler.GetComponent<SceneTransition>().LoadNextScene(nextScenes[1]);

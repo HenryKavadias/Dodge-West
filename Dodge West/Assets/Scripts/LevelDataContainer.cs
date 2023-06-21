@@ -8,25 +8,24 @@ using UnityEngine.InputSystem;
 // - Records the level scene selected by the player that will be loaded 
 public class LevelDataContainer : MonoBehaviour
 {
-    public string selectedLevel { get; set; } = string.Empty;
-    //public string previousScene { get; set; } = string.Empty;
+    public string selectedLevel { get; private set; } = string.Empty;
 
     // The scene AFTER level select scene. Previous scene must tell this
     // script this before going to level select scene
-    public string nextScene { get; set; } = string.Empty;
+    public string nextScene { get; private set; } = string.Empty;
 
-    public List<string> previousScenes;
+    public List<string> previousScenes { get; private set; }
 
     // Add player to player list
-    public void AddScene(string scene)
+    void AddScene(string scene)
     {
         previousScenes.Add(scene);
     }
 
     // Remove player from player list
-    public void RemoveScene(string scene)
+    void RemoveSceneAt(int scene)
     {
-        previousScenes.Remove(scene);
+        previousScenes.RemoveAt(scene);
         // Note: maybe try to set up a way to pop the last scene in the list
     }
 
@@ -35,10 +34,58 @@ public class LevelDataContainer : MonoBehaviour
         return previousScenes.Count;
     }
 
-    //public List<string> GetSceneList()
-    //{
-    //    return previousScenes;
-    //}
+    // When going to next scene
+    public void StoreDataToNextScene(string previous, string next = "TBD")
+    {
+        AddScene(previous);
+
+        if (next != "TBD")
+        {
+            nextScene = next;
+        }
+
+        //DisplaySceneList();
+    }
+
+    // When setting / nulling selected level
+    public void ChangeSelectedLevel(string scene = "N/A")
+    {
+        if (scene != "N/A")
+        {
+            selectedLevel = scene;
+        }
+        else
+        {
+            selectedLevel = string.Empty;
+        }
+    }
+
+    // When back out to previous scene
+    public void RemoveDataBackToPreviousScene(string next)
+    {
+        // Remove last previous scene (player should be returning to this)
+        RemoveSceneAt(GetSceneListCount() - 1);
+
+        nextScene = next;
+
+       // DisplaySceneList();
+    }    
+
+    public string GetLastScene()
+    {
+        return previousScenes[GetSceneListCount() - 1];
+    }
+
+    private void DisplaySceneList()
+    {
+        foreach (string scene in previousScenes)
+        {
+            Debug.Log(scene + " | Previous");
+        }
+
+        Debug.Log(nextScene + " | Next");
+        Debug.Log(selectedLevel + " | Selected");
+    }
 
     // Reference to the LevelDataContainer (only one LevelDataContainer may be active at a time)
     public static LevelDataContainer LvlInstance {  get; private set; }
@@ -68,7 +115,7 @@ public class LevelDataContainer : MonoBehaviour
         //previousScene = string.Empty;
         nextScene = string.Empty;
 
-        previousScenes.Clear();
+        previousScenes = new List<string>();
     }
 
     public void DestroySelf()

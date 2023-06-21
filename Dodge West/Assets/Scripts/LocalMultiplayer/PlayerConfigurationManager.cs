@@ -31,7 +31,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     private int maxPlayers = 4;
     private int minPlayers = 2;
 
-    private GameObject levelData = null;
+    private LevelDataContainer levelData = null;
 
     // Reference to the configuration manager (only one player configuration manager may be active at a time)
     public static PlayerConfigurationManager Instance { get; private set; }
@@ -62,16 +62,16 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     private void SetNextLevel()
     {
-        levelData = GameObject.FindGameObjectWithTag("DataContainer");
+        GameObject data = GameObject.FindGameObjectWithTag("DataContainer");
 
-        if (levelData && levelData.GetComponent<LevelDataContainer>().selectedLevel != string.Empty)
+        if (data && data.GetComponent<LevelDataContainer>().selectedLevel != string.Empty)
         {
-            nextScene = levelData.GetComponent<LevelDataContainer>().selectedLevel;
+            levelData = data.GetComponent<LevelDataContainer>();
 
-            levelData.GetComponent<LevelDataContainer>().selectedLevel = string.Empty;
+            nextScene = levelData.selectedLevel;
 
-            // This might be redundant in the future as the data container object may have more uses
-            //levelData.GetComponent<LevelDataContainer>().DestroySelf();
+            // resets it
+            levelData.ChangeSelectedLevel();
         }
         else
         {
@@ -119,23 +119,13 @@ public class PlayerConfigurationManager : MonoBehaviour
             if (levelData)
             {
                 // Set previous scene
-                previousScene = 
-                    levelData.GetComponent<LevelDataContainer>().
-                    previousScenes[levelData.GetComponent<LevelDataContainer>().GetSceneListCount() - 1];
+                previousScene = levelData.previousScenes[levelData.GetSceneListCount() - 1];
 
-                //levelData.GetComponent<LevelDataContainer>().RemoveScene(previousScene);
-                // Remove previous scene
-                levelData.GetComponent<LevelDataContainer>().previousScenes.RemoveAt(
-                    levelData.GetComponent<LevelDataContainer>().GetSceneListCount() - 1);
+                // Remove previous scene and set next scene
+                levelData.RemoveDataBackToPreviousScene(SceneManager.GetActiveScene().name);
 
                 // Reset selected level
-                levelData.GetComponent<LevelDataContainer>().selectedLevel = string.Empty;
-
-                //Set Next Scene
-                levelData.GetComponent<LevelDataContainer>().nextScene = SceneManager.GetActiveScene().name;
-
-                //Debug.Log(previousScene);
-                // Change previous scene
+                levelData.ChangeSelectedLevel();
             }
 
             if (transitionHandler)
@@ -190,7 +180,8 @@ public class PlayerConfigurationManager : MonoBehaviour
 
                 if (levelData)
                 {
-                    levelData.GetComponent<LevelDataContainer>().DestroySelf();
+                    // This might be redundant in the future as the data container object may have more uses
+                    levelData.DestroySelf();
                 }
 
                 // Begin scene transition

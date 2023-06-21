@@ -27,7 +27,7 @@ public class LevelSelectScreenUI : MonoBehaviour
     private float ignoreInputTime = 1.0f;
     private bool inputEnabled;
 
-    private GameObject dataContainer = null;
+    private LevelDataContainer dataContainer = null;
 
     public GameObject eventSystem;  // Reference to event system
 
@@ -35,7 +35,12 @@ public class LevelSelectScreenUI : MonoBehaviour
     {
         menuButtons[0].Select();
 
-        dataContainer = GameObject.FindGameObjectWithTag("DataContainer");
+        GameObject data = GameObject.FindGameObjectWithTag("DataContainer");
+
+        if (data)
+        {
+            dataContainer = data.GetComponent<LevelDataContainer>();
+        }
     }
 
     // Delay player input after scene loads
@@ -81,13 +86,15 @@ public class LevelSelectScreenUI : MonoBehaviour
 
         if (dataContainer)
         {
-            dataContainer.GetComponent<LevelDataContainer>().selectedLevel = scene;
-            dataContainer.GetComponent<LevelDataContainer>().AddScene(SceneManager.GetActiveScene().name);
+            //dataContainer.selectedLevel = scene;
+            //dataContainer.AddScene(SceneManager.GetActiveScene().name);
 
-            if (dataContainer.GetComponent<LevelDataContainer>().nextScene != string.Empty)
+            dataContainer.ChangeSelectedLevel(scene);
+
+            if (dataContainer.nextScene != string.Empty)
             {
                 transitionHandler.GetComponent<SceneTransition>().LoadNextScene(
-                dataContainer.GetComponent<LevelDataContainer>().nextScene);
+                dataContainer.nextScene);
             }
             // Use defualt next scene
             else
@@ -95,7 +102,8 @@ public class LevelSelectScreenUI : MonoBehaviour
                 transitionHandler.GetComponent<SceneTransition>().LoadNextScene(nextScene);
             }
 
-            dataContainer.GetComponent<LevelDataContainer>().nextScene = scene;
+            dataContainer.StoreDataToNextScene(SceneManager.GetActiveScene().name, scene);
+            //dataContainer.nextScene = scene;
         }
         else
         {
@@ -108,20 +116,13 @@ public class LevelSelectScreenUI : MonoBehaviour
     {
         if (!inputEnabled) { return; }
 
-        //dataContainer.GetComponent<LevelDataContainer>().RemoveScene();
-
-        if (dataContainer && dataContainer.GetComponent<LevelDataContainer>().previousScenes.Any())
+        if (dataContainer && dataContainer.previousScenes.Any())
         {
             // Set previous scene
-            previousScene = dataContainer.GetComponent<LevelDataContainer>().previousScenes[
-                dataContainer.GetComponent<LevelDataContainer>().GetSceneListCount() - 1];
+            previousScene = dataContainer.GetLastScene();
 
-            // Remove previous scene
-            dataContainer.GetComponent<LevelDataContainer>().previousScenes.RemoveAt(
-                        dataContainer.GetComponent<LevelDataContainer>().GetSceneListCount() - 1);
-
-            // Set next scene
-            dataContainer.GetComponent<LevelDataContainer>().nextScene = SceneManager.GetActiveScene().name;
+            // Remove previous scene and set next scene
+            dataContainer.RemoveDataBackToPreviousScene(SceneManager.GetActiveScene().name);
 
             transitionHandler.GetComponent<SceneTransition>().LoadNextScene(previousScene);
         }
@@ -129,7 +130,8 @@ public class LevelSelectScreenUI : MonoBehaviour
         {
             transitionHandler.GetComponent<SceneTransition>().LoadNextScene(previousScene);
 
-            Debug.Log("Error, data container is missing!!!");
+            Debug.Log("Error, data container is missing, and/or their aren't any previous scenes!!!" + 
+                dataContainer + " | " + dataContainer.previousScenes.Any());
         }
 
         // Note: might need to be change for navigation purposes
