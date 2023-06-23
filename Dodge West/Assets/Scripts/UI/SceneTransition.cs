@@ -79,6 +79,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    // Loadeds the scene it is given
     public void LoadNextScene(string scene = null, bool ignoreDNDOL = false)
     {
         Time.timeScale = 1.0f; // unpauses game

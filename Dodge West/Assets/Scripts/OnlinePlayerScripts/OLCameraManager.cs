@@ -3,9 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
 
-[RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
-public class CameraManager : MonoBehaviour
+// NOTE: look into making the OL (online) scripts child objects of the non-online ones
+// Note: also might not need to change script name in this case
+// note: may only need to make the update functions "virtual" for this to work
+
+[RequireComponent(typeof(OLCameraControl), typeof(OLPhysicsPickup))]
+public class OLCameraManager : MonoBehaviour
 {
     // Plyaer Camera and UI prefabs
     [Header("Camera Object")]
@@ -18,6 +24,16 @@ public class CameraManager : MonoBehaviour
     public GameObject currentCam { get; private set; }
     public GameObject currentUI { get; private set; }
 
+    private GameObject gameManager = null;
+    private PhotonView view = null;
+
+    private void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
+
+        view = GetComponent<PhotonView>();
+    }
+
     void Start()
     {
         SetupCamera();
@@ -25,19 +41,48 @@ public class CameraManager : MonoBehaviour
         SetupUI();
     }
 
+    public bool CheckForOnline()
+    {
+        if (gameManager && gameManager.GetComponent<GameController>().gameMode == GameMode.OnlineMultiplayer)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool CheckForPhotonView()
+    {
+        if (CheckForOnline() && view != null && view.IsMine)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     void SetupCamera()
     {
         // Spawn and setup the Camera
-        if (cameraObject != null && GetComponent<CameraControl>().camPos != null)
+        if (cameraObject != null && GetComponent<OLCameraControl>().camPos != null)
         {
             // Create camera object
-            GameObject camTemp = Instantiate(cameraObject);
+            GameObject camTemp;
+
+            if (CheckForOnline())
+            {
+                camTemp = PhotonNetwork.Instantiate(cameraObject.name, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                camTemp = Instantiate(cameraObject);
+            }
 
             // Set camera modifier script
             camTemp.GetComponent<CameraModifier>().SetPlayer(gameObject);
 
             // Set camera controls script
-            camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<CameraControl>().camPos);
+            camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<OLCameraControl>().camPos);
 
             // Camera needs to be the first child object
             Camera camReal = camTemp.transform.GetChild(0).GetComponent<Camera>();
@@ -78,8 +123,14 @@ public class CameraManager : MonoBehaviour
     {
         if (playerUI != null && currentCam != null)
         {
-            // Spawn UI
-            currentUI = Instantiate(playerUI);
+            if (CheckForOnline())
+            {
+                currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                currentUI = Instantiate(playerUI);
+            }
 
             // Assign to camera
             currentUI.GetComponent<Canvas>().worldCamera = currentCam.GetComponent<Camera>();

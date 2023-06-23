@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XInput;
 using UnityEngine.UI;
+using Photon.Pun;
 
 // Game modes for the game
 public enum GameMode
@@ -21,6 +22,8 @@ public class GameController : MonoBehaviour
 
     // Tracks the current game mode
     public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
+
+    public bool setOnlineMultiplayer = false;
 
     // Player character object
     public GameObject playerObject;
@@ -169,11 +172,26 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        if (setOnlineMultiplayer)
+        {
+            gameMode = GameMode.OnlineMultiplayer;
+        }
+    }
+
     private void Start()
     {
         endGamePanel.SetActive(false);
 
-        NewSystem();    // game mode is set in this function
+        if (gameMode == GameMode.OnlineMultiplayer)
+        {
+            OnlineMultiplayerSetup();
+        }
+        else
+        {
+            NewSystem();    // game mode is set in this function
+        }
 
         //GetComponent<Pause>().UnPauseGame();
 
@@ -183,34 +201,44 @@ public class GameController : MonoBehaviour
         }
 
     }
-    void NewSystem()
+
+    int positioIndex = 0;
+    void OnlineMultiplayerSetup()
     {
-        // Single player instance if the scene is loaded directly, local multiplayer if player 
-        // configuration manager exsists
-        if (!PlayerConfigurationManager.Instance)
+        if (true)
         {
-            // Setup for single player
-
-            gameMode = GameMode.SinglePlayer;
-
-            var player = Instantiate(
-                playerObject,
-                spawnPosition[0].GetComponent<Transform>().position,
+            var player = PhotonNetwork.Instantiate(
+                playerObject.name,
+                spawnPosition[positioIndex].GetComponent<Transform>().position,
                 spawnRot);
-            // if you spawn the player with a spawn position with altered rotation,
-            // then the camera needs to be aware and respond to the change
 
-            //var player = Instantiate(
-            //    playerObject,
-            //    spawnPosition[0].GetComponent<Transform>().position,
-            //    spawnPosition[0].GetComponent<Transform>().rotation);
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
             player.GetComponent<LifeCounter>().SetLives(1);
 
             AddPlayer(player);
+
+            positioIndex++;
+
+            if (positioIndex >= spawnPosition.Length) { positioIndex = 0; }
+
+            //var player = Instantiate(
+            //    playerObject,
+            //    spawnPosition[0].GetComponent<Transform>().position,
+            //    spawnRot);
+
+            //player.GetComponent<PlayerInputHandler>().InitializePlayer();
+
+            //player.GetComponent<LifeCounter>().SetLives(1);
+
+            //AddPlayer(player);
         }
-        else if (PlayerConfigurationManager.Instance)
+    }
+
+    void NewSystem()
+    {
+        
+        if (PlayerConfigurationManager.Instance)
         {
             // Setup for local multiplayer
             
@@ -234,6 +262,31 @@ public class GameController : MonoBehaviour
 
                 AddPlayer(player);
             }
+        }
+        // Single player instance if the scene is loaded directly, local multiplayer if player 
+        // configuration manager exsists
+        else if (!PlayerConfigurationManager.Instance)
+        {
+            // Setup for single player
+
+            gameMode = GameMode.SinglePlayer;
+
+            var player = Instantiate(
+                playerObject,
+                spawnPosition[0].GetComponent<Transform>().position,
+                spawnRot);
+            // if you spawn the player with a spawn position with altered rotation,
+            // then the camera needs to be aware and respond to the change
+
+            //var player = Instantiate(
+            //    playerObject,
+            //    spawnPosition[0].GetComponent<Transform>().position,
+            //    spawnPosition[0].GetComponent<Transform>().rotation);
+            player.GetComponent<PlayerInputHandler>().InitializePlayer();
+
+            player.GetComponent<LifeCounter>().SetLives(1);
+
+            AddPlayer(player);
         }
     }
 }

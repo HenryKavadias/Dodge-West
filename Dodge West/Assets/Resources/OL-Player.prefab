@@ -27,8 +27,15 @@ GameObject:
   - component: {fileID: 618608792782935704}
   - component: {fileID: 612988788595045758}
   - component: {fileID: 6719717526489840705}
+  - component: {fileID: 5450744664879442494}
+  - component: {fileID: 7854156753322769512}
+  - component: {fileID: 7046187433074506386}
+  - component: {fileID: 3742826171672673593}
+  - component: {fileID: 2058456241061706338}
+  - component: {fileID: 6802088952752177755}
+  - component: {fileID: 938649636313231}
   m_Layer: 0
-  m_Name: Player
+  m_Name: OL-Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691da00a3f2359a47a5a8a95dafda7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraObject: {fileID: 2842492982393607670, guid: 56b6b330fc5833e4a8a82d19c18d4768, type: 3}
-  playerUI: {fileID: 6271210731597287100, guid: 352470e7bfb59ab458329e38d06d78ce, type: 3}
+  cameraObject: {fileID: 2842492982393607670, guid: 329e981e84bca5547948df44441b48e1, type: 3}
+  playerUI: {fileID: 6271210731597287100, guid: 657c0d88c1ec830449388dba04ffc69e, type: 3}
 --- !u!114 &882741623857242509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,6 +658,146 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5450744664879442494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f824383a2b2bd45b77d0f72f0559ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraSensitivity: 20
+  camPos: {fileID: 0}
+  orientation: {fileID: 0}
+  model: {fileID: 0}
+--- !u!114 &7854156753322769512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2b6de582a8a904da579d8bd5f7e4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentPickup: 0
+  transparencyRatio: 0.5
+  pickupMask:
+    serializedVersion: 2
+    m_Bits: 0
+  pickupTarget: {fileID: 0}
+  pickupRange: 0
+  objectTrackingSpeedModifier: 12
+  maxObjectSpeed: 20
+  flatThrowPowerPerUnit: 20
+  enableThrowPowerWithCap: 1
+  minThrowPower: 100
+--- !u!114 &7046187433074506386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a576c3818ab35e44c9768a03d8e17623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObject: {fileID: 0}
+  playerUI: {fileID: 0}
+--- !u!114 &3742826171672673593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1010ca6b32f55e64793ee266b57cd58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 0}
+  dashForce: 0
+  dashUpwardForce: 0
+  maxDashYSpeed: 0
+  dashDuration: 0
+  cam: {fileID: 0}
+  dashFov: 0
+  defaultFov: 60
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 0
+  resetVel: 1
+  camEffects: 1
+  dashCd: 0
+--- !u!114 &2058456241061706338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b801cc67c1cf64fa3732398f308c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 0
+  sprintSpeed: 0
+  enableSprint: 0
+  dashSpeed: 0
+  dashSpeedChangeFactor: 0
+  maxYSpeed: 0
+  groundDrag: 0.5
+  jumpForce: 7
+  airMultiplier: 0.4
+  jumpCooldown: 0.25
+  crouchSpeed: 0
+  crouchYScale: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  playerCollider: {fileID: 0}
+  distanceOfCheck: 0.2
+  groundCheckBoxSizeMultiplier: 0.8
+  maxSlopeAngle: 0
+  playerModel: {fileID: 0}
+  orientation: {fileID: 0}
+  state: 0
+  dashing: 0
+--- !u!114 &6802088952752177755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4248b9c31cf85468245698b22e1958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &938649636313231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b521e893bc6f2d948906451b820190eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMesh: {fileID: 0}
 --- !u!1 &161012299386307288
 GameObject:
   m_ObjectHideFlags: 0
