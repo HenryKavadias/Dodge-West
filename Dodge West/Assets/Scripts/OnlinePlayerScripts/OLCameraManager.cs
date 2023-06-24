@@ -63,7 +63,7 @@ public class OLCameraManager : CameraManager
         if (cameraObject != null && GetComponent<OLCameraControl>().camPos != null)
         {
             // Create camera object
-            GameObject camTemp = PhotonNetwork.Instantiate(cameraObject.name, transform.position, Quaternion.identity);
+            GameObject camTemp = Instantiate(cameraObject);
 
             //if (CheckForOnline())
             //{
@@ -128,7 +128,8 @@ public class OLCameraManager : CameraManager
             //    currentUI = Instantiate(playerUI);
             //}
 
-            currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
+            //currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
+            currentUI = Instantiate(playerUI);
 
             // Assign to camera
             currentUI.GetComponent<Canvas>().worldCamera = currentCam.GetComponent<Camera>();
@@ -137,14 +138,11 @@ public class OLCameraManager : CameraManager
             // Set UI values
             OLPlayerUIManager puim = currentUI.GetComponent<OLPlayerUIManager>();
 
-            if (puim.Setup())
-            {
-                puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
+            puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
 
-                gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
-                gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
-                gameObject.GetComponent<HealthBar>().Start();
-            }
+            gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
+            gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
+            gameObject.GetComponent<HealthBar>().Start();
 
             // Set lives here
             LifeDisplay lD = gameObject.GetComponent<LifeDisplay>();

@@ -35373,6 +35373,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2011775134}
     m_Modifications:
+    - target: {fileID: 6704892483733251754, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d91274cc4a876a439f75445704f421b, type: 2}
     - target: {fileID: 6704892483781080499, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -35419,18 +35423,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
       propertyPath: m_Name
-      value: Bench (1)
+      value: Bench-Photon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2016868853}
+    - targetCorrespondingSourceObject: {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2016868852}
   m_SourcePrefab: {fileID: 100100000, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
 --- !u!4 &2016868850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6704892483781080499, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
   m_PrefabInstance: {fileID: 2016868849}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2016868851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+  m_PrefabInstance: {fileID: 2016868849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2016868852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016868851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
+--- !u!114 &2016868853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016868851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2016868852}
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &2019123609
 PrefabInstance:
   m_ObjectHideFlags: 0

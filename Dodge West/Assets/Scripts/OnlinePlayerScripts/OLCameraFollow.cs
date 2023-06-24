@@ -8,7 +8,7 @@ public class OLCameraFollow : CameraFollow
     // Set the camera target
     public override void SetTarget(Transform target)
     {
-        if (GetComponent<PhotonView>().IsMine)
+        if (true)
         {
             cameraPosition = target;
         }
@@ -17,7 +17,7 @@ public class OLCameraFollow : CameraFollow
     // Camera position and rotation matches the targets
     protected override void Update()
     {
-        if (GetComponent<PhotonView>().IsMine)
+        if (true)
         {
             // May change this to smoothly track player
             if (cameraPosition)

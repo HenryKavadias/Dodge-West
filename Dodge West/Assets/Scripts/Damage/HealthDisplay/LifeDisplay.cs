@@ -41,6 +41,9 @@ public class LifeDisplay : MonoBehaviour
 
     private void UpdateText()
     {
-        _livesTextDisplay.text = _lives.Current.ToString();
+        if (_livesTextDisplay)
+        {
+            _livesTextDisplay.text = _lives.Current.ToString();
+        }
     }
 }

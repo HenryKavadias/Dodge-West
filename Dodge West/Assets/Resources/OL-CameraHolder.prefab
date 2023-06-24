@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6823176475787846818}
-  - component: {fileID: 8489508421808051219}
-  - component: {fileID: 8603576926338916191}
-  - component: {fileID: 7733006533843654772}
-  - component: {fileID: -4450352887413279015}
+  - component: {fileID: 3998827403971605663}
+  - component: {fileID: 576911521226671708}
   m_Layer: 0
   m_Name: OL-CameraHolder
   m_TagString: Untagged
@@ -36,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8489508421808051219
+--- !u!114 &3998827403971605663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,10 +43,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2842492982393607670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534daaa3abf1d9843b90493ea596061d, type: 3}
+  m_Script: {fileID: 11500000, guid: c0c3d0595b4698840ba2ad447e40a4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8603576926338916191
+--- !u!114 &576911521226671708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,66 +55,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2842492982393607670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e1e233dd08b734a898bcf70efba663, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e903a98cd66e8348aa6c790ac420a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1717736144392584813}
---- !u!114 &7733006533843654772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842492982393607670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -4450352887413279015}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &-4450352887413279015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842492982393607670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
 --- !u!1 &3198092195716035767
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class OLCameraModifier : CameraModifier
 {
     public override void SetPlayer(GameObject player)
     {
-        if (GetComponent<PhotonView>().IsMine)
+        if (true)
         {
             GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
 
@@ -22,11 +22,6 @@ public class OLCameraModifier : CameraModifier
                     player.GetComponent<PlayerID>().GetID(),
                     gameController.GetComponent<GameController>().LivePlayerCount());
             }
-        }
-        else
-        {
-            // Disable this if it ain't your camera (currently just a test)
-            gameObject.SetActive(false);
         }
     }
 }
