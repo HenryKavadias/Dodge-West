@@ -4,20 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Controller for the players ability to pause the game
-public class OLPauseControls : MonoBehaviour
+public class OLPauseControls : PauseControls
 {
-    // Input pause variable
-    private bool pausing = false;
-
-    // Input function for pause
-    public void OnPause(InputAction.CallbackContext context)
+    protected override void Update()
     {
-        pausing = context.action.triggered;
-    }
-
-    void Update()
-    {
-        if (pausing)
+        if (GetComponent<OLCameraManager>().CheckForPhotonView() && pausing)
         {
             // Re-enable Cursor
             Cursor.lockState = CursorLockMode.Locked;

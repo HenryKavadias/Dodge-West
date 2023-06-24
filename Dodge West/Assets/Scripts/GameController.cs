@@ -212,7 +212,7 @@ public class GameController : MonoBehaviour
                 spawnPosition[positioIndex].GetComponent<Transform>().position,
                 spawnRot);
 
-            player.GetComponent<PlayerInputHandler>().InitializePlayer();
+            player.GetComponent<OLPlayerInputHandler>().InitializePlayer();
 
             player.GetComponent<LifeCounter>().SetLives(1);
 

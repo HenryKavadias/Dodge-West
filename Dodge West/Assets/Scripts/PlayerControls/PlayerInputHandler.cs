@@ -12,22 +12,22 @@ public class PlayerInputHandler : MonoBehaviour
     // Reference for local multiplayer controls
     // (Single player controls are with the
     // Player Input component with Unity Events)
-    private PlayerConfiguration playerConfig;
+    protected PlayerConfiguration playerConfig;
 
-    private FirstPersonMovement movement;
-    private CameraControl look;
-    private PhysicsPickup pickup;
-    private Dash dash;
-    private PauseControls pause;
+    protected FirstPersonMovement movement;
+    protected CameraControl look;
+    protected PhysicsPickup pickup;
+    protected Dash dash;
+    protected PauseControls pause;
 
     [SerializeField]
-    private MeshRenderer playerMesh;
+    protected MeshRenderer playerMesh;
 
     // For control map checking
-    private PlayerControls controls;
+    protected PlayerControls controls;
 
     // Get references to all scripts that have the player controls
-    private void Awake()
+    protected virtual void Awake()
     {
         movement = GetComponent<FirstPersonMovement>();
         look = GetComponent<CameraControl>();
@@ -38,12 +38,12 @@ public class PlayerInputHandler : MonoBehaviour
         controls = new PlayerControls();
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         controls.Enable();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         controls.Disable();
     }

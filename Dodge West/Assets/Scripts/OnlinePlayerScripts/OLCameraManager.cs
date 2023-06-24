@@ -8,22 +8,13 @@ using Photon.Pun.Demo.PunBasics;
 
 // NOTE: look into making the OL (online) scripts child objects of the non-online ones
 // Note: also might not need to change script name in this case
-// note: may only need to make the update functions "virtual" for this to work
+// note: may only need to make the "Update" functions "virtual" for control scripts this to work
+
+// todo: do and IsMine photonview check when spawning in the camera and its UI
 
 [RequireComponent(typeof(OLCameraControl), typeof(OLPhysicsPickup))]
-public class OLCameraManager : MonoBehaviour
+public class OLCameraManager : CameraManager
 {
-    // Plyaer Camera and UI prefabs
-    [Header("Camera Object")]
-    public GameObject cameraObject;
-
-    [Header("UI Canvas")]
-    public GameObject playerUI;
-
-    // Current player camera and UI references
-    public GameObject currentCam { get; private set; }
-    public GameObject currentUI { get; private set; }
-
     private GameObject gameManager = null;
     private PhotonView view = null;
 
@@ -34,13 +25,17 @@ public class OLCameraManager : MonoBehaviour
         view = GetComponent<PhotonView>();
     }
 
-    void Start()
+    protected override void Start()
     {
-        SetupCamera();
+        if (CheckForPhotonView())
+        {
+            SetupCamera();
 
-        SetupUI();
+            SetupUI();
+        }
     }
 
+    // Check if this an online game
     public bool CheckForOnline()
     {
         if (gameManager && gameManager.GetComponent<GameController>().gameMode == GameMode.OnlineMultiplayer)
@@ -51,6 +46,7 @@ public class OLCameraManager : MonoBehaviour
         return false;
     }
 
+    // Check if this is connected to the relavent player
     public bool CheckForPhotonView()
     {
         if (CheckForOnline() && view != null && view.IsMine)
@@ -61,22 +57,22 @@ public class OLCameraManager : MonoBehaviour
         return false;
     }
 
-    void SetupCamera()
+    protected override void SetupCamera()
     {
         // Spawn and setup the Camera
         if (cameraObject != null && GetComponent<OLCameraControl>().camPos != null)
         {
             // Create camera object
-            GameObject camTemp;
+            GameObject camTemp = PhotonNetwork.Instantiate(cameraObject.name, transform.position, Quaternion.identity);
 
-            if (CheckForOnline())
-            {
-                camTemp = PhotonNetwork.Instantiate(cameraObject.name, transform.position, Quaternion.identity);
-            }
-            else
-            {
-                camTemp = Instantiate(cameraObject);
-            }
+            //if (CheckForOnline())
+            //{
+            //    camTemp = PhotonNetwork.Instantiate(cameraObject.name, transform.position, Quaternion.identity);
+            //}
+            //else
+            //{
+            //    camTemp = Instantiate(cameraObject);
+            //}
 
             // Set camera modifier script
             camTemp.GetComponent<CameraModifier>().SetPlayer(gameObject);
@@ -119,31 +115,36 @@ public class OLCameraManager : MonoBehaviour
     }
 
     // Spawn and setup the Player UI
-    void SetupUI()
+    protected override void SetupUI()
     {
         if (playerUI != null && currentCam != null)
         {
-            if (CheckForOnline())
-            {
-                currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
-            }
-            else
-            {
-                currentUI = Instantiate(playerUI);
-            }
+            //if (CheckForOnline())
+            //{
+            //    currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
+            //}
+            //else
+            //{
+            //    currentUI = Instantiate(playerUI);
+            //}
+
+            currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
 
             // Assign to camera
             currentUI.GetComponent<Canvas>().worldCamera = currentCam.GetComponent<Camera>();
             currentUI.GetComponent<Canvas>().planeDistance = 1f;
 
             // Set UI values
-            PlayerUIManager puim = currentUI.GetComponent<PlayerUIManager>();
+            OLPlayerUIManager puim = currentUI.GetComponent<OLPlayerUIManager>();
 
-            puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
+            if (puim.Setup())
+            {
+                puim.playerNumberText.text = gameObject.GetComponent<PlayerID>().GetID().ToString();
 
-            gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
-            gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
-            gameObject.GetComponent<HealthBar>().Start();
+                gameObject.GetComponent<HealthBar>().SetImage(puim.healthImage);
+                gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
+                gameObject.GetComponent<HealthBar>().Start();
+            }
 
             // Set lives here
             LifeDisplay lD = gameObject.GetComponent<LifeDisplay>();
@@ -152,19 +153,6 @@ public class OLCameraManager : MonoBehaviour
                 lD.SetTextDisplay(puim.playerLivesText);
                 lD.Start();
             }
-
         }
-    }
-    
-    // Triggers death state for player UI
-    public void TriggerPlayerDeathUI()
-    {
-        currentUI.GetComponent<PlayerUIManager>().TriggerDead();
-    }
-    
-    // Disables player UI
-    public void DisableUI()
-    {
-        currentUI.GetComponent<PlayerUIManager>().DisablePlayerUI();
     }
 }

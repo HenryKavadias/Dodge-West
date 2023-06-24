@@ -34,9 +34,9 @@ public class Dash : MonoBehaviour
 
     [Header("Cooldown")]
     public float dashCd;
-    private float dashCdTimer;
+    protected float dashCdTimer;
 
-    private bool dashing = false;
+    protected bool dashing = false;
 
     // Gets input values from dash control inputs
     public void OnDash(InputAction.CallbackContext context)
@@ -58,7 +58,7 @@ public class Dash : MonoBehaviour
     }
 
     // Only able to dash when it's off cooldown
-    void Update()
+    protected virtual void Update()
     {
         if (dashing)
         {
@@ -71,7 +71,7 @@ public class Dash : MonoBehaviour
     }
 
     // Manages the dash ability behaviour
-    private void DoDash()
+    protected void DoDash()
     {
         // Checks dash cooldown
         if (dashCdTimer > 0) { return; }

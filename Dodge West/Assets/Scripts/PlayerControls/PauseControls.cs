@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PauseControls : MonoBehaviour
 {
     // Input pause variable
-    private bool pausing = false;
+    public bool pausing = false;
 
     // Input function for pause
     public void OnPause(InputAction.CallbackContext context)
@@ -15,7 +15,7 @@ public class PauseControls : MonoBehaviour
         pausing = context.action.triggered;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (pausing)
         {

@@ -16,7 +16,7 @@ public class PlayerUIManager : MonoBehaviour
     public GameObject deathMessage;
 
     // Disable all elements, enable death message
-    public void TriggerDead()
+    public virtual void TriggerDead()
     {
         healthImage.enabled = false;
         playerNumberText.enabled = false;
@@ -29,7 +29,7 @@ public class PlayerUIManager : MonoBehaviour
     }
 
     // Enable all elements, disnable death message
-    public void TriggerResurrection()
+    public virtual void TriggerResurrection()
     {
         healthImage.enabled = true;
         playerNumberText.enabled = true;
@@ -42,7 +42,7 @@ public class PlayerUIManager : MonoBehaviour
     }
 
     // Disable all UI elements
-    public void DisablePlayerUI()
+    public virtual void DisablePlayerUI()
     {
         healthImage.enabled = false;
         playerNumberText.enabled = false;

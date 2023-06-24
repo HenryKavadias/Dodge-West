@@ -7,7 +7,7 @@ public class CameraModifier : MonoBehaviour
 {
     public Camera cam;
 
-    public void SetPlayer(GameObject player)
+    public virtual void SetPlayer(GameObject player)
     {
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
 
@@ -24,7 +24,7 @@ public class CameraModifier : MonoBehaviour
     }
 
     // Changes the camera dimensions and position relative to the players ID
-    private void ModifyCamera(int playerID, int playerCount)
+    protected void ModifyCamera(int playerID, int playerCount)
     {
         switch (playerCount)
         {

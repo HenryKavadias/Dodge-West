@@ -37,13 +37,13 @@ public class CameraControl : MonoBehaviour
         //mouseInput = Mouse.current.delta.ReadValue();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         LookControls();
     }
 
     // Manages the direction of the player camera based on camera control inputs
-    void LookControls()
+    protected void LookControls()
     {
         float lookX = lookInput.x * cameraSensitivity * Time.deltaTime;
         float lookY = lookInput.y * cameraSensitivity * Time.deltaTime;
@@ -63,7 +63,7 @@ public class CameraControl : MonoBehaviour
     }
 
     // Modifies the field of view for the camera
-    public void DoFov(float endValue)
+    public virtual void DoFov(float endValue)
     {
         Camera cam = gameObject.GetComponent<CameraManager>().currentCam.GetComponent<Camera>();
         if (cam) 

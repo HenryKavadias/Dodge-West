@@ -16,20 +16,20 @@ public class PhysicsPickup : MonoBehaviour
 
     [SerializeField] private LayerMask pickupMask;  // Layer(s) players can pickup objects on
     private Camera playerCamera;                    // Reference to player camera
-    [SerializeField] private Transform pickupTarget;// Point where the picked up object will travel to
+    [SerializeField] protected Transform pickupTarget;// Point where the picked up object will travel to
     [Space]
     [SerializeField] private float pickupRange;     // Distance that players can pick up an object
 
     // Variables that control the speed in which pickedup objects travel to the "pickupTarget"
-    [SerializeField] private float objectTrackingSpeedModifier = 12f;
-    [SerializeField] private float maxObjectSpeed = 20f;
+    [SerializeField] protected float objectTrackingSpeedModifier = 12f;
+    [SerializeField] protected float maxObjectSpeed = 20f;
 
     // Controls the force applied to the an object when thrown
     [SerializeField] private float flatThrowPowerPerUnit = 20f; // Power per units of object mass
     [SerializeField] private bool enableThrowPowerWithCap = true;
     [SerializeField] private float minThrowPower = 100f;
 
-    private Rigidbody currentObject;    // Reference to current picked up object
+    protected Rigidbody currentObject;    // Reference to current picked up object
 
     // Input variables
     private bool pickedup = false;
@@ -57,8 +57,8 @@ public class PhysicsPickup : MonoBehaviour
     {
         playerCamera = cam;
     }
-    
-    void Update()
+
+    protected virtual void Update()
     {
         // When picking up or dropping an object you must modifiy 3 of it attributes:
         // - It's Velocity damager script, tell it if it's pickup or dropped
@@ -70,7 +70,7 @@ public class PhysicsPickup : MonoBehaviour
     // Note: Regarding the new input system, for single action input events (ONE BUTTON PRESS = ONE ACTION EVENT),
     // after the event is performed that actions relative bolean variable must be reset to "false" to avoid multiple
     // actions being performed from one button press.
-    public void DropObject()
+    public virtual void DropObject()
     {
         if (currentObject)
         {
@@ -131,7 +131,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Manages the players ability to pickup, drop, and throw objects
-    void PickupAndThrow()
+    protected void PickupAndThrow()
     {
         // Can only throw/drop an object if the player is carrying one
         // Can only pickup an object if the player is looking at an object on the
@@ -307,7 +307,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Restores object materials to their previous states
-    void RestoreToOriginalMaterials()
+    protected void RestoreToOriginalMaterials()
     {
         if (transparentPickup && currentObject)
         {
@@ -356,7 +356,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Controls the physics behind picking up an object
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         // Makes current object travel to the pick up point of the player
         if (currentObject)

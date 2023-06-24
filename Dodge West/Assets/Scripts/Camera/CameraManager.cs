@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 [RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour
@@ -15,17 +16,17 @@ public class CameraManager : MonoBehaviour
     public GameObject playerUI;
 
     // Current player camera and UI references
-    public GameObject currentCam { get; private set; }
-    public GameObject currentUI { get; private set; }
+    public GameObject currentCam { get; protected set; }
+    public GameObject currentUI { get; protected set; }
 
-    void Start()
+    protected virtual void Start()
     {
         SetupCamera();
 
         SetupUI();
     }
 
-    void SetupCamera()
+    protected virtual void SetupCamera()
     {
         // Spawn and setup the Camera
         if (cameraObject != null && GetComponent<CameraControl>().camPos != null)
@@ -74,7 +75,7 @@ public class CameraManager : MonoBehaviour
     }
 
     // Spawn and setup the Player UI
-    void SetupUI()
+    protected virtual void SetupUI()
     {
         if (playerUI != null && currentCam != null)
         {

@@ -46,7 +46,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float groundCheckBoxSizeMultiplier = 0.8f;
     private float currentHeight;
     private Vector3 groundCheckBoxSize;
-    bool isGrounded;
+    protected bool isGrounded;
 
     [Header("Slope Handling")]
     public float maxSlopeAngle;
@@ -59,7 +59,7 @@ public class FirstPersonMovement : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private Vector3 moveDirection;
-    private Rigidbody rb;
+    protected Rigidbody rb;
 
     // Manages the movement states of the player
     // (Used to manage the different physics forces applied to the player)
@@ -84,7 +84,7 @@ public class FirstPersonMovement : MonoBehaviour
     }
     private bool jumped = false;
     private bool sprinting = false;
-    private bool crouching = false;
+    protected bool crouching = false;
     private bool stillCrouching = false;
 
 
@@ -134,7 +134,7 @@ public class FirstPersonMovement : MonoBehaviour
         sprinting = context.action.triggered;
     }
 
-    public void OnCrouch(InputAction.CallbackContext context)
+    public virtual void OnCrouch(InputAction.CallbackContext context)
     {
         // Button Hold system
         //crouching = context.action.triggered;
@@ -179,7 +179,7 @@ public class FirstPersonMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + (Vector3.down * maxDistance), groundCheckBoxSize.x / 2);
 
     }
-    bool RayCastCheck()
+    protected bool RayCastCheck()
     {
         return Physics.Raycast(
             transform.position, Vector3.down,
@@ -187,7 +187,7 @@ public class FirstPersonMovement : MonoBehaviour
             groundMask);
     }
 
-    bool BoxCastCheck()
+    protected bool BoxCastCheck()
     {
         return Physics.BoxCast(
             playerCollider.bounds.center,
@@ -199,7 +199,7 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     // This is currently used for ground checking
-    bool SphereCastCheck()
+    protected bool SphereCastCheck()
     {
         return Physics.SphereCast(
             playerCollider.bounds.center,
@@ -210,7 +210,7 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     // Used for player inputs
-    void Update()
+    protected virtual void Update()
     {
         // Checks if the player is touching the ground
         isGrounded = SphereCastCheck();
@@ -233,13 +233,13 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     // Used for player movement (based on physics applied to the rigidbody)
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         MovePlayer();
     }
 
     // Handles the inputs of the player (interacts with the Player Input component)
-    void PlayerInput()
+    protected void PlayerInput()
     {
         // Handles 2D player movement
         horizontalInput = movementInput.x;
@@ -290,7 +290,7 @@ public class FirstPersonMovement : MonoBehaviour
     private bool keepMomentum;
 
     // Handles the movement state of the player
-    private void StateHandler()
+    protected void StateHandler()
     {
         // Mode - Dashing
         if (dashing)
@@ -378,7 +378,7 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     // Controls the physics of how the player is moving based on the movement state
-    void MovePlayer()
+    protected void MovePlayer()
     {
         if (state == MovementState.dashing) { return; }
         
@@ -415,7 +415,7 @@ public class FirstPersonMovement : MonoBehaviour
     }
 
     // Controls the speed of the player under certin circumstances
-    void SpeedControl()
+    protected void SpeedControl()
     {
         // limiting speed on slope
         if (OnSlope() && !exitingSlope)
