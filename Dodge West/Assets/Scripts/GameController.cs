@@ -6,10 +6,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XInput;
 using UnityEngine.UI;
-using Photon.Pun;
+//using Photon.Pun;
 
 // Game modes for the game
-public enum GameMode
+public enum GameType
 {
     SinglePlayer,
     LocalMultiplayer,
@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     // Variables for the game controller
 
     // Tracks the current game mode
-    public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
+    public GameType gameMode { get; private set; } = GameType.SinglePlayer;
 
     public bool setOnlineMultiplayer = false;
 
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
     // player might not be useful
     public void PlayerDies(GameObject player)
     {
-        if (gameMode != GameMode.SinglePlayer)
+        if (gameMode != GameType.SinglePlayer)
         {
             int activePlayers = 0;
 
@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour
             }
             //livePlayers.Find(p => p == player);
         }
-        else if (gameMode == GameMode.SinglePlayer)
+        else if (gameMode == GameType.SinglePlayer)
         {
             DisableAllPlayerUI();
 
@@ -176,7 +176,7 @@ public class GameController : MonoBehaviour
     {
         if (setOnlineMultiplayer)
         {
-            gameMode = GameMode.OnlineMultiplayer;
+            gameMode = GameType.OnlineMultiplayer;
         }
     }
 
@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour
     {
         endGamePanel.SetActive(false);
 
-        if (gameMode == GameMode.OnlineMultiplayer)
+        if (gameMode == GameType.OnlineMultiplayer)
         {
             OnlineMultiplayerSetup();
         }
@@ -195,7 +195,7 @@ public class GameController : MonoBehaviour
 
         //GetComponent<Pause>().UnPauseGame();
 
-        if (gameMode != GameMode.SinglePlayer)
+        if (gameMode != GameType.SinglePlayer)
         {
             GetComponent<Pause>().enabled = false; // works fine if you leave it on for local multiplayer
         }
@@ -207,10 +207,11 @@ public class GameController : MonoBehaviour
     {
         if (true)
         {
-            var player = PhotonNetwork.Instantiate(
-                playerObject.name,
-                spawnPosition[positioIndex].GetComponent<Transform>().position,
-                spawnRot);
+            GameObject player = null;
+                //PhotonNetwork.Instantiate(
+                //playerObject.name,
+                //spawnPosition[positioIndex].GetComponent<Transform>().position,
+                //spawnRot);
 
             player.GetComponent<OLPlayerInputHandler>().InitializePlayer();
 
@@ -242,7 +243,7 @@ public class GameController : MonoBehaviour
         {
             // Setup for local multiplayer
             
-            gameMode = GameMode.LocalMultiplayer;
+            gameMode = GameType.LocalMultiplayer;
 
             var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
 
@@ -269,7 +270,7 @@ public class GameController : MonoBehaviour
         {
             // Setup for single player
 
-            gameMode = GameMode.SinglePlayer;
+            gameMode = GameType.SinglePlayer;
 
             var player = Instantiate(
                 playerObject,

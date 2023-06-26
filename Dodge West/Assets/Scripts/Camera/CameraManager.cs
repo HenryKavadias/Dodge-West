@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
 
 [RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour

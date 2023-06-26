@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+//using Photon.Pun;
 
 // Modifies the player camera depending on the game mode
 public class OLCameraModifier : CameraModifier
@@ -16,7 +16,7 @@ public class OLCameraModifier : CameraModifier
             if (player &&
                 player.GetComponent<PlayerID>() &&
                 gameController &&
-                gameController.GetComponent<GameController>().gameMode == GameMode.LocalMultiplayer)
+                gameController.GetComponent<GameController>().gameMode == GameType.LocalMultiplayer)
             {
                 ModifyCamera(
                     player.GetComponent<PlayerID>().GetID(),

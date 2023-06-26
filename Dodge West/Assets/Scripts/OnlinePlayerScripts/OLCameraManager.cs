@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
-using Photon.Pun.Demo.PunBasics;
+
+//using Photon.Pun;
+//using Photon.Pun.Demo.PunBasics;
 
 // NOTE: look into making the OL (online) scripts child objects of the non-online ones
 // Note: also might not need to change script name in this case
@@ -16,13 +17,13 @@ using Photon.Pun.Demo.PunBasics;
 public class OLCameraManager : CameraManager
 {
     private GameObject gameManager = null;
-    private PhotonView view = null;
+    //private PhotonView view = null;
 
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
 
-        view = GetComponent<PhotonView>();
+        //view = GetComponent<PhotonView>();
     }
 
     protected override void Start()
@@ -38,7 +39,7 @@ public class OLCameraManager : CameraManager
     // Check if this an online game
     public bool CheckForOnline()
     {
-        if (gameManager && gameManager.GetComponent<GameController>().gameMode == GameMode.OnlineMultiplayer)
+        if (gameManager && gameManager.GetComponent<GameController>().gameMode == GameType.OnlineMultiplayer)
         {
             return true;
         }
@@ -49,7 +50,7 @@ public class OLCameraManager : CameraManager
     // Check if this is connected to the relavent player
     public bool CheckForPhotonView()
     {
-        if (CheckForOnline() && view != null && view.IsMine)
+        if (CheckForOnline() )//&& view != null && view.IsMine)
         {
             return true;
         }

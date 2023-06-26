@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
+//using Photon.Pun;
 
 // Manages the players UI elements
 public class OLPlayerUIManager : PlayerUIManager
