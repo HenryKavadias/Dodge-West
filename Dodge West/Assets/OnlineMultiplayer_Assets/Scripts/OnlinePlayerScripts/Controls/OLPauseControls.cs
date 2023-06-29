@@ -8,7 +8,7 @@ public class OLPauseControls : PauseControls
 {
     protected override void Update()
     {
-        if (GetComponent<OLCameraManager>().CheckForPhotonView() && pausing)
+        if (GetComponent<OLCameraManager>().CheckForAuthority() && pausing)
         {
             // Re-enable Cursor
             Cursor.lockState = CursorLockMode.Locked;

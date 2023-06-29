@@ -14,7 +14,7 @@ public class OLPhysicsPickup : PhysicsPickup
         // - Use gravity if dropped, don't use if picked up
         // - the reference of "currentObject", null if dropped, set reference to picked up object
 
-        if (GetComponent<OLCameraManager>().CheckForPhotonView())
+        if (GetComponent<OLCameraManager>().CheckForAuthority())
         {
             PickupAndThrow();
         }
@@ -24,7 +24,7 @@ public class OLPhysicsPickup : PhysicsPickup
     // actions being performed from one button press.
     public override void DropObject()
     {
-        if (currentObject && GetComponent<OLCameraManager>().CheckForPhotonView())
+        if (currentObject && GetComponent<OLCameraManager>().CheckForAuthority())
         {
             // Drop object
             currentObject.GetComponent<VelocityDamager>().Drop();
@@ -38,7 +38,7 @@ public class OLPhysicsPickup : PhysicsPickup
     protected override void FixedUpdate()
     {
         // Makes current object travel to the pick up point of the player
-        if (currentObject && GetComponent<OLCameraManager>().CheckForPhotonView())
+        if (currentObject && GetComponent<OLCameraManager>().CheckForAuthority())
         {
             Vector3 directionToPoint = pickupTarget.position - currentObject.position;
             // Not sure how to do it with the selected objects center of mass

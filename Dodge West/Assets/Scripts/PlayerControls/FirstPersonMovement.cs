@@ -87,6 +87,10 @@ public class FirstPersonMovement : MonoBehaviour
     protected bool crouching = false;
     private bool stillCrouching = false;
 
+    public void SetRigidbody()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     void Start()
     {

@@ -10,7 +10,7 @@ public class OLCameraControl : CameraControl
 {
     protected override void Update()
     {
-        if (GetComponent<OLCameraManager>().CheckForPhotonView())
+        if (GetComponent<OLCameraManager>().CheckForAuthority())
         {
             LookControls();
         }
@@ -19,7 +19,7 @@ public class OLCameraControl : CameraControl
     // Modifies the field of view for the camera
     public override void DoFov(float endValue)
     {
-        if (GetComponent<OLCameraManager>().CheckForPhotonView())
+        if (GetComponent<OLCameraManager>().CheckForAuthority())
         {
             Camera cam = gameObject.GetComponent<CameraManager>().currentCam.GetComponent<Camera>();
             if (cam)

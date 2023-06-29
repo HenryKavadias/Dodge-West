@@ -10,7 +10,7 @@ public class OLDash : Dash
     // Only able to dash when it's off cooldown
     protected override void Update()
     {
-        if (GetComponent<OLCameraManager>().CheckForPhotonView() && dashing)
+        if (GetComponent<OLCameraManager>().CheckForAuthority() && dashing)
         {
             DoDash();
             dashing = false;

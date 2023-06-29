@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     // Variables for the game controller
 
     // Tracks the current game mode
-    public GameType gameMode { get; private set; } = GameType.SinglePlayer;
+    public GameType gameMode { get; protected set; } = GameType.SinglePlayer;
 
     public bool setOnlineMultiplayer = false;
 
@@ -34,23 +34,23 @@ public class GameController : MonoBehaviour
     // End game UI variables
     public GameObject endGamePanel;
     public TextMeshProUGUI winningPlayerText;
-
+    
     // Transition handler reference variable
     public GameObject transitionHandler;
 
-    private Quaternion spawnRot = Quaternion.identity;
+    protected Quaternion spawnRot = Quaternion.identity;
 
     // list of live Players
-    private List<GameObject> livePlayers = new List<GameObject>();
+    protected List<GameObject> livePlayers = new List<GameObject>();
 
     // Add player to player list
-    void AddPlayer(GameObject player)
+    protected void AddPlayer(GameObject player)
     {
         livePlayers.Add(player);
     }
 
     // Remove player from player list
-    void RemovePlayer(GameObject player)
+    protected void RemovePlayer(GameObject player)
     {
         livePlayers.Remove(player);
     }
@@ -140,7 +140,7 @@ public class GameController : MonoBehaviour
     }
 
     // if making online multiplayer, this may need to be modified for it
-    void DisableAllPlayerUI()
+    protected void DisableAllPlayerUI()
     {
         foreach (GameObject p in livePlayers)
         {
@@ -149,7 +149,7 @@ public class GameController : MonoBehaviour
     }
 
     // Triggers delayed scene transition
-    void TriggerSceneTransition()
+    protected void TriggerSceneTransition()
     {
         if (transitionHandler)
         {
@@ -172,7 +172,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void Awake()
+    protected void Awake()
     {
         if (setOnlineMultiplayer)
         {
@@ -180,7 +180,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected void Start()
     {
         endGamePanel.SetActive(false);
 
@@ -202,26 +202,26 @@ public class GameController : MonoBehaviour
 
     }
 
-    int positioIndex = 0;
-    void OnlineMultiplayerSetup()
+    protected int positioIndex = 0;
+    protected virtual void OnlineMultiplayerSetup()
     {
-        if (true)
+        if (false)
         {
-            GameObject player = null;
-                //PhotonNetwork.Instantiate(
-                //playerObject.name,
-                //spawnPosition[positioIndex].GetComponent<Transform>().position,
-                //spawnRot);
+            //GameObject player = null;
+            //    //PhotonNetwork.Instantiate(
+            //    //playerObject.name,
+            //    //spawnPosition[positioIndex].GetComponent<Transform>().position,
+            //    //spawnRot);
 
-            player.GetComponent<OLPlayerInputHandler>().InitializePlayer();
+            //player.GetComponent<OLPlayerInputHandler>().InitializePlayer();
 
-            player.GetComponent<LifeCounter>().SetLives(1);
+            //player.GetComponent<LifeCounter>().SetLives(1);
 
-            AddPlayer(player);
+            //AddPlayer(player);
 
-            positioIndex++;
+            //positioIndex++;
 
-            if (positioIndex >= spawnPosition.Length) { positioIndex = 0; }
+            //if (positioIndex >= spawnPosition.Length) { positioIndex = 0; }
 
             //var player = Instantiate(
             //    playerObject,
@@ -236,7 +236,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void NewSystem()
+    protected void NewSystem()
     {
         
         if (PlayerConfigurationManager.Instance)

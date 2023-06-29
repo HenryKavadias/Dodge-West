@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Fusion;
 
 //using Photon.Pun;
 //using Photon.Pun.Demo.PunBasics;
@@ -17,23 +18,28 @@ using UnityEngine.InputSystem;
 public class OLCameraManager : CameraManager
 {
     private GameObject gameManager = null;
-    //private PhotonView view = null;
+
+    private NetworkObject obj = null;
 
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
 
-        //view = GetComponent<PhotonView>();
+        obj = GetComponent<NetworkObject>();
     }
 
     protected override void Start()
     {
-        if (CheckForPhotonView())
-        {
-            SetupCamera();
+        //if (CheckForAuthority())
+        //{
+        //    SetupCamera();
 
-            SetupUI();
-        }
+        //    SetupUI();
+        //}
+
+        SetupCamera();
+
+        SetupUI();
     }
 
     // Check if this an online game
@@ -48,9 +54,10 @@ public class OLCameraManager : CameraManager
     }
 
     // Check if this is connected to the relavent player
-    public bool CheckForPhotonView()
+    public bool CheckForAuthority()
     {
-        if (CheckForOnline() )//&& view != null && view.IsMine)
+        // Note: might need to use "HasStateAurthority"
+        if (CheckForOnline() && obj && obj.HasStateAuthority)//&& view != null && view.IsMine)
         {
             return true;
         }
@@ -65,15 +72,6 @@ public class OLCameraManager : CameraManager
         {
             // Create camera object
             GameObject camTemp = Instantiate(cameraObject);
-
-            //if (CheckForOnline())
-            //{
-            //    camTemp = PhotonNetwork.Instantiate(cameraObject.name, transform.position, Quaternion.identity);
-            //}
-            //else
-            //{
-            //    camTemp = Instantiate(cameraObject);
-            //}
 
             // Set camera modifier script
             camTemp.GetComponent<CameraModifier>().SetPlayer(gameObject);
@@ -120,14 +118,6 @@ public class OLCameraManager : CameraManager
     {
         if (playerUI != null && currentCam != null)
         {
-            //if (CheckForOnline())
-            //{
-            //    currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
-            //}
-            //else
-            //{
-            //    currentUI = Instantiate(playerUI);
-            //}
 
             //currentUI = PhotonNetwork.Instantiate(playerUI.name, transform.position, Quaternion.identity);
             currentUI = Instantiate(playerUI);
