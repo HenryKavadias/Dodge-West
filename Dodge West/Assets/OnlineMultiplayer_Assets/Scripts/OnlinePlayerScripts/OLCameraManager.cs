@@ -21,12 +21,12 @@ public class OLCameraManager : CameraManager
 
     private NetworkObject obj = null;
 
-    private void Awake()
-    {
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
+    //private void Awake()
+    //{
+    //    gameManager = GameObject.FindGameObjectWithTag("GameController");
 
-        obj = GetComponent<NetworkObject>();
-    }
+    //    obj = GetComponent<NetworkObject>();
+    //}
 
     protected override void Start()
     {
@@ -36,6 +36,12 @@ public class OLCameraManager : CameraManager
 
         //    SetupUI();
         //}
+    }
+
+    public void SetupCameraManager()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
+        obj = GetComponent<NetworkObject>();
 
         SetupCamera();
 
@@ -43,7 +49,7 @@ public class OLCameraManager : CameraManager
     }
 
     // Check if this an online game
-    public bool CheckForOnline()
+    bool CheckForOnline()
     {
         if (gameManager && gameManager.GetComponent<GameController>().gameMode == GameType.OnlineMultiplayer)
         {
@@ -54,14 +60,14 @@ public class OLCameraManager : CameraManager
     }
 
     // Check if this is connected to the relavent player
-    public bool CheckForAuthority()
+    bool CheckForAuthority()
     {
         // Note: might need to use "HasStateAurthority"
         if (CheckForOnline() && obj && obj.HasStateAuthority)//&& view != null && view.IsMine)
         {
             return true;
         }
-
+        //Debug.Log("State Authority (NetworkObject ref): " + obj.HasStateAuthority);
         return false;
     }
 
@@ -111,6 +117,12 @@ public class OLCameraManager : CameraManager
         {
             Debug.Log("Player is without camera!!!");
         }
+    }
+
+    public override void UpdateID()
+    {
+        currentUI.GetComponent<OLPlayerUIManager>().playerNumberText.text =
+            gameObject.GetComponent<PlayerID>().GetID().ToString();
     }
 
     // Spawn and setup the Player UI

@@ -17,6 +17,8 @@ public class PlayerID : MonoBehaviour
         if (pN >= 0 && pN <= 4)
         {
             playerNumber = pN;
+
+            GetComponent<CameraManager>().UpdateID();
         }
     }
 

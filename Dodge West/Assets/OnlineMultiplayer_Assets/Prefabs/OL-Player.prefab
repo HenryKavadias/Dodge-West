@@ -28,8 +28,8 @@ GameObject:
   - component: {fileID: 7854156753322769512}
   - component: {fileID: 6802088952752177755}
   - component: {fileID: -276418305108346363}
-  - component: {fileID: 4057269818681090285}
   - component: {fileID: 6251484374210529744}
+  - component: {fileID: 3524932569499470188}
   m_Layer: 0
   m_Name: OL-Player
   m_TagString: Player
@@ -678,10 +678,23 @@ MonoBehaviour:
     RawGuidValue: 9cd893677f984664f8d130df6f551434
   NestedObjects: []
   NetworkedBehaviours:
-  - {fileID: 4057269818681090285}
   - {fileID: 6251484374210529744}
+  - {fileID: 3524932569499470188}
   SimulationBehaviours: []
---- !u!114 &4057269818681090285
+--- !u!114 &6251484374210529744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4ee72d6989fb144993c9ad2eaf1de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 2
+--- !u!114 &3524932569499470188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -708,20 +721,7 @@ MonoBehaviour:
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
   UseLegacySharedModeInterpolation: 0
-  TargetInterpolationDelay: 0.03
---- !u!114 &6251484374210529744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161012298981736517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f4ee72d6989fb144993c9ad2eaf1de7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
+  TargetInterpolationDelay: 0.1
 --- !u!1 &161012299386307288
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,24 +13,65 @@ using UnityEngine.InputSystem.HID;
 // Note: movement is done with physics manipulation of the
 // players rigidbody, NOT manipulation of the players transform
 public class OLFirstPersonMovement : FirstPersonMovement
-{    
-    public override void OnCrouch(InputAction.CallbackContext context)
+{
+    public void SetupFPM()
     {
-        // Button Hold system
-        //crouching = context.action.triggered;
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
 
-        // Toggle system
-        if (GetComponent<OLCameraManager>().CheckForAuthority())
+        readyToJump = true;
+
+        // Used for crouching
+        startYScale = transform.localScale.y;
+
+        // Get player character height and set the ground check size
+        if (playerModel)
         {
-            if (crouching)
-            {
-                crouching = false;
-            }
-            else
-            {
-                crouching = true;
-            }
+            currentHeight = playerModel.transform.localScale.y * 2;
+            // Note: also used for Sphere Cast
+            groundCheckBoxSize = new Vector3(
+                playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
+                , 0.05f,
+                playerModel.transform.localScale.z * groundCheckBoxSizeMultiplier);
         }
+        else
+        {
+            Debug.Log("Error, can't get players scale");
+        }
+
+        // Disables cursor
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+    }
+    
+    protected override void Start()
+    {
+        //rb = GetComponent<Rigidbody>();
+        //rb.freezeRotation = true;
+
+        //readyToJump = true;
+
+        //// Used for crouching
+        //startYScale = transform.localScale.y;
+
+        //// Get player character height and set the ground check size
+        //if (playerModel)
+        //{
+        //    currentHeight = playerModel.transform.localScale.y * 2;
+        //    // Note: also used for Sphere Cast
+        //    groundCheckBoxSize = new Vector3(
+        //        playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
+        //        , 0.05f,
+        //        playerModel.transform.localScale.z * groundCheckBoxSizeMultiplier);
+        //}
+        //else
+        //{
+        //    Debug.Log("Error, can't get players scale");
+        //}
+
+        //// Disables cursor
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     public void UpdateFPM()
@@ -54,6 +95,7 @@ public class OLFirstPersonMovement : FirstPersonMovement
             rb.drag = 0f;
         }
 
+        // Normally in fixed update
         MovePlayer();
     }
 

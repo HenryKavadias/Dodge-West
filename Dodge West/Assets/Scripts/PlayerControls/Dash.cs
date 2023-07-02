@@ -11,8 +11,8 @@ public class Dash : MonoBehaviour
     [Header("References")]
     public Transform orientation;
     private Transform playerCam;
-    private Rigidbody rb;
-    private FirstPersonMovement fpm;
+    protected Rigidbody rb;
+    protected FirstPersonMovement fpm;
 
     [Header("Dashing")]
     public float dashForce;
@@ -45,7 +45,7 @@ public class Dash : MonoBehaviour
         // reset after activation
     }
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
         fpm = GetComponent<FirstPersonMovement>();

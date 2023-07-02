@@ -73,6 +73,12 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    public virtual void UpdateID()
+    {
+        currentUI.GetComponent<PlayerUIManager>().playerNumberText.text = 
+            gameObject.GetComponent<PlayerID>().GetID().ToString();
+    }
+
     // Spawn and setup the Player UI
     protected virtual void SetupUI()
     {

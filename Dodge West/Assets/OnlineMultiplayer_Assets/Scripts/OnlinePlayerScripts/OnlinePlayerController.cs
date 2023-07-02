@@ -2,16 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using UnityEngine.InputSystem;
 
 public class OnlinePlayerController : NetworkBehaviour
 {
     private OLPlayerInputHandler playerInputHandler = null;
+    private OLCameraManager cameraManager = null;
 
     public override void Spawned()
     {
-        playerInputHandler = GetComponent<OLPlayerInputHandler>();
+        //Debug.Log("State Authority (OnlinePlayerController): " + HasStateAuthority);
 
-        playerInputHandler.GetMovement().SetRigidbody();
+        if (HasStateAuthority)
+        {
+            Debug.Log("Setting up player");
+            
+            playerInputHandler = GetComponent<OLPlayerInputHandler>();
+
+            playerInputHandler.GetInputs();
+
+            playerInputHandler.SetupInputs();
+
+            cameraManager = GetComponent<OLCameraManager>();
+            //cameraManager.SetupCameraAndUI();
+        }
+        else
+        {
+            Debug.Log("Player doesn't have state Authority");
+        }
+        
+
+        // Add a set camera target here
+
+        // Note: second player can't be controlled
     }
 
     //private void Awake()
@@ -21,10 +44,14 @@ public class OnlinePlayerController : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        if (!HasInputAuthority)
+        if (HasStateAuthority == false)
         {
+            //Debug.Log("SA (OnlinePC) is " + HasStateAuthority);
+            
             return;
         }
+        //Debug.Log("SA (OnlinePC) is " + HasStateAuthority);
+        //InputSystem.Update();
 
         playerInputHandler.UpdateInputs();
 

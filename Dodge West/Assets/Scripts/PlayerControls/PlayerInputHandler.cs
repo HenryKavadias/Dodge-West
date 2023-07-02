@@ -9,6 +9,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    protected bool playerInitialized = false;
+
     // Reference for local multiplayer controls
     // (Single player controls are with the
     // Player Input component with Unity Events)
@@ -74,6 +76,8 @@ public class PlayerInputHandler : MonoBehaviour
             // Assign the player controls to the player configuration
             config.Input.onActionTriggered += Input_onActionTriggered;
         }
+
+        playerInitialized = true;
     }
 
     // Assigns the controls to the player configuration with script

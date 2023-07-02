@@ -24,7 +24,7 @@ public class CameraControl : MonoBehaviour
     private Vector2 lookInput = Vector2.zero;
 
     // Turn off the cursor
-    void Start()
+    protected virtual void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

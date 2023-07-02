@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 // Controller for the players ability to pause the game
 public class OLPauseControls : PauseControls
 {
-    protected override void Update()
+    public void UpdatePC()
     {
-        if (GetComponent<OLCameraManager>().CheckForAuthority() && pausing)
+        if (pausing)
         {
             // Re-enable Cursor
             Cursor.lockState = CursorLockMode.Locked;
@@ -24,5 +24,25 @@ public class OLPauseControls : PauseControls
             pausing = false;
             return;
         }
+    }
+    
+    protected override void Update()
+    {
+        //if (pausing)
+        //{
+        //    // Re-enable Cursor
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
+
+        //    // Tells the game controler/manager to pause the game
+        //    GameObject gm = GameObject.FindGameObjectWithTag("GameController");
+        //    if (gm != null && gm.GetComponent<Pause>().isActiveAndEnabled)
+        //    {
+        //        gm.GetComponent<Pause>().TogglePauseState();
+        //    }
+
+        //    pausing = false;
+        //    return;
+        //}
     }
 }

@@ -7,10 +7,20 @@ using UnityEngine.InputSystem;
 // Manages the controls for the dash ability for the player
 public class OLDash : Dash
 {
-    // Only able to dash when it's off cooldown
-    protected override void Update()
+    public void SetupDash()
     {
-        if (GetComponent<OLCameraManager>().CheckForAuthority() && dashing)
+        rb = GetComponent<Rigidbody>();
+        fpm = GetComponent<FirstPersonMovement>();
+    }
+
+    protected override void Start()
+    {
+        //rb = GetComponent<Rigidbody>();
+        //fpm = GetComponent<FirstPersonMovement>();
+    }
+    public void UpdateDashMove()
+    {
+        if (dashing)
         {
             DoDash();
             dashing = false;
@@ -18,5 +28,18 @@ public class OLDash : Dash
 
         // Controls dash cooldown
         if (dashCdTimer > 0) { dashCdTimer -= Time.deltaTime; }
+    }    
+    
+    // Only able to dash when it's off cooldown
+    protected override void Update()
+    {
+        //if (dashing)
+        //{
+        //    DoDash();
+        //    dashing = false;
+        //}
+
+        //// Controls dash cooldown
+        //if (dashCdTimer > 0) { dashCdTimer -= Time.deltaTime; }
     }
 }

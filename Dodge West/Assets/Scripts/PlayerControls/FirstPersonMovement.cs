@@ -31,12 +31,12 @@ public class FirstPersonMovement : MonoBehaviour
     public float jumpForce = 7f;
     public float airMultiplier = 0.4f;
     public float jumpCooldown = 0.25f;
-    bool readyToJump;
+    protected bool readyToJump;
 
     [Header("Crouch")]
     public float crouchSpeed;
     public float crouchYScale;
-    private float startYScale;
+    protected float startYScale;
 
     [Header("Ground Check")]
     public LayerMask groundMask;
@@ -44,8 +44,8 @@ public class FirstPersonMovement : MonoBehaviour
     public float distanceOfCheck = 0.2f;
     [Range(0.001f, 1f)]
     public float groundCheckBoxSizeMultiplier = 0.8f;
-    private float currentHeight;
-    private Vector3 groundCheckBoxSize;
+    protected float currentHeight;
+    protected Vector3 groundCheckBoxSize;
     protected bool isGrounded;
 
     [Header("Slope Handling")]
@@ -92,7 +92,7 @@ public class FirstPersonMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -118,8 +118,8 @@ public class FirstPersonMovement : MonoBehaviour
         }
 
         // Disables cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     // Movement controls functions
@@ -401,7 +401,6 @@ public class FirstPersonMovement : MonoBehaviour
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
             }
         }
-
         else if (isGrounded)
         {
             // on ground
