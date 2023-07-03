@@ -86,6 +86,7 @@ public class FusionConnection : MonoBehaviour, INetworkRunnerCallbacks
         await runner.StartGame(args);
     }
 
+
     #region unused Fusion callbacks
     public void OnInput(NetworkRunner runner, NetworkInput input) { }
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }

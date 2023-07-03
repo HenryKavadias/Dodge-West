@@ -28,6 +28,9 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
                 spawnPosition = onlineGC.spawnPosition[0].transform.position;
             }
 
+            // Look into "Is Local PlayerObject" under network object
+            // (It's false for the none basic prototype scenes)
+
             Runner.Spawn(playerPrefab, spawnPosition, Quaternion.identity, player);
 
             //var curPlayer = Runner.Spawn(playerPrefab, spawnPosition, Quaternion.identity, player);

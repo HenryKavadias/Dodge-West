@@ -8,22 +8,6 @@ using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 using Fusion;
 
-//public struct NetworkInputData : INetworkInput
-//{
-//    public bool pausing;
-//    public bool pickedup;
-//    public bool thrown;
-//    public bool loadedItem;
-//    public bool dashing;
-
-//    public Vector2 movementInput;
-//    public bool jumped;
-//    public bool sprinting;
-//    public bool crouching;
-
-//    public Vector2 lookInput;
-//}
-
 public class OLPlayerInputHandler : PlayerInputHandler
 {
     private OLFirstPersonMovement olMovement;
