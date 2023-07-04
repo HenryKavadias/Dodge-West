@@ -13,6 +13,11 @@ public class OLDash : Dash
         fpm = GetComponent<FirstPersonMovement>();
     }
 
+    public void RefreshInput(bool dash)
+    {
+        dashing = dash;
+    }
+
     protected override void Start()
     {
         //rb = GetComponent<Rigidbody>();

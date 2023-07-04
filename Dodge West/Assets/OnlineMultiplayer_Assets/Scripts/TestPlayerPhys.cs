@@ -7,30 +7,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-enum ButtonList
-{
-    Forward = 0,
-    Backward = 1,
-    Left = 2,
-    Right = 3,
-    Jump = 4,
-    Dash = 5,
-    Crouch = 6,
-    Sprint = 7,
-    Pickup = 8,
-    Throw = 9,
-    LoadItem = 10,
-    Pause = 11
-}
-
-public struct NetworkInputData : INetworkInput
-{
-    public Vector2 movementInput;
-    public Vector2 lookInput;
-
-    public NetworkButtons buttons;
-}
-
 public class TestPlayerPhys : NetworkBehaviour, INetworkRunnerCallbacks
 {
     #region unused Fusion callbacks
@@ -88,12 +64,12 @@ public class TestPlayerPhys : NetworkBehaviour, INetworkRunnerCallbacks
         Debug.Log("HasInputAuthority: " + HasInputAuthority);
         _actionMap = new PlayerControls();  // NetworkInputData
 
-        controls = new PlayerControls();
+        //controls = new PlayerControls();
         OnEnable();
 
-        inputs = GetComponent<PlayerInput>();
+        //inputs = GetComponent<PlayerInput>();
 
-        inputs.onActionTriggered += InputActions;
+        //inputs.onActionTriggered += InputActions;
     }
 
     private void OnEnable()
@@ -122,7 +98,7 @@ public class TestPlayerPhys : NetworkBehaviour, INetworkRunnerCallbacks
         // NetworkInputData
         if (Runner != null)
         {
-            // enabling the input map
+            // Disabling the input map
             _actionMap.Player.Disable();
 
             Runner.RemoveCallbacks(this);

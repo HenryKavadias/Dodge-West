@@ -32,9 +32,9 @@ public class PhysicsPickup : MonoBehaviour
     protected Rigidbody currentObject;    // Reference to current picked up object
 
     // Input variables
-    private bool pickedup = false;
-    private bool thrown = false;
-    private bool loadedItem = false;
+    protected bool pickedup = false;
+    protected bool thrown = false;
+    protected bool loadedItem = false;
 
     // Input functions (OnPickup is used for pick and drop for an object)
     public void OnPickup(InputAction.CallbackContext context)

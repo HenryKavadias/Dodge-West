@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 using Fusion;
+using UnityEngine.Windows;
 
 public class OLPlayerInputHandler : PlayerInputHandler
 {
@@ -72,6 +73,35 @@ public class OLPlayerInputHandler : PlayerInputHandler
             Debug.Log("Back up initialized triggered.");
         }
     }
+
+    [Networked] public NetworkButtons ButtonsPrevious { get; set; }
+
+    public void RefreshInputs(NetworkInputData data)
+    {
+        //Debug.Log("Inputs are refreshed");
+
+        var pressed = data.buttons.GetPressed(ButtonsPrevious);
+        var released = data.buttons.GetReleased(ButtonsPrevious);
+
+        // Update all input variables for the player here
+        olMovement.RefreshInput(
+            data.movementInput,
+            pressed.IsSet(ButtonList.Jump),
+            pressed.IsSet(ButtonList.Crouch),
+            pressed.IsSet(ButtonList.Sprint));
+
+        olLook.RefreshInput(data.lookInput);
+
+        olDash.RefreshInput(pressed.IsSet(ButtonList.Dash));
+
+        olPickup.RefreshInput(
+            pressed.IsSet(ButtonList.Pickup),
+            pressed.IsSet(ButtonList.Throw),
+            pressed.IsSet(ButtonList.LoadItem));
+
+
+    }
+
     // Updates the input scripts
     public void UpdateInputs()
     {

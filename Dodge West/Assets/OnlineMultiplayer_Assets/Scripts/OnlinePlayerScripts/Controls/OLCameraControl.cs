@@ -8,6 +8,11 @@ using DG.Tweening;
 // Manages the camera controls for the player
 public class OLCameraControl : CameraControl
 {
+    public void RefreshInput(Vector2 input)
+    {
+        lookInput = input;
+    }
+    
     public void SetupCameraControl()
     {
         Cursor.lockState = CursorLockMode.Locked;

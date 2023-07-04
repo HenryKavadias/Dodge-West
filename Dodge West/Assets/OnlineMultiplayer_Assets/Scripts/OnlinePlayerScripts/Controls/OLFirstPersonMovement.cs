@@ -14,6 +14,37 @@ using UnityEngine.InputSystem.HID;
 // players rigidbody, NOT manipulation of the players transform
 public class OLFirstPersonMovement : FirstPersonMovement
 {
+    // Needed for online version of crouching
+    bool allowCrouch = true;
+    public void RefreshInput(
+        Vector2 input, 
+        bool jump, 
+        bool crouch, 
+        bool sprint)
+    {
+        movementInput = input;
+        jumped = jump;
+
+        sprinting = sprint;
+
+        // Online controls for crouching needed
+        // to be more sophisticated
+        if (!allowCrouch && crouch)
+        {
+            return;
+        }
+        else
+        {
+            allowCrouch = true;
+        }
+
+        if (crouch && allowCrouch)
+        {
+            ToggleCrouch();
+            allowCrouch = false;
+        }
+    }
+
     public void SetupFPM()
     {
         rb = GetComponent<Rigidbody>();

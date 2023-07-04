@@ -21,7 +21,7 @@ public class CameraControl : MonoBehaviour
     private float yRotation = 0f;
 
     // Current input of camera controls
-    private Vector2 lookInput = Vector2.zero;
+    protected Vector2 lookInput = Vector2.zero;
 
     // Turn off the cursor
     protected virtual void Start()

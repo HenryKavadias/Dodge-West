@@ -2,11 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 // Manages the players ability to pickup objects in the game
 // (Objects are picked up with physics)
 public class OLPhysicsPickup : PhysicsPickup
 {
+    bool allowAction = true;
+
+    public void RefreshInput(bool pickup, bool throwing, bool load)
+    {
+        // May need to change this in the future
+        // depending on how this mechanic works
+        loadedItem = load;
+
+        // Prevents repeated actions when the button is held down
+        if (!allowAction && (pickup || throwing))
+        {
+            return;
+        }
+        else
+        {
+            allowAction = true;
+        }
+
+        if (allowAction)
+        {
+            if (pickup)
+            {
+                pickedup = true;
+                allowAction = false;
+            }
+            else if (throwing)
+            {
+                thrown = true;
+                allowAction = false;
+            }
+        }
+
+    }
+    
     public void UpdatePPup()
     {
         PickupAndThrow();

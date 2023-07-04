@@ -2,10 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 // Controller for the players ability to pause the game
 public class OLPauseControls : PauseControls
 {
+    bool allowPause = true;
+
+    public void RefreshInput(bool paused)
+    {
+        if (!allowPause && paused)
+        {
+            return;
+        }
+        else
+        {
+            allowPause = true;
+        }
+
+        if (paused && allowPause)
+        {
+            pausing = paused;
+            allowPause = false;
+        }
+    }
+    
     public void UpdatePC()
     {
         if (pausing)

@@ -77,15 +77,15 @@ public class FirstPersonMovement : MonoBehaviour
     public bool dashing;
 
     // Movement control variables
-    private Vector2 movementInput = Vector2.zero;
+    protected Vector2 movementInput = Vector2.zero;
     public Vector2 currentMoveInput
     {
         get { return movementInput; }
     }
-    private bool jumped = false;
-    private bool sprinting = false;
+    protected bool jumped = false;
+    protected bool sprinting = false;
     protected bool crouching = false;
-    private bool stillCrouching = false;
+    protected bool stillCrouching = false;
 
     public void SetRigidbody()
     {
@@ -144,6 +144,19 @@ public class FirstPersonMovement : MonoBehaviour
         //crouching = context.action.triggered;
 
         // Toggle system
+        ToggleCrouch();
+        //if (crouching)
+        //{
+        //    crouching = false;
+        //}
+        //else
+        //{
+        //    crouching = true;
+        //}
+    }
+
+    protected void ToggleCrouch()
+    {
         if (crouching)
         {
             crouching = false;
