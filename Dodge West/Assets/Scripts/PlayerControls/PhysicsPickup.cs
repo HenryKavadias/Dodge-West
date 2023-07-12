@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Fusion;
 
 // Manages the players ability to pickup objects in the game
 // (Objects are picked up with physics)
@@ -14,11 +15,11 @@ public class PhysicsPickup : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float transparencyRatio = 0.5f;
 
-    [SerializeField] private LayerMask pickupMask;  // Layer(s) players can pickup objects on
-    private Camera playerCamera;                    // Reference to player camera
+    [SerializeField] protected LayerMask pickupMask;  // Layer(s) players can pickup objects on
+    protected Camera playerCamera;                    // Reference to player camera
     [SerializeField] protected Transform pickupTarget;// Point where the picked up object will travel to
     [Space]
-    [SerializeField] private float pickupRange;     // Distance that players can pick up an object
+    [SerializeField] protected float pickupRange;     // Distance that players can pick up an object
 
     // Variables that control the speed in which pickedup objects travel to the "pickupTarget"
     [SerializeField] protected float objectTrackingSpeedModifier = 12f;
@@ -29,7 +30,8 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private bool enableThrowPowerWithCap = true;
     [SerializeField] private float minThrowPower = 100f;
 
-    protected Rigidbody currentObject;    // Reference to current picked up object
+    [Networked]
+    protected Rigidbody currentObject { get; set; }    // Reference to current picked up object
 
     // Input variables
     protected bool pickedup = false;
@@ -83,7 +85,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Used to balance object throw power
-    float DynamicForceToObject()
+    protected float DynamicForceToObject()
     {
         // Throw power ideal guide:
 
@@ -131,7 +133,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Manages the players ability to pickup, drop, and throw objects
-    protected void PickupAndThrow()
+    protected virtual void PickupAndThrow()
     {
         // Can only throw/drop an object if the player is carrying one
         // Can only pickup an object if the player is looking at an object on the
@@ -225,7 +227,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Make object materials transparent and save their previous materials and structure
-    void MakeObjectsTransparent()
+    protected void MakeObjectsTransparent()
     {
         if (transparentPickup && currentObject)
         {

@@ -41,7 +41,103 @@ public class OLPhysicsPickup : PhysicsPickup
         }
 
     }
-    
+
+    public override void DropObject()
+    {
+        if (currentObject)
+        {
+            // Drop object
+            currentObject.GetComponent<VelocityDamager>().Drop();
+            currentObject.useGravity = true;
+
+            // Network
+            currentObject.GetComponent<NetworkPickup>().Drop();
+
+            RestoreToOriginalMaterials();
+            currentObject = null;
+        }
+    }
+
+    protected override void PickupAndThrow()
+    {
+        // Can only throw/drop an object if the player is carrying one
+        // Can only pickup an object if the player is looking at an object on the
+        // pickup layer, is in range, and isn't already holding an object
+
+        // Throw functionality must be put before pickup/drop functionality
+        if (thrown && currentObject)
+        {
+            // Throw object
+            currentObject.GetComponent<VelocityDamager>().Drop(true);
+            currentObject.useGravity = true;
+            currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
+
+            // Network
+            currentObject.GetComponent<NetworkPickup>().Drop();
+
+            // Restore to original material state
+            RestoreToOriginalMaterials();
+
+            currentObject = null;
+
+            // Avoids multiple actions from one input
+            pickedup = false;
+            thrown = false;
+            return;
+        }
+
+        if (pickedup || thrown)
+        {
+            if (currentObject)
+            {
+                // Drop object
+                currentObject.GetComponent<VelocityDamager>().Drop();
+                currentObject.useGravity = true;
+
+                // Network
+                currentObject.GetComponent<NetworkPickup>().Drop();
+
+                // Restore to original material state
+                RestoreToOriginalMaterials();
+
+                currentObject = null;
+            }
+            else
+            {
+                // Pickup object
+                Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+                {
+                    // Network
+                    RaycastHit objHit = GetComponent<RaycastNetwork>().CheckRaycast(cameraRay);
+
+                    if (!objHit.rigidbody.GetComponent<NetworkPickup>().IsHeld() && 
+                        !objHit.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                    {
+                        currentObject = objHit.rigidbody;
+                        currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                        currentObject.useGravity = false;
+
+                        Debug.Log(objHit.rigidbody.GetComponent<NetworkPickup>().IsHeld());
+
+                        // Network
+                        currentObject.GetComponent<NetworkPickup>().Pickup();
+
+                        MakeObjectsTransparent();
+                        //MakeTransparent();
+                    }
+                }
+            }
+
+            // Input boolean variable must be reset to false from one button press
+            // to emulate the functionality of the old input system
+            thrown = false;
+            pickedup = false;
+            return;
+        }
+    }
+
     public void UpdatePPup()
     {
         PickupAndThrow();
@@ -53,6 +149,7 @@ public class OLPhysicsPickup : PhysicsPickup
             //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
             float distanceToPoint = directionToPoint.magnitude;
 
+            // Doesn't work in online mode
             currentObject.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
 
             if (currentObject.velocity.magnitude > maxObjectSpeed)
@@ -72,20 +169,6 @@ public class OLPhysicsPickup : PhysicsPickup
 
         //PickupAndThrow();
     }
-    // Note: Regarding the new input system, for single action input events (ONE BUTTON PRESS = ONE ACTION EVENT),
-    // after the event is performed that actions relative bolean variable must be reset to "false" to avoid multiple
-    // actions being performed from one button press.
-    //public override void DropObject()
-    //{
-    //    if (currentObject)
-    //    {
-    //        // Drop object
-    //        currentObject.GetComponent<VelocityDamager>().Drop();
-    //        currentObject.useGravity = true;
-    //        RestoreToOriginalMaterials();
-    //        currentObject = null;
-    //    }
-    //}
 
     // Controls the physics behind picking up an object
     protected override void FixedUpdate()

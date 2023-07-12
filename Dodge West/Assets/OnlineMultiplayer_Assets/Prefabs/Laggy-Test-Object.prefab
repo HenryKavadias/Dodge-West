@@ -381,8 +381,9 @@ GameObject:
   - component: {fileID: 4903122081363505906}
   - component: {fileID: 4875908858667272266}
   - component: {fileID: 705154467760991788}
+  - component: {fileID: -5258206228789033147}
   m_Layer: 7
-  m_Name: Test_object_Network
+  m_Name: Laggy-Test-Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,10 +472,11 @@ MonoBehaviour:
   AoiPositionSource: {fileID: 0}
   Flags: 2305
   NetworkGuid:
-    RawGuidValue: d6080705c806b5544858cfad8ef49fab
+    RawGuidValue: 12bbb8128466d754e86136b219be1967
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 4875908858667272266}
+  - {fileID: -5258206228789033147}
   SimulationBehaviours: []
 --- !u!114 &4875908858667272266
 MonoBehaviour:
@@ -493,17 +495,17 @@ MonoBehaviour:
   InterpolationTarget: {fileID: 8521985489333960634}
   InterpolateErrorCorrection: 1
   InterpolatedErrorCorrectionSettings:
-    MinRate: 3.3
-    MaxRate: 10
-    PosBlendStart: 0.25
-    PosBlendEnd: 1
-    PosMinCorrection: 0.025
-    PosTeleportDistance: 2
-    RotBlendStart: 0.1
-    RotBlendEnd: 0.5
-    RotTeleportRadians: 1.5
+    MinRate: 100
+    MaxRate: 1000
+    PosBlendStart: 20
+    PosBlendEnd: 50
+    PosMinCorrection: 100
+    PosTeleportDistance: 1000
+    RotBlendStart: 900
+    RotBlendEnd: 1800
+    RotTeleportRadians: 3600
   UseLegacySharedModeInterpolation: 0
-  TargetInterpolationDelay: 0.03
+  TargetInterpolationDelay: 0.2
 --- !u!65 &705154467760991788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -525,6 +527,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5258206228789033147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394292602838942609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6102b22e1c6e74db18067004d13ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
 --- !u!1 &5394292603671138442
 GameObject:
   m_ObjectHideFlags: 0
