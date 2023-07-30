@@ -211,12 +211,17 @@ public class PhysicsPickup : MonoBehaviour
     private int objectMaterialCount = 0;    // Number of materials attached to object
     private int objectMaterialCounter = 0;  // Current material being reset in object model structure
 
+    private Object[] materialResources; // Materials list from resources
+
     // Resets object model material variables
     void ResetMaterialVariables()
     {
         objectMaterials = new List<Material>();
         objectMaterialCount = 0;
         objectMaterialCounter = 0;
+
+        // Reset array. Avoids holding large amounts of data
+        materialResources = new Object[0];
     }
 
     // Make object materials transparent and save their previous materials and structure
@@ -229,6 +234,9 @@ public class PhysicsPickup : MonoBehaviour
             // If object has children, start the relevent recursion function
             if (currentObject.gameObject.transform.childCount > 0)
             {
+                // Get material from resources folder, its here to reduce calls
+                materialResources = Resources.LoadAll("Materials", typeof(Material));
+
                 ModifyObjectMaterial(currentObject.gameObject.transform);
             }
         }
@@ -247,16 +255,11 @@ public class PhysicsPickup : MonoBehaviour
 
                 // Get material of current object
                 Material mat = curObj.GetComponent<MeshRenderer>().material;
-
-                // Note: should change this to be called only once (make a function for this)
-
-                // Get all materials
-                Object[] matArray = Resources.LoadAll("Materials", typeof(Material));
                 
                 bool foundMaterial = false;
 
                 // Search for the material of current object
-                foreach (Object obj in matArray)
+                foreach (Object obj in materialResources)
                 {
                     Material curMat = (Material)obj;
 
