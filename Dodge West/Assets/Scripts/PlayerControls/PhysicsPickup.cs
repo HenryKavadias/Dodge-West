@@ -60,13 +60,67 @@ public class PhysicsPickup : MonoBehaviour
     
     void Update()
     {
+        // Highlight the object that is being looked at if it's not being held
+        HighlightObject();
+
         // When picking up or dropping an object you must modifiy 3 of it attributes:
         // - It's Velocity damager script, tell it if it's pickup or dropped
         // - Use gravity if dropped, don't use if picked up
         // - the reference of "currentObject", null if dropped, set reference to picked up object
-
         PickupAndThrow();
     }
+
+    // Holds a reference for the object currently being highlighted
+    private GameObject currentHighlight = null;
+
+    // Highlights pickup able objects using an outline script attached to the pickup able objects
+    void HighlightObject()
+    {
+        // If not currently holding an object
+        if (currentObject == null)
+        {
+            // Check if player is looking at a pickup able object
+            Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+            {
+                GameObject target = hitInfo.rigidbody.gameObject;
+
+                // Check if object is held by another player and has the outline script
+                if (!target.GetComponent<VelocityDamager>().IsHeld() && target.GetComponent<Outline>())
+                {
+                    // Check if highlighted object has changed
+                    if (currentHighlight != target && !target.GetComponent<Outline>().enabled)
+                    {
+                        // If it has, unhighlight old object and highlight new one
+                        
+                        target.GetComponent<Outline>().enabled = true;
+
+                        if (currentHighlight != null)
+                        {
+                            currentHighlight.GetComponent<Outline>().enabled = false;
+                        }
+
+                        currentHighlight = target;
+                    }
+                }
+            }
+            else if (currentHighlight != null)
+            {
+                // If not looking at an object and current highlighted object isn't null,
+                // turn off outline script on object and reset variable
+                currentHighlight.GetComponent<Outline>().enabled = false;
+                currentHighlight = null;
+            }
+        }
+        else if (currentHighlight != null)
+        {
+            // If not looking at an object and current highlighted object isn't null,
+            // turn off outline script on object and reset variable
+            currentHighlight.GetComponent<Outline>().enabled = false;
+            currentHighlight = null;
+        }
+    }
+
     // Note: Regarding the new input system, for single action input events (ONE BUTTON PRESS = ONE ACTION EVENT),
     // after the event is performed that actions relative bolean variable must be reset to "false" to avoid multiple
     // actions being performed from one button press.

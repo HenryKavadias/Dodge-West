@@ -195,6 +195,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -491,6 +492,7 @@ GameObject:
   - component: {fileID: 7295154873178521887}
   - component: {fileID: 7295154873178521884}
   - component: {fileID: 314449480029864753}
+  - component: {fileID: 1054362591976931155}
   m_Layer: 7
   m_Name: _temp_Sign
   m_TagString: Untagged
@@ -564,6 +566,24 @@ MonoBehaviour:
   heldVelocityThreshold: 0.5
   minIdleDamageVelocity: 30
   idleVelocityThreshold: 0.7
+--- !u!114 &1054362591976931155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295154873178521885}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7295154873541221229
 GameObject:
   m_ObjectHideFlags: 0
