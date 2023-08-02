@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
     // Player character object
     public GameObject playerObject;
 
+    public int defaultLifes = 3;
+
     // Spawn positions for the player
     public GameObject[] spawnPosition;
 
@@ -206,7 +208,7 @@ public class GameController : MonoBehaviour
             //    spawnPosition[0].GetComponent<Transform>().rotation);
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
 
-            player.GetComponent<LifeCounter>().SetLives(1);
+            player.GetComponent<LifeCounter>().SetLives(defaultLifes);
 
             AddPlayer(player);
         }

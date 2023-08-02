@@ -93,9 +93,13 @@ public class LifeCounter : MonoBehaviour
         OnZeroLives.Invoke();
     }
 
+    public float deathDelay = 10f;
+
     // Trigger OnLooseALife event after 1 frame
     private IEnumerator SlowTriggerLoose()
     {
+        // Disable player controls and UI temperarily
+        yield return new WaitForSeconds(deathDelay); 
         yield return null;
         OnLooseALife.Invoke();
     }

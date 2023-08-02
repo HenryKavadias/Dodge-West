@@ -28,7 +28,7 @@ public class PlayerUIManager : MonoBehaviour
         deathMessage.SetActive(true);
     }
 
-    // Enable all elements, disnable death message
+    // Enable all elements, disable death message
     public void TriggerResurrection()
     {
         healthImage.enabled = true;
