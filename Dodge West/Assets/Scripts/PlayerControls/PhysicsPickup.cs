@@ -9,6 +9,8 @@ public class PhysicsPickup : MonoBehaviour
 {
     // Variables for pickup ability
 
+    // Variables for Loadsystem
+    public List<GameObject> loadInventory = new List<GameObject>();
     // Trasparent pickup variables
     [SerializeField] private bool transparentPickup = false;
     [Range(0f, 1f)]
@@ -138,22 +140,44 @@ public class PhysicsPickup : MonoBehaviour
         // pickup layer, is in range, and isn't already holding an object
         
         // Throw functionality must be put before pickup/drop functionality
-        if (thrown && currentObject)
+        if (thrown)
         {
-            // Throw object
-            currentObject.GetComponent<VelocityDamager>().Drop(true);
-            currentObject.useGravity = true;
-            currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
+            if (currentObject)
+            {
+                // Throw object
+                currentObject.GetComponent<VelocityDamager>().Drop(true);
+                currentObject.useGravity = true;
+                currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
 
-            // Restore to original material state
-            RestoreToOriginalMaterials();
+                // Restore to original material state
+                RestoreToOriginalMaterials();
 
-            currentObject = null;
+                currentObject = null;
 
-            // Avoids multiple actions from one input
-            pickedup = false;
-            thrown = false; 
-            return;
+                // Avoids multiple actions from one input
+                pickedup = false;
+                thrown = false;
+                return;
+            }
+            else if (loadInventory.Count > 0)
+            {
+                GameObject thrownObj = loadInventory[0];
+                thrownObj.SetActive(true);
+                // Throw object
+                thrownObj.GetComponent<VelocityDamager>().Drop(true);
+                thrownObj.GetComponent<Rigidbody>().useGravity = true;
+                thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
+
+                thrownObj = null;
+
+                loadInventory.RemoveAt(0);
+
+                // Avoids multiple actions from one input
+                pickedup = false;
+                thrown = false;
+                return;
+            }
+            
         }
 
         if (pickedup || thrown)
@@ -197,6 +221,21 @@ public class PhysicsPickup : MonoBehaviour
         // Note: load system still needs implementing
         if (loadedItem)
         {
+
+            
+            Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+            {
+                if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                {
+                    //currentObject = hitInfo.rigidbody;
+                    //currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                    GameObject loadedObject = hitInfo.rigidbody.gameObject;
+                    loadInventory.Add(loadedObject);
+                    loadedObject.SetActive(false);
+                    
+                }
+            }
 
             loadedItem = false;
             return;
