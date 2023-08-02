@@ -139,7 +139,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Used to balance object throw power
-    float DynamicForceToObject()
+    float DynamicForceToObject(float objMass)
     {
         // Throw power ideal guide:
 
@@ -161,9 +161,9 @@ public class PhysicsPickup : MonoBehaviour
         float result = 0;
 
         // Cap the force power for objects lighter than 1 mass
-        if (currentObject.mass < 1)
+        if (objMass < 1)
         {
-            result = minThrowPower * currentObject.mass;
+            result = minThrowPower * objMass;
             return result;
         }
 
@@ -171,16 +171,16 @@ public class PhysicsPickup : MonoBehaviour
         if (enableThrowPowerWithCap)
         {
             // 80ppu to 1ppu with a flat value
-            float powerPerUnits = 107.38f * Mathf.Pow(currentObject.mass, -0.98f);
+            float powerPerUnits = 107.38f * Mathf.Pow(objMass, -0.98f);
 
-            result = (powerPerUnits + flatThrowPowerPerUnit) * currentObject.mass;
+            result = (powerPerUnits + flatThrowPowerPerUnit) * objMass;
         }
         else
         {
             // 100ppu to 20ppu without a flat value
-            float powerPerUnits = 89.206f * Mathf.Pow(currentObject.mass, -0.362f);
+            float powerPerUnits = 89.206f * Mathf.Pow(objMass, -0.362f);
 
-            result = powerPerUnits * currentObject.mass;
+            result = powerPerUnits * objMass;
         }
 
         return result;
@@ -201,37 +201,35 @@ public class PhysicsPickup : MonoBehaviour
                 // Throw object
                 currentObject.GetComponent<VelocityDamager>().Drop(true);
                 currentObject.useGravity = true;
-                currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
+                currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(currentObject.mass), ForceMode.Impulse);
 
                 // Restore to original material state
                 RestoreToOriginalMaterials();
 
                 currentObject = null;
-
-                // Avoids multiple actions from one input
-                pickedup = false;
-                thrown = false;
-                return;
             }
             else if (loadInventory.Count > 0)
             {
                 GameObject thrownObj = loadInventory[0];
-                thrownObj.SetActive(true);
+                //thrownObj.SetActive(true);
+
                 // Throw object
                 thrownObj.GetComponent<VelocityDamager>().Drop(true);
                 thrownObj.GetComponent<Rigidbody>().useGravity = true;
-                thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward * DynamicForceToObject(), ForceMode.Impulse);
+                thrownObj.GetComponent<Transform>().position = pickupTarget.position;
+
+                thrownObj.SetActive(true);
+                thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward * 
+                    DynamicForceToObject(thrownObj.GetComponent<Rigidbody>().mass), ForceMode.Impulse);
 
                 thrownObj = null;
 
                 loadInventory.RemoveAt(0);
-
-                // Avoids multiple actions from one input
-                pickedup = false;
-                thrown = false;
-                return;
             }
-            
+            // Avoids multiple actions from one input
+            pickedup = false;
+            thrown = false;
+            return;
         }
 
         if (pickedup || thrown)
