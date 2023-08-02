@@ -229,6 +229,7 @@ public class PhysicsPickup : MonoBehaviour
             // Avoids multiple actions from one input
             pickedup = false;
             thrown = false;
+            loadedItem = false;
             return;
         }
 
@@ -267,30 +268,84 @@ public class PhysicsPickup : MonoBehaviour
             // to emulate the functionality of the old input system
             thrown = false;
             pickedup = false;
+            loadedItem = false;
             return;
         }
 
         // Note: load system still needs implementing
         if (loadedItem)
         {
-
-            
             Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
             {
                 if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
                 {
-                    //currentObject = hitInfo.rigidbody;
-                    //currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
                     GameObject loadedObject = hitInfo.rigidbody.gameObject;
-                    loadInventory.Add(loadedObject);
-                    loadedObject.SetActive(false);
-                    
+
+                    if (massLimitEnabled && itemLimitEnabled)
+                    {
+                        // Both limitations
+
+
+                    }
+                    else if (!massLimitEnabled && itemLimitEnabled)
+                    {
+                        // Item limitation
+
+
+                    }
+                    else if (massLimitEnabled && !itemLimitEnabled)
+                    {
+                        // Mass limitation
+
+
+                    }
+                    else
+                    {
+                        // No limitations
+
+                        loadInventory.Add(loadedObject);
+                        loadedObject.SetActive(false);
+                    }
                 }
             }
 
+            thrown = false;
+            pickedup = false;
             loadedItem = false;
             return;
+        }
+    }
+
+    public bool massLimitEnabled = true;
+    public bool itemLimitEnabled = true;
+
+    public int loadItemLimit = 50;
+    public float loadMassLimit = 500;
+    float currentLoad = 0;
+
+    bool LoadLimitCheck(float objMass)
+    {
+        if (currentLoad + objMass <= loadMassLimit)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    void AddMassToLoad(float mass)
+    {
+        currentLoad += mass;
+    }
+
+    void SubtractMassFromLoad(float mass)
+    {
+        currentLoad -= mass;
+
+        if (currentLoad < 0)
+        {
+            currentLoad = 0;
         }
     }
 

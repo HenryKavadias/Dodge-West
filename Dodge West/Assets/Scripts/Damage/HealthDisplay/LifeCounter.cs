@@ -99,6 +99,9 @@ public class LifeCounter : MonoBehaviour
     private IEnumerator SlowTriggerLoose()
     {
         // Disable player controls and UI temperarily
+
+        // Note: Finish slow death trigger
+
         yield return new WaitForSeconds(deathDelay); 
         yield return null;
         OnLooseALife.Invoke();
