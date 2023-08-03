@@ -78,7 +78,7 @@ public class PhysicsPickup : MonoBehaviour
     void HighlightObject()
     {
         // If not currently holding an object
-        if (currentObject == null)
+        if (currentObject == null && playerCamera)
         {
             // Check if player is looking at a pickup able object
             Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -275,7 +275,10 @@ public class PhysicsPickup : MonoBehaviour
             return;
         }
 
-        // Ability for the player to load objects into their invetory to throw when they aren't holding another object
+        // Ability for the player to load objects into their invetory to throw when they aren't holding another object.
+        // These "loaded" objects are added to the players inventory and disabled in the game world.
+        // They can then throw these objects. When they do, the object is reposition infront of the player, enabled,
+        // then the throw force is applied to it
         if (loadedItem)
         {
             // Load the object you are holding
@@ -513,6 +516,9 @@ public class PhysicsPickup : MonoBehaviour
     {
         foreach (GameObject obj in loadInventory)
         {
+            // Reposition object on player hold point. This might go wrong
+            obj.GetComponent<Transform>().position = pickupTarget.position;
+
             obj.SetActive(true);
             obj.GetComponent<VelocityDamager>().Drop();
             obj.GetComponent<Rigidbody>().useGravity = true;

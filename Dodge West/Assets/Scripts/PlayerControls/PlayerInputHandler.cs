@@ -20,6 +20,8 @@ public class PlayerInputHandler : MonoBehaviour
     private Dash dash;
     private PauseControls pause;
 
+    private PlayerInput playerInputComponent;
+
     [SerializeField]
     private MeshRenderer playerMesh;
 
@@ -35,7 +37,29 @@ public class PlayerInputHandler : MonoBehaviour
         dash = GetComponent<Dash>();
         pause = GetComponent<PauseControls>();
 
+        playerInputComponent = GetComponent<PlayerInput>();
+
         controls = new PlayerControls();
+    }
+
+    public void DisableControls()
+    {
+        playerInputComponent.enabled = false;
+
+        movement.enabled = false;
+        //look.enabled = false;
+        dash.enabled = false;
+        pickup.enabled = false;
+    }
+
+    public void EnsableControls()
+    {
+        playerInputComponent.enabled = true;
+
+        movement.enabled = true;
+        //look.enabled = true;
+        dash.enabled = true;
+        pickup.enabled = true;
     }
 
     private void OnEnable()

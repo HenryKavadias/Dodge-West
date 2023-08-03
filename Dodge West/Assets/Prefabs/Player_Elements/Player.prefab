@@ -172,7 +172,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  deathDelay: 3
 --- !u!114 &567987932633823572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe464bf6ec5b4594090f4fa0eb17b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initial: 100
+  _initial: 1
 --- !u!114 &6564627801541138462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6189128ac1a2e49be34c2ecd212eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathDelay: 3
+  playerModel: {fileID: 161012299386307288}
+  playerCorpse: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
 --- !u!114 &4623668194168864861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +500,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 353abb27-dc72-4a93-929b-517c64ea0a51
     m_ActionName: UI/Mute[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 489b062f-906b-4c28-8208-889448415f51
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 43d70b2c-30fb-4ff4-a753-0da607e882d3
+    m_ActionName: UI/Click[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -605,7 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f1c5787964daa43871518c7398d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadInventory: []
   transparentPickup: 1
   transparencyRatio: 0.5
   pickupMask:
@@ -620,6 +629,7 @@ MonoBehaviour:
   minThrowPower: 100
   massLimitEnabled: 1
   itemLimitEnabled: 1
+  loadableRestriction: 1
   loadItemLimit: 50
   loadMassLimit: 500
 --- !u!114 &612988788595045758
@@ -647,7 +657,7 @@ GameObject:
   - component: {fileID: 161012299386307291}
   - component: {fileID: 3064823331175936753}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
