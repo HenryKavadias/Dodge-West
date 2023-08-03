@@ -172,6 +172,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  deathDelay: 3
 --- !u!114 &567987932633823572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,6 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f1c5787964daa43871518c7398d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadInventory: []
   transparentPickup: 1
   transparencyRatio: 0.5
   pickupMask:
@@ -616,6 +618,10 @@ MonoBehaviour:
   flatThrowPowerPerUnit: 25
   enableThrowPowerWithCap: 1
   minThrowPower: 100
+  massLimitEnabled: 1
+  itemLimitEnabled: 1
+  loadItemLimit: 50
+  loadMassLimit: 500
 --- !u!114 &612988788595045758
 MonoBehaviour:
   m_ObjectHideFlags: 0

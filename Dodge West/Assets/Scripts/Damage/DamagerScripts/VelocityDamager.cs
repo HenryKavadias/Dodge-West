@@ -14,6 +14,8 @@ public enum ObjectState
 [RequireComponent(typeof(Rigidbody))]
 public class VelocityDamager : Damager
 {
+    public bool loadable = true; // yet to be used
+    
     private Rigidbody rb;   // Objects rigidbody
 
     // used to prevent the carrier from damaging
@@ -22,6 +24,21 @@ public class VelocityDamager : Damager
 
     // Current object sate
     private ObjectState state { get; set; } = ObjectState.Idle;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+
+        // Loadable objects are highlighted in green, ones that aren't are higlighted in red
+        if (loadable)
+        {
+            gameObject.GetComponent<Outline>().OutlineColor = Color.green;
+        }
+        else
+        {
+            gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+        }
+    }
 
     // Set object to picked up/held state and set holder
     public void Pickup(GameObject holder)
@@ -49,11 +66,6 @@ public class VelocityDamager : Damager
     public bool IsHeld()
     {
         return currentHolder != null;
-    }
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
     }
 
     // Object damage velocities and thresholds (sensitivities) for each object state

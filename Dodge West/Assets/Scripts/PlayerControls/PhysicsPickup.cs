@@ -7,10 +7,9 @@ using UnityEngine.InputSystem;
 // (Objects are picked up with physics)
 public class PhysicsPickup : MonoBehaviour
 {
-    // Variables for pickup ability
-
     // Variables for Loadsystem
-    public List<GameObject> loadInventory = new List<GameObject>();
+    private List<GameObject> loadInventory = new List<GameObject>();
+
     // Trasparent pickup variables
     [SerializeField] private bool transparentPickup = false;
     [Range(0f, 1f)]
@@ -136,6 +135,9 @@ public class PhysicsPickup : MonoBehaviour
             RestoreToOriginalMaterials();
             currentObject = null;
         }
+
+        // Empty player loaded inventory
+        EmptyLoadInventory();
     }
 
     // Used to balance object throw power
@@ -211,7 +213,8 @@ public class PhysicsPickup : MonoBehaviour
             else if (loadInventory.Count > 0)
             {
                 GameObject thrownObj = loadInventory[0];
-                //thrownObj.SetActive(true);
+
+                SubtractMassFromLoad(thrownObj.GetComponent<Rigidbody>().mass);
 
                 // Throw object
                 thrownObj.GetComponent<VelocityDamager>().Drop(true);
@@ -272,40 +275,164 @@ public class PhysicsPickup : MonoBehaviour
             return;
         }
 
-        // Note: load system still needs implementing
+        // Ability for the player to load objects into their invetory to throw when they aren't holding another object
         if (loadedItem)
         {
-            Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-            if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+            // Load the object you are holding
+            if (currentObject)
             {
-                if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                GameObject loadedObject = currentObject.gameObject;
+
+                if (loadableRestriction)
                 {
-                    GameObject loadedObject = hitInfo.rigidbody.gameObject;
-
-                    if (massLimitEnabled && itemLimitEnabled)
+                    if (loadedObject.GetComponent<VelocityDamager>().loadable)
                     {
-                        // Both limitations
+                        if (massLimitEnabled || itemLimitEnabled)
+                        {
+                            if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
+                            {
+                                // Restore to original material state
+                                RestoreToOriginalMaterials();
 
+                                loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                                loadInventory.Add(loadedObject);
+                                AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                                loadedObject.SetActive(false);
 
-                    }
-                    else if (!massLimitEnabled && itemLimitEnabled)
-                    {
-                        // Item limitation
+                                currentObject = null;
+                            }
+                            else
+                            {
+                                // Put warning indication here telling the player they can't load any more
+                            }
+                        }
+                        else
+                        {
+                            // Restore to original material state
+                            RestoreToOriginalMaterials();
 
+                            // No limitations
+                            loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                            loadInventory.Add(loadedObject);
+                            AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                            loadedObject.SetActive(false);
 
-                    }
-                    else if (massLimitEnabled && !itemLimitEnabled)
-                    {
-                        // Mass limitation
-
-
+                            currentObject = null;
+                        }
                     }
                     else
                     {
-                        // No limitations
+                        Debug.Log("Object isn't loadable");
+                    }
+                }
+                else
+                {
+                    if (massLimitEnabled || itemLimitEnabled)
+                    {
+                        if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
+                        {
+                            // Restore to original material state
+                            RestoreToOriginalMaterials();
 
+                            loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                            loadInventory.Add(loadedObject);
+                            AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                            loadedObject.SetActive(false);
+
+                            currentObject = null;
+                        }
+                        else
+                        {
+                            // Put warning indication here telling the player they can't load any more
+                        }
+                    }
+                    else
+                    {
+                        // Restore to original material state
+                        RestoreToOriginalMaterials();
+
+                        // No limitations
+                        loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
                         loadInventory.Add(loadedObject);
+                        AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                         loadedObject.SetActive(false);
+
+                        currentObject = null;
+                    }
+                }
+            }
+            else
+            {
+                // Load the object you are looking at
+
+                Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+                {
+                    if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                    {
+                        GameObject loadedObject = hitInfo.rigidbody.gameObject;
+
+                        if (loadableRestriction)
+                        {
+                            if (loadedObject.GetComponent<VelocityDamager>().loadable)
+                            {
+                                if (massLimitEnabled || itemLimitEnabled)
+                                {
+                                    if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
+                                    {
+                                        loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                                        loadInventory.Add(loadedObject);
+                                        AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                                        loadedObject.GetComponent<Rigidbody>().useGravity = false;
+                                        loadedObject.SetActive(false);
+                                    }
+                                    else
+                                    {
+                                        // Put warning indication here telling the player they can't load any more
+                                    }
+                                }
+                                else
+                                {
+                                    // No limitations
+                                    loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                                    loadInventory.Add(loadedObject);
+                                    AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                                    loadedObject.GetComponent<Rigidbody>().useGravity = false;
+                                    loadedObject.SetActive(false);
+                                }
+                            }
+                            else
+                            {
+                                Debug.Log("Object isn't loadable");
+                            }
+                        }
+                        else
+                        {
+                            if (massLimitEnabled || itemLimitEnabled)
+                            {
+                                if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
+                                {
+                                    loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                                    loadInventory.Add(loadedObject);
+                                    AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                                    loadedObject.GetComponent<Rigidbody>().useGravity = false;
+                                    loadedObject.SetActive(false);
+                                }
+                                else
+                                {
+                                    // Put warning indication here telling the player they can't load any more
+                                }
+                            }
+                            else
+                            {
+                                // No limitations
+                                loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
+                                loadInventory.Add(loadedObject);
+                                AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
+                                loadedObject.GetComponent<Rigidbody>().useGravity = false;
+                                loadedObject.SetActive(false);
+                            }
+                        }
                     }
                 }
             }
@@ -317,28 +444,60 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    // Load inventory check variables
     public bool massLimitEnabled = true;
     public bool itemLimitEnabled = true;
+    public bool loadableRestriction = true;
 
     public int loadItemLimit = 50;
     public float loadMassLimit = 500;
-    float currentLoad = 0;
+    private float currentLoad = 0;
 
-    bool LoadLimitCheck(float objMass)
+    // Checks if player can load an object into their inventory
+    bool LoadLimitCheck(float objMass = 0)
     {
-        if (currentLoad + objMass <= loadMassLimit)
+        if (massLimitEnabled || itemLimitEnabled)
         {
-            return true;
+            // Both limitations
+            if (currentLoad + objMass <= loadMassLimit &&
+                loadInventory.Count + 1 <= loadItemLimit)
+            {
+                return true;
+            }
+
+            Debug.Log("Too heavy or not enough space, can't load more.");
+        }
+        else if (!massLimitEnabled && itemLimitEnabled)
+        {
+            // Item limitation
+            if (loadInventory.Count + 1 <= loadItemLimit)
+            {
+                return true;
+            }
+
+            Debug.Log("Not enough space, can't load more.");
+        }
+        else if (massLimitEnabled && !itemLimitEnabled)
+        {
+            // Mass limitation
+            if (currentLoad + objMass <= loadMassLimit)
+            {
+                return true;
+            }
+
+            Debug.Log("Too heavy, can't load more.");
         }
 
         return false;
     }
 
+    // Add object mass to current load
     void AddMassToLoad(float mass)
     {
         currentLoad += mass;
     }
 
+    // Subtract object mass to current load
     void SubtractMassFromLoad(float mass)
     {
         currentLoad -= mass;
@@ -347,6 +506,19 @@ public class PhysicsPickup : MonoBehaviour
         {
             currentLoad = 0;
         }
+    }
+
+    // Empty players inventory and reset relavent variables
+    void EmptyLoadInventory()
+    {
+        foreach (GameObject obj in loadInventory)
+        {
+            obj.SetActive(true);
+            obj.GetComponent<VelocityDamager>().Drop();
+            obj.GetComponent<Rigidbody>().useGravity = true;
+        }
+        loadInventory.Clear();
+        currentLoad = 0;
     }
 
     // System for pickupable objects with multiple models
