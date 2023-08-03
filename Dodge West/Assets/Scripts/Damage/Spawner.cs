@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject prefabObj = null;
 
-    public void Spawn(GameObject prefab)
+    public virtual void Spawn(GameObject prefab = null)
     {
         if (prefab)
         {

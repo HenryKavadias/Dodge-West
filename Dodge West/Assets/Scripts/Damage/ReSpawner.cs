@@ -41,8 +41,6 @@ public class ReSpawner : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-        Spawnbody();
-
         playerModel.SetActive(false);
 
         yield return new WaitForSeconds(deathDelay);
@@ -65,39 +63,6 @@ public class ReSpawner : MonoBehaviour
         gameObject.GetComponent<PlayerInputHandler>().EnsableControls();
 
         yield return null;
-    }
-
-    public GameObject playerCorpse;
-
-    // Spawns the players body as a pickupable object 
-    private void Spawnbody()
-    {
-        // Find and copy the players material onto the copy of their body
-        Object[] matResources = Resources.LoadAll("Materials", typeof(Material));
-
-        Material foundMat = null;
-        
-        Material playerMat = playerModel.GetComponent<MeshRenderer>().material;
-
-        foreach (Object obj in matResources)
-        {
-            Material current = (Material)obj;
-
-            if (playerMat.name.ToString().Contains(current.name))
-            {
-                foundMat = new Material(current);
-                break;
-            }
-        }
-        
-        // Spawn their copy of their body
-        GameObject body = Instantiate(playerCorpse, gameObject.transform.position, gameObject.transform.rotation);
-
-        if (foundMat != null)
-        {
-            // might need to be modified for more complex player models
-            body.transform.GetChild(0).GetComponent<MeshRenderer>().material = foundMat;
-        }
     }
 
     T CopyComponent<T>(T original, GameObject destination) where T : Component

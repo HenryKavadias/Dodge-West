@@ -17,6 +17,7 @@ public class DisableOnDie : MonoBehaviour
 
             // Disable the player, (maybe their camera), and make them drop the object they are holding
             gameObject.GetComponent<PhysicsPickup>().DropObject();
+
             gameObject.SetActive(false);
 
             // Message the Game Manager that this player is dead

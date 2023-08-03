@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 863659293782736370}
   - component: {fileID: 764410434663232148}
   - component: {fileID: 3873356216170661244}
+  - component: {fileID: 5082126377514159890}
   - component: {fileID: 567987932633823572}
   - component: {fileID: 4331496530323724574}
   - component: {fileID: 5592908173298442694}
@@ -145,6 +146,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5082126377514159890}
+        m_TargetAssemblyTypeName: SpawnCorpse, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnLooseALife:
     m_PersistentCalls:
       m_Calls:
@@ -172,6 +185,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5082126377514159890}
+        m_TargetAssemblyTypeName: SpawnCorpse, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5082126377514159890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbe38518671e274287a3d5c16df8402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabObj: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
+  playerModel: {fileID: 161012299386307288}
 --- !u!114 &567987932633823572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe464bf6ec5b4594090f4fa0eb17b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initial: 1
+  _initial: 100
 --- !u!114 &6564627801541138462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathDelay: 3
   playerModel: {fileID: 161012299386307288}
-  playerCorpse: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
 --- !u!114 &4623668194168864861
 MonoBehaviour:
   m_ObjectHideFlags: 0
