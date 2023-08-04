@@ -7,6 +7,9 @@ using UnityEngine.UI;
 // Manages the players UI elements
 public class PlayerUIManager : MonoBehaviour
 {
+    // Can be overrided buy the CameraManager
+    public bool disableRawNumbers = true;
+    
     // Player UI element references
     public Image healthImage;
     public TextMeshProUGUI playerNumberText;
@@ -15,10 +18,49 @@ public class PlayerUIManager : MonoBehaviour
     public GameObject crosshair;
     public GameObject deathMessage;
 
+    public GameObject damageIndicatorUI;
+    public Animator damageIndicatorAnimator;
+
+    // Starts the animation for the damage indicator
+    public void StartDamageIndication()
+    {
+        if (damageIndicatorAnimator && !CheckIfInAnimation())
+        {
+            damageIndicatorUI.SetActive(true);
+            damageIndicatorAnimator.SetTrigger("Start");
+        }
+    }
+
+    private bool CheckIfInAnimation()
+    {
+        return damageIndicatorAnimator.GetCurrentAnimatorStateInfo(0).length >
+           damageIndicatorAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    }
+
+    private void Start()
+    {
+        if (disableRawNumbers)
+        {
+            playerNumberText.enabled = false;
+            playerHealthText.enabled = false;
+            playerLivesText.enabled = false;
+        }
+    }
+
+    public void DisableRawNumbersForPlayer()
+    {
+        disableRawNumbers = true;
+
+        playerNumberText.enabled = false;
+        playerHealthText.enabled = false;
+        playerLivesText.enabled = false;
+    }
+
     // Disable all elements, enable death message
     public void TriggerDead()
     {
         healthImage.enabled = false;
+
         playerNumberText.enabled = false;
         playerHealthText.enabled = false;
         playerLivesText.enabled = false;
@@ -32,9 +74,13 @@ public class PlayerUIManager : MonoBehaviour
     public void TriggerResurrection()
     {
         healthImage.enabled = true;
-        playerNumberText.enabled = true;
-        playerHealthText.enabled = true;
-        playerLivesText.enabled = true;
+
+        if (!disableRawNumbers)
+        {
+            playerNumberText.enabled = true;
+            playerHealthText.enabled = true;
+            playerLivesText.enabled = true;
+        }
 
         crosshair.SetActive(true);
 

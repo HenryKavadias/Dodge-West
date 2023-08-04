@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour
 {
+    public bool disableRawNumbers = true;
+    
     // Plyaer Camera and UI prefabs
     [Header("Camera Object")]
     public GameObject cameraObject;
@@ -114,10 +116,20 @@ public class CameraManager : MonoBehaviour
         currentUI.GetComponent<PlayerUIManager>().TriggerResurrection();
     }
 
+    public void TriggerDamageIndicator()
+    {
+        currentUI.GetComponent<PlayerUIManager>().StartDamageIndication();
+    }
+
     void Start()
     {
         SetupCamera();
 
         SetupUI();
+
+        if (disableRawNumbers && currentUI)
+        {
+            currentUI.GetComponent<PlayerUIManager>().DisableRawNumbersForPlayer();
+        }
     }
 }

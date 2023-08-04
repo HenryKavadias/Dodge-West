@@ -17,27 +17,25 @@ public interface IHealable
 
 public class Health : Progressive //, IDamageable, IHealable
 {
-    //[SerializeField] private UnityEvent OnDie;
+    public UnityEvent onDamaged;
     
-    //public void Damage(float amount)
-    //{
-    //    Current -= amount;
+    // Decrease current value, not below zero
+    public override void Sub(float amount)
+    {
+        float preChanged = Current;
+        
+        Current -= amount;
 
-    //    OnChange?.Invoke();
+        // Triggers the damage indicator
+        // if the health value has changed
+        if (preChanged != Current)
+        {
+            onDamaged?.Invoke();
+        }
 
-    //    if (Current <= 0) 
-    //    {
-    //        OnDie?.Invoke();
-    //    }
-    //}
-
-    //public void Heal(float amount)
-    //{
-    //    Current += amount;
-
-    //    if (Current > Initial)
-    //    {
-    //        Current = Initial;
-    //    }
-    //}
+        if (Current < 0)
+        {
+            Current = 0;
+        }
+    }
 }

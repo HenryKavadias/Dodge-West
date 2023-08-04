@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 3873356216170661244}
   - component: {fileID: 5082126377514159890}
   - component: {fileID: 567987932633823572}
+  - component: {fileID: 8000511160865669590}
   - component: {fileID: 4331496530323724574}
   - component: {fileID: 5592908173298442694}
   - component: {fileID: 6564627801541138462}
-  - component: {fileID: 8000511160865669590}
   - component: {fileID: 4623668194168864861}
   - component: {fileID: 882741623857242509}
   - component: {fileID: 6776642873579140908}
@@ -223,6 +223,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92358f8663285b548a7d8aa36ba80d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8000511160865669590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6189128ac1a2e49be34c2ecd212eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathDelay: 3
+  playerModel: {fileID: 161012299386307288}
 --- !u!114 &4331496530323724574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,9 +253,9 @@ MonoBehaviour:
   _fillImage: {fileID: 0}
   _gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.8420377, b: 0, a: 1}
-    key2: {r: 0.023441792, g: 1, b: 0, a: 0}
+    key0: {r: 1, g: 0, b: 0, a: 0.78431374}
+    key1: {r: 1, g: 0.21434663, b: 0, a: 0}
+    key2: {r: 0.9490197, g: 0.9490197, b: 0.9490197, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -256,8 +270,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 32768
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -266,7 +280,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: -1
     m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
+    m_NumAlphaKeys: 3
   _healthTextDisplay: {fileID: 0}
 --- !u!114 &5592908173298442694
 MonoBehaviour:
@@ -281,6 +295,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initial: 100
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4623668194168864861}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: TriggerDamageIndicator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6564627801541138462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,20 +338,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8000511160865669590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161012298981736517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b6189128ac1a2e49be34c2ecd212eb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathDelay: 3
-  playerModel: {fileID: 161012299386307288}
 --- !u!114 &4623668194168864861
 MonoBehaviour:
   m_ObjectHideFlags: 0
