@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 4623668194168864861}
   - component: {fileID: 882741623857242509}
   - component: {fileID: 6776642873579140908}
-  - component: {fileID: 161012298981736536}
   - component: {fileID: 2150544480436074437}
+  - component: {fileID: 161012298981736536}
   - component: {fileID: -7550171255638960453}
   - component: {fileID: 618608792782935704}
   - component: {fileID: 612988788595045758}
@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691da00a3f2359a47a5a8a95dafda7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableRawNumbers: 1
   cameraObject: {fileID: 2842492982393607670, guid: 56b6b330fc5833e4a8a82d19c18d4768, type: 3}
   playerUI: {fileID: 6271210731597287100, guid: 352470e7bfb59ab458329e38d06d78ce, type: 3}
 --- !u!114 &882741623857242509
@@ -579,6 +580,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMesh: {fileID: 161012299386307291}
+--- !u!114 &2150544480436074437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161012298981736517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b52b7b6ae1f64faa0417b5d63dcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraSensitivity: 20
+  camPos: {fileID: 7357810024215858348}
+  orientation: {fileID: 8657622561209081978}
+  model: {fileID: 161012299386307288}
 --- !u!114 &161012298981736536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +617,8 @@ MonoBehaviour:
   groundDrag: 5
   jumpForce: 140
   airMultiplier: 0.1
-  jumpCooldown: 0.25
+  jumpCooldown: 0.45
+  jumpLimit: 2
   crouchSpeed: 50
   crouchYScale: 0.5
   groundMask:
@@ -614,22 +632,6 @@ MonoBehaviour:
   orientation: {fileID: 8657622561209081978}
   state: 0
   dashing: 0
---- !u!114 &2150544480436074437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161012298981736517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0b52b7b6ae1f64faa0417b5d63dcf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraSensitivity: 20
-  camPos: {fileID: 7357810024215858348}
-  orientation: {fileID: 8657622561209081978}
-  model: {fileID: 161012299386307288}
 --- !u!114 &-7550171255638960453
 MonoBehaviour:
   m_ObjectHideFlags: 0
