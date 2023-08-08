@@ -26,15 +26,28 @@ public class CameraControl : MonoBehaviour
     // Turn off the cursor
     void Start()
     {
+        //yRotation = orientation.rotation.y;
+        //xRotation = orientation.rotation.x;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void SetOrientationYRotation(float yAxisRotation)
+    {
+        // Change the rotation of all the relavent player child objects
+        orientation.rotation = Quaternion.Euler(0f, yAxisRotation, 0f);
+        camPos.rotation = Quaternion.Euler(0f, yAxisRotation, 0f); ;
+        model.transform.rotation = Quaternion.Euler(0f, yAxisRotation, 0f); ;
+
+        // Apply the change to the rotation input variable
+        yRotation = yAxisRotation;
     }
 
     // Gets input values from camera control inputs
     public void OnLook(InputAction.CallbackContext context)
     {
         lookInput = context.ReadValue<Vector2>();
-        //mouseInput = Mouse.current.delta.ReadValue();
     }
 
     void Update()

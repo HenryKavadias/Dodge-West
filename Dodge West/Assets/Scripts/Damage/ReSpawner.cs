@@ -60,7 +60,7 @@ public class ReSpawner : MonoBehaviour
 
         // Re-enable player UI and controls
         gameObject.GetComponent<CameraManager>().EnableUI();
-        gameObject.GetComponent<PlayerInputHandler>().EnsableControls();
+        gameObject.GetComponent<PlayerInputHandler>().EnableControls();
 
         yield return null;
     }

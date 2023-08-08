@@ -47,29 +47,35 @@ public class PlayerInputHandler : MonoBehaviour
         playerInputComponent.enabled = false;
 
         movement.enabled = false;
-        //look.enabled = false;
+        look.enabled = false;
         dash.enabled = false;
         pickup.enabled = false;
     }
 
-    public void EnsableControls()
+    public void EnableControls()
     {
         playerInputComponent.enabled = true;
 
         movement.enabled = true;
-        //look.enabled = true;
+        look.enabled = true;
         dash.enabled = true;
         pickup.enabled = true;
     }
 
     private void OnEnable()
     {
-        controls.Enable();
+        if (controls != null)
+        {
+            controls.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        if (controls != null)
+        { 
+            controls.Disable();
+        }
     }
 
     // Player ID needs to be set first before this function is called
