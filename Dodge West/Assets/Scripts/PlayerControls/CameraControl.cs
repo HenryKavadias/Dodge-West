@@ -37,8 +37,8 @@ public class CameraControl : MonoBehaviour
     {
         // Change the rotation of all the relavent player child objects
         orientation.rotation = Quaternion.Euler(0f, yAxisRotation, 0f);
-        camPos.rotation = Quaternion.Euler(0f, yAxisRotation, 0f); ;
-        model.transform.rotation = Quaternion.Euler(0f, yAxisRotation, 0f); ;
+        camPos.rotation = Quaternion.Euler(0f, yAxisRotation, 0f);
+        model.transform.rotation = Quaternion.Euler(0f, yAxisRotation, 0f);
 
         // Apply the change to the rotation input variable
         yRotation = yAxisRotation;

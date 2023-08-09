@@ -9,17 +9,21 @@ public class ReSpawner : MonoBehaviour
     public GameObject playerModel;
 
     Vector3 spawnPosition = Vector3.zero;
+    float spawnmRotation = 0f;
 
     // Set the spawn position where they start in the scene
     void Start()
     {
-        SetSpawnPosition(gameObject.GetComponent<Transform>().position);
+        SetSpawnPosition(
+            gameObject.GetComponent<Transform>().position, 
+            gameObject.transform.eulerAngles.y);
     }
 
     // Set spawn position
-    public void SetSpawnPosition(Vector3 position)
+    public void SetSpawnPosition(Vector3 position, float yRotation)
     {
         spawnPosition = position;
+        spawnmRotation = yRotation;
     }
 
     // Return the object back to their spawn position
@@ -50,6 +54,10 @@ public class ReSpawner : MonoBehaviour
 
         // Set the position of the player
         gameObject.GetComponent<Transform>().position = spawnPosition;
+
+        // Note: currently doesn't work
+        // Set the players rotation. Need to access the camera control script for the set Y rotation function
+        gameObject.GetComponent<CameraControl>().SetOrientationYRotation(spawnmRotation);
 
         // Be sure to re-enable player after changing its position
         gameObject.SetActive(true);
