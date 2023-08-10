@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class PlayerUIManager : MonoBehaviour
     // Player UI element references
     public Image healthImage;
     public TextMeshProUGUI playerNumberText;
+    public GameObject playerColourBanner;
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI playerLivesText;
     public GameObject crosshair;
@@ -20,6 +22,116 @@ public class PlayerUIManager : MonoBehaviour
 
     public GameObject damageIndicatorUI;
     public Animator damageIndicatorAnimator;
+
+    // List display that shows the number of remaining player lives
+    public GameObject lifeUIPrefab;
+    public Transform lifeListHolder;
+    private List<GameObject> lifeList = new List<GameObject>();
+
+    // List display for loaded inventory
+    public GameObject objectUIBasePrefab; // Might not need
+    public GameObject plusUIRef;
+    public Transform inventoryObjectListHolder;
+    public int inventoryDisplayLimit = 7;
+    private List<GameObject> inventoryList = new List<GameObject>();
+
+    // Refreshes the UI list of lives
+    public void RefreshLifeList(int lifeCount)
+    {
+        if (lifeList.Count > 0)
+        {
+            foreach (GameObject l in lifeList)
+            {
+                Destroy(l);
+            }
+        }
+        
+        lifeList.Clear();
+        for (int i = 0; i < lifeCount; i++)
+        {
+            var lifeUI = Instantiate(lifeUIPrefab, lifeListHolder);
+            lifeList.Add(lifeUI);
+        }
+    }
+
+    // Adds object to inventory UI
+    public void AddObjectToInventory(GameObject obj = null)
+    {
+        GameObject curObject = null;
+
+        if (obj)
+        {
+            curObject = obj;
+        }
+        else
+        {
+            curObject = objectUIBasePrefab;
+        }
+
+        if (inventoryList.Count >= (inventoryDisplayLimit + 1))
+        {
+            var objectUI = Instantiate(curObject, inventoryObjectListHolder);
+            inventoryList.Add(objectUI);
+            objectUI.SetActive(false);
+        }
+        else
+        {
+            var objectUI = Instantiate(curObject, inventoryObjectListHolder);
+            inventoryList.Add(objectUI);
+
+            if (inventoryList.Count >= (inventoryDisplayLimit + 1))
+            {
+                objectUI.SetActive(false);
+
+                // Enable plus reference
+                plusUIRef.SetActive(true);
+            }
+        }
+    }
+
+    // Removes object to inventory UI
+    public void RemoveObjectFromInventory(GameObject obj = null)
+    {
+        if (inventoryList.Count > 0)
+        {
+            Destroy(inventoryList[0]);
+            inventoryList.RemoveAt(0);
+        }
+
+        if (inventoryList.Count >= inventoryDisplayLimit)
+        {
+            if (!inventoryList[inventoryDisplayLimit - 1].activeSelf)
+            {
+                inventoryList[inventoryDisplayLimit - 1].SetActive(true);
+            }
+
+            if (inventoryList.Count < (inventoryDisplayLimit + 1))
+            {
+                // Disable plus reference
+                plusUIRef.SetActive(false);
+            }
+        }
+    }
+
+    // Clears the inventory UI
+    public void ClearInventoryUI()
+    {
+        plusUIRef.SetActive(false);
+
+        if (inventoryList.Count > 0)
+        {
+            foreach(GameObject obj in inventoryList)
+            {
+                Destroy(obj);
+            }
+        }
+        inventoryList.Clear();
+    }
+
+    public void SetPlayerColour(Color color)
+    {
+        playerColourBanner.GetComponent<Image>().color = color;
+    }
 
     // Starts the animation for the damage indicator
     public void StartDamageIndication()
@@ -31,6 +143,7 @@ public class PlayerUIManager : MonoBehaviour
         }
     }
 
+    // Checks if damage indication animation is in progress
     private bool CheckIfInAnimation()
     {
         return damageIndicatorAnimator.GetCurrentAnimatorStateInfo(0).length >

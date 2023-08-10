@@ -242,6 +242,7 @@ public class GameController : MonoBehaviour
 
                 SetPlayerRotationToSpawn(player, spawnPosition[i]);
 
+                player.GetComponent<LifeCounter>().SetLives(defaultLifes);
                 //player.GetComponent<LifeCounter>().SetLives(1); // for test purposes
 
                 AddPlayer(player);

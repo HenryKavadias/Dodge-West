@@ -89,12 +89,14 @@ public class PlayerInputHandler : MonoBehaviour
         {
             // Native controls (Single player)
             GetComponent<PlayerID>().ChangePlayerNumber(id);
+            GetComponent<PlayerID>().ChangePlayerColour(Color.red);
             gameObject.GetComponent<PlayerInput>().enabled = true;
         }
         else
         {
             // Player configuration controls (Local multiplayer
             GetComponent<PlayerID>().ChangePlayerNumber(id);
+            GetComponent<PlayerID>().ChangePlayerColour(config.playerMaterial.color);
 
             gameObject.GetComponent<PlayerInput>().enabled = false;
 
