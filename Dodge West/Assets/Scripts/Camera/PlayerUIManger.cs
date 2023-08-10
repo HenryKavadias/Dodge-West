@@ -181,6 +181,10 @@ public class PlayerUIManager : MonoBehaviour
         crosshair.SetActive(false);
 
         deathMessage.SetActive(true);
+
+        lifeListHolder.gameObject.SetActive(false);
+        inventoryObjectListHolder.gameObject.SetActive(false);
+        playerColourBanner.SetActive(false);
     }
 
     // Enable all elements, disable death message
@@ -198,6 +202,10 @@ public class PlayerUIManager : MonoBehaviour
         crosshair.SetActive(true);
 
         deathMessage.SetActive(false);
+
+        lifeListHolder.gameObject.SetActive(true);
+        inventoryObjectListHolder.gameObject.SetActive(true);
+        playerColourBanner.SetActive(true);
     }
 
     // Disable all UI elements
@@ -211,5 +219,14 @@ public class PlayerUIManager : MonoBehaviour
         crosshair.SetActive(false);
 
         deathMessage.SetActive(false);
+
+        if (plusUIRef.activeSelf)
+        {
+            plusUIRef.SetActive(false);
+        }
+
+        lifeListHolder.gameObject.SetActive(false);
+        inventoryObjectListHolder.gameObject.SetActive(false);
+        playerColourBanner.SetActive(false);
     }
 }
