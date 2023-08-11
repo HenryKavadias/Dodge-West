@@ -10,11 +10,18 @@ public class Spawner : MonoBehaviour
     {
         if (prefab)
         {
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            Instantiate(prefab, transform.position, 
+                Quaternion.Euler(transform.eulerAngles.x, 
+                transform.eulerAngles.y, 
+                transform.eulerAngles.z));
         }
         else if (prefabObj)
         {
-            Instantiate(prefabObj, transform.position, Quaternion.identity);
+            //Instantiate(prefabObj, transform.position, Quaternion.identity);
+            Instantiate(prefab, transform.position,
+                Quaternion.Euler(transform.eulerAngles.x,
+                transform.eulerAngles.y,
+                transform.eulerAngles.z));
         }
 
     }

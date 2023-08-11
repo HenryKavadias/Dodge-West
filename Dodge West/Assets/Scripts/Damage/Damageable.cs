@@ -11,9 +11,6 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] protected Progressive _health;
 
-    // Destroy, spawn, or do something depending on the event
-    public UnityEvent OnDie;
-
     // Damage object
     public virtual void Damage(
         float damage, GameObject attacker = null)
@@ -26,11 +23,11 @@ public class Damageable : MonoBehaviour
 
         _health.Sub(damage);
 
-        if (_health.Current <= 0)
-        {
-            //Die();
-            StartCoroutine(SlowDie());
-        }
+        //if (_health.Current <= 0)
+        //{
+        //    //Die();
+        //    //StartCoroutine(SlowDie());
+        //}
     }
 
     // Heal object
@@ -39,16 +36,19 @@ public class Damageable : MonoBehaviour
         _health.Add(heal);
     }
 
-    // Trigger OnDie event immediately 
-    protected void Die()
-    {
-        OnDie.Invoke();
-    }
+    //// Destroy, spawn, or do something depending on the event
+    //public UnityEvent onDie;
 
-    // Trigger OnDie event after next frame
-    protected IEnumerator SlowDie()
-    {
-        yield return null;
-        OnDie.Invoke();
-    }
+    //// Trigger OnDie event immediately 
+    //protected void Die()
+    //{
+    //    onDie.Invoke();
+    //}
+
+    //// Trigger OnDie event after next frame
+    //protected IEnumerator SlowDie()
+    //{
+    //    yield return null;
+    //    onDie.Invoke();
+    //}
 }
