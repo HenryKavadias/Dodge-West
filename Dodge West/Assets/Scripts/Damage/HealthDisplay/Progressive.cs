@@ -7,7 +7,7 @@ using UnityEngine;
 // Used to control modifiable float values (e.g. health, stamina, mana, etc)
 public abstract class Progressive : MonoBehaviour
 {
-    [SerializeField] private float _initial;    // initial value
+    [SerializeField] private float _initial = 10;    // initial value
     private float _current;                     // current value
 
     public float Current

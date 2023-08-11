@@ -19,6 +19,8 @@ public class Health : Progressive //, IDamageable, IHealable
 {
     public UnityEvent onDamaged;
     
+    public UnityEvent onDie;
+
     // Decrease current value, not below zero
     public override void Sub(float amount)
     {
@@ -37,5 +39,18 @@ public class Health : Progressive //, IDamageable, IHealable
         {
             Current = 0;
         }
+
+        if (Current <= 0)
+        {
+            //Die();
+            StartCoroutine(SlowDie());
+        }
+    }
+
+    // Trigger OnDie event after next frame
+    protected IEnumerator SlowDie()
+    {
+        yield return null;
+        onDie.Invoke();
     }
 }

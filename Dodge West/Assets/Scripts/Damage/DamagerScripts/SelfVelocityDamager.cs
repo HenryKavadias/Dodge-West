@@ -15,7 +15,7 @@ public class SelfVelocityDamager : Damager
     }
 
     public float minDamageVelocity;
-    [Range(0f, 1f)] public float velocityThreshold;
+    [Range(0f, 1f)] public float velocityThreshold = 0.3f;
 
     private void OnCollisionEnter(Collision collision)
     {
