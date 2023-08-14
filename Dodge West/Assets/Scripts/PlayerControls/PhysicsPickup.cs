@@ -138,6 +138,7 @@ public class PhysicsPickup : MonoBehaviour
 
         // Empty player loaded inventory
         EmptyLoadInventory();
+        gameObject.GetComponent<CameraManager>().EmptyInventoryUI();
     }
 
     // Used to balance object throw power
@@ -203,7 +204,10 @@ public class PhysicsPickup : MonoBehaviour
                 // Throw object
                 currentObject.GetComponent<VelocityDamager>().Drop(true);
                 currentObject.useGravity = true;
-                currentObject.AddForce(pickupTarget.forward * DynamicForceToObject(currentObject.mass), ForceMode.Impulse);
+                currentObject.AddForce(
+                    pickupTarget.forward * 
+                    DynamicForceToObject(currentObject.mass), 
+                    ForceMode.Impulse);
 
                 // Restore to original material state
                 RestoreToOriginalMaterials();
@@ -228,6 +232,9 @@ public class PhysicsPickup : MonoBehaviour
                 thrownObj = null;
 
                 loadInventory.RemoveAt(0);
+
+                // Update UI 
+                gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
             }
             // Avoids multiple actions from one input
             pickedup = false;
@@ -302,6 +309,9 @@ public class PhysicsPickup : MonoBehaviour
                                 AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                                 loadedObject.SetActive(false);
 
+                                // Update UI
+                                gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+
                                 currentObject = null;
                             }
                             else
@@ -319,6 +329,9 @@ public class PhysicsPickup : MonoBehaviour
                             loadInventory.Add(loadedObject);
                             AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                             loadedObject.SetActive(false);
+
+                            // Update UI
+                            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
 
                             currentObject = null;
                         }
@@ -342,6 +355,9 @@ public class PhysicsPickup : MonoBehaviour
                             AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                             loadedObject.SetActive(false);
 
+                            // Update UI
+                            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+
                             currentObject = null;
                         }
                         else
@@ -359,6 +375,9 @@ public class PhysicsPickup : MonoBehaviour
                         loadInventory.Add(loadedObject);
                         AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                         loadedObject.SetActive(false);
+
+                        // Update UI
+                        gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
 
                         currentObject = null;
                     }
@@ -388,6 +407,9 @@ public class PhysicsPickup : MonoBehaviour
                                         AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                                         loadedObject.GetComponent<Rigidbody>().useGravity = false;
                                         loadedObject.SetActive(false);
+
+                                        // Update UI
+                                        gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
                                     }
                                     else
                                     {
@@ -402,6 +424,9 @@ public class PhysicsPickup : MonoBehaviour
                                     AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                                     loadedObject.GetComponent<Rigidbody>().useGravity = false;
                                     loadedObject.SetActive(false);
+
+                                    // Update UI
+                                    gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
                                 }
                             }
                             else
@@ -420,6 +445,9 @@ public class PhysicsPickup : MonoBehaviour
                                     AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                                     loadedObject.GetComponent<Rigidbody>().useGravity = false;
                                     loadedObject.SetActive(false);
+
+                                    // Update UI
+                                    gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
                                 }
                                 else
                                 {
@@ -434,6 +462,9 @@ public class PhysicsPickup : MonoBehaviour
                                 AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
                                 loadedObject.GetComponent<Rigidbody>().useGravity = false;
                                 loadedObject.SetActive(false);
+
+                                // Update UI
+                                gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
                             }
                         }
                     }

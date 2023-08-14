@@ -55,7 +55,9 @@ public class HealthBar : MonoBehaviour
     // Changes the fill amount of the bar and the color based on the health objects' ratio
     private void UpdateBar()
     {
-        _fillImage.fillAmount = _health.Ratio;
+        // Disable this when using damage overlay
+        //_fillImage.fillAmount = _health.Ratio;
+        
         _fillImage.color = _gradient.Evaluate(_health.Ratio);
 
         float hp = Mathf.Round(_health.Current * 10.0f) * 0.1f;

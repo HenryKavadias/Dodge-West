@@ -185,6 +185,18 @@ public class GameController : MonoBehaviour
         }
 
     }
+
+    private void SetPlayerRotationToSpawn(GameObject player, GameObject spawn)
+    {
+        player.GetComponent<PlayerInputHandler>().DisableControls();
+
+        // Must use euler angles, not rotation.y as that won't give the angle of rotation
+        player.GetComponent<CameraControl>().SetOrientationYRotation(
+                spawn.transform.eulerAngles.y);
+
+        player.GetComponent<PlayerInputHandler>().EnableControls();
+    }
+
     void NewSystem()
     {
         // Single player instance if the scene is loaded directly, local multiplayer if player 
@@ -199,15 +211,14 @@ public class GameController : MonoBehaviour
                 playerObject,
                 spawnPosition[0].GetComponent<Transform>().position,
                 spawnRot);
-            // if you spawn the player with a spawn position with altered rotation,
-            // then the camera needs to be aware and respond to the change
 
-            //var player = Instantiate(
-            //    playerObject,
-            //    spawnPosition[0].GetComponent<Transform>().position,
-            //    spawnPosition[0].GetComponent<Transform>().rotation);
+            // Activate player setup
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
+            
+            // Set player spawn rotation 
+            SetPlayerRotationToSpawn(player, spawnPosition[0]);
 
+            // Set player lifes
             player.GetComponent<LifeCounter>().SetLives(defaultLifes);
 
             AddPlayer(player);
@@ -226,12 +237,12 @@ public class GameController : MonoBehaviour
                     playerObject,
                     spawnPosition[i].GetComponent<Transform>().position,
                     spawnRot);
-                //var player = Instantiate(
-                //    playerObject,
-                //    spawnPosition[i].GetComponent<Transform>().position,
-                //    spawnPosition[i].GetComponent<Transform>().rotation);
+
                 player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i], i + 1);
 
+                SetPlayerRotationToSpawn(player, spawnPosition[i]);
+
+                player.GetComponent<LifeCounter>().SetLives(defaultLifes);
                 //player.GetComponent<LifeCounter>().SetLives(1); // for test purposes
 
                 AddPlayer(player);

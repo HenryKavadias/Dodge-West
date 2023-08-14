@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CameraControl), typeof(PhysicsPickup))]
 public class CameraManager : MonoBehaviour
 {
+    public bool disableRawNumbers = true;
+    
     // Plyaer Camera and UI prefabs
     [Header("Camera Object")]
     public GameObject cameraObject;
@@ -86,6 +88,8 @@ public class CameraManager : MonoBehaviour
             gameObject.GetComponent<HealthBar>().SetTextDisplay(puim.playerHealthText);
             gameObject.GetComponent<HealthBar>().Start();
 
+            UpdatePlayerColour(gameObject.GetComponent<PlayerID>().GetPlayerColor());
+
             // Set lives here
             LifeDisplay lD = gameObject.GetComponent<LifeDisplay>();
             if (lD)
@@ -97,6 +101,33 @@ public class CameraManager : MonoBehaviour
         }
     }
     
+    public void UpdateLifeUI(int lifeCount)
+    {
+        currentUI.GetComponent<PlayerUIManager>().RefreshLifeList(lifeCount);
+    }
+
+    public void UpdateInventoryUI(bool loading = false, GameObject objectUI = null)
+    {
+        if (loading)
+        {
+            currentUI.GetComponent<PlayerUIManager>().AddObjectToInventory(objectUI);
+        }
+        else
+        {
+            currentUI.GetComponent<PlayerUIManager>().RemoveObjectFromInventory();
+        }
+    }
+
+    public void EmptyInventoryUI()
+    {
+        currentUI.GetComponent<PlayerUIManager>().ClearInventoryUI();
+    }
+
+    public void UpdatePlayerColour(Color color)
+    {
+        currentUI.GetComponent<PlayerUIManager>().SetPlayerColour(color);
+    }
+
     // Triggers death state for player UI
     public void TriggerPlayerDeathUI()
     {
@@ -114,10 +145,20 @@ public class CameraManager : MonoBehaviour
         currentUI.GetComponent<PlayerUIManager>().TriggerResurrection();
     }
 
+    public void TriggerDamageIndicator()
+    {
+        currentUI.GetComponent<PlayerUIManager>().StartDamageIndication();
+    }
+
     void Start()
     {
         SetupCamera();
 
         SetupUI();
+
+        if (disableRawNumbers && currentUI)
+        {
+            currentUI.GetComponent<PlayerUIManager>().DisableRawNumbersForPlayer();
+        }
     }
 }

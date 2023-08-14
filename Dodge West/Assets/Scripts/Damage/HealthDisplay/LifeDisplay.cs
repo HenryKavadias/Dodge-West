@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// 
+// Controls the UI display for player lifes
 public class LifeDisplay : MonoBehaviour
 {
     [SerializeField] private LifeCounter _lives;
@@ -24,23 +24,26 @@ public class LifeDisplay : MonoBehaviour
     {
         if (_livesTextDisplay)
         {
-            UpdateText();
+            UpdateUI();
         }
     }
 
-    // Two functions below add the UpdateText function to the OnCountChange action variable
+    // Two functions below add the UpdateUI function to the OnCountChange action variable
     private void OnEnable()
     {
-        _lives.OnCountChange += UpdateText;
+        _lives.OnCountChange += UpdateUI;
     }
 
     private void OnDisable()
     {
-        _lives.OnCountChange -= UpdateText;
+        _lives.OnCountChange -= UpdateUI;
     }
 
-    private void UpdateText()
+    private void UpdateUI()
     {
         _livesTextDisplay.text = _lives.Current.ToString();
+
+        // Put UI updates here
+        gameObject.GetComponent<CameraManager>().UpdateLifeUI(_lives.Current);
     }
 }
