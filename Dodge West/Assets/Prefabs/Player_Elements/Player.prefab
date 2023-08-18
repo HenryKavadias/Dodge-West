@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObj: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
   playerModel: {fileID: 161012299386307288}
+  playerRender: {fileID: 161012299386307291}
 --- !u!114 &567987932633823572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,9 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5592908173298442694}
-  onDie:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4623668194168864861
 MonoBehaviour:
   m_ObjectHideFlags: 0

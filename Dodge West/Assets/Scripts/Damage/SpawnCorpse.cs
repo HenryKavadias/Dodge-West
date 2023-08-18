@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnCorpse : Spawner
 {
-    public GameObject playerModel;
+    //public GameObject playerModel;
+    public MeshRenderer playerRender;
 
     public override void Spawn(GameObject prefab = null)
     {
@@ -13,7 +14,9 @@ public class SpawnCorpse : Spawner
 
         Material foundMat = null;
 
-        Material playerMat = playerModel.GetComponent<MeshRenderer>().material;
+        //Material playerMat = playerModel.GetComponent<MeshRenderer>().material;
+
+        Material playerMat = playerRender.material;
 
         foreach (Object obj in matResources)
         {
