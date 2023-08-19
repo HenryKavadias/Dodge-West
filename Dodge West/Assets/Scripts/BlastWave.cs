@@ -12,6 +12,8 @@ public class BlastWave : MonoBehaviour
 
     public float damage = 10;
 
+    public bool waveActive = true;
+
     // Renderer for blast wave
     private LineRenderer lineRenderer;
 
@@ -26,10 +28,8 @@ public class BlastWave : MonoBehaviour
     // Start Blast Wave
     private void Start()
     {
-        StartCoroutine(Blast());
+        StartCoroutine(TriggerBlast());
     }
-
-    // TODO: apply damage to damageable objects
 
     // Apply damage and force to all objects hit by the blast wave
     private void Damage(float currentRadius)
@@ -55,21 +55,25 @@ public class BlastWave : MonoBehaviour
             {
                 continue;
             }
-
+            Debug.Log("Explosion damage");
             float modDamage = damage / currentRadius;
             damaged.Damage(modDamage);
         }
     }
 
     // Modifies the radius of the blast wave over time
-    private IEnumerator Blast()
+    private IEnumerator TriggerBlast()
     {
         float currentRadius = 0f;
 
         while (currentRadius < maxRadius)
         {
             currentRadius += Time.deltaTime * speed;
-            Draw(currentRadius);
+
+            if (waveActive)
+            {
+                Draw(currentRadius);
+            }
 
             Damage(currentRadius);
 

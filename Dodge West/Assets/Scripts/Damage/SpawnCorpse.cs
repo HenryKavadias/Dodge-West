@@ -7,7 +7,7 @@ public class SpawnCorpse : Spawner
     //public GameObject playerModel;
     public MeshRenderer playerRender;
 
-    public override void Spawn(GameObject prefab = null)
+    protected override void CreateObject(GameObject prefab = null)
     {
         // Find and copy the players material onto the copy of their body
         Object[] matResources = Resources.LoadAll("Materials", typeof(Material));
@@ -29,27 +29,15 @@ public class SpawnCorpse : Spawner
             }
         }
 
-        if (prefabObj)
-        {
-            // Spawn their copy of their body
-            GameObject body = Instantiate(prefabObj, gameObject.transform.position, gameObject.transform.rotation);
+        GameObject body = Instantiate(prefab, transform.position,
+            Quaternion.Euler(transform.eulerAngles.x,
+            transform.eulerAngles.y,
+            transform.eulerAngles.z));
 
-            if (foundMat != null)
-            {
-                // might need to be modified for more complex player models
-                body.transform.GetChild(0).GetComponent<MeshRenderer>().material = foundMat;
-            }
-        }
-        else if (prefab)
+        if (foundMat != null)
         {
-            // Spawn their copy of their body
-            GameObject body = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
-
-            if (foundMat != null)
-            {
-                // might need to be modified for more complex player models
-                body.transform.GetChild(0).GetComponent<MeshRenderer>().material = foundMat;
-            }
+            // might need to be modified for more complex player models
+            body.transform.GetChild(0).GetComponent<MeshRenderer>().material = foundMat;
         }
     }
 }
