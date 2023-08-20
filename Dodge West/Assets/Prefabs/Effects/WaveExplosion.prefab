@@ -152,12 +152,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsCount: 100
-  maxRadius: 15
-  speed: 200
+  maxRadius: 10
+  speed: 150
   startWidth: 5
-  force: 1000000
-  damage: 1000000
+  forceModifier: 1000
+  damage: 100
   waveActive: 1
+  minForce: 40
 --- !u!114 &598335424433240449
 MonoBehaviour:
   m_ObjectHideFlags: 0

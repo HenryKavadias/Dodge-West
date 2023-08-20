@@ -8,11 +8,13 @@ public class BlastWave : MonoBehaviour
     public float maxRadius = 50;    // Max radius of blast wave
     public float speed = 5;         // Speed of blast wave
     public float startWidth = 5;    // Starting width of blast wave
-    public float force = 5;         // Force of blast wave
+    public float forceModifier = 5;         // Force of blast wave
 
     public float damage = 10;
 
     public bool waveActive = true;
+
+    [SerializeField] private float minForce = 40f;
 
     // Renderer for blast wave
     private LineRenderer lineRenderer;
@@ -36,29 +38,73 @@ public class BlastWave : MonoBehaviour
     {
         Collider[] hittingObjects = Physics.OverlapSphere(transform.position, currentRadius);
 
+        if (hittingObjects.Length > 0)
+        {
+            Debug.Log("Hit Stuff");
+        }
+
         for (int i = 0; i < hittingObjects.Length; i++)
         {
-            Rigidbody rb = hittingObjects[i].GetComponent<Rigidbody>();
+            // Can't find the Rigidbody ???
+            Rigidbody rb = hittingObjects[i].transform.gameObject.GetComponent<Rigidbody>();
 
             if (!rb)
             {
+                Debug.Log("No Force");
                 continue;
             }
 
-            // Adds force to the objects the blast hits
+            // Adds force to the objects the blast hits (put the power function here)
             Vector3 direction = (hittingObjects[i].transform.position - transform.position).normalized;
-            rb.AddForce(direction * force, ForceMode.Impulse);
+            rb.AddForce(direction * DynamicForce(rb.mass), ForceMode.Impulse);
+            Debug.Log("Force applied");
 
-            // Check if damageable then apply
-            Damageable damaged = hittingObjects[i].GetComponent<Damageable>();
+            // Check if damageable then apply (fix this)
+            Damageable damaged = hittingObjects[i].gameObject.GetComponent<Damageable>();
             if (!damaged)
             {
+                Debug.Log("No damage");
                 continue;
             }
             Debug.Log("Explosion damage");
             float modDamage = damage / currentRadius;
             damaged.Damage(modDamage);
         }
+    }
+
+    private float DynamicForce(float objectMass)
+    {
+        // Throw power ideal guide:
+
+        // Power per Units - ppu
+        // CAP ppu beyond this point
+        // mass 1 - 40 ppu
+        // mass 5 - 25 ppu
+        // mass 10 - 17 ppu
+        // mass 20 - 15 ppu
+        // mass 100 - 10 ppu
+        // mass 500 - 8 ppu
+        // mass 1000 - 5 ppu
+
+        // Using all data points for a power function gives:
+        // y = 36.904x^-0.277
+
+        float result = 0;
+
+        // Cap the force power for objects lighter than 1 mass
+        if (objectMass < 1)
+        {
+            result = minForce * objectMass;
+            return result;
+        }
+        else
+        {
+            float ppu = 36.904f * Mathf.Pow(objectMass, -0.277f);
+
+            result = (ppu + forceModifier) * objectMass;
+        }
+
+        return result;
     }
 
     // Modifies the radius of the blast wave over time
