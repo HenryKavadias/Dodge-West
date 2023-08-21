@@ -213,6 +213,12 @@ public class PhysicsPickup : MonoBehaviour
                 RestoreToOriginalMaterials();
 
                 currentObject = null;
+
+                // Avoids multiple actions from one input
+                pickedup = false;
+                thrown = false;
+                loadedItem = false;
+                return;
             }
             else if (loadInventory.Count > 0)
             {
@@ -235,12 +241,13 @@ public class PhysicsPickup : MonoBehaviour
 
                 // Update UI 
                 gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
+
+                // Avoids multiple actions from one input
+                pickedup = false;
+                thrown = false;
+                loadedItem = false;
+                return;
             }
-            // Avoids multiple actions from one input
-            pickedup = false;
-            thrown = false;
-            loadedItem = false;
-            return;
         }
 
         if (pickedup || thrown)
