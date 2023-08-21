@@ -73,7 +73,7 @@ public class BlastWave : MonoBehaviour
 
             if (hittingObjects[i].isTrigger)
             {
-                Debug.Log("Trigger Collider");
+                //Debug.Log("Trigger Collider");
                 continue;
             }
             
@@ -86,23 +86,23 @@ public class BlastWave : MonoBehaviour
 
             if (!rb)
             {
-                Debug.Log("No Force");
+                //Debug.Log("No Force");
                 continue;
             }
 
             // Adds force to the objects the blast hits (put the power function here)
             Vector3 direction = (hittingObjects[i].transform.position - transform.position).normalized;
             rb.AddForce(direction * DynamicForce(rb.mass), ForceMode.Impulse);
-            Debug.Log("Force applied");
+            //Debug.Log("Force applied");
 
             // Check if damageable then apply (fix this)
             Damageable damaged = cObject.GetComponent<Damageable>();
             if (!damaged)
             {
-                Debug.Log("No damage");
+                //Debug.Log("No damage");
                 continue;
             }
-            Debug.Log("Explosion damage");
+            //Debug.Log("Explosion damage");
             float modDamage = damage / currentRadius;
             damaged.Damage(modDamage);
         }

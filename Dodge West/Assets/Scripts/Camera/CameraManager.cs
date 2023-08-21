@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class CameraManager : MonoBehaviour
 {
     public bool disableRawNumbers = true;
+    public bool enablePlayerNumber = true;
     
     // Plyaer Camera and UI prefabs
     [Header("Camera Object")]
@@ -158,7 +159,7 @@ public class CameraManager : MonoBehaviour
 
         if (disableRawNumbers && currentUI)
         {
-            currentUI.GetComponent<PlayerUIManager>().DisableRawNumbersForPlayer();
+            currentUI.GetComponent<PlayerUIManager>().DisableRawNumbersForPlayer(enablePlayerNumber);
         }
     }
 }
