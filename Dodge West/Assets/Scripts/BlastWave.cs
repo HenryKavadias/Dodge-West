@@ -14,10 +14,14 @@ public class BlastWave : MonoBehaviour
 
     public bool waveActive = true;
 
+    public bool disableOverlapForce = false;
+
     [SerializeField] private float minForce = 40f;
 
     // Renderer for blast wave
     private LineRenderer lineRenderer;
+
+    private List<Collider> previousCollisions = new List<Collider>();
 
     // Get the renderer and set the total number of draw points for it (needs one more than point count)
     private void Awake()
@@ -45,8 +49,40 @@ public class BlastWave : MonoBehaviour
 
         for (int i = 0; i < hittingObjects.Length; i++)
         {
+            if (disableOverlapForce)
+            {
+                bool cancel = false;
+                foreach (Collider col in previousCollisions)
+                {
+                    if (col == hittingObjects[i])
+                    {
+                        cancel = true;
+                        break;
+                    }
+                }
+
+                if (cancel)
+                {
+                    continue;
+                }
+                else
+                {
+                    previousCollisions.Add(hittingObjects[i]);
+                }
+            }
+
+            if (hittingObjects[i].isTrigger)
+            {
+                Debug.Log("Trigger Collider");
+                continue;
+            }
+            
+            // Need to get the parent object with the rigid body.
+            // (may need to rework some pickup able objects to only have one physics collider)
+            GameObject cObject = hittingObjects[i].transform.parent.gameObject;
+
             // Can't find the Rigidbody ???
-            Rigidbody rb = hittingObjects[i].transform.gameObject.GetComponent<Rigidbody>();
+            Rigidbody rb = cObject.GetComponent<Rigidbody>();
 
             if (!rb)
             {
@@ -60,7 +96,7 @@ public class BlastWave : MonoBehaviour
             Debug.Log("Force applied");
 
             // Check if damageable then apply (fix this)
-            Damageable damaged = hittingObjects[i].gameObject.GetComponent<Damageable>();
+            Damageable damaged = cObject.GetComponent<Damageable>();
             if (!damaged)
             {
                 Debug.Log("No damage");
@@ -144,12 +180,12 @@ public class BlastWave : MonoBehaviour
         lineRenderer.widthMultiplier = Mathf.Lerp(0f, startWidth, 1f - currentRadius / maxRadius);
     }
 
-    // test controls
+    //// test controls
     //private void Update()
     //{
-    //    if (Input.GetKeyDown(KeyCode.A)) 
+    //    if (Input.GetKeyDown(KeyCode.A))
     //    {
-    //        StartCoroutine(Blast());
+    //        StartCoroutine(TriggerBlast());
     //    }
     //}
 }
