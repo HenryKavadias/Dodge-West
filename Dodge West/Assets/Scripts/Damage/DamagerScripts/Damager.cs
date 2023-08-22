@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Damager : MonoBehaviour
 {
-    public float damage;    // Amount of unmodified damage
+    public float damage = 1;    // Amount of unmodified damage
 
     // Apply damage to the relative damageable gameobject
     public virtual void Damage(Damageable damageable) => damageable.Damage(damage);

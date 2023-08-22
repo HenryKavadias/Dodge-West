@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe464bf6ec5b4594090f4fa0eb17b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initial: 3
+  _initial: 10
   onDamaged:
     m_PersistentCalls:
       m_Calls: []
@@ -724,6 +724,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5405b15e2662aba4e98c53f8d8472298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destoryOnStart: 0
+  destroyNow: 1
+  destroyDelay: 1
 --- !u!114 &6748505403785138612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,3 +740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObj: {fileID: 6704892483781080500, guid: 3f91642360d6d204796776347c82f6ee, type: 3}
+  defaultRotation: 0
+  modifyRotationX: 0
+  modAmount: 90

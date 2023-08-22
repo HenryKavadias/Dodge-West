@@ -11,6 +11,14 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] protected Progressive _health;
 
+    private void Start()
+    {
+        if (_health == null)
+        {
+            _health = gameObject.GetComponent<Progressive>();
+        }
+    }
+
     // Damage object
     public virtual void Damage(
         float damage, GameObject attacker = null)

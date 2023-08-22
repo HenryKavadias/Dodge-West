@@ -14,7 +14,7 @@ public class SelfVelocityDamager : Damager
         damageable = GetComponent<Damageable>();
     }
 
-    public float minDamageVelocity;
+    public float minDamageVelocity = 12;
     [Range(0f, 1f)] public float velocityThreshold = 0.3f;
 
     private void OnCollisionEnter(Collision collision)
