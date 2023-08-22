@@ -238,7 +238,7 @@ public class FirstPersonMovement : MonoBehaviour
         }
 
         // If player is grounded, reset their jump limit
-        if (isGrounded)
+        if (isGrounded && readyToJump)
         {
             ResetJumpLimit();
         }
@@ -273,10 +273,10 @@ public class FirstPersonMovement : MonoBehaviour
             }
             else if (!isGrounded && readyToJump && (jumpCount < jumpLimit))
             {
-                if (jumpCount <= 0)
-                {
-                    jumpCount = 1;
-                }
+                //if (jumpCount <= 0)
+                //{
+                //    jumpCount = 1;
+                //}
 
                 readyToJump = false;
 
