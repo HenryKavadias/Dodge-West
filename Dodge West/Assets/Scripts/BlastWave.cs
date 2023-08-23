@@ -42,10 +42,10 @@ public class BlastWave : MonoBehaviour
     {
         Collider[] hittingObjects = Physics.OverlapSphere(transform.position, currentRadius);
 
-        if (hittingObjects.Length > 0)
-        {
-            Debug.Log("Hit Stuff");
-        }
+        //if (hittingObjects.Length > 0)
+        //{
+        //    Debug.Log("Hit Stuff");
+        //}
 
         for (int i = 0; i < hittingObjects.Length; i++)
         {

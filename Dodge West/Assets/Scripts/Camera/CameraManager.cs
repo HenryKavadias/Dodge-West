@@ -17,6 +17,9 @@ public class CameraManager : MonoBehaviour
     [Header("UI Canvas")]
     public GameObject playerUI;
 
+    [Header("Camera Target")]
+    public Transform cameraTarget = null;
+
     // Current player camera and UI references
     public GameObject currentCam { get; private set; }
     public GameObject currentUI { get; private set; }
@@ -33,7 +36,8 @@ public class CameraManager : MonoBehaviour
             camTemp.GetComponent<CameraModifier>().SetPlayer(gameObject);
 
             // Set camera controls script
-            camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<CameraControl>().camPos);
+            //camTemp.GetComponent<CameraFollow>().SetTarget(GetComponent<CameraControl>().camPos);
+            camTemp.GetComponent<CameraFollow>().SetTarget(cameraTarget);
 
             // Camera needs to be the first child object
             Camera camReal = camTemp.transform.GetChild(0).GetComponent<Camera>();

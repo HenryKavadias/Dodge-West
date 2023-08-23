@@ -211,7 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObj: {fileID: 7296691005633471357, guid: a1fe5c3b20708484a9eb9cb1bf4b0652, type: 3}
-  playerModel: {fileID: 161012299386307288}
+  defaultRotation: 0
+  modifyRotationX: 0
+  modAmount: 90
   playerRender: {fileID: 161012299386307291}
 --- !u!114 &567987932633823572
 MonoBehaviour:
@@ -353,8 +355,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableRawNumbers: 1
+  enablePlayerNumber: 1
   cameraObject: {fileID: 2842492982393607670, guid: 56b6b330fc5833e4a8a82d19c18d4768, type: 3}
   playerUI: {fileID: 6271210731597287100, guid: 352470e7bfb59ab458329e38d06d78ce, type: 3}
+  cameraTarget: {fileID: 4889600128978610679}
 --- !u!114 &882741623857242509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,6 +843,37 @@ Transform:
   m_Father: {fileID: 7357810024215858348}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6443978776324314350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4889600128978610679}
+  m_Layer: 0
+  m_Name: CameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4889600128978610679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443978776324314350}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7357810024215858348}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6851300041197386235
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +902,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4889600128978610679}
   - {fileID: 588626649139957462}
   m_Father: {fileID: 161012298981736519}
   m_RootOrder: -1
