@@ -74,9 +74,15 @@ public class PhysicsPickup : MonoBehaviour
     // Holds a reference for the object currently being highlighted
     private GameObject currentHighlight = null;
 
+
+    public bool enableHighlight = true;
     // Highlights pickup able objects using an outline script attached to the pickup able objects
     void HighlightObject()
     {
+        if (!enableHighlight)
+        {
+            return;
+        }
         // If not currently holding an object
         if (currentObject == null && playerCamera)
         {
@@ -85,8 +91,8 @@ public class PhysicsPickup : MonoBehaviour
             if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
             {
                 GameObject target = hitInfo.rigidbody.gameObject;
-
-                // Check if object is held by another player and has the outline script
+                //Debug.Log("Contact");
+                // Check if object isn't held by another player and has the outline script
                 if (!target.GetComponent<VelocityDamager>().IsHeld() && target.GetComponent<Outline>())
                 {
                     // Check if highlighted object has changed
@@ -100,7 +106,7 @@ public class PhysicsPickup : MonoBehaviour
                         {
                             currentHighlight.GetComponent<Outline>().enabled = false;
                         }
-
+                        
                         currentHighlight = target;
                     }
                 }

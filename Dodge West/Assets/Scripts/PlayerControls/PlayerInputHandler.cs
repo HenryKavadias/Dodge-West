@@ -35,9 +35,9 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] 
     private bool randomiseModel = false;
     [SerializeField]
-    private MeshRenderer dogMesh;
+    public MeshRenderer dogMesh;
     [SerializeField]
-    private MeshRenderer catMesh;
+    public MeshRenderer catMesh;
     [SerializeField]
     private GameObject dogModel;
     [SerializeField]
@@ -88,7 +88,7 @@ public class PlayerInputHandler : MonoBehaviour
                     break;
             }
 
-            Debug.Log("Random Model: " + randomise);
+            //Debug.Log("Random Model: " + randomise);
         }
     }
 

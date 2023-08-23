@@ -8,7 +8,7 @@ public class SpawnAndCopyVelocity : Spawner
     {
         var rb = GetComponent<Rigidbody>();
 
-        GameObject mainObject = null;
+        GameObject mainObject = //null;
 
         Instantiate(prefab, transform.position,
             Quaternion.Euler(transform.eulerAngles.x,
@@ -16,12 +16,18 @@ public class SpawnAndCopyVelocity : Spawner
             transform.eulerAngles.z));
 
         // Copy the velocity and angular velocity on each fragment of the broken object
-        if (mainObject != null)
+        if (mainObject != null && rb != null)
         {
             foreach (Transform obj in mainObject.transform)
             {
-                obj.gameObject.GetComponent<Rigidbody>().velocity = rb.velocity;
-                obj.gameObject.GetComponent<Rigidbody>().angularVelocity = rb.angularVelocity;
+                var objRb = obj.gameObject.GetComponent<Rigidbody>();
+                if (objRb == null)
+                {
+                    continue;
+                }
+
+                objRb.velocity = rb.velocity;
+                objRb.angularVelocity = rb.angularVelocity;
             }
         }
     }

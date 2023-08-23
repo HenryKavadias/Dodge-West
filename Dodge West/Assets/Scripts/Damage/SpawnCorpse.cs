@@ -1,11 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpawnCorpse : Spawner
 {
     //public GameObject playerModel;
     public MeshRenderer playerRender;
+
+    public bool usingCharacterModels = false;
+
+    private void Start()
+    {
+        if (usingCharacterModels)
+        {
+            switch (gameObject.GetComponent<PlayerInputHandler>().modelSelected)
+            {
+                case CharacterModel.dog:
+                    playerRender = gameObject.GetComponent<PlayerInputHandler>().dogMesh;
+                    break;
+                case CharacterModel.cat:
+                    playerRender = gameObject.GetComponent<PlayerInputHandler>().catMesh;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 
     protected override void CreateObject(GameObject prefab = null)
     {
@@ -36,8 +57,32 @@ public class SpawnCorpse : Spawner
 
         if (foundMat != null)
         {
-            // might need to be modified for more complex player models
-            body.transform.GetChild(0).GetComponent<MeshRenderer>().material = foundMat;
+            // NOTE: outline script doesn't work, use 2 seperate corpse prefabs
+            if (usingCharacterModels)
+            {
+                //Debug.Log(gameObject.GetComponent<PlayerInputHandler>().modelSelected);
+                switch (gameObject.GetComponent<PlayerInputHandler>().modelSelected)
+                {
+                    case CharacterModel.dog:
+                        //Debug.Log("Dog");
+                        body.GetComponent<CorpseData>().dogRender.material = foundMat;
+                        body.GetComponent<CorpseData>().dogModel.SetActive(true);
+                        body.GetComponent<CorpseData>().catModel.SetActive(false);
+                        break;
+                    case CharacterModel.cat:
+                        //Debug.Log("Cat");
+                        body.GetComponent<CorpseData>().catRender.material = foundMat;
+                        body.GetComponent<CorpseData>().dogModel.SetActive(false);
+                        body.GetComponent<CorpseData>().catModel.SetActive(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                body.transform.GetChild(0).GetComponent<MeshRenderer>().material = foundMat;
+            }
         }
     }
 }
