@@ -28,6 +28,7 @@ public class VelocityDamager : Damager
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        state = ObjectState.Idle;
 
         // Loadable objects are highlighted in green, ones that aren't are higlighted in red
         if (loadable)
@@ -70,7 +71,7 @@ public class VelocityDamager : Damager
 
     // Object damage velocities and thresholds (sensitivities) for each object state
     [Header("Default")]
-    public float minDamageVelocity = 2f;
+    public float minDamageVelocity = 20f;
     [Range(0f, 1f)] public float velocityThreshold = 0.3f;
 
     [Header("Thrown")]
@@ -78,11 +79,11 @@ public class VelocityDamager : Damager
     [Range(0f, 1f)] public float thrownVelocityThreshold = 0.2f;
 
     [Header("Held")]
-    public float minHeldDamageVelocity = 5f;
+    public float minHeldDamageVelocity = 15f;
     [Range(0f, 1f)] public float heldVelocityThreshold = 0.5f;
 
     [Header("Idle")]
-    public float minIdleDamageVelocity = 3f;
+    public float minIdleDamageVelocity = 30f;
     [Range(0f, 1f)] public float idleVelocityThreshold = 0.7f;
 
     // Thrown: when object is thrown by a player. Goes to Idle when it collides with another object (after applying damage)

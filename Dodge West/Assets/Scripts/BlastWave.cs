@@ -79,10 +79,16 @@ public class BlastWave : MonoBehaviour
             
             // Need to get the parent object with the rigid body.
             // (may need to rework some pickup able objects to only have one physics collider)
-            GameObject cObject = hittingObjects[i].transform.parent.gameObject;
+            //GameObject cObject = hittingObjects[i].transform.parent.gameObject;
 
-            // Can't find the Rigidbody ???
-            Rigidbody rb = cObject.GetComponent<Rigidbody>();
+            Transform objTransform = FindRidgidBody(hittingObjects[i].transform);
+
+            if (objTransform == null)
+            {
+                continue;
+            }
+
+            Rigidbody rb = objTransform.gameObject.GetComponent<Rigidbody>();
 
             if (!rb)
             {
@@ -96,7 +102,8 @@ public class BlastWave : MonoBehaviour
             //Debug.Log("Force applied");
 
             // Check if damageable then apply (fix this)
-            Damageable damaged = cObject.GetComponent<Damageable>();
+            Damageable damaged = objTransform.gameObject.GetComponent<Damageable>();
+
             if (!damaged)
             {
                 //Debug.Log("No damage");
@@ -108,6 +115,22 @@ public class BlastWave : MonoBehaviour
         }
     }
 
+    private Transform FindRidgidBody(Transform transform)
+    {
+        Rigidbody currentObject = transform.gameObject.GetComponent<Rigidbody>();
+        
+        if (currentObject)
+        {
+            return currentObject.transform;
+        }
+
+        if (transform.parent != null)
+        {
+            return FindRidgidBody(transform.parent);
+        }
+
+        return null;
+    }
     private float DynamicForce(float objectMass)
     {
         // Throw power ideal guide:
