@@ -15,7 +15,7 @@ public class MatchRotation : MonoBehaviour
                 matchObject.eulerAngles.x, matchObject.eulerAngles.y, 0f);
             //matchObject.rotation.y, 
             //matchObject.rotation.z);
-            Debug.Log("Change");
+            //Debug.Log("Change");
         }
     }
 }
