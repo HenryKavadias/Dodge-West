@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class SpawnAndCopyVelocity : Spawner
 {
+    [SerializeField]
+    private bool disableBeforeSpawn = false;
     protected override void CreateObject(GameObject prefab = null)
     {
         var rb = GetComponent<Rigidbody>();
+
+        if (disableBeforeSpawn)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
 
         GameObject mainObject = //null;
 

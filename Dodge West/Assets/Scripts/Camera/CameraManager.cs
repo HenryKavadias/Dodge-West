@@ -106,6 +106,86 @@ public class CameraManager : MonoBehaviour
         }
     }
     
+    public List<LayerMask> layerMasks = new List<LayerMask>();
+    [SerializeField]
+    private GameObject playerBody = null;
+
+    private int playerNumber = -1;
+
+    // Sets the layer of the player model/body (not the same one as the collider)
+    // and deselects that layer from the culling selection on the camera.
+    // This prevents the player from seeing themselves
+    void SetCullingOfSelf()
+    {
+        // Player layer mask IDs:
+        // - P1 -> 8
+        // - P2 -> 9
+        // - P3 -> 10
+        // - P4 -> 11
+
+        playerNumber = gameObject.GetComponent<PlayerID>().GetID();
+
+        var cam = currentCam.GetComponent<Camera>();
+        
+        if (cam != null)
+        {
+            string layerName = "empty";
+
+            switch (playerNumber)
+            {
+                case 0:
+                    cam.cullingMask = layerMasks[0];
+
+                    layerName = LayerMask.LayerToName(8);
+                    break;
+                case 1:
+                    cam.cullingMask = layerMasks[1];
+
+                    layerName = LayerMask.LayerToName(8);
+                    break;
+                case 2:
+                    cam.cullingMask = layerMasks[2];
+
+                    layerName = LayerMask.LayerToName(9);
+                    break;
+                case 3:
+                    cam.cullingMask = layerMasks[3];
+
+                    layerName = LayerMask.LayerToName(10);
+                    break;
+                case 4:
+                    cam.cullingMask = layerMasks[4];
+
+                    layerName = LayerMask.LayerToName(11);
+                    break;
+                default:
+                    cam.cullingMask = layerMasks[0];
+
+                    layerName = LayerMask.LayerToName(8);
+                    break;
+            }
+
+            // Set layer of player model so it is culled
+            if (layerName != "empty")
+            {
+                SetLayerOfChildren(layerName, playerBody);
+            }
+        }
+    }
+
+    private void SetLayerOfChildren(string layerName, GameObject currentObject)
+    {
+        foreach (Transform child in currentObject.transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer(layerName);
+
+            if (child.childCount > 0)
+            {
+                SetLayerOfChildren(layerName, child.gameObject);
+            }
+        }
+    }
+
     public void UpdateLifeUI(int lifeCount)
     {
         currentUI.GetComponent<PlayerUIManager>().RefreshLifeList(lifeCount);
@@ -165,5 +245,7 @@ public class CameraManager : MonoBehaviour
         {
             currentUI.GetComponent<PlayerUIManager>().DisableRawNumbersForPlayer(enablePlayerNumber);
         }
+
+        SetCullingOfSelf();
     }
 }

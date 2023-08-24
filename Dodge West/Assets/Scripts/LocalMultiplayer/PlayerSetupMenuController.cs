@@ -11,6 +11,9 @@ public class PlayerSetupMenuController : MonoBehaviour
 {
     private int playerIndex;
 
+    [SerializeField]
+    private List<Material> playerColours = new List<Material>();
+
     // UI elements
     [SerializeField]
     private TextMeshProUGUI titleText;

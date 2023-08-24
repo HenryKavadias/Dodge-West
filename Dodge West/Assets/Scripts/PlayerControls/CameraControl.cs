@@ -55,6 +55,11 @@ public class CameraControl : MonoBehaviour
         LookControls();
     }
 
+    public float GetXRotation()
+    {
+        return xRotation;
+    }
+
     // Manages the direction of the player camera based on camera control inputs
     void LookControls()
     {
