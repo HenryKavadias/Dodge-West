@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 9138998624703983665}
   - component: {fileID: -1121395191896025320}
   - component: {fileID: -3981982872731995669}
-  - component: {fileID: -9046216957497952744}
   - component: {fileID: 6266306590306687069}
+  - component: {fileID: -9046216957497952744}
   - component: {fileID: 7240155099458519715}
   - component: {fileID: -1408798745849880904}
   - component: {fileID: -3258107599202681540}
@@ -131,19 +131,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &-9046216957497952744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720816121155798994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 987e33386b4adff4d9541b7095b3e1a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 7240155099458519715}
 --- !u!114 &6266306590306687069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +146,19 @@ MonoBehaviour:
   damage: 1
   minDamageVelocity: 12
   velocityThreshold: 0.4
+--- !u!114 &-9046216957497952744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720816121155798994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987e33386b4adff4d9541b7095b3e1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 7240155099458519715}
 --- !u!114 &7240155099458519715
 MonoBehaviour:
   m_ObjectHideFlags: 0
