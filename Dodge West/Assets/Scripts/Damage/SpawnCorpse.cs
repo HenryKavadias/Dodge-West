@@ -55,6 +55,13 @@ public class SpawnCorpse : Spawner
             transform.eulerAngles.y,
             transform.eulerAngles.z));
 
+        var rb = GetComponent<Rigidbody>();
+
+        var objRb = body.gameObject.GetComponent<Rigidbody>();
+
+        objRb.velocity = rb.velocity;
+        objRb.angularVelocity = rb.angularVelocity;
+
         if (foundMat != null)
         {
             // NOTE: outline script doesn't work, use 2 seperate corpse prefabs
