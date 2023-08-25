@@ -146,6 +146,8 @@ public class PlayerUIManager : MonoBehaviour
     // Starts the animation for the damage indicator
     public void StartDamageIndication()
     {
+        Debug.Log("Oof");
+        
         if (damageIndicatorAnimator && !CheckIfInAnimation())
         {
             damageIndicatorUI.SetActive(true);
