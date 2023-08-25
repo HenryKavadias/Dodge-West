@@ -25,6 +25,20 @@ public class Damageable : MonoBehaviour
         Invoke(nameof(TurnOffInvincible), invincibleTime);
     }
 
+    public void TriggerInvinvible(float time = 0f)
+    {
+        invincible = true;
+
+        if (time > 0f)
+        {
+            Invoke(nameof(TurnOffInvincible), time);
+
+            return;
+        }
+
+        Invoke(nameof(TurnOffInvincible), invincibleTime);
+    }
+
     protected void TurnOffInvincible()
     {
         invincible = false;
