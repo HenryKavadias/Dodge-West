@@ -413,21 +413,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnZoneReference: {fileID: 442156021670793267}
-  sizeOfZone: {x: 80, y: 0, z: 80}
+  sizeOfZone: {x: 80, y: 40, z: 80}
   distanceOfZone: 160
-  numberOfSpawnsPerUpdate: 4
+  numberOfSpawnsPerUpdate: 1
+  enableSpawnIncrease: 1
+  spawnIncreaseTrigger: 5
+  spawnIncreaseAmount: 1
   startTimer: 90
-  delayTime: 5
-  rapidSpawn: 1
-  rapidSpawnDuration: 0.5
-  rapidSpawnCountTrigger: 10
-  objects:
+  delayTime: 7
+  standardObjects:
+  - {fileID: 6704892483781080500, guid: a2be416d88aad6148b4c5bcff2f2c542, type: 3}
+  - {fileID: 6704892483781080500, guid: a2be416d88aad6148b4c5bcff2f2c542, type: 3}
+  - {fileID: 6704892483781080500, guid: a2be416d88aad6148b4c5bcff2f2c542, type: 3}
+  - {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+  - {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+  - {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
+  - {fileID: 6704892483781080500, guid: b257938f9da3ee94caf21368b07e8f70, type: 3}
+  - {fileID: 6704892483781080500, guid: b257938f9da3ee94caf21368b07e8f70, type: 3}
+  - {fileID: 7295154873178521885, guid: 165fe17214623ae42b5099a5b58efcc7, type: 3}
+  - {fileID: 7295154873178521885, guid: 165fe17214623ae42b5099a5b58efcc7, type: 3}
+  - {fileID: 1896325637163721583, guid: 67962de1875c8ea4986ae806902002f2, type: 3}
+  - {fileID: 1896325637163721583, guid: 67962de1875c8ea4986ae806902002f2, type: 3}
+  - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
+  enableRapidSpawn: 1
+  rapidSpawnDuration: 0.2
+  rapidSpawnTrackerTrigger: 10
+  altRapidSpawnObjects: 1
+  rapidObjects:
+  - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
   - {fileID: 1896325637163721583, guid: 67962de1875c8ea4986ae806902002f2, type: 3}
   - {fileID: 7295154873178521885, guid: 165fe17214623ae42b5099a5b58efcc7, type: 3}
-  - {fileID: 6704892483781080500, guid: a2be416d88aad6148b4c5bcff2f2c542, type: 3}
-  - {fileID: 6704892483781080500, guid: b257938f9da3ee94caf21368b07e8f70, type: 3}
-  - {fileID: 6704892483781080500, guid: dbe0784ebd0d844439238b6d41f6df59, type: 3}
-  - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
+  enableMegaBomb: 1
+  megaBomb: {fileID: 6704892483781080500, guid: ecf733a0fee06674aaaf809824176d5f, type: 3}
+  megaBombTrigger: 100
 --- !u!1 &2902792763263594534
 GameObject:
   m_ObjectHideFlags: 0

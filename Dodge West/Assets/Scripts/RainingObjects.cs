@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,12 @@ public class RainingObjects : MonoBehaviour
     public Transform spawnZoneReference = null;
     public Vector3 sizeOfZone = new Vector3(50f, 1f, 50f);
     public float distanceOfZone = 10;
-
     public int numberOfSpawnsPerUpdate = 2;
+    public bool enableSpawnIncrease = true;
+    public int spawnIncreaseTrigger = 5;
+    public int spawnIncreaseAmount = 1;
+    private int spawnIncrease = 0;
+    private int spawnIncreaseTracker = 0;
 
     [Header("Spawn Timer")]
     public float startTimer = 60f;
@@ -17,18 +22,26 @@ public class RainingObjects : MonoBehaviour
 
     public float delayTime = 5f;
 
+    public List<GameObject> standardObjects = new List<GameObject>();
+
     [Header("Rapid Spawn")]
-    public bool rapidSpawn = true;
+    public bool enableRapidSpawn = true;
     public float rapidSpawnDuration = 5f;
-    public int rapidSpawnCountTrigger = 5;
-    private int rapidSpawnTracker = 0;
+    // Re-purposed for spawn increase if it is enabled but not rapid spawn
+    public int rapidSpawnTrackerTrigger = 5;
+    public bool altRapidSpawnObjects = true;
+    private int rapidSpawnTracker = 0;       // See above comment
     private bool triggerRapidSpawn = false;
     private bool startRapidSpawn = false;
 
+    public List<GameObject> rapidObjects = new List<GameObject>();
 
-    //private float currentTime = 0f;
+    [Header("Mega Bomb Spawn")]
+    public bool enableMegaBomb = true;
+    public GameObject megaBomb = null;
+    public int megaBombTrigger = 100;
 
-    public List<GameObject> objects = new List<GameObject>();
+    private int spawnCycleCount = 0;
 
     private System.Random random = new System.Random();
 
@@ -37,53 +50,81 @@ public class RainingObjects : MonoBehaviour
         Invoke(nameof(ResetSpawnerAllowance), startTimer);
     }
 
+    private void SpawnCycle(List<GameObject> objectList)
+    {
+        if (megaBomb != null && enableMegaBomb && spawnCycleCount >= megaBombTrigger)
+        {
+            Instantiate(
+                megaBomb,
+            new Vector3(
+                    spawnZoneReference.position.x,
+                    spawnZoneReference.position.y + distanceOfZone,
+                    spawnZoneReference.position.z), 
+                Quaternion.identity);
+
+            return;
+        }
+        
+        for (int i = 0; i < (numberOfSpawnsPerUpdate + spawnIncrease); i++)
+        {
+            int randomiseObject = random.Next(0, objectList.Count);
+
+            float randomX = UnityEngine.Random.Range(-(sizeOfZone.x / 2), (sizeOfZone.x / 2));
+            float randomY = UnityEngine.Random.Range(-(sizeOfZone.y / 2), (sizeOfZone.y / 2));
+            float randomZ = UnityEngine.Random.Range(-(sizeOfZone.z / 2), (sizeOfZone.z / 2));
+
+            Instantiate(
+                objectList[randomiseObject],
+                new Vector3(
+                    randomX + spawnZoneReference.position.x,
+                    randomY + spawnZoneReference.position.y + distanceOfZone,
+                    randomZ + spawnZoneReference.position.z),
+                Quaternion.identity);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (spawnZoneReference && 
-            objects.Count > 0 &&
+        if (spawnZoneReference &&
+            standardObjects.Count > 0 &&
             allowSpawning)
         {
-            for (int i = 0; i < numberOfSpawnsPerUpdate; i++)
-            {
-                int objectCount = objects.Count;
-
-                int randomiseObject = random.Next(0, objects.Count);
-
-                float randomX = Random.Range(-(sizeOfZone.x / 2), (sizeOfZone.x / 2));
-                float randomZ = Random.Range(-(sizeOfZone.z / 2), (sizeOfZone.z / 2));
-
-                Vector3 spawn = new Vector3(randomX, 0f, randomZ);
-
-                Instantiate(
-                    objects[randomiseObject],
-                    new Vector3(
-                        randomX + spawnZoneReference.position.x,
-                        spawnZoneReference.position.y + distanceOfZone,
-                        randomZ + spawnZoneReference.position.z),
-                    Quaternion.identity);
-            }
+            //SpawnCycle(standardObjects);
 
             if (startRapidSpawn)
             {
                 startRapidSpawn = false;
                 triggerRapidSpawn = true;
                 rapidSpawnTracker = 0;
-                //allowSpawning = false;
                 Invoke(nameof(ResetRapidSpawn), rapidSpawnDuration);
 
                 return;
             }
-            else if (triggerRapidSpawn)
+            
+            if (triggerRapidSpawn && 
+                rapidObjects.Count > 0)
             {
+                if (altRapidSpawnObjects)
+                {
+                    SpawnCycle(rapidObjects);
+                }
+                else
+                {
+                    SpawnCycle(standardObjects);
+                }
                 return;
             }
+            else
+            {
+                SpawnCycle(standardObjects);
+            }
 
-            if (rapidSpawn)
+            if (enableRapidSpawn && spawnCycleCount < megaBombTrigger)
             {
                 rapidSpawnTracker++;
 
-                if (rapidSpawnTracker >= rapidSpawnCountTrigger)
+                if (rapidSpawnTracker >= rapidSpawnTrackerTrigger)
                 {
                     startRapidSpawn = true;
 
@@ -102,18 +143,27 @@ public class RainingObjects : MonoBehaviour
                 Invoke(nameof(ResetSpawnerAllowance), delayTime);
             }
         }
-
-        //else if (currentTime >= startTimer)
-        //{
-        //    allowSpawning = true;
-        //}
-
-        //currentTime += Time.deltaTime;
     }
 
     void ResetSpawnerAllowance()
     {
         allowSpawning = true;
+
+        if (enableSpawnIncrease)
+        {
+            spawnIncreaseTracker++;
+
+            if (spawnIncreaseTracker >= spawnIncreaseTrigger)
+            {
+                spawnIncrease += spawnIncreaseAmount;
+                spawnIncreaseTrigger += spawnIncreaseTracker;
+            }
+        }
+
+        if (enableMegaBomb)
+        {
+            spawnCycleCount++;
+        }
     }
 
     void ResetRapidSpawn()
@@ -123,8 +173,6 @@ public class RainingObjects : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //float distanceOfZone = 0;
-
         Gizmos.color = Color.red;
 
         if (spawnZoneReference != null)
