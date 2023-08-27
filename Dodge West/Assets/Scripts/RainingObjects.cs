@@ -13,6 +13,7 @@ public class RainingObjects : MonoBehaviour
     public bool enableSpawnIncrease = true;
     public int spawnIncreaseTrigger = 5;
     public int spawnIncreaseAmount = 1;
+    public int objectSpawnCap = 10;
     private int spawnIncrease = 0;
     private int spawnIncreaseTracker = 0;
 
@@ -149,7 +150,8 @@ public class RainingObjects : MonoBehaviour
     {
         allowSpawning = true;
 
-        if (enableSpawnIncrease)
+        if (enableSpawnIncrease && 
+            (spawnIncrease + numberOfSpawnsPerUpdate) < objectSpawnCap)
         {
             spawnIncreaseTracker++;
 
