@@ -56,7 +56,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f075cad8adae6346b339a67038e20f7, type: 2}
+  - {fileID: 2100000, guid: bca56ebcfd530e34e9e6000d0f03ffc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,10 +152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsCount: 50
-  maxRadius: 8
+  maxRadius: 15
   speed: 120
   startWidth: 5
-  forceModifier: 5
+  forceModifier: 20
   damage: 10
   waveActive: 1
   disableOverlapForce: 0
