@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: -1215758719563855550}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &-1215758719563855550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ MonoBehaviour:
         m_MethodName: Spawn
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
+          m_ObjectArgument: {fileID: 6704892483781080500, guid: a7776da08e2b01a41a4597ec76675ad8, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -205,10 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
+  prefabObj: {fileID: 6704892483781080500, guid: a7776da08e2b01a41a4597ec76675ad8, type: 3}
   defaultRotation: 0
   modifyRotationX: 0
   modAmount: 90
+  disableBeforeSpawn: 1
 --- !u!1 &7295154873541221229
 GameObject:
   m_ObjectHideFlags: 0

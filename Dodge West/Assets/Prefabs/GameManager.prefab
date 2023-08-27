@@ -420,7 +420,7 @@ MonoBehaviour:
   spawnIncreaseTrigger: 5
   spawnIncreaseAmount: 1
   startTimer: 90
-  delayTime: 7
+  delayTime: 15
   standardObjects:
   - {fileID: 6704892483781080500, guid: a2be416d88aad6148b4c5bcff2f2c542, type: 3}
   - {fileID: 6704892483781080500, guid: a2be416d88aad6148b4c5bcff2f2c542, type: 3}
@@ -434,9 +434,11 @@ MonoBehaviour:
   - {fileID: 7295154873178521885, guid: 165fe17214623ae42b5099a5b58efcc7, type: 3}
   - {fileID: 1896325637163721583, guid: 67962de1875c8ea4986ae806902002f2, type: 3}
   - {fileID: 1896325637163721583, guid: 67962de1875c8ea4986ae806902002f2, type: 3}
+  - {fileID: 6704892483781080500, guid: 9977f728752263141a9bae8e2f920223, type: 3}
+  - {fileID: 6704892483781080500, guid: 9977f728752263141a9bae8e2f920223, type: 3}
   - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
   enableRapidSpawn: 1
-  rapidSpawnDuration: 0.2
+  rapidSpawnDuration: 0.1
   rapidSpawnTrackerTrigger: 10
   altRapidSpawnObjects: 1
   rapidObjects:
@@ -445,7 +447,7 @@ MonoBehaviour:
   - {fileID: 7295154873178521885, guid: 165fe17214623ae42b5099a5b58efcc7, type: 3}
   enableMegaBomb: 1
   megaBomb: {fileID: 6704892483781080500, guid: ecf733a0fee06674aaaf809824176d5f, type: 3}
-  megaBombTrigger: 100
+  megaBombTrigger: 50
 --- !u!1 &2902792763263594534
 GameObject:
   m_ObjectHideFlags: 0

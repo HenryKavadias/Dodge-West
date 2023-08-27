@@ -610,6 +610,9 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    // Note: doesn't work for objects with multiple materials on it
+    // (see AltPickup script, doesn't yet work)
+
     // Uses a recursion function to dynamically apply the material change to a
     // pickupable object no matter what object structure it has
     void ModifyObjectMaterial(Transform parent)
