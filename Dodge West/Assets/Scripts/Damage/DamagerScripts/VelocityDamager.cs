@@ -31,13 +31,16 @@ public class VelocityDamager : Damager
         state = ObjectState.Idle;
 
         // Loadable objects are highlighted in green, ones that aren't are higlighted in red
-        if (loadable)
+        if (gameObject.GetComponent<Outline>())
         {
-            gameObject.GetComponent<Outline>().OutlineColor = Color.green;
-        }
-        else
-        {
-            gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+            if (loadable)
+            {
+                gameObject.GetComponent<Outline>().OutlineColor = Color.green;
+            }
+            else
+            {
+                gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+            }
         }
     }
 
@@ -119,6 +122,15 @@ public class VelocityDamager : Damager
             // If object is damageable
             if (damageable)
             {
+                if (gameObject.tag == "Player")
+                {
+                    //Debug.Log("Player slap");
+
+                    CalculateAndApplyDamage(damageable, minDamageVelocity, velocityThreshold);
+
+                    return;
+                }
+
                 // Calcualte the damage based on the current state
                 switch (state)
                 {

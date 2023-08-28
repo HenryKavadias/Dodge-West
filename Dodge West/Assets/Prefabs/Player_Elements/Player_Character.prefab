@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937961074316158865}
   - component: {fileID: 6353821303499181763}
+  - component: {fileID: 8520303545507870971}
   - component: {fileID: 5568554941308918308}
   - component: {fileID: 5485548757294552386}
   - component: {fileID: 8321458379334869674}
@@ -143,6 +144,28 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &8520303545507870971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937961074316158867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f42954f12fee934085e2de383e8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  loadable: 0
+  minDamageVelocity: 15
+  velocityThreshold: 0.4
+  minThrownDamageVelocity: 10
+  thrownVelocityThreshold: 0.2
+  minHeldDamageVelocity: 15
+  heldVelocityThreshold: 0.5
+  minIdleDamageVelocity: 30
+  idleVelocityThreshold: 0.7
 --- !u!114 &5568554941308918308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,9 +802,6 @@ MonoBehaviour:
   loadableRestriction: 1
   loadItemLimit: 50
   loadMassLimit: 500
-  bypassMaterialNames:
-  - OutlineMask
-  - OutlineFill
 --- !u!114 &5637073744533230248
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,10 +8,22 @@ public class SelfVelocityDamager : Damager
     private Rigidbody rb;
     private Damageable damageable;
 
+    [SerializeField]
+    private bool limitLayer = true;
+    [SerializeField]
+    private bool useDefaultLayers = true;
+    [SerializeField]
+    private LayerMask limitedLayer; 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         damageable = GetComponent<Damageable>();
+
+        if (useDefaultLayers) 
+        {
+            limitedLayer = LayerMask.GetMask("Ground", "Default");
+        }
     }
 
     public float minDamageVelocity = 12;
@@ -21,9 +33,26 @@ public class SelfVelocityDamager : Damager
     {
         float damageFactor = rb.velocity.magnitude / minDamageVelocity;
 
-        if (damageFactor > velocityThreshold)
+        if (limitLayer)
         {
-            damageable.Damage(damage * damageFactor);
+            //Debug.Log("Limited");
+
+            if ((limitedLayer & 1 << collision.gameObject.layer) == 
+                1 << collision.gameObject.layer)
+            {
+                //Debug.Log("Triggered");
+                if (damageFactor > velocityThreshold)
+                {
+                    damageable.Damage(damage * damageFactor);
+                }
+            }
+        }
+        else
+        {
+            if (damageFactor > velocityThreshold)
+            {
+                damageable.Damage(damage * damageFactor);
+            }
         }
     }
 }

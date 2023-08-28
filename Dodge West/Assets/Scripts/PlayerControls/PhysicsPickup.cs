@@ -273,9 +273,10 @@ public class PhysicsPickup : MonoBehaviour
             {
                 // Pickup object
                 Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask) )
                 {
-                    if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                    if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld() 
+                        && hitInfo.rigidbody.gameObject.tag != "Player")
                     {
                         currentObject = hitInfo.rigidbody;
                         currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
