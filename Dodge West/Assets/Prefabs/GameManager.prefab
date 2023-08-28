@@ -419,6 +419,7 @@ MonoBehaviour:
   enableSpawnIncrease: 1
   spawnIncreaseTrigger: 5
   spawnIncreaseAmount: 1
+  objectSpawnCap: 10
   startTimer: 90
   delayTime: 15
   standardObjects:
@@ -438,7 +439,6 @@ MonoBehaviour:
   - {fileID: 6704892483781080500, guid: 9977f728752263141a9bae8e2f920223, type: 3}
   - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
   - {fileID: 7295154873178521885, guid: 890b5d981d76f3a41bdf37f54bac4991, type: 3}
-  - {fileID: 7295154873178521885, guid: f1204c5b361c44f4d8135014a33338c2, type: 3}
   - {fileID: 7295154873178521885, guid: f1204c5b361c44f4d8135014a33338c2, type: 3}
   enableRapidSpawn: 1
   rapidSpawnDuration: 0.1
@@ -1303,6 +1303,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
