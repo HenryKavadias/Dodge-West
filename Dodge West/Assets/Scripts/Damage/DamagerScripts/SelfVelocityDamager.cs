@@ -9,7 +9,7 @@ public class SelfVelocityDamager : Damager
     private Damageable damageable;
 
     [SerializeField]
-    private bool limitLayer = true;
+    private bool limitLayers = false;
     [SerializeField]
     private bool useDefaultLayers = true;
     [SerializeField]
@@ -33,7 +33,7 @@ public class SelfVelocityDamager : Damager
     {
         float damageFactor = rb.velocity.magnitude / minDamageVelocity;
 
-        if (limitLayer)
+        if (limitLayers)
         {
             //Debug.Log("Limited");
 

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class RainingObjects : MonoBehaviour
 {
+    [SerializeField]
+    private Timer timer;
+    
     [Header("Spawn Positioning and Amount")]
     public Transform spawnZoneReference = null;
     public Vector3 sizeOfZone = new Vector3(50f, 1f, 50f);
@@ -48,6 +51,10 @@ public class RainingObjects : MonoBehaviour
 
     private void Start()
     {
+        if (timer != null)
+        {
+            timer.SetAndStart(startTimer, true);
+        }
         Invoke(nameof(ResetSpawnerAllowance), startTimer);
     }
 

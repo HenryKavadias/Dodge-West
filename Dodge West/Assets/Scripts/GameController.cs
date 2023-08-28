@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
     // End game UI variables
     public GameObject endGamePanel;
     public TextMeshProUGUI winningPlayerText;
+    public GameObject timerDisplay;
 
     // Transition handler reference variable
     public GameObject transitionHandler;
@@ -107,6 +108,11 @@ public class GameController : MonoBehaviour
 
                 string message = "Player " + livingPlayer.GetComponent<PlayerID>().GetID().ToString() + " wins!!!";
 
+                if (timerDisplay != null)
+                {
+                    timerDisplay.SetActive(false);
+                }
+
                 winningPlayerText.text = message;
                 endGamePanel.SetActive(true);
 
@@ -118,6 +124,11 @@ public class GameController : MonoBehaviour
 
                 string message = "All Players Are Dead!!!";
 
+                if (timerDisplay != null)
+                {
+                    timerDisplay.SetActive(false);
+                }
+
                 winningPlayerText.text = message;
                 endGamePanel.SetActive(true);
 
@@ -128,6 +139,11 @@ public class GameController : MonoBehaviour
         else if (gameMode == GameMode.SinglePlayer)
         {
             DisableAllPlayerUI();
+
+            if (timerDisplay != null)
+            {
+                timerDisplay.SetActive(false);
+            }
 
             string message = "You Are Dead";
 
@@ -173,6 +189,11 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        if (gameObject.GetComponent<Timer>().enabled == false)
+        {
+            timerDisplay.SetActive(false);
+        }
+        
         endGamePanel.SetActive(false);
 
         NewSystem();    // game mode is set in this function

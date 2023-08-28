@@ -3035,10 +3035,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  limitLayers: 1
-  limitedLayers:
+  limitLayer: 1
+  useDefaultLayers: 1
+  limitedLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &5021289377710006328
@@ -3213,7 +3214,7 @@ PrefabInstance:
     - target: {fileID: 1761288303084687089, guid: d9b42487381e22d47a78c31b6d5151a6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 876bda83d5830dc4a9719fbb1d5204f8, type: 2}
+      objectReference: {fileID: 2100000, guid: fdd650637c5f18543bd9b46262bdeb7a, type: 2}
     - target: {fileID: 2339888988689294920, guid: d9b42487381e22d47a78c31b6d5151a6, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -3317,7 +3318,7 @@ PrefabInstance:
     - target: {fileID: 5997823597757675341, guid: d9b42487381e22d47a78c31b6d5151a6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 876bda83d5830dc4a9719fbb1d5204f8, type: 2}
+      objectReference: {fileID: 2100000, guid: fdd650637c5f18543bd9b46262bdeb7a, type: 2}
     - target: {fileID: 6003974706020457079, guid: d9b42487381e22d47a78c31b6d5151a6, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -3345,7 +3346,7 @@ PrefabInstance:
     - target: {fileID: 6316914869926991039, guid: d9b42487381e22d47a78c31b6d5151a6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 876bda83d5830dc4a9719fbb1d5204f8, type: 2}
+      objectReference: {fileID: 2100000, guid: fdd650637c5f18543bd9b46262bdeb7a, type: 2}
     - target: {fileID: 6652300203330175018, guid: d9b42487381e22d47a78c31b6d5151a6, type: 3}
       propertyPath: m_Layer
       value: 7
