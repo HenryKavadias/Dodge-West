@@ -448,6 +448,18 @@ public class PhysicsPickup : MonoBehaviour
     public GameObject loadPositionMid = null;
     public GameObject loadPositionFar = null;
 
+    public GameObject preLoadedObject = null;
+
+    void SetPreLoadedItem()
+    {
+        if (preLoadedObject)
+        {
+            GameObject item = Instantiate(preLoadedObject);
+
+            LoadItem(item);
+        }
+    }
+
     // Load inventory check variables
     public bool massLimitEnabled = true;
     public bool itemLimitEnabled = true;
@@ -470,6 +482,14 @@ public class PhysicsPickup : MonoBehaviour
             {
                 ToggleCollider(obj, active);
             }
+        }
+    }
+
+    private void Start()
+    {
+        if (preLoadedObject != null)
+        {
+            Invoke(nameof(SetPreLoadedItem), 0.5f);
         }
     }
 
