@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -120,6 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &6901728496678087836
@@ -714,6 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -753,6 +760,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &2714988982189697249
@@ -925,6 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -964,6 +977,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &4125118573904868556
@@ -1241,6 +1259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -1280,6 +1299,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &5829440215853057603
@@ -1452,6 +1476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -1491,6 +1516,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &8569274066407817746
@@ -1873,6 +1903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -1912,6 +1943,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &4855753104108476841
@@ -2189,6 +2225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -2228,6 +2265,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &6570692777141188489
@@ -2400,6 +2442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -2439,6 +2482,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &7064072716244668149
@@ -2821,6 +2869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -2860,6 +2909,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &3102372348990586233
@@ -3137,6 +3191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -3176,6 +3231,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &7557305903556615654
@@ -3348,6 +3408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -3387,6 +3448,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &2824050881224418815
@@ -3874,6 +3940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -3913,6 +3980,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &2479757251044140892
@@ -4052,7 +4124,7 @@ Transform:
   - {fileID: 501614516072603192}
   - {fileID: 3148813698535881886}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3749030759992650115
 MonoBehaviour:
@@ -4067,6 +4139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroy: 1
+  detachDestoryDelay: 2
 --- !u!1 &7188391246319304581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4148,6 +4221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -4187,6 +4261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &1649840517244260510
@@ -4464,6 +4543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -4503,6 +4583,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &2664886391257379962
@@ -4675,6 +4760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -4714,6 +4800,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &3778637471137622863
@@ -4991,6 +5082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -5030,6 +5122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &5012320889230764811
@@ -5202,6 +5299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -5241,6 +5339,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &343741541483483756
@@ -5413,6 +5516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.3
   minThrownDamageVelocity: 10
@@ -5452,6 +5556,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &6722327623884681677

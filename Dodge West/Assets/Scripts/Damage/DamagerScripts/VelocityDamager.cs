@@ -11,11 +11,21 @@ public enum ObjectState
     Thrown
 }
 
+public enum LoadDistance
+{
+    Close,
+    Mid,
+    Far
+}
+
 [RequireComponent(typeof(Rigidbody))]
 public class VelocityDamager : Damager
 {
     public bool loadable = true; // yet to be used
     
+    // Where they will be positioned if loaded
+    public LoadDistance loadDistance = LoadDistance.Mid;
+
     private Rigidbody rb;   // Objects rigidbody
 
     // used to prevent the carrier from damaging

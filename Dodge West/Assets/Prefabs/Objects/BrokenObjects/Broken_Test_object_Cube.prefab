@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 57499086354311346}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7615428205405935593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &57499086354311346
@@ -502,6 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -541,6 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7240795355795864131}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7427477822204620422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +565,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7240795355795864131
@@ -923,6 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -962,6 +979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6714999732653768746}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8622640266740468515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,6 +994,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6714999732653768746
@@ -1238,6 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -1277,6 +1302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8872092177006833742}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6453638794538544660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,6 +1317,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8872092177006833742
@@ -1447,6 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -1486,6 +1519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2233067021160240370}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6863772209459957535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,6 +1534,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2233067021160240370
@@ -1762,6 +1802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -1801,6 +1842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 555501063342177995}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8352579167380838319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,6 +1857,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &555501063342177995
@@ -2183,6 +2231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -2222,6 +2271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1500798086830462509}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8780547674528921192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2235,6 +2286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1500798086830462509
@@ -2604,6 +2660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -2643,6 +2700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8315008390026582196}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3765497667956397054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2656,6 +2715,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8315008390026582196
@@ -2813,6 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -2852,6 +2917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 802380971701033880}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1735880312035182937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2865,6 +2932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &802380971701033880
@@ -3446,6 +3518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -3485,6 +3558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6862085258471022944}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6841388736951904681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3498,6 +3573,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6862085258471022944
@@ -3655,6 +3735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -3694,6 +3775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4410187986944422347}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2179411654312578308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,6 +3790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4410187986944422347
@@ -3864,6 +3952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -3903,6 +3992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 767501874585766497}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5654396180209295647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3916,6 +4007,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &767501874585766497
@@ -4179,6 +4275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -4218,6 +4315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4360273859507279955}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &9067488296882520273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4231,6 +4330,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4360273859507279955
@@ -4388,6 +4492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -4427,6 +4532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4947975240104686367}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &672377741220475787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4440,6 +4547,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4947975240104686367
@@ -4597,6 +4709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -4636,6 +4749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 282683104063415136}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4485819825982027939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4649,6 +4764,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &282683104063415136
@@ -5124,6 +5244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -5163,6 +5284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8076635797895076784}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &9099675452008477054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5176,6 +5299,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8076635797895076784
@@ -5757,6 +5885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -5796,6 +5925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1945914153733976937}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1257711906147032871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5809,6 +5940,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1945914153733976937
@@ -5966,6 +6102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -6005,6 +6142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6947245885516825459}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8650638475669205021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6018,6 +6157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6947245885516825459
@@ -6175,6 +6319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -6214,6 +6359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8081375440766700719}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4283442094008876807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6227,6 +6374,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8081375440766700719
@@ -6490,6 +6642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -6529,6 +6682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5422695906292314458}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &446740548387675130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6542,6 +6697,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5422695906292314458
@@ -6699,6 +6859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -6738,6 +6899,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7485382866740368934}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2431612310830790139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6751,6 +6914,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7485382866740368934
@@ -7014,6 +7182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -7053,6 +7222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5738513582209438638}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5156299612530238985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7066,6 +7237,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5738513582209438638
@@ -7223,6 +7399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -7262,6 +7439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 636639509465163824}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &751817870750048072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7275,6 +7454,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &636639509465163824
@@ -7644,6 +7828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -7683,6 +7868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2444370367905832605}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1885911989157888062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7696,6 +7883,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2444370367905832605
@@ -8171,6 +8363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -8210,6 +8403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7216391285968917556}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5131953688796278595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8223,6 +8418,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7216391285968917556
@@ -8592,6 +8792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -8631,6 +8832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 474877861571709359}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8647761848588917438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8644,6 +8847,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &474877861571709359
@@ -8801,6 +9009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -8840,6 +9049,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3757135426981146798}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2153245592566389796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8853,6 +9064,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3757135426981146798
@@ -9010,6 +9226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -9049,6 +9266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4020082412949807798}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8920732505707224332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9062,6 +9281,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4020082412949807798
@@ -9219,6 +9443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -9258,6 +9483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5569902237281471041}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4195742707903046726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9271,6 +9498,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5569902237281471041
@@ -9640,6 +9872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -9679,6 +9912,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8816549441331070726}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1749885878995379196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9692,6 +9927,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8816549441331070726
@@ -9849,6 +10089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -9888,6 +10129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8701887063395562819}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &817235512721416807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9901,6 +10144,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8701887063395562819
@@ -10058,6 +10306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -10097,6 +10346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8088745068336144451}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3321062704436524903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10110,6 +10361,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8088745068336144451
@@ -10373,6 +10629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -10412,6 +10669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3159710178511144952}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1802936224102822102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10425,6 +10684,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3159710178511144952
@@ -10688,6 +10952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -10727,6 +10992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1904269901996517105}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6536409437473109264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10740,6 +11007,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1904269901996517105
@@ -11003,6 +11275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -11042,6 +11315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2937213865722647689}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5617795844369129597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11055,6 +11330,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2937213865722647689
@@ -11424,6 +11704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -11463,6 +11744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2644920468233317418}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7625460954838948046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11476,6 +11759,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2644920468233317418
@@ -11739,6 +12027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -11778,6 +12067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4077312775415136304}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &9102557224165807783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11791,6 +12082,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4077312775415136304
@@ -11948,6 +12244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -11987,6 +12284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2327857772008964038}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2062605084510565801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12000,6 +12299,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2327857772008964038
@@ -12263,6 +12567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -12302,6 +12607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4410790901108475366}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5877865516431126644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12315,6 +12622,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4410790901108475366
@@ -12684,6 +12996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -12723,6 +13036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7161855876549627476}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3674958545622538694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12736,6 +13051,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7161855876549627476
@@ -12893,6 +13213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -12932,6 +13253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8505236815250532891}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &988585964824743144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12945,6 +13268,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8505236815250532891
@@ -13208,6 +13536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -13247,6 +13576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 398418620984176048}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7306487798832677708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13260,6 +13591,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &398418620984176048
@@ -13417,6 +13753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -13456,6 +13793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5070686290161473696}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &9183394996893666517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13469,6 +13808,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5070686290161473696
@@ -13944,6 +14288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -13983,6 +14328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6222186273132058101}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1358436387837223976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13996,6 +14343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6222186273132058101
@@ -14259,6 +14611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -14298,6 +14651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8006176817969149347}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4471736050320669815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14311,6 +14666,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8006176817969149347
@@ -14680,6 +15040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -14719,6 +15080,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7969332765562155430}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6568514747112520155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14732,6 +15095,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7969332765562155430
@@ -14889,6 +15257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -14928,6 +15297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 208514118092119430}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4779507569908864449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14941,6 +15312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &208514118092119430
@@ -15310,6 +15686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -15349,6 +15726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2998393223800774314}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1462185673889399225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15362,6 +15741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2998393223800774314
@@ -15625,6 +16009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -15664,6 +16049,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8379798803418961743}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6490730234039864135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15677,6 +16064,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8379798803418961743
@@ -16258,6 +16650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -16297,6 +16690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 997788950444622708}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2906239679225682601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16310,6 +16705,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &997788950444622708
@@ -16467,6 +16867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -16506,6 +16907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4713509859743894126}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4520978011507575204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16519,6 +16922,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4713509859743894126
@@ -16676,6 +17084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -16715,6 +17124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2140593786970321491}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4501557183147806909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16728,6 +17139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2140593786970321491
@@ -16991,6 +17407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -17030,6 +17447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1556970267445033890}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &234414911796589903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17043,6 +17462,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1556970267445033890
@@ -17306,6 +17730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -17345,6 +17770,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3915238982928461377}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5867025410727284495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17358,6 +17785,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3915238982928461377
@@ -17515,6 +17947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -17554,6 +17987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7825462721368952003}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5082729063638011753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17567,6 +18002,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7825462721368952003
@@ -17724,6 +18164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -17763,6 +18204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2525059375624643273}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6233126165723944515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17776,6 +18219,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2525059375624643273
@@ -18251,6 +18699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -18290,6 +18739,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4932107759858397903}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3213295453526452620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18303,6 +18754,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4932107759858397903
@@ -18566,6 +19022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -18605,6 +19062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6073248197497936267}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3185851633358621986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18618,6 +19077,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6073248197497936267
@@ -18775,6 +19239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -18814,6 +19279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8492373265288238408}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3244424273221967820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18827,6 +19294,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8492373265288238408
@@ -18984,6 +19456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -19023,6 +19496,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4639939045431144716}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1538679567625137499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19036,6 +19511,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4639939045431144716
@@ -19405,6 +19885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -19444,6 +19925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5824159465672627193}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2501545205663043832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19457,6 +19940,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5824159465672627193
@@ -19932,6 +20420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -19971,6 +20460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8714270309979897020}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8046171882236056944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19984,6 +20475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8714270309979897020
@@ -20247,6 +20743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -20286,6 +20783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1639574735656542010}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6805541336326321779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20299,6 +20798,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1639574735656542010
@@ -20456,6 +20960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -20495,6 +21000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7124907127065860477}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5197295722592013596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20508,6 +21015,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7124907127065860477
@@ -20665,6 +21177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -20704,6 +21217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3654670850225749382}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5937899353484233359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20717,6 +21232,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3654670850225749382
@@ -21086,6 +21606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -21125,6 +21646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8111795518129652959}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3755983530216581888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21138,6 +21661,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8111795518129652959
@@ -21613,6 +22141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -21652,6 +22181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8323946271959894383}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3750210802323230915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21665,6 +22196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8323946271959894383
@@ -21822,6 +22358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -21861,6 +22398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6145461511755328872}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2253316173589493954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21874,6 +22413,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6145461511755328872
@@ -22031,6 +22575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -22070,6 +22615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6476399961500136509}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6750745643925707328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22083,6 +22630,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6476399961500136509
@@ -22346,6 +22898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -22385,6 +22938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6249152132828174794}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8400288417991303433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22398,6 +22953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6249152132828174794
@@ -22555,6 +23115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -22594,6 +23155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2259924383727732096}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &809654086573654571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22607,6 +23170,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2259924383727732096
@@ -22764,6 +23332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -22803,6 +23372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5287121501718129983}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5564718646393930549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22816,6 +23387,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5287121501718129983
@@ -22973,6 +23549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -23012,6 +23589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8559595098160003368}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2160714631680856348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23025,6 +23604,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8559595098160003368
@@ -23394,6 +23978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -23433,6 +24018,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 9025158356452543592}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3835149556076731531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23446,6 +24033,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &9025158356452543592
@@ -23815,6 +24407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -23854,6 +24447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1775931089075143209}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &219485487302183833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23867,6 +24462,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1775931089075143209
@@ -24130,6 +24730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -24169,6 +24770,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 931634117257433539}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8071962806966623020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24182,6 +24785,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &931634117257433539
@@ -24445,6 +25053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -24484,6 +25093,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8754215186358476912}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6414423970893885888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24497,6 +25108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8754215186358476912
@@ -24866,6 +25482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -24905,6 +25522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2347026897656475194}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &6578504769211243070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24918,6 +25537,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2347026897656475194
@@ -25287,6 +25911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -25326,6 +25951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3105626610700768923}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2481685258525846546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25339,6 +25966,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3105626610700768923
@@ -25602,6 +26234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -25641,6 +26274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3301016075205586370}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8475726712500170209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25654,6 +26289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3301016075205586370
@@ -25917,6 +26557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -25956,6 +26597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4967550288579036680}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1925638817324005833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25969,6 +26612,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4967550288579036680
@@ -26126,6 +26774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -26165,6 +26814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6570155016164718314}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4626708045660539500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26178,6 +26829,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6570155016164718314
@@ -26335,6 +26991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -26374,6 +27031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6193691091141332537}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2293966346496462738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26387,6 +27046,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6193691091141332537
@@ -26544,6 +27208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -26583,6 +27248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3981618486380509382}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3947208229382616653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26596,6 +27263,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3981618486380509382
@@ -26753,6 +27425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -26792,6 +27465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5714390058534567422}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3826108243996623365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26805,6 +27480,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5714390058534567422
@@ -27369,6 +28049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroy: 1
+  detachDestoryDelay: 2
 --- !u!1 &6723365167022365207
 GameObject:
   m_ObjectHideFlags: 0
@@ -27556,6 +28237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -27595,6 +28277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3367799044718719039}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5167707474135636768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27608,6 +28292,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3367799044718719039
@@ -27871,6 +28560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -27910,6 +28600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8904441524821142295}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3686587403218039911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27923,6 +28615,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8904441524821142295
@@ -28080,6 +28777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -28119,6 +28817,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6024186683933472373}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1761752739569264610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28132,6 +28832,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6024186683933472373
@@ -28395,6 +29100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -28434,6 +29140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1666315666214148342}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3751238218152994874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28447,6 +29155,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1666315666214148342
@@ -28604,6 +29317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -28643,6 +29357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 411443498363220835}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1214630915004827180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28656,6 +29372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &411443498363220835
@@ -28813,6 +29534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -28852,6 +29574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5076598525008171506}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2520577366694500103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28865,6 +29589,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5076598525008171506
@@ -29022,6 +29751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -29061,6 +29791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2321199044289340747}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2815350579487996845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29074,6 +29806,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2321199044289340747
@@ -29231,6 +29968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -29270,6 +30008,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7578861400908124778}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4390345498149910984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29283,6 +30023,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7578861400908124778
@@ -29440,6 +30185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -29479,6 +30225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8403156506154066926}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &993075361421859408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29492,6 +30240,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8403156506154066926
@@ -29861,6 +30614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -29900,6 +30654,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6764829057313024161}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5805238276531201039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29913,6 +30669,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6764829057313024161
@@ -30282,6 +31043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -30321,6 +31083,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5310481332696904997}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8947678917512563267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30334,6 +31098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5310481332696904997
@@ -30915,6 +31684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -30954,6 +31724,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1575756569161194958}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4497322934893931994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30967,6 +31739,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1575756569161194958
@@ -31442,6 +32219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -31481,6 +32259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3891117027957450016}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5603669945613871024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31494,6 +32274,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3891117027957450016
@@ -31863,6 +32648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -31902,6 +32688,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 6725877463649916192}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4637932988942933002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31915,6 +32703,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6725877463649916192
@@ -32178,6 +32971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -32217,6 +33011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5232742713373171504}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &964405938524502197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32230,6 +33026,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5232742713373171504
@@ -32387,6 +33188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -32426,6 +33228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4929392443899054376}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4942644227119046237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32439,6 +33243,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4929392443899054376
@@ -32596,6 +33405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -32635,6 +33445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8845589288435141367}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5889540983248696207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32648,6 +33460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8845589288435141367
@@ -32805,6 +33622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -32844,6 +33662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5414830864060089786}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2593511209670605636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32857,6 +33677,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5414830864060089786
@@ -33120,6 +33945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -33159,6 +33985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4001115817780000019}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3524556588326380159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33172,6 +34000,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4001115817780000019
@@ -33541,6 +34374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -33580,6 +34414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 9186399601878954925}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7088518131341262959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33593,6 +34429,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &9186399601878954925
@@ -33962,6 +34803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -34001,6 +34843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 7964272298465013406}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7610937344570648656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34014,6 +34858,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &7964272298465013406
@@ -34171,6 +35020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -34210,6 +35060,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 3942443773631527556}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &1424845763997707155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34223,6 +35075,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &3942443773631527556
@@ -34380,6 +35237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -34419,6 +35277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 9219426779345608339}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &177773631980115954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34432,6 +35292,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &9219426779345608339
@@ -34589,6 +35454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -34628,6 +35494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1082509652281749499}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3028037975352900749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34641,6 +35509,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &1082509652281749499
@@ -34798,6 +35671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -34837,6 +35711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5535395932297612507}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5682696188891358499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34850,6 +35726,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5535395932297612507
@@ -35325,6 +36206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -35364,6 +36246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2361150388872819155}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2798650396458036171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35377,6 +36261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2361150388872819155
@@ -35534,6 +36423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -35573,6 +36463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2026979038202344512}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4169077570888995403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35586,6 +36478,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2026979038202344512
@@ -35849,6 +36746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -35888,6 +36786,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2790692590308822469}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2121905050401632077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35901,6 +36801,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2790692590308822469
@@ -36058,6 +36963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -36097,6 +37003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2987748246239783124}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3553621039679884848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36110,6 +37018,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &2987748246239783124
@@ -36267,6 +37180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -36306,6 +37220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 846467219366304628}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2203847841340618310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36319,6 +37235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &846467219366304628
@@ -36688,6 +37609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -36727,6 +37649,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5633257428138959662}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &9097582205179586011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36740,6 +37664,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5633257428138959662
@@ -36897,6 +37826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -36936,6 +37866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 9008539021700621833}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &4985600251309911011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36949,6 +37881,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &9008539021700621833
@@ -37318,6 +38255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -37357,6 +38295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8619485703140732509}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &7329649604991038403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37370,6 +38310,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8619485703140732509
@@ -37527,6 +38472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -37566,6 +38512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8020387205833346861}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5333885983118063122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37579,6 +38527,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8020387205833346861
@@ -37736,6 +38689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -37775,6 +38729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 9152059596761508471}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2346445382080987931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37788,6 +38744,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &9152059596761508471
@@ -38051,6 +39012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -38090,6 +39052,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8552563428230165709}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3692659840004814597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38103,6 +39067,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &8552563428230165709
@@ -38366,6 +39335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -38405,6 +39375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5862450508096632265}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &2773861232592751688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38418,6 +39390,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &5862450508096632265
@@ -38787,6 +39764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -38826,6 +39804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 945130426811461212}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &5418277097448765652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38839,6 +39819,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &945130426811461212
@@ -38996,6 +39981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -39035,6 +40021,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 9049330454579334643}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3889926073774661120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39048,6 +40036,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &9049330454579334643
@@ -39417,6 +40410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -39456,6 +40450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 4529865756404454590}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &3589762364564947822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39469,6 +40465,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &4529865756404454590

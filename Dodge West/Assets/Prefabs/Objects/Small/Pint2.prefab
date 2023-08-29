@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.5
   minThrownDamageVelocity: 10
@@ -160,9 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   limitLayers: 1
-  limitedLayers:
+  useDefaultLayers: 1
+  limitedLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.4
 --- !u!114 &-1741998516456825407

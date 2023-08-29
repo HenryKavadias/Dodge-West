@@ -614,6 +614,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &6704892483781080501
@@ -630,6 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.2
   minThrownDamageVelocity: 10
@@ -669,6 +675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 8388583631111265805}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &8388583631111265805
 MonoBehaviour:
   m_ObjectHideFlags: 0

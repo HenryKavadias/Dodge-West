@@ -399,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
@@ -438,6 +439,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &2322328398873584003
@@ -612,6 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
@@ -651,6 +658,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &8125929867891468691
@@ -824,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
@@ -863,6 +876,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &9111304596864307693
@@ -1590,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   loadable: 1
+  loadDistance: 0
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
@@ -1629,6 +1648,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &6926870424355450467
@@ -1769,6 +1793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroy: 1
+  detachDestoryDelay: 2
 --- !u!1 &7295154873541221229
 GameObject:
   m_ObjectHideFlags: 0

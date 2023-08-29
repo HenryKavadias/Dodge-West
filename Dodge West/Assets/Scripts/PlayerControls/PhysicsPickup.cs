@@ -61,6 +61,9 @@ public class PhysicsPickup : MonoBehaviour
     
     void Update()
     {
+        // Update load positio
+        UpdateLoadPosition();
+
         // Highlight the object that is being looked at if it's not being held
         HighlightObject();
 
@@ -411,7 +414,11 @@ public class PhysicsPickup : MonoBehaviour
         {
             GameObject thrownObj = loadInventory[0];
 
+            thrownObj.SetActive(false);
+
             SubtractMassFromLoad(thrownObj.GetComponent<Rigidbody>().mass);
+
+            thrownObj.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
             // Throw object
             thrownObj.GetComponent<VelocityDamager>().Drop(true);
@@ -422,14 +429,24 @@ public class PhysicsPickup : MonoBehaviour
             thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward *
                 DynamicForceToObject(thrownObj.GetComponent<Rigidbody>().mass), ForceMode.Impulse);
 
+            ToggleCollider(thrownObj.transform, true);
+            thrownObj.transform.parent = null;
+            //thrownObj.SetActive(true);
+
             thrownObj = null;
 
             loadInventory.RemoveAt(0);
+
+            UpdateVisualLoad(true);
 
             // Update UI 
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
         }
     }
+
+    public GameObject loadPositionSmall = null;
+    public GameObject loadPositionMid = null;
+    public GameObject loadPositionFar = null;
 
     // Load inventory check variables
     public bool massLimitEnabled = true;
@@ -439,6 +456,86 @@ public class PhysicsPickup : MonoBehaviour
     public int loadItemLimit = 50;
     public float loadMassLimit = 500;
     private float currentLoad = 0;
+
+    void ToggleCollider(Transform item, bool active = false)
+    {
+        foreach (Transform obj in item)
+        {
+            if (obj.gameObject.GetComponent<Collider>() != null)
+            {
+                obj.gameObject.GetComponent<Collider>().enabled = active;
+            }
+
+            if (obj.childCount > 0)
+            {
+                ToggleCollider(obj, active);
+            }
+        }
+    }
+
+    // Use after adding or removing an item
+    void UpdateVisualLoad(bool thrown = false)
+    {     
+        if (loadInventory.Count > 0)
+        {
+            if (loadInventory.Count == 1 || thrown)
+            {
+                ToggleCollider(loadInventory[0].transform, false);
+                loadInventory[0].SetActive(true);
+
+                if (loadInventory.Count > 1)
+                {
+                    ToggleCollider(loadInventory[1].transform, true);
+                    //loadInventory[1].transform.parent = null;
+                    loadInventory[1].SetActive(false);
+                }
+            }
+        }
+    }
+
+    void UpdateLoadPosition()
+    {
+        if (loadInventory.Count > 0)
+        {
+            SetLoadPosition(loadInventory[0].GetComponent<VelocityDamager>().loadDistance);
+            //loadInventory[0].transform.rotation = loadPosition.transform.rotation;
+        }
+    }
+
+    public Vector3 loadDistanceModifier = new Vector3 (0, 0, 0);
+    public float largeLoadModifer = 1.5f;
+    void SetLoadPosition(LoadDistance type)
+    {
+        //Vector3 ogPosition = loadPosition.transform.position;
+
+        switch (type)
+        {
+            case LoadDistance.Close:
+                loadInventory[0].transform.position =
+                    loadPositionSmall.transform.position;
+                loadInventory[0].transform.rotation = 
+                    loadPositionSmall.transform.rotation;
+                break;
+            case LoadDistance.Mid:
+                loadInventory[0].transform.position =
+                    loadPositionMid.transform.position;
+                loadInventory[0].transform.rotation =
+                    loadPositionMid.transform.rotation;
+                break;
+            case LoadDistance.Far:
+                loadInventory[0].transform.position =
+                    loadPositionFar.transform.position;
+                loadInventory[0].transform.rotation =
+                    loadPositionFar.transform.rotation;
+                break;
+            default:
+                loadInventory[0].transform.position =
+                    loadPositionSmall.transform.position;
+                loadInventory[0].transform.rotation =
+                    loadPositionSmall.transform.rotation;
+                break;
+        }
+    }
 
     void LoadItem(GameObject item, bool held = false)
     {
@@ -450,7 +547,10 @@ public class PhysicsPickup : MonoBehaviour
             item.GetComponent<VelocityDamager>().Pickup(gameObject);
             loadInventory.Add(item);
             AddMassToLoad(item.GetComponent<Rigidbody>().mass);
+
             item.SetActive(false);
+
+            UpdateVisualLoad();
 
             // Update UI
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
@@ -465,6 +565,8 @@ public class PhysicsPickup : MonoBehaviour
             item.GetComponent<Rigidbody>().useGravity = false;
             item.SetActive(false);
 
+            UpdateVisualLoad();
+
             // Update UI
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
         }
@@ -473,8 +575,20 @@ public class PhysicsPickup : MonoBehaviour
     // Empty players inventory and reset relavent variables
     void EmptyLoadInventory()
     {
+        // Undo first item carry
+        if (loadInventory.Count > 0) 
+        {
+            ToggleCollider(loadInventory[0].transform, true);
+            loadInventory[0].transform.parent = null;
+            loadInventory[0].SetActive(false);
+        }
+
         foreach (GameObject obj in loadInventory)
         {
+            ToggleCollider(obj.transform, true);
+            obj.transform.parent = null;
+            //obj.SetActive(true);
+
             // Reposition object on player hold point. This might go wrong
             obj.GetComponent<Transform>().position = pickupTarget.position;
 
@@ -716,5 +830,22 @@ public class PhysicsPickup : MonoBehaviour
 
             //Mathf.Clamp()
         }
+
+        //if (loadInventory.Count > 0)
+        //{
+        //    Rigidbody obj = loadInventory[0].GetComponent<Rigidbody>();
+            
+        //    Vector3 directionToPoint = loadPosition.transform.position - obj.position;
+        //    // Not sure how to do it with the selected objects center of mass
+        //    //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
+        //    float distanceToPoint = directionToPoint.magnitude;
+
+        //    obj.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
+
+        //    if (obj.velocity.magnitude > maxObjectSpeed)
+        //    {
+        //        obj.velocity = Vector3.ClampMagnitude(obj.velocity, maxObjectSpeed);
+        //    }
+        //}
     }
 }
