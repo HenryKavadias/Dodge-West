@@ -437,7 +437,10 @@ public class PhysicsPickup : MonoBehaviour
 
             loadInventory.RemoveAt(0);
 
-            UpdateVisualLoad(true);
+            if (visualLoad)
+            {
+                UpdateVisualLoad(true);
+            }
 
             // Update UI 
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
@@ -450,6 +453,8 @@ public class PhysicsPickup : MonoBehaviour
 
     public GameObject preLoadedObject = null;
 
+    public bool visualLoad = true;
+
     void SetPreLoadedItem()
     {
         if (preLoadedObject)
@@ -457,6 +462,8 @@ public class PhysicsPickup : MonoBehaviour
             GameObject item = Instantiate(preLoadedObject);
 
             LoadItem(item);
+
+            visualLoad = false;
         }
     }
 
@@ -570,7 +577,10 @@ public class PhysicsPickup : MonoBehaviour
 
             item.SetActive(false);
 
-            UpdateVisualLoad();
+            if (visualLoad)
+            {
+                UpdateVisualLoad();
+            }
 
             // Update UI
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
@@ -585,7 +595,10 @@ public class PhysicsPickup : MonoBehaviour
             item.GetComponent<Rigidbody>().useGravity = false;
             item.SetActive(false);
 
-            UpdateVisualLoad();
+            if (visualLoad)
+            {
+                UpdateVisualLoad();
+            }
 
             // Update UI
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
