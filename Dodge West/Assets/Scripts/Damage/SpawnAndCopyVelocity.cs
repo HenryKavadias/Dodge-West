@@ -6,6 +6,46 @@ public class SpawnAndCopyVelocity : Spawner
 {
     [SerializeField]
     private bool disableBeforeSpawn = false;
+
+    protected override void CreateObjects()
+    {
+        var rb = GetComponent<Rigidbody>();
+
+        if (disableBeforeSpawn)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        foreach (GameObject obj in prefabObjs)
+        {
+            GameObject mainObject =
+
+            Instantiate(obj, transform.position,
+                Quaternion.Euler(transform.eulerAngles.x,
+                transform.eulerAngles.y,
+                transform.eulerAngles.z));
+
+            // Copy the velocity and angular velocity on each fragment of the broken object
+            if (mainObject != null && rb != null)
+            {
+                foreach (Transform child in mainObject.transform)
+                {
+                    var objRb = child.gameObject.GetComponent<Rigidbody>();
+                    if (objRb == null)
+                    {
+                        continue;
+                    }
+
+                    objRb.velocity = rb.velocity;
+                    objRb.angularVelocity = rb.angularVelocity;
+                }
+            }
+        }
+    }
+
     protected override void CreateObject(GameObject prefab = null)
     {
         var rb = GetComponent<Rigidbody>();
