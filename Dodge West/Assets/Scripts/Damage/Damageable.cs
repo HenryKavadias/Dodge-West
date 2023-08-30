@@ -11,12 +11,45 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] protected Progressive _health;
 
+    // makes the object temporarily invincible on spawn
+    [SerializeField] protected bool invincible = true;
+    [SerializeField] protected float invincibleTime = 0.2f;
+
+    private void Start()
+    {
+        if (_health == null)
+        {
+            _health = gameObject.GetComponent<Progressive>();
+        }
+
+        Invoke(nameof(TurnOffInvincible), invincibleTime);
+    }
+
+    public void TriggerInvinvible(float time = 0f)
+    {
+        invincible = true;
+
+        if (time > 0f)
+        {
+            Invoke(nameof(TurnOffInvincible), time);
+
+            return;
+        }
+
+        Invoke(nameof(TurnOffInvincible), invincibleTime);
+    }
+
+    protected void TurnOffInvincible()
+    {
+        invincible = false;
+    }
+
     // Damage object
     public virtual void Damage(
         float damage, GameObject attacker = null)
     {
         // prevents overlapping hit ties
-        if (_health.Current <= 0)
+        if (_health.Current <= 0 || invincible)
         {
             return;
         }

@@ -61,6 +61,9 @@ public class PhysicsPickup : MonoBehaviour
     
     void Update()
     {
+        // Update load positio
+        UpdateLoadPosition();
+
         // Highlight the object that is being looked at if it's not being held
         HighlightObject();
 
@@ -74,9 +77,15 @@ public class PhysicsPickup : MonoBehaviour
     // Holds a reference for the object currently being highlighted
     private GameObject currentHighlight = null;
 
+
+    public bool enableHighlight = true;
     // Highlights pickup able objects using an outline script attached to the pickup able objects
     void HighlightObject()
     {
+        if (!enableHighlight)
+        {
+            return;
+        }
         // If not currently holding an object
         if (currentObject == null && playerCamera)
         {
@@ -85,8 +94,8 @@ public class PhysicsPickup : MonoBehaviour
             if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
             {
                 GameObject target = hitInfo.rigidbody.gameObject;
-
-                // Check if object is held by another player and has the outline script
+                //Debug.Log("Contact");
+                // Check if object isn't held by another player and has the outline script
                 if (!target.GetComponent<VelocityDamager>().IsHeld() && target.GetComponent<Outline>())
                 {
                     // Check if highlighted object has changed
@@ -100,7 +109,7 @@ public class PhysicsPickup : MonoBehaviour
                         {
                             currentHighlight.GetComponent<Outline>().enabled = false;
                         }
-
+                        
                         currentHighlight = target;
                     }
                 }
@@ -201,18 +210,8 @@ public class PhysicsPickup : MonoBehaviour
         {
             if (currentObject)
             {
-                // Throw object
-                currentObject.GetComponent<VelocityDamager>().Drop(true);
-                currentObject.useGravity = true;
-                currentObject.AddForce(
-                    pickupTarget.forward * 
-                    DynamicForceToObject(currentObject.mass), 
-                    ForceMode.Impulse);
-
-                // Restore to original material state
-                RestoreToOriginalMaterials();
-
-                currentObject = null;
+                ThrowObject(true);
+                
 
                 // Avoids multiple actions from one input
                 pickedup = false;
@@ -222,25 +221,7 @@ public class PhysicsPickup : MonoBehaviour
             }
             else if (loadInventory.Count > 0)
             {
-                GameObject thrownObj = loadInventory[0];
-
-                SubtractMassFromLoad(thrownObj.GetComponent<Rigidbody>().mass);
-
-                // Throw object
-                thrownObj.GetComponent<VelocityDamager>().Drop(true);
-                thrownObj.GetComponent<Rigidbody>().useGravity = true;
-                thrownObj.GetComponent<Transform>().position = pickupTarget.position;
-
-                thrownObj.SetActive(true);
-                thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward * 
-                    DynamicForceToObject(thrownObj.GetComponent<Rigidbody>().mass), ForceMode.Impulse);
-
-                thrownObj = null;
-
-                loadInventory.RemoveAt(0);
-
-                // Update UI 
-                gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
+                ThrowObject();
 
                 // Avoids multiple actions from one input
                 pickedup = false;
@@ -267,9 +248,10 @@ public class PhysicsPickup : MonoBehaviour
             {
                 // Pickup object
                 Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
+                if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask) )
                 {
-                    if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld())
+                    if (!hitInfo.rigidbody.GetComponent<VelocityDamager>().IsHeld() 
+                        && hitInfo.rigidbody.gameObject.tag != "Player")
                     {
                         currentObject = hitInfo.rigidbody;
                         currentObject.GetComponent<VelocityDamager>().Pickup(gameObject);
@@ -308,18 +290,7 @@ public class PhysicsPickup : MonoBehaviour
                         {
                             if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
                             {
-                                // Restore to original material state
-                                RestoreToOriginalMaterials();
-
-                                loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                                loadInventory.Add(loadedObject);
-                                AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                                loadedObject.SetActive(false);
-
-                                // Update UI
-                                gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
-
-                                currentObject = null;
+                                LoadItem(loadedObject, true);
                             }
                             else
                             {
@@ -328,19 +299,7 @@ public class PhysicsPickup : MonoBehaviour
                         }
                         else
                         {
-                            // Restore to original material state
-                            RestoreToOriginalMaterials();
-
-                            // No limitations
-                            loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                            loadInventory.Add(loadedObject);
-                            AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                            loadedObject.SetActive(false);
-
-                            // Update UI
-                            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
-
-                            currentObject = null;
+                            LoadItem(loadedObject, true);
                         }
                     }
                     else
@@ -354,18 +313,7 @@ public class PhysicsPickup : MonoBehaviour
                     {
                         if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
                         {
-                            // Restore to original material state
-                            RestoreToOriginalMaterials();
-
-                            loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                            loadInventory.Add(loadedObject);
-                            AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                            loadedObject.SetActive(false);
-
-                            // Update UI
-                            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
-
-                            currentObject = null;
+                            LoadItem(loadedObject, true);
                         }
                         else
                         {
@@ -374,19 +322,7 @@ public class PhysicsPickup : MonoBehaviour
                     }
                     else
                     {
-                        // Restore to original material state
-                        RestoreToOriginalMaterials();
-
-                        // No limitations
-                        loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                        loadInventory.Add(loadedObject);
-                        AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                        loadedObject.SetActive(false);
-
-                        // Update UI
-                        gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
-
-                        currentObject = null;
+                        LoadItem(loadedObject, true);
                     }
                 }
             }
@@ -409,14 +345,7 @@ public class PhysicsPickup : MonoBehaviour
                                 {
                                     if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
                                     {
-                                        loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                                        loadInventory.Add(loadedObject);
-                                        AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                                        loadedObject.GetComponent<Rigidbody>().useGravity = false;
-                                        loadedObject.SetActive(false);
-
-                                        // Update UI
-                                        gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+                                        LoadItem(loadedObject);
                                     }
                                     else
                                     {
@@ -426,14 +355,7 @@ public class PhysicsPickup : MonoBehaviour
                                 else
                                 {
                                     // No limitations
-                                    loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                                    loadInventory.Add(loadedObject);
-                                    AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                                    loadedObject.GetComponent<Rigidbody>().useGravity = false;
-                                    loadedObject.SetActive(false);
-
-                                    // Update UI
-                                    gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+                                    LoadItem(loadedObject);
                                 }
                             }
                             else
@@ -447,14 +369,7 @@ public class PhysicsPickup : MonoBehaviour
                             {
                                 if (LoadLimitCheck(loadedObject.GetComponent<Rigidbody>().mass))
                                 {
-                                    loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                                    loadInventory.Add(loadedObject);
-                                    AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                                    loadedObject.GetComponent<Rigidbody>().useGravity = false;
-                                    loadedObject.SetActive(false);
-
-                                    // Update UI
-                                    gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+                                    LoadItem(loadedObject);
                                 }
                                 else
                                 {
@@ -464,14 +379,7 @@ public class PhysicsPickup : MonoBehaviour
                             else
                             {
                                 // No limitations
-                                loadedObject.GetComponent<VelocityDamager>().Pickup(gameObject);
-                                loadInventory.Add(loadedObject);
-                                AddMassToLoad(loadedObject.GetComponent<Rigidbody>().mass);
-                                loadedObject.GetComponent<Rigidbody>().useGravity = false;
-                                loadedObject.SetActive(false);
-
-                                // Update UI
-                                gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+                                LoadItem(loadedObject);
                             }
                         }
                     }
@@ -485,6 +393,80 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    void ThrowObject(bool current = false)
+    {
+        if (current)
+        {
+            // Throw object
+            currentObject.GetComponent<VelocityDamager>().Drop(true);
+            currentObject.useGravity = true;
+            currentObject.AddForce(
+                pickupTarget.forward *
+                DynamicForceToObject(currentObject.mass),
+                ForceMode.Impulse);
+
+            // Restore to original material state
+            RestoreToOriginalMaterials();
+
+            currentObject = null;
+        }
+        else
+        {
+            GameObject thrownObj = loadInventory[0];
+
+            thrownObj.SetActive(false);
+
+            SubtractMassFromLoad(thrownObj.GetComponent<Rigidbody>().mass);
+
+            thrownObj.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+            // Throw object
+            thrownObj.GetComponent<VelocityDamager>().Drop(true);
+            thrownObj.GetComponent<Rigidbody>().useGravity = true;
+            thrownObj.GetComponent<Transform>().position = pickupTarget.position;
+
+            thrownObj.SetActive(true);
+            thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward *
+                DynamicForceToObject(thrownObj.GetComponent<Rigidbody>().mass), ForceMode.Impulse);
+
+            ToggleCollider(thrownObj.transform, true);
+            thrownObj.transform.parent = null;
+            //thrownObj.SetActive(true);
+
+            thrownObj = null;
+
+            loadInventory.RemoveAt(0);
+
+            if (visualLoad)
+            {
+                UpdateVisualLoad(true);
+            }
+
+            // Update UI 
+            gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
+        }
+    }
+
+    public GameObject loadPositionSmall = null;
+    public GameObject loadPositionMid = null;
+    public GameObject loadPositionFar = null;
+
+    public GameObject preLoadedObject = null;
+
+    public bool visualLoad = true;
+
+    void SetPreLoadedItem()
+    {
+        if (preLoadedObject)
+        {
+            GameObject item = Instantiate(preLoadedObject);
+
+            LoadItem(item);
+
+            visualLoad = false;
+        }
+    }
+
     // Load inventory check variables
     public bool massLimitEnabled = true;
     public bool itemLimitEnabled = true;
@@ -493,6 +475,163 @@ public class PhysicsPickup : MonoBehaviour
     public int loadItemLimit = 50;
     public float loadMassLimit = 500;
     private float currentLoad = 0;
+
+    void ToggleCollider(Transform item, bool active = false)
+    {
+        foreach (Transform obj in item)
+        {
+            if (obj.gameObject.GetComponent<Collider>() != null)
+            {
+                obj.gameObject.GetComponent<Collider>().enabled = active;
+            }
+
+            if (obj.childCount > 0)
+            {
+                ToggleCollider(obj, active);
+            }
+        }
+    }
+
+    private void Start()
+    {
+        if (preLoadedObject != null)
+        {
+            Invoke(nameof(SetPreLoadedItem), 0.5f);
+        }
+    }
+
+    // Use after adding or removing an item
+    void UpdateVisualLoad(bool thrown = false)
+    {     
+        if (loadInventory.Count > 0)
+        {
+            if (loadInventory.Count == 1 || thrown)
+            {
+                ToggleCollider(loadInventory[0].transform, false);
+                loadInventory[0].SetActive(true);
+
+                if (loadInventory.Count > 1)
+                {
+                    ToggleCollider(loadInventory[1].transform, true);
+                    //loadInventory[1].transform.parent = null;
+                    loadInventory[1].SetActive(false);
+                }
+            }
+        }
+    }
+
+    void UpdateLoadPosition()
+    {
+        if (loadInventory.Count > 0)
+        {
+            SetLoadPosition(loadInventory[0].GetComponent<VelocityDamager>().loadDistance);
+            //loadInventory[0].transform.rotation = loadPosition.transform.rotation;
+        }
+    }
+
+    public Vector3 loadDistanceModifier = new Vector3 (0, 0, 0);
+    public float largeLoadModifer = 1.5f;
+    void SetLoadPosition(LoadDistance type)
+    {
+        //Vector3 ogPosition = loadPosition.transform.position;
+
+        switch (type)
+        {
+            case LoadDistance.Close:
+                loadInventory[0].transform.position =
+                    loadPositionSmall.transform.position;
+                loadInventory[0].transform.rotation = 
+                    loadPositionSmall.transform.rotation;
+                break;
+            case LoadDistance.Mid:
+                loadInventory[0].transform.position =
+                    loadPositionMid.transform.position;
+                loadInventory[0].transform.rotation =
+                    loadPositionMid.transform.rotation;
+                break;
+            case LoadDistance.Far:
+                loadInventory[0].transform.position =
+                    loadPositionFar.transform.position;
+                loadInventory[0].transform.rotation =
+                    loadPositionFar.transform.rotation;
+                break;
+            default:
+                loadInventory[0].transform.position =
+                    loadPositionSmall.transform.position;
+                loadInventory[0].transform.rotation =
+                    loadPositionSmall.transform.rotation;
+                break;
+        }
+    }
+
+    void LoadItem(GameObject item, bool held = false)
+    {
+        if (held)
+        {
+            // Restore to original material state
+            RestoreToOriginalMaterials();
+
+            item.GetComponent<VelocityDamager>().Pickup(gameObject);
+            loadInventory.Add(item);
+            AddMassToLoad(item.GetComponent<Rigidbody>().mass);
+
+            item.SetActive(false);
+
+            if (visualLoad)
+            {
+                UpdateVisualLoad();
+            }
+
+            // Update UI
+            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+
+            currentObject = null;
+        }
+        else
+        {
+            item.GetComponent<VelocityDamager>().Pickup(gameObject);
+            loadInventory.Add(item);
+            AddMassToLoad(item.GetComponent<Rigidbody>().mass);
+            item.GetComponent<Rigidbody>().useGravity = false;
+            item.SetActive(false);
+
+            if (visualLoad)
+            {
+                UpdateVisualLoad();
+            }
+
+            // Update UI
+            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+        }
+    }
+
+    // Empty players inventory and reset relavent variables
+    void EmptyLoadInventory()
+    {
+        // Undo first item carry
+        if (loadInventory.Count > 0) 
+        {
+            ToggleCollider(loadInventory[0].transform, true);
+            loadInventory[0].transform.parent = null;
+            loadInventory[0].SetActive(false);
+        }
+
+        foreach (GameObject obj in loadInventory)
+        {
+            ToggleCollider(obj.transform, true);
+            obj.transform.parent = null;
+            //obj.SetActive(true);
+
+            // Reposition object on player hold point. This might go wrong
+            obj.GetComponent<Transform>().position = pickupTarget.position;
+
+            obj.SetActive(true);
+            obj.GetComponent<VelocityDamager>().Drop();
+            obj.GetComponent<Rigidbody>().useGravity = true;
+        }
+        loadInventory.Clear();
+        currentLoad = 0;
+    }
 
     // Checks if player can load an object into their inventory
     bool LoadLimitCheck(float objMass = 0)
@@ -549,22 +688,6 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    // Empty players inventory and reset relavent variables
-    void EmptyLoadInventory()
-    {
-        foreach (GameObject obj in loadInventory)
-        {
-            // Reposition object on player hold point. This might go wrong
-            obj.GetComponent<Transform>().position = pickupTarget.position;
-
-            obj.SetActive(true);
-            obj.GetComponent<VelocityDamager>().Drop();
-            obj.GetComponent<Rigidbody>().useGravity = true;
-        }
-        loadInventory.Clear();
-        currentLoad = 0;
-    }
-
     // System for pickupable objects with multiple models
     // NOTE: all materials must be added to the Resources/Materials file location
 
@@ -603,6 +726,9 @@ public class PhysicsPickup : MonoBehaviour
             }
         }
     }
+
+    // Note: doesn't work for objects with multiple materials on it
+    // (see AltPickup script, doesn't yet work)
 
     // Uses a recursion function to dynamically apply the material change to a
     // pickupable object no matter what object structure it has
@@ -737,5 +863,22 @@ public class PhysicsPickup : MonoBehaviour
 
             //Mathf.Clamp()
         }
+
+        //if (loadInventory.Count > 0)
+        //{
+        //    Rigidbody obj = loadInventory[0].GetComponent<Rigidbody>();
+            
+        //    Vector3 directionToPoint = loadPosition.transform.position - obj.position;
+        //    // Not sure how to do it with the selected objects center of mass
+        //    //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
+        //    float distanceToPoint = directionToPoint.magnitude;
+
+        //    obj.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
+
+        //    if (obj.velocity.magnitude > maxObjectSpeed)
+        //    {
+        //        obj.velocity = Vector3.ClampMagnitude(obj.velocity, maxObjectSpeed);
+        //    }
+        //}
     }
 }

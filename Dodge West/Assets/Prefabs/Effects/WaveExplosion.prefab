@@ -56,7 +56,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f075cad8adae6346b339a67038e20f7, type: 2}
+  - {fileID: 2100000, guid: bca56ebcfd530e34e9e6000d0f03ffc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -151,13 +151,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b435c73f760627246a5c6decacb880a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsCount: 100
-  maxRadius: 10
-  speed: 150
+  pointsCount: 50
+  maxRadius: 15
+  speed: 120
   startWidth: 5
-  forceModifier: 1000
-  damage: 100
+  forceModifier: 20
+  damage: 10
   waveActive: 1
+  disableOverlapForce: 0
   minForce: 40
 --- !u!114 &598335424433240449
 MonoBehaviour:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5405b15e2662aba4e98c53f8d8472298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destoryOnStart: 1
   destroyNow: 0
   destroyDelay: 3
 --- !u!1001 &7029423914851761278

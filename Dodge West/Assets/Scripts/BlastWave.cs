@@ -14,10 +14,14 @@ public class BlastWave : MonoBehaviour
 
     public bool waveActive = true;
 
+    public bool disableOverlapForce = false;
+
     [SerializeField] private float minForce = 40f;
 
     // Renderer for blast wave
     private LineRenderer lineRenderer;
+
+    private List<Collider> previousCollisions = new List<Collider>();
 
     // Get the renderer and set the total number of draw points for it (needs one more than point count)
     private void Awake()
@@ -38,40 +42,95 @@ public class BlastWave : MonoBehaviour
     {
         Collider[] hittingObjects = Physics.OverlapSphere(transform.position, currentRadius);
 
-        if (hittingObjects.Length > 0)
-        {
-            Debug.Log("Hit Stuff");
-        }
+        //if (hittingObjects.Length > 0)
+        //{
+        //    Debug.Log("Hit Stuff");
+        //}
 
         for (int i = 0; i < hittingObjects.Length; i++)
         {
-            // Can't find the Rigidbody ???
-            Rigidbody rb = hittingObjects[i].transform.gameObject.GetComponent<Rigidbody>();
+            if (disableOverlapForce)
+            {
+                bool cancel = false;
+                foreach (Collider col in previousCollisions)
+                {
+                    if (col == hittingObjects[i])
+                    {
+                        cancel = true;
+                        break;
+                    }
+                }
+
+                if (cancel)
+                {
+                    continue;
+                }
+                else
+                {
+                    previousCollisions.Add(hittingObjects[i]);
+                }
+            }
+
+            if (hittingObjects[i].isTrigger)
+            {
+                //Debug.Log("Trigger Collider");
+                continue;
+            }
+            
+            // Need to get the parent object with the rigid body.
+            // (may need to rework some pickup able objects to only have one physics collider)
+            //GameObject cObject = hittingObjects[i].transform.parent.gameObject;
+
+            Transform objTransform = FindRidgidBody(hittingObjects[i].transform);
+
+            if (objTransform == null)
+            {
+                continue;
+            }
+
+            Rigidbody rb = objTransform.gameObject.GetComponent<Rigidbody>();
 
             if (!rb)
             {
-                Debug.Log("No Force");
+                //Debug.Log("No Force");
                 continue;
             }
 
             // Adds force to the objects the blast hits (put the power function here)
             Vector3 direction = (hittingObjects[i].transform.position - transform.position).normalized;
             rb.AddForce(direction * DynamicForce(rb.mass), ForceMode.Impulse);
-            Debug.Log("Force applied");
+            //Debug.Log("Force applied");
 
             // Check if damageable then apply (fix this)
-            Damageable damaged = hittingObjects[i].gameObject.GetComponent<Damageable>();
+            Damageable damaged = objTransform.gameObject.GetComponent<Damageable>();
+
             if (!damaged)
             {
-                Debug.Log("No damage");
+                //Debug.Log("No damage");
                 continue;
             }
-            Debug.Log("Explosion damage");
+            //Debug.Log("Explosion damage");
             float modDamage = damage / currentRadius;
             damaged.Damage(modDamage);
         }
     }
 
+    private Transform FindRidgidBody(Transform transform)
+    {
+        Rigidbody currentObject = transform.gameObject.GetComponent<Rigidbody>();
+        
+        if (currentObject)
+        {
+            return currentObject.transform;
+        }
+
+        if (transform.parent != null)
+        {
+            return FindRidgidBody(transform.parent);
+        }
+
+        return null;
+    }
     private float DynamicForce(float objectMass)
     {
         // Throw power ideal guide:
@@ -144,12 +203,12 @@ public class BlastWave : MonoBehaviour
         lineRenderer.widthMultiplier = Mathf.Lerp(0f, startWidth, 1f - currentRadius / maxRadius);
     }
 
-    // test controls
+    //// test controls
     //private void Update()
     //{
-    //    if (Input.GetKeyDown(KeyCode.A)) 
+    //    if (Input.GetKeyDown(KeyCode.A))
     //    {
-    //        StartCoroutine(Blast());
+    //        StartCoroutine(TriggerBlast());
     //    }
     //}
 }

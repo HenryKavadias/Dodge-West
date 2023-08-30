@@ -45,7 +45,7 @@ public class FirstPersonMovement : MonoBehaviour
     public LayerMask groundMask;
     public Collider playerCollider;
     public float distanceOfCheck = 0.2f;
-    [Range(0.001f, 1f)]
+    [Range(0.001f, 3f)]
     public float groundCheckBoxSizeMultiplier = 0.8f;
     private float currentHeight;
     private Vector3 groundCheckBoxSize;
@@ -104,7 +104,8 @@ public class FirstPersonMovement : MonoBehaviour
         // Get player character height and set the ground check size
         if (playerModel)
         {
-            currentHeight = playerModel.transform.localScale.y * 2;
+            //currentHeight = playerModel.transform.localScale.y * 2;
+            currentHeight = 1.8f * 2f;
             // Note: also used for Sphere Cast
             groundCheckBoxSize = new Vector3(
                 playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
@@ -238,8 +239,9 @@ public class FirstPersonMovement : MonoBehaviour
         }
 
         // If player is grounded, reset their jump limit
-        if (isGrounded)
+        if (isGrounded && readyToJump)
         {
+            //Debug.Log("Grounded");
             ResetJumpLimit();
         }
     }
@@ -273,10 +275,10 @@ public class FirstPersonMovement : MonoBehaviour
             }
             else if (!isGrounded && readyToJump && (jumpCount < jumpLimit))
             {
-                if (jumpCount <= 0)
-                {
-                    jumpCount = 1;
-                }
+                //if (jumpCount <= 0)
+                //{
+                //    jumpCount = 1;
+                //}
 
                 readyToJump = false;
 

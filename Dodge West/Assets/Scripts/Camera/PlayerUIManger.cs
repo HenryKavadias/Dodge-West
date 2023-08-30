@@ -35,6 +35,8 @@ public class PlayerUIManager : MonoBehaviour
     public int inventoryDisplayLimit = 7;
     private List<GameObject> inventoryList = new List<GameObject>();
 
+    private bool playerNumberActive;
+
     // Refreshes the UI list of lives
     public void RefreshLifeList(int lifeCount)
     {
@@ -130,12 +132,22 @@ public class PlayerUIManager : MonoBehaviour
 
     public void SetPlayerColour(Color color)
     {
+        Color ogColor = playerColourBanner.GetComponent<Image>().color;
+        float alpha = ogColor.a;
+
         playerColourBanner.GetComponent<Image>().color = color;
+
+        // Keep the Alpha level the same
+        Color colorChange = playerColourBanner.GetComponent<Image>().color;
+        colorChange.a = alpha;
+        playerColourBanner.GetComponent<Image>().color = colorChange;
     }
 
     // Starts the animation for the damage indicator
     public void StartDamageIndication()
     {
+        Debug.Log("Oof");
+        
         if (damageIndicatorAnimator && !CheckIfInAnimation())
         {
             damageIndicatorUI.SetActive(true);
@@ -154,17 +166,32 @@ public class PlayerUIManager : MonoBehaviour
     {
         if (disableRawNumbers)
         {
-            playerNumberText.enabled = false;
+            if (playerNumberActive)
+            {
+                playerNumberText.enabled = true;
+            }
+            else
+            {
+                playerNumberText.enabled = false;
+            }
             playerHealthText.enabled = false;
             playerLivesText.enabled = false;
         }
     }
 
-    public void DisableRawNumbersForPlayer()
+    public void DisableRawNumbersForPlayer(bool playerNumber = false)
     {
         disableRawNumbers = true;
+        playerNumberActive = playerNumber;
 
-        playerNumberText.enabled = false;
+        if (playerNumberActive)
+        {
+            playerNumberText.enabled = true;
+        }
+        else
+        {
+            playerNumberText.enabled = false;
+        }
         playerHealthText.enabled = false;
         playerLivesText.enabled = false;
     }
@@ -197,6 +224,14 @@ public class PlayerUIManager : MonoBehaviour
             playerNumberText.enabled = true;
             playerHealthText.enabled = true;
             playerLivesText.enabled = true;
+        }
+        else if (playerNumberActive)
+        {
+            playerNumberText.enabled = true;
+        }
+        else
+        {
+            playerNumberText.enabled = false;
         }
 
         crosshair.SetActive(true);
