@@ -92,6 +92,16 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void ToggleControls(bool toggle)
+    {
+        playerInputComponent.enabled = toggle;
+
+        movement.enabled = toggle;
+        look.enabled = toggle;
+        dash.enabled = toggle;
+        pickup.enabled = toggle;
+    }
+
     public void DisableControls()
     {
         playerInputComponent.enabled = false;

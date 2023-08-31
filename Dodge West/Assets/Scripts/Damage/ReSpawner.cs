@@ -41,7 +41,8 @@ public class ReSpawner : MonoBehaviour
         // script because features in it frequently turn on and off the UseGravity variable
         // attached to the Rigidbody. Gravity for this object needs to remain off while the
         // respawn is in progress.
-        gameObject.GetComponent<PlayerInputHandler>().DisableControls();
+        //gameObject.GetComponent<PlayerInputHandler>().DisableControls();
+        gameObject.GetComponent<PlayerInputHandler>().ToggleControls(false);
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
 
@@ -68,7 +69,8 @@ public class ReSpawner : MonoBehaviour
 
         // Re-enable player UI and controls
         gameObject.GetComponent<CameraManager>().EnableUI();
-        gameObject.GetComponent<PlayerInputHandler>().EnableControls();
+        //gameObject.GetComponent<PlayerInputHandler>().EnableControls();
+        gameObject.GetComponent<PlayerInputHandler>().ToggleControls(true);
 
         yield return null;
     }

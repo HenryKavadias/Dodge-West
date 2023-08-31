@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061a45206385934ca1c3d59b2260268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startUpDelay: 1
   playerObject: {fileID: 4937961074316158867, guid: 7979dc986514631408387da101ce8ec1, type: 3}
   defaultLifes: 2
   spawnPosition:
@@ -601,8 +602,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ce1c3161f608b4e8625263ce06a6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startGameTime: 3
+  startMessage: GO!
   timeLeft: 60
   timerOn: 0
+  onlySeconds: 1
   endMessage: Let it rain!
   timerText: {fileID: 8323334476200365229}
   timerBase: {fileID: 8581578770421423830}

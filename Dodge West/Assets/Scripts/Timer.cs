@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    public float startGameTime = 3f;
+    public string startMessage = "GO!";
+    private bool beginGameDelay = true;
+
     public float timeLeft;
     public bool timerOn = false;
     public bool onlySeconds = true;
@@ -14,6 +19,34 @@ public class Timer : MonoBehaviour
     public RectTransform timerBase;
     public float timerWidth = 200f;
     public float messageWidth = 600f;
+
+    private RainingObjects rainingObjects = null;
+
+    private void Awake()
+    {
+        rainingObjects = GetComponent<RainingObjects>();
+    }
+
+    public void TriggerStartDelay()
+    {
+        
+        if (beginGameDelay)
+        {
+            SetAndStart(startGameTime, true);
+        }
+        else
+        {
+            BeginRainCountDown();
+        }
+    }
+
+    public void BeginRainCountDown()
+    {
+        if (rainingObjects)
+        {
+            rainingObjects.BeginCountDown();
+        }
+    }
 
     public void SetAndStart(float time = 60f, bool start = false)
     {
@@ -32,6 +65,18 @@ public class Timer : MonoBehaviour
             {
                 timeLeft -= Time.deltaTime;
                 UpdateTimer(timeLeft);
+            }
+            else if (beginGameDelay)
+            {
+                beginGameDelay = false;
+
+                timerText.text = startMessage;
+                timerOn = false;
+
+                // Ensure player controls are re-enabled
+                gameObject.GetComponent<GameController>().TogglePlayerControls(true);
+
+                Invoke(nameof(BeginRainCountDown), 1.5f);
             }
             else
             {

@@ -18,6 +18,7 @@ public enum GameMode
 public class GameController : MonoBehaviour
 {
     // Variables for the game controller
+    public bool startUpDelay = true;
 
     // Tracks the current game mode
     public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
@@ -70,10 +71,17 @@ public class GameController : MonoBehaviour
             {
                 // Disables the players input system, WARNING: might not work for
                 // local multiplayer (although it is currently switched off for it)
-                player.GetComponent<PlayerInput>().enabled = toggle;
+                if (gameMode == GameMode.SinglePlayer)
+                {
+                    player.GetComponent<PlayerInput>().enabled = toggle;
+                }
+                
+                player.GetComponent<PlayerInputHandler>().ToggleControls(toggle);
+
+                //player.GetComponent<PlayerInput>().enabled = toggle;
 
                 //player.GetComponent<FirstPersonMovement>().enabled = toggle;
-                //player.GetComponent<MouseLook>().enabled = toggle;
+                //player.GetComponent<CameraControl>().enabled = toggle;
                 //player.GetComponent<Dash>().enabled = toggle;
                 //player.GetComponent<PhysicsPickup>().enabled = toggle;
                 //player.GetComponent<PlayerInputHandler>().enabled = toggle;
@@ -209,13 +217,17 @@ public class GameController : MonoBehaviour
 
     private void SetPlayerRotationToSpawn(GameObject player, GameObject spawn)
     {
-        player.GetComponent<PlayerInputHandler>().DisableControls();
+        //player.GetComponent<PlayerInputHandler>().DisableControls();
+
+        player.GetComponent<PlayerInputHandler>().ToggleControls(false);
 
         // Must use euler angles, not rotation.y as that won't give the angle of rotation
         player.GetComponent<CameraControl>().SetOrientationYRotation(
                 spawn.transform.eulerAngles.y);
 
-        player.GetComponent<PlayerInputHandler>().EnableControls();
+        //player.GetComponent<PlayerInputHandler>().EnableControls();
+
+        player.GetComponent<PlayerInputHandler>().ToggleControls(true);
     }
 
     void NewSystem()
@@ -268,6 +280,19 @@ public class GameController : MonoBehaviour
 
                 AddPlayer(player);
             }
+
+            //TogglePlayerControls(false);
+        }
+
+        if (startUpDelay)
+        {
+            TogglePlayerControls(false);
+
+            gameObject.GetComponent<Timer>().TriggerStartDelay();
+        }
+        else
+        {
+            gameObject.GetComponent<Timer>().BeginRainCountDown();
         }
     }
 }

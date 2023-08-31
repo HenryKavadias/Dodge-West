@@ -49,9 +49,18 @@ public class RainingObjects : MonoBehaviour
 
     private System.Random random = new System.Random();
 
-    private void Start()
+    //private void Start()
+    //{
+    //    if (timer != null)
+    //    {
+    //        timer.SetAndStart(startTimer, true);
+    //    }
+    //    Invoke(nameof(ResetSpawnerAllowance), startTimer);
+    //}
+
+    public void BeginCountDown()
     {
-        if (timer != null)
+        if(timer != null)
         {
             timer.SetAndStart(startTimer, true);
         }

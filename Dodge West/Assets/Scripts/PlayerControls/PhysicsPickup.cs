@@ -492,7 +492,7 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         if (preLoadedObject != null)
         {
