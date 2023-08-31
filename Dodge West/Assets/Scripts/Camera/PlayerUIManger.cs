@@ -45,17 +45,24 @@ public class PlayerUIManager : MonoBehaviour
 
     public void ToggleMirrorUI(bool mirror = false)
     {
+        // Inverses player UI elements
         if (elementHolder)
         {
             if (mirror)
             {
                 elementHolder.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
                 playerNumberText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+                deathMessage.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+                playerHealthText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+                playerLivesText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
             }
             else
             {
                 elementHolder.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
                 playerNumberText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                deathMessage.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                playerHealthText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                playerLivesText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
             }
         }
     }
