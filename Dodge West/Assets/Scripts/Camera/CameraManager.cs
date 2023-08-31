@@ -95,6 +95,13 @@ public class CameraManager : MonoBehaviour
 
             UpdatePlayerColour(gameObject.GetComponent<PlayerID>().GetPlayerColor());
 
+            float playerID = gameObject.GetComponent<PlayerID>().GetID();
+
+            if (playerID == 2 || playerID == 4)
+            {
+                puim.ToggleMirrorUI(true);
+            }
+
             // Set lives here
             LifeDisplay lD = gameObject.GetComponent<LifeDisplay>();
             if (lD)

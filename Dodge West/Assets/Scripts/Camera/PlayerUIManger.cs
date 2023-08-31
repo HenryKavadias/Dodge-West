@@ -11,6 +11,8 @@ public class PlayerUIManager : MonoBehaviour
     // Can be overrided buy the CameraManager
     public bool disableRawNumbers = true;
     
+    public GameObject elementHolder = null;
+
     // Player UI element references
     public Image healthImage;
     public TextMeshProUGUI playerNumberText;
@@ -36,6 +38,27 @@ public class PlayerUIManager : MonoBehaviour
     private List<GameObject> inventoryList = new List<GameObject>();
 
     private bool playerNumberActive;
+
+    //private bool altActive = false;
+    //public GameObject altPlayerColourBanner;
+    //public Transform altLifeListHolder;
+
+    public void ToggleMirrorUI(bool mirror = false)
+    {
+        if (elementHolder)
+        {
+            if (mirror)
+            {
+                elementHolder.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+                playerNumberText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else
+            {
+                elementHolder.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                playerNumberText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+            }
+        }
+    }
 
     // Refreshes the UI list of lives
     public void RefreshLifeList(int lifeCount)

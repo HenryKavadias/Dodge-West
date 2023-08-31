@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public GameObject endGamePanel;
     public TextMeshProUGUI winningPlayerText;
     public GameObject timerDisplay;
+    public List<GameObject> timerPositions = new List<GameObject>();
 
     // Transition handler reference variable
     public GameObject transitionHandler;
@@ -280,6 +281,8 @@ public class GameController : MonoBehaviour
 
                 AddPlayer(player);
             }
+            
+
 
             //TogglePlayerControls(false);
         }
@@ -290,9 +293,54 @@ public class GameController : MonoBehaviour
 
             gameObject.GetComponent<Timer>().TriggerStartDelay();
         }
-        else
+        else if (gameMode != GameMode.SinglePlayer)
         {
             gameObject.GetComponent<Timer>().BeginRainCountDown();
+        }
+        else
+        {
+            timerDisplay.SetActive(false);
+        }
+    }
+
+    void AlterTimerPosition()
+    {
+        Debug.Log(livePlayers.Count);
+        switch (livePlayers.Count)
+        {
+            case 2:
+                if (timerPositions.Count > 0)
+                {
+                    timerDisplay.GetComponent<RectTransform>().anchoredPosition =
+                        timerPositions[0].GetComponent<RectTransform>().anchoredPosition;
+                    timerDisplay.GetComponent<RectTransform>().position =
+                        timerPositions[0].GetComponent<RectTransform>().position;
+                }
+                break;
+
+            case 3:
+                if (timerPositions.Count > 1)
+                {
+                    timerDisplay.GetComponent<RectTransform>().anchoredPosition =
+                        timerPositions[1].GetComponent<RectTransform>().anchoredPosition;
+                    timerDisplay.GetComponent<RectTransform>().position =
+                        timerPositions[1].GetComponent<RectTransform>().position;
+                }
+                break;
+
+            case 4:
+                if (timerPositions.Count > 2)
+                {
+                    timerDisplay.GetComponent<RectTransform>().anchoredPosition =
+                        timerPositions[2].GetComponent<RectTransform>().anchoredPosition;
+                    timerDisplay.GetComponent<RectTransform>().position =
+                        timerPositions[2].GetComponent<RectTransform>().position;
+                }
+                break;
+
+            default:
+                timerDisplay.GetComponent<RectTransform>().position = new Vector3(0, -100, 0);
+                break;
         }
     }
 }

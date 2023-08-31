@@ -142,6 +142,9 @@ public class SceneTransition : MonoBehaviour
 
             yield return null;
         }
+
+        loadingScreen.SetActive(false);
+        yield return null;
     }
 
     void UpdateTimer(float currentTime)
