@@ -90,11 +90,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private GameObject remainingPlayer = null;
+
     // player might not be useful
     public void PlayerDies(GameObject player)
     {
         if (gameMode != GameMode.SinglePlayer)
         {
+            // Multiplayer condition
             int activePlayers = 0;
 
             GameObject livingPlayer = null;
@@ -111,6 +114,8 @@ public class GameController : MonoBehaviour
             if (activePlayers == 1)
             {
                 DisableAllPlayerUI();
+
+                remainingPlayer = livingPlayer;
 
                 // Win UI and scene transition behavour here
                 Debug.Log("Player " + livingPlayer.GetComponent<PlayerID>().GetID() + " Wins!!!");
@@ -130,6 +135,8 @@ public class GameController : MonoBehaviour
             else if (activePlayers == 0)
             {
                 DisableAllPlayerUI();
+
+                remainingPlayer = null;
 
                 string message = "All Players Are Dead!!!";
 
@@ -177,6 +184,8 @@ public class GameController : MonoBehaviour
     {
         if (transitionHandler)
         {
+            // Make it work with end game UI scene
+            
             transitionHandler.GetComponent<SceneTransition>().enabled = true;
         }
         else
