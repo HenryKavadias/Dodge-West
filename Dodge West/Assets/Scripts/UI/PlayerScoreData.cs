@@ -10,6 +10,7 @@ public class PlayerScoreData : MonoBehaviour
     
     public void SetScoreData(string num, string win)
     {
-
+        playerNumber.text = "Player " + num;
+        winCount.text = win;
     }
 }

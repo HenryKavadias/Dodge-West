@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     // Variables for the game controller
     public bool startUpDelay = true;
 
+    public string nextScene = "EndGame-Scene";
+
     // Tracks the current game mode
     public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
 
@@ -130,6 +132,19 @@ public class GameController : MonoBehaviour
                 winningPlayerText.text = message;
                 endGamePanel.SetActive(true);
 
+                // Save winning player
+                winningPlayer = livingPlayer.GetComponent<PlayerID>().GetID();
+
+                if ((transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference) > 1)
+                {
+                    Invoke(nameof(SavePlayerScore),
+                        transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference);
+                }
+                else
+                {
+                    Invoke(nameof(SavePlayerScore), 1f);
+                }
+
                 TriggerSceneTransition();
             }
             else if (activePlayers == 0)
@@ -147,6 +162,19 @@ public class GameController : MonoBehaviour
 
                 winningPlayerText.text = message;
                 endGamePanel.SetActive(true);
+
+                // No one gets any score
+                allDead = true;
+
+                if ((transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference) > 1)
+                {
+                    Invoke(nameof(SavePlayerScore),
+                        transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference);
+                }
+                else
+                {
+                    Invoke(nameof(SavePlayerScore), 1f);
+                }
 
                 TriggerSceneTransition();
             }
@@ -166,7 +194,28 @@ public class GameController : MonoBehaviour
             winningPlayerText.text = message;
             endGamePanel.SetActive(true);
 
+            // Single player doesn't need data container (at least in tutorial)
+            if (dataContainer != null)
+            {
+                dataContainer.GetComponent<Destroyer>().DestroyThis();
+            }
+
             TriggerSceneTransition();
+        }
+    }
+
+    private bool allDead = false;
+    private int winningPlayer = 0;
+    private GameObject dataContainer = null;
+
+    public float saveScoreDelayDifference = 1;
+
+    // Add score for winning player
+    private void SavePlayerScore()
+    {
+        if (gameMode != GameMode.SinglePlayer && !allDead)
+        {
+            dataContainer.GetComponent<GameData>().AddScore(winningPlayer, 1);
         }
     }
 
@@ -185,7 +234,13 @@ public class GameController : MonoBehaviour
         if (transitionHandler)
         {
             // Make it work with end game UI scene
-            
+            if (gameMode != GameMode.SinglePlayer)
+            {
+                transitionHandler.GetComponent<SceneTransition>().SetNextScene(nextScene, true);
+                transitionHandler.GetComponent<SceneTransition>().enabled = true;
+                return;
+            }
+
             transitionHandler.GetComponent<SceneTransition>().enabled = true;
         }
         else
@@ -290,10 +345,13 @@ public class GameController : MonoBehaviour
 
                 AddPlayer(player);
             }
-            
 
-
-            //TogglePlayerControls(false);
+            dataContainer = GameData.GameDataInstance.gameObject;
+            if (dataContainer != null && dataContainer.GetComponent<GameData>().GetPlayerCount() <= 0)
+            {
+                Debug.Log("score list set");
+                dataContainer.GetComponent<GameData>().SetPlayerList(livePlayers);
+            }
         }
 
         if (startUpDelay)

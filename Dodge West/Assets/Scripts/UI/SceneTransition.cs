@@ -27,9 +27,12 @@ public class SceneTransition : MonoBehaviour
     private bool bypassDNDOL = false;
 
     [SerializeField]
-    private float timeLeft = 5f;
+    public float timeLeft { get; private set; } = 5f;
     private bool timerOn = false;
 
+
+
+    // Set the next scene to transition
     public void SetNextScene(string Scene, bool ignoreDNDOL = false)
     {
         nextScene = Scene;
@@ -79,10 +82,14 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    // Loads next scene with no delay
     public void LoadNextScene(string scene = null, bool ignoreDNDOL = false)
     {
         Time.timeScale = 1.0f; // unpauses game
-        bypassDNDOL = ignoreDNDOL;
+        if (ignoreDNDOL != false)
+        {
+            bypassDNDOL = ignoreDNDOL;
+        }
 
         // Set canvas sort order
         transitionCanvas.GetComponent<Canvas>().sortingOrder = canvasSortOrder;

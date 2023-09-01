@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class Destroyer : MonoBehaviour
 {
     public bool destoryOnStart = false;
-    public bool destroyNow = true;
+    public bool destroyInstantly = true;
     public float destroyDelay = 1.0f;
 
     private void Start()
@@ -20,7 +20,7 @@ public class Destroyer : MonoBehaviour
     // Destroy object the script is attached to
     public void DestroyThis()
     {
-        if (destroyNow)
+        if (destroyInstantly)
         {
             Destroy(gameObject);
             return;
