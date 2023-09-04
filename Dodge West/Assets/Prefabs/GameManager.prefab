@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startUpDelay: 1
+  nextScene: EndGame-Scene
   playerObject: {fileID: 4937961074316158867, guid: 7979dc986514631408387da101ce8ec1, type: 3}
   defaultLifes: 2
   spawnPosition:
@@ -585,6 +586,7 @@ MonoBehaviour:
   - {fileID: 1670374296076632866}
   - {fileID: 2697529993561432152}
   transitionHandler: {fileID: 4393427311456232892}
+  saveScoreDelayDifference: 1
 --- !u!114 &2913636888799451748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,14 +657,15 @@ MonoBehaviour:
   - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
   - {fileID: 7295154873178521885, guid: 890b5d981d76f3a41bdf37f54bac4991, type: 3}
   - {fileID: 7295154873178521885, guid: f1204c5b361c44f4d8135014a33338c2, type: 3}
+  - {fileID: 6704892483781080500, guid: a21da5a8593a9de49b8fa5e704e22d3e, type: 3}
+  - {fileID: 6704892483781080500, guid: a21da5a8593a9de49b8fa5e704e22d3e, type: 3}
   enableRapidSpawn: 1
   rapidSpawnDuration: 0.05
   rapidSpawnTrackerTrigger: 10
   altRapidSpawnObjects: 1
   rapidObjects:
   - {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
-  - {fileID: 1896325637163721583, guid: 67962de1875c8ea4986ae806902002f2, type: 3}
-  - {fileID: 7295154873178521885, guid: 165fe17214623ae42b5099a5b58efcc7, type: 3}
+  - {fileID: 6704892483781080500, guid: fdbe3c3f48482ee45a473ffdace25705, type: 3}
   enableMegaBomb: 1
   megaBomb: {fileID: 6704892483781080500, guid: ecf733a0fee06674aaaf809824176d5f, type: 3}
   megaBombTrigger: 50
@@ -1657,7 +1660,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

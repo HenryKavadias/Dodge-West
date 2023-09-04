@@ -498,6 +498,9 @@ public class PhysicsPickup : MonoBehaviour
         {
             Invoke(nameof(SetPreLoadedItem), 0.5f);
         }
+
+        // Get material from resources folder, its here to reduce calls
+        //materialResources = Resources.LoadAll("Materials", typeof(Material));
     }
 
     // Use after adding or removing an item
@@ -698,6 +701,12 @@ public class PhysicsPickup : MonoBehaviour
 
     private Object[] materialResources; // Materials list from resources
 
+    private void Start()
+    {
+        // Get material from resources folder, its here to reduce calls
+        materialResources = Resources.LoadAll("Materials", typeof(Material));
+    }
+
     // Resets object model material variables
     void ResetMaterialVariables()
     {
@@ -706,7 +715,7 @@ public class PhysicsPickup : MonoBehaviour
         objectMaterialCounter = 0;
 
         // Reset array. Avoids holding large amounts of data
-        materialResources = new Object[0];
+        //materialResources = new Object[0];
     }
 
     // Make object materials transparent and save their previous materials and structure
@@ -720,7 +729,7 @@ public class PhysicsPickup : MonoBehaviour
             if (currentObject.gameObject.transform.childCount > 0)
             {
                 // Get material from resources folder, its here to reduce calls
-                materialResources = Resources.LoadAll("Materials", typeof(Material));
+                //materialResources = Resources.LoadAll("Materials", typeof(Material));
 
                 ModifyObjectMaterial(currentObject.gameObject.transform);
             }
