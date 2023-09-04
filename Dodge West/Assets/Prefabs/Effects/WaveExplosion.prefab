@@ -152,14 +152,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsCount: 50
-  maxRadius: 15
-  speed: 120
+  maxRadius: 10
+  speed: 100
   startWidth: 5
-  forceModifier: 20
-  damage: 10
-  waveActive: 1
+  applyDynamicForce: 0
+  forceModifier: 15
+  damage: 8
+  waveActive: 0
   disableOverlapForce: 0
-  minForce: 40
+  minForce: 50
 --- !u!114 &598335424433240449
 MonoBehaviour:
   m_ObjectHideFlags: 0

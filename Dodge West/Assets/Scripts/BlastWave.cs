@@ -8,6 +8,7 @@ public class BlastWave : MonoBehaviour
     public float maxRadius = 50;    // Max radius of blast wave
     public float speed = 5;         // Speed of blast wave
     public float startWidth = 5;    // Starting width of blast wave
+    public bool applyDynamicForce = true;
     public float forceModifier = 5;         // Force of blast wave
 
     public float damage = 10;
@@ -29,6 +30,8 @@ public class BlastWave : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
 
         lineRenderer.positionCount = pointsCount + 1;
+
+        lineRenderer.enabled = waveActive;
     }
 
     // Start Blast Wave
@@ -98,7 +101,15 @@ public class BlastWave : MonoBehaviour
 
             // Adds force to the objects the blast hits (put the power function here)
             Vector3 direction = (hittingObjects[i].transform.position - transform.position).normalized;
-            rb.AddForce(direction * DynamicForce(rb.mass), ForceMode.Impulse);
+
+            if (applyDynamicForce)
+            {
+                rb.AddForce(direction * DynamicForce(rb.mass), ForceMode.Impulse);
+            }
+            else
+            {
+                rb.AddForce(direction * (minForce + forceModifier), ForceMode.Impulse);
+            }
             //Debug.Log("Force applied");
 
             // Check if damageable then apply (fix this)
