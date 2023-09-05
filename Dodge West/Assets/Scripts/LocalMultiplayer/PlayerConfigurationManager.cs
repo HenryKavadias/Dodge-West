@@ -180,7 +180,7 @@ public class PlayerConfigurationManager : MonoBehaviour
                 if (levelData)
                 {
                     // This might be redundant in the future as the data container object may have more uses
-                    levelData.DestroySelf();
+                    //levelData.DestroySelf();
                 }
 
                 // Begin scene transition

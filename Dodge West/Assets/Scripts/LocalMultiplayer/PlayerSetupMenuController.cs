@@ -6,10 +6,18 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem;
 
+// Note: when auto assigning colours, ensure the ready button is the first selected
+// on spawn regarding the multiplayer event system attached to the event system object
+
 // Controls the menu functions for a join player in the local multiplayer setup scene
 public class PlayerSetupMenuController : MonoBehaviour
 {
     private int playerIndex;
+
+    [SerializeField]
+    private List<Material> playerColours = new List<Material>();
+    [SerializeField]
+    private GameObject colourBlock = null;
 
     // UI elements
     [SerializeField]
@@ -43,6 +51,13 @@ public class PlayerSetupMenuController : MonoBehaviour
         playerIndex = pi;
         titleText.SetText("Player " + (pi + 1).ToString());
         ignoreInputTime = Time.time + ignoreInputTime;
+
+        // For auto assigning colours
+        if (colourBlock && playerIndex < playerColours.Count)
+        {
+            SelectColor(playerColours[playerIndex]);
+            colourBlock.GetComponent<Image>().color = playerColours[playerIndex].color;
+        }
     }
 
     void Update()
@@ -93,16 +108,19 @@ public class PlayerSetupMenuController : MonoBehaviour
     // Set the player colour (Note: might change to "set model")
     public void SelectColor(Material mat)
     {
-        if (!inputEnabled) { return; }
+        // Leave disabled if this function isn't bound by player input
+        //if (!inputEnabled) { return; }
 
         PlayerConfigurationManager.Instance.SetPlayerColor(playerIndex, mat);
-        readyPanel.SetActive(true);
-        readyButton.interactable = true;
-        menuPanel.SetActive(false);
-        readyButton.Select();
+
+        // Functions unnecessary when auto assigning colours
+        //readyPanel.SetActive(true);
+        //readyButton.interactable = true;
+        //menuPanel.SetActive(false);
+        //readyButton.Select();
     }
 
-    // Undoes selected colour
+    // Undoes selected colour, currently not is use
     public void UnSelectColor()
     {
         if (!inputEnabled) { return; }
@@ -124,7 +142,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         readyButton.gameObject.SetActive(false);
     }
 
-    // Unready player
+    // Unready player, currently not is use
     public void UnReadyPlayer()
     {
         if (!inputEnabled) { return; }

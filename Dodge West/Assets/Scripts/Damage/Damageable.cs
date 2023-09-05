@@ -11,26 +11,56 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] protected Progressive _health;
 
-    // Destroy, spawn, or do something depending on the event
-    public UnityEvent OnDie;
+    // makes the object temporarily invincible on spawn
+    [SerializeField] protected bool invincible = true;
+    [SerializeField] protected float invincibleTime = 0.2f;
+
+    private void Start()
+    {
+        if (_health == null)
+        {
+            _health = gameObject.GetComponent<Progressive>();
+        }
+
+        Invoke(nameof(TurnOffInvincible), invincibleTime);
+    }
+
+    public void TriggerInvinvible(float time = 0f)
+    {
+        invincible = true;
+
+        if (time > 0f)
+        {
+            Invoke(nameof(TurnOffInvincible), time);
+
+            return;
+        }
+
+        Invoke(nameof(TurnOffInvincible), invincibleTime);
+    }
+
+    protected void TurnOffInvincible()
+    {
+        invincible = false;
+    }
 
     // Damage object
     public virtual void Damage(
         float damage, GameObject attacker = null)
     {
         // prevents overlapping hit ties
-        if (_health.Current <= 0)
+        if (_health.Current <= 0 || invincible)
         {
             return;
         }
 
         _health.Sub(damage);
 
-        if (_health.Current <= 0)
-        {
-            //Die();
-            StartCoroutine(SlowDie());
-        }
+        //if (_health.Current <= 0)
+        //{
+        //    //Die();
+        //    //StartCoroutine(SlowDie());
+        //}
     }
 
     // Heal object
@@ -39,16 +69,19 @@ public class Damageable : MonoBehaviour
         _health.Add(heal);
     }
 
-    // Trigger OnDie event immediately 
-    protected void Die()
-    {
-        OnDie.Invoke();
-    }
+    //// Destroy, spawn, or do something depending on the event
+    //public UnityEvent onDie;
 
-    // Trigger OnDie event after next frame
-    protected IEnumerator SlowDie()
-    {
-        yield return null;
-        OnDie.Invoke();
-    }
+    //// Trigger OnDie event immediately 
+    //protected void Die()
+    //{
+    //    onDie.Invoke();
+    //}
+
+    //// Trigger OnDie event after next frame
+    //protected IEnumerator SlowDie()
+    //{
+    //    yield return null;
+    //    onDie.Invoke();
+    //}
 }

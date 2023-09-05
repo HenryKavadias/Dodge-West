@@ -18,6 +18,9 @@ public enum GameMode
 public class GameController : MonoBehaviour
 {
     // Variables for the game controller
+    public bool startUpDelay = true;
+
+    public string nextScene = "EndGame-Scene";
 
     // Tracks the current game mode
     public GameMode gameMode { get; private set; } = GameMode.SinglePlayer;
@@ -25,12 +28,16 @@ public class GameController : MonoBehaviour
     // Player character object
     public GameObject playerObject;
 
+    public int defaultLifes = 3;
+
     // Spawn positions for the player
     public GameObject[] spawnPosition;
 
     // End game UI variables
     public GameObject endGamePanel;
     public TextMeshProUGUI winningPlayerText;
+    public GameObject timerDisplay;
+    public List<GameObject> timerPositions = new List<GameObject>();
 
     // Transition handler reference variable
     public GameObject transitionHandler;
@@ -67,10 +74,17 @@ public class GameController : MonoBehaviour
             {
                 // Disables the players input system, WARNING: might not work for
                 // local multiplayer (although it is currently switched off for it)
-                player.GetComponent<PlayerInput>().enabled = toggle;
+                if (gameMode == GameMode.SinglePlayer)
+                {
+                    player.GetComponent<PlayerInput>().enabled = toggle;
+                }
+                
+                player.GetComponent<PlayerInputHandler>().ToggleControls(toggle);
+
+                //player.GetComponent<PlayerInput>().enabled = toggle;
 
                 //player.GetComponent<FirstPersonMovement>().enabled = toggle;
-                //player.GetComponent<MouseLook>().enabled = toggle;
+                //player.GetComponent<CameraControl>().enabled = toggle;
                 //player.GetComponent<Dash>().enabled = toggle;
                 //player.GetComponent<PhysicsPickup>().enabled = toggle;
                 //player.GetComponent<PlayerInputHandler>().enabled = toggle;
@@ -78,11 +92,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private GameObject remainingPlayer = null;
+
     // player might not be useful
     public void PlayerDies(GameObject player)
     {
         if (gameMode != GameMode.SinglePlayer)
         {
+            // Multiplayer condition
             int activePlayers = 0;
 
             GameObject livingPlayer = null;
@@ -100,13 +117,33 @@ public class GameController : MonoBehaviour
             {
                 DisableAllPlayerUI();
 
+                remainingPlayer = livingPlayer;
+
                 // Win UI and scene transition behavour here
                 Debug.Log("Player " + livingPlayer.GetComponent<PlayerID>().GetID() + " Wins!!!");
 
                 string message = "Player " + livingPlayer.GetComponent<PlayerID>().GetID().ToString() + " wins!!!";
 
+                if (timerDisplay != null)
+                {
+                    timerDisplay.SetActive(false);
+                }
+
                 winningPlayerText.text = message;
                 endGamePanel.SetActive(true);
+
+                // Save winning player
+                winningPlayer = livingPlayer.GetComponent<PlayerID>().GetID();
+
+                if ((transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference) > 1)
+                {
+                    Invoke(nameof(SavePlayerScore),
+                        transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference);
+                }
+                else
+                {
+                    Invoke(nameof(SavePlayerScore), 1f);
+                }
 
                 TriggerSceneTransition();
             }
@@ -114,10 +151,30 @@ public class GameController : MonoBehaviour
             {
                 DisableAllPlayerUI();
 
+                remainingPlayer = null;
+
                 string message = "All Players Are Dead!!!";
+
+                if (timerDisplay != null)
+                {
+                    timerDisplay.SetActive(false);
+                }
 
                 winningPlayerText.text = message;
                 endGamePanel.SetActive(true);
+
+                // No one gets any score
+                allDead = true;
+
+                if ((transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference) > 1)
+                {
+                    Invoke(nameof(SavePlayerScore),
+                        transitionHandler.GetComponent<SceneTransition>().timeLeft - saveScoreDelayDifference);
+                }
+                else
+                {
+                    Invoke(nameof(SavePlayerScore), 1f);
+                }
 
                 TriggerSceneTransition();
             }
@@ -127,12 +184,38 @@ public class GameController : MonoBehaviour
         {
             DisableAllPlayerUI();
 
+            if (timerDisplay != null)
+            {
+                timerDisplay.SetActive(false);
+            }
+
             string message = "You Are Dead";
 
             winningPlayerText.text = message;
             endGamePanel.SetActive(true);
 
+            // Single player doesn't need data container (at least in tutorial)
+            if (dataContainer != null)
+            {
+                dataContainer.GetComponent<Destroyer>().DestroyThis();
+            }
+
             TriggerSceneTransition();
+        }
+    }
+
+    private bool allDead = false;
+    private int winningPlayer = 0;
+    private GameObject dataContainer = null;
+
+    public float saveScoreDelayDifference = 1;
+
+    // Add score for winning player
+    private void SavePlayerScore()
+    {
+        if (gameMode != GameMode.SinglePlayer && !allDead)
+        {
+            dataContainer.GetComponent<GameData>().AddScore(winningPlayer, 1);
         }
     }
 
@@ -150,6 +233,14 @@ public class GameController : MonoBehaviour
     {
         if (transitionHandler)
         {
+            // Make it work with end game UI scene
+            if (gameMode != GameMode.SinglePlayer)
+            {
+                transitionHandler.GetComponent<SceneTransition>().SetNextScene(nextScene, true);
+                transitionHandler.GetComponent<SceneTransition>().enabled = true;
+                return;
+            }
+
             transitionHandler.GetComponent<SceneTransition>().enabled = true;
         }
         else
@@ -171,6 +262,11 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        if (gameObject.GetComponent<Timer>().enabled == false)
+        {
+            timerDisplay.SetActive(false);
+        }
+        
         endGamePanel.SetActive(false);
 
         NewSystem();    // game mode is set in this function
@@ -183,6 +279,22 @@ public class GameController : MonoBehaviour
         }
 
     }
+
+    private void SetPlayerRotationToSpawn(GameObject player, GameObject spawn)
+    {
+        //player.GetComponent<PlayerInputHandler>().DisableControls();
+
+        player.GetComponent<PlayerInputHandler>().ToggleControls(false);
+
+        // Must use euler angles, not rotation.y as that won't give the angle of rotation
+        player.GetComponent<CameraControl>().SetOrientationYRotation(
+                spawn.transform.eulerAngles.y);
+
+        //player.GetComponent<PlayerInputHandler>().EnableControls();
+
+        player.GetComponent<PlayerInputHandler>().ToggleControls(true);
+    }
+
     void NewSystem()
     {
         // Single player instance if the scene is loaded directly, local multiplayer if player 
@@ -197,16 +309,15 @@ public class GameController : MonoBehaviour
                 playerObject,
                 spawnPosition[0].GetComponent<Transform>().position,
                 spawnRot);
-            // if you spawn the player with a spawn position with altered rotation,
-            // then the camera needs to be aware and respond to the change
 
-            //var player = Instantiate(
-            //    playerObject,
-            //    spawnPosition[0].GetComponent<Transform>().position,
-            //    spawnPosition[0].GetComponent<Transform>().rotation);
+            // Activate player setup
             player.GetComponent<PlayerInputHandler>().InitializePlayer();
+            
+            // Set player spawn rotation 
+            SetPlayerRotationToSpawn(player, spawnPosition[0]);
 
-            player.GetComponent<LifeCounter>().SetLives(1);
+            // Set player lifes
+            player.GetComponent<LifeCounter>().SetLives(defaultLifes);
 
             AddPlayer(player);
         }
@@ -224,16 +335,79 @@ public class GameController : MonoBehaviour
                     playerObject,
                     spawnPosition[i].GetComponent<Transform>().position,
                     spawnRot);
-                //var player = Instantiate(
-                //    playerObject,
-                //    spawnPosition[i].GetComponent<Transform>().position,
-                //    spawnPosition[i].GetComponent<Transform>().rotation);
+
                 player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i], i + 1);
 
+                SetPlayerRotationToSpawn(player, spawnPosition[i]);
+
+                player.GetComponent<LifeCounter>().SetLives(defaultLifes);
                 //player.GetComponent<LifeCounter>().SetLives(1); // for test purposes
 
                 AddPlayer(player);
             }
+
+            dataContainer = GameData.GameDataInstance.gameObject;
+            if (dataContainer != null && dataContainer.GetComponent<GameData>().GetPlayerCount() <= 0)
+            {
+                Debug.Log("score list set");
+                dataContainer.GetComponent<GameData>().SetPlayerList(livePlayers);
+            }
+        }
+
+        if (startUpDelay)
+        {
+            TogglePlayerControls(false);
+
+            gameObject.GetComponent<Timer>().TriggerStartDelay();
+        }
+        else if (gameMode != GameMode.SinglePlayer)
+        {
+            gameObject.GetComponent<Timer>().BeginRainCountDown();
+        }
+        else
+        {
+            timerDisplay.SetActive(false);
+        }
+    }
+
+    void AlterTimerPosition()
+    {
+        Debug.Log(livePlayers.Count);
+        switch (livePlayers.Count)
+        {
+            case 2:
+                if (timerPositions.Count > 0)
+                {
+                    timerDisplay.GetComponent<RectTransform>().anchoredPosition =
+                        timerPositions[0].GetComponent<RectTransform>().anchoredPosition;
+                    timerDisplay.GetComponent<RectTransform>().position =
+                        timerPositions[0].GetComponent<RectTransform>().position;
+                }
+                break;
+
+            case 3:
+                if (timerPositions.Count > 1)
+                {
+                    timerDisplay.GetComponent<RectTransform>().anchoredPosition =
+                        timerPositions[1].GetComponent<RectTransform>().anchoredPosition;
+                    timerDisplay.GetComponent<RectTransform>().position =
+                        timerPositions[1].GetComponent<RectTransform>().position;
+                }
+                break;
+
+            case 4:
+                if (timerPositions.Count > 2)
+                {
+                    timerDisplay.GetComponent<RectTransform>().anchoredPosition =
+                        timerPositions[2].GetComponent<RectTransform>().anchoredPosition;
+                    timerDisplay.GetComponent<RectTransform>().position =
+                        timerPositions[2].GetComponent<RectTransform>().position;
+                }
+                break;
+
+            default:
+                timerDisplay.GetComponent<RectTransform>().position = new Vector3(0, -100, 0);
+                break;
         }
     }
 }

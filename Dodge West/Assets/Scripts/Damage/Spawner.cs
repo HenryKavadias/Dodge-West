@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject prefabObj = null;
+    public List<GameObject> prefabObjs = new List<GameObject>();
 
-    public void Spawn(GameObject prefab)
+    public void Spawn(GameObject prefab = null)
     {
-        if (prefab)
+        if (prefabObjs.Count > 0)
         {
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            CreateObjects();
         }
-        else if (prefabObj)
+        else if (prefab)
         {
-            Instantiate(prefabObj, transform.position, Quaternion.identity);
+            CreateObject(prefab);
         }
+    }
 
+    protected virtual void CreateObjects()
+    {
+        foreach(GameObject obj in prefabObjs)
+        {
+            Instantiate(obj, transform.position,
+                Quaternion.Euler(transform.eulerAngles.x,
+                transform.eulerAngles.y,
+                transform.eulerAngles.z));
+        }
+    }
+
+    protected virtual void CreateObject(GameObject prefab = null)
+    {   
+        Instantiate(prefab, transform.position, 
+            Quaternion.Euler(transform.eulerAngles.x, 
+            transform.eulerAngles.y, 
+            transform.eulerAngles.z));
     }
 }

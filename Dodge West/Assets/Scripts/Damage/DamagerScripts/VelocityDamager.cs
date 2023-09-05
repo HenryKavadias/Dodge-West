@@ -11,9 +11,21 @@ public enum ObjectState
     Thrown
 }
 
+public enum LoadDistance
+{
+    Close,
+    Mid,
+    Far
+}
+
 [RequireComponent(typeof(Rigidbody))]
 public class VelocityDamager : Damager
 {
+    public bool loadable = true; // yet to be used
+    
+    // Where they will be positioned if loaded
+    public LoadDistance loadDistance = LoadDistance.Mid;
+
     private Rigidbody rb;   // Objects rigidbody
 
     // used to prevent the carrier from damaging
@@ -22,6 +34,25 @@ public class VelocityDamager : Damager
 
     // Current object sate
     private ObjectState state { get; set; } = ObjectState.Idle;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        state = ObjectState.Idle;
+
+        // Loadable objects are highlighted in green, ones that aren't are higlighted in red
+        if (gameObject.GetComponent<Outline>())
+        {
+            if (loadable)
+            {
+                gameObject.GetComponent<Outline>().OutlineColor = Color.green;
+            }
+            else
+            {
+                gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+            }
+        }
+    }
 
     // Set object to picked up/held state and set holder
     public void Pickup(GameObject holder)
@@ -51,14 +82,9 @@ public class VelocityDamager : Damager
         return currentHolder != null;
     }
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
     // Object damage velocities and thresholds (sensitivities) for each object state
     [Header("Default")]
-    public float minDamageVelocity = 2f;
+    public float minDamageVelocity = 20f;
     [Range(0f, 1f)] public float velocityThreshold = 0.3f;
 
     [Header("Thrown")]
@@ -66,11 +92,11 @@ public class VelocityDamager : Damager
     [Range(0f, 1f)] public float thrownVelocityThreshold = 0.2f;
 
     [Header("Held")]
-    public float minHeldDamageVelocity = 5f;
+    public float minHeldDamageVelocity = 15f;
     [Range(0f, 1f)] public float heldVelocityThreshold = 0.5f;
 
     [Header("Idle")]
-    public float minIdleDamageVelocity = 3f;
+    public float minIdleDamageVelocity = 30f;
     [Range(0f, 1f)] public float idleVelocityThreshold = 0.7f;
 
     // Thrown: when object is thrown by a player. Goes to Idle when it collides with another object (after applying damage)
@@ -106,6 +132,15 @@ public class VelocityDamager : Damager
             // If object is damageable
             if (damageable)
             {
+                if (gameObject.tag == "Player")
+                {
+                    //Debug.Log("Player slap");
+
+                    CalculateAndApplyDamage(damageable, minDamageVelocity, velocityThreshold);
+
+                    return;
+                }
+
                 // Calcualte the damage based on the current state
                 switch (state)
                 {

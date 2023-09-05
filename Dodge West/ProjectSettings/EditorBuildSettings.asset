@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Start-Scene.unity
+    path: Assets/_Scenes/UI_Scenes/Start-Scene.unity
     guid: e476e100b3572874bbf9a8b33d8d6533
   - enabled: 1
     path: Assets/_Scenes/Tutorial-Scene.unity
     guid: b613b19c35a326b4c96797a64362e309
   - enabled: 1
-    path: Assets/_Scenes/LevelSelect-Scene.unity
+    path: Assets/_Scenes/UI_Scenes/LevelSelect-Scene.unity
     guid: 6e6a9d982e082344eb1dded0b172a588
   - enabled: 1
-    path: Assets/_Scenes/Multiplayer/LocalMultiplayerSetup.unity
+    path: Assets/_Scenes/UI_Scenes/LocalMultiplayerSetup.unity
     guid: 7cdeb135653d4fa43a8651f8daf4cc28
+  - enabled: 1
+    path: Assets/_Scenes/AlphaLevels/Alpha_SmallLevel.unity
+    guid: 65d0eadf77663ad40bc489dc8775564d
   - enabled: 1
     path: Assets/_Scenes/AlphaLevels/Alpha_MediumLevel.unity
     guid: bd7e8c0a0457fd9439f59c9ef409ba2e
@@ -24,7 +27,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/AlphaLevels/Alpha_LargeLevel.unity
     guid: 8ed63ad8894829743a706dba1a103d41
   - enabled: 1
-    path: Assets/_Scenes/AlphaLevels/Alpha_SmallLevel.unity
-    guid: 65d0eadf77663ad40bc489dc8775564d
+    path: Assets/_Scenes/UI_Scenes/EndGame-Scene.unity
+    guid: ae510634e484829458b46076215af391
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a73103c46de5ec645a1d7a91252c1568, type: 2}

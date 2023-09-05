@@ -7,6 +7,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
+public enum CharacterModel
+{
+    dog,
+    cat
+}
+
+
 public class PlayerInputHandler : MonoBehaviour
 {
     // Reference for local multiplayer controls
@@ -20,8 +27,23 @@ public class PlayerInputHandler : MonoBehaviour
     private Dash dash;
     private PauseControls pause;
 
+    private PlayerInput playerInputComponent;
+
     [SerializeField]
     private MeshRenderer playerMesh;
+
+    [SerializeField] 
+    private bool randomiseModel = false;
+    [SerializeField]
+    public MeshRenderer dogMesh;
+    [SerializeField]
+    public MeshRenderer catMesh;
+    [SerializeField]
+    private GameObject dogModel;
+    [SerializeField]
+    private GameObject catModel;
+
+    public CharacterModel modelSelected;
 
     // For control map checking
     private PlayerControls controls;
@@ -35,17 +57,85 @@ public class PlayerInputHandler : MonoBehaviour
         dash = GetComponent<Dash>();
         pause = GetComponent<PauseControls>();
 
+        playerInputComponent = GetComponent<PlayerInput>();
+
         controls = new PlayerControls();
+    }
+
+    private void RandomModel()
+    {
+        if (randomiseModel)
+        {
+            System.Random random = new System.Random();
+            int randomise = random.Next(0, 2);
+                //UnityEngine.Random.Range(1, 2);
+            switch (randomise)
+            {
+                case 0:
+                    modelSelected = CharacterModel.dog;
+                    playerMesh = dogMesh;
+                    dogModel.SetActive(true);
+                    catModel.SetActive(false);
+                    break;
+                case 1:
+                    modelSelected = CharacterModel.cat;
+                    playerMesh = catMesh;
+                    dogModel.SetActive(false);
+                    catModel.SetActive(true);
+                    break;
+                default:
+                    // code block
+                    break;
+            }
+
+            //Debug.Log("Random Model: " + randomise);
+        }
+    }
+
+    public void ToggleControls(bool toggle)
+    {
+        playerInputComponent.enabled = toggle;
+
+        movement.enabled = toggle;
+        look.enabled = toggle;
+        dash.enabled = toggle;
+        pickup.enabled = toggle;
+    }
+
+    public void DisableControls()
+    {
+        playerInputComponent.enabled = false;
+
+        movement.enabled = false;
+        look.enabled = false;
+        dash.enabled = false;
+        pickup.enabled = false;
+    }
+
+    public void EnableControls()
+    {
+        playerInputComponent.enabled = true;
+
+        movement.enabled = true;
+        look.enabled = true;
+        dash.enabled = true;
+        pickup.enabled = true;
     }
 
     private void OnEnable()
     {
-        controls.Enable();
+        if (controls != null)
+        {
+            controls.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        controls.Disable();
+        if (controls != null)
+        { 
+            controls.Disable();
+        }
     }
 
     // Player ID needs to be set first before this function is called
@@ -54,17 +144,20 @@ public class PlayerInputHandler : MonoBehaviour
         // If single player, enable native controls,
         // Otherwise access the script for player controls
         // TODO?: may need to change it to just the script
+        RandomModel();
 
         if (id == 0)
         {
             // Native controls (Single player)
             GetComponent<PlayerID>().ChangePlayerNumber(id);
+            GetComponent<PlayerID>().ChangePlayerColour(Color.red);
             gameObject.GetComponent<PlayerInput>().enabled = true;
         }
         else
         {
             // Player configuration controls (Local multiplayer
             GetComponent<PlayerID>().ChangePlayerNumber(id);
+            GetComponent<PlayerID>().ChangePlayerColour(config.playerMaterial.color);
 
             gameObject.GetComponent<PlayerInput>().enabled = false;
 

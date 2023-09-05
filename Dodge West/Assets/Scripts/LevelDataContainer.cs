@@ -104,6 +104,12 @@ public class LevelDataContainer : MonoBehaviour
         {
             selectedLevel = string.Empty;
 
+            GameData gameData = GetComponent<GameData>();
+            if (gameData != null)
+            {
+                gameData.SetGameDataInstance();
+            }
+
             LvlInstance = this;
             DontDestroyOnLoad(LvlInstance);
         }

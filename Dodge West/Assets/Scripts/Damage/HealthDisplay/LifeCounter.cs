@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,7 +96,8 @@ public class LifeCounter : MonoBehaviour
     // Trigger OnLooseALife event after 1 frame
     private IEnumerator SlowTriggerLoose()
     {
-        yield return null;
+        yield return null; 
+        //yield return null;
         OnLooseALife.Invoke();
     }
 }

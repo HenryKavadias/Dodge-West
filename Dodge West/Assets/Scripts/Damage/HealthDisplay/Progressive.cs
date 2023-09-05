@@ -7,7 +7,7 @@ using UnityEngine;
 // Used to control modifiable float values (e.g. health, stamina, mana, etc)
 public abstract class Progressive : MonoBehaviour
 {
-    [SerializeField] private float _initial;    // initial value
+    [SerializeField] private float _initial = 10;    // initial value
     private float _current;                     // current value
 
     public float Current
@@ -42,7 +42,7 @@ public abstract class Progressive : MonoBehaviour
     }
 
     // Decrease current value, not below zero
-    public void Sub(float amount)
+    public virtual void Sub(float amount)
     {
         Current -= amount;
 
@@ -55,7 +55,7 @@ public abstract class Progressive : MonoBehaviour
     }
 
     // Increase current value, not above max (initial)
-    public void Add(float amount)
+    public virtual void Add(float amount)
     {
         Current += amount;
 

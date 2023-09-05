@@ -21,6 +21,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float sprintSpeed;
     public bool enableSprint = false;
 
+    [Header("Dash Script Variables")]
     // Dash variables (used by dash script)
     public float dashSpeed;
     public float dashSpeedChangeFactor;
@@ -31,7 +32,9 @@ public class FirstPersonMovement : MonoBehaviour
     public float jumpForce = 7f;
     public float airMultiplier = 0.4f;
     public float jumpCooldown = 0.25f;
-    bool readyToJump;
+    public int jumpLimit = 2; // number of times the player can jump
+    private int jumpCount;
+    private bool readyToJump;
 
     [Header("Crouch")]
     public float crouchSpeed;
@@ -42,7 +45,7 @@ public class FirstPersonMovement : MonoBehaviour
     public LayerMask groundMask;
     public Collider playerCollider;
     public float distanceOfCheck = 0.2f;
-    [Range(0.001f, 1f)]
+    [Range(0.001f, 3f)]
     public float groundCheckBoxSizeMultiplier = 0.8f;
     private float currentHeight;
     private Vector3 groundCheckBoxSize;
@@ -101,7 +104,8 @@ public class FirstPersonMovement : MonoBehaviour
         // Get player character height and set the ground check size
         if (playerModel)
         {
-            currentHeight = playerModel.transform.localScale.y * 2;
+            //currentHeight = playerModel.transform.localScale.y * 2;
+            currentHeight = 1.8f * 2f;
             // Note: also used for Sphere Cast
             groundCheckBoxSize = new Vector3(
                 playerModel.transform.localScale.x * groundCheckBoxSizeMultiplier
@@ -186,7 +190,6 @@ public class FirstPersonMovement : MonoBehaviour
             currentHeight * 0.5f + distanceOfCheck, 
             groundMask);
     }
-
     bool BoxCastCheck()
     {
         return Physics.BoxCast(
@@ -197,7 +200,6 @@ public class FirstPersonMovement : MonoBehaviour
             currentHeight * 0.5f + distanceOfCheck,
             groundMask);
     }
-
     // This is currently used for ground checking
     bool SphereCastCheck()
     {
@@ -208,7 +210,12 @@ public class FirstPersonMovement : MonoBehaviour
             currentHeight * 0.5f + distanceOfCheck,
             groundMask);
     }
-
+    
+    public void ResetJumpLimit()
+    {
+        jumpCount = 0;
+    }
+    
     // Used for player inputs
     void Update()
     {
@@ -230,6 +237,13 @@ public class FirstPersonMovement : MonoBehaviour
         {
             rb.drag = 0f;
         }
+
+        // If player is grounded, reset their jump limit
+        if (isGrounded && readyToJump)
+        {
+            //Debug.Log("Grounded");
+            ResetJumpLimit();
+        }
     }
 
     // Used for player movement (based on physics applied to the rigidbody)
@@ -246,13 +260,35 @@ public class FirstPersonMovement : MonoBehaviour
         verticalInput = movementInput.y;
 
         // Handles jump
-        if (jumped && isGrounded && readyToJump)
+        if (jumped)
         {   
-            readyToJump = false;
+            if (isGrounded && readyToJump)
+            {
+                readyToJump = false;
 
-            Jump();
-            // allows player to keep jump when the jump button is held down
-            Invoke(nameof(ResetJump), jumpCooldown);
+                Jump();
+
+                jumpCount++;
+
+                // allows player to keep jump when the jump button is held down
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+            else if (!isGrounded && readyToJump && (jumpCount < jumpLimit))
+            {
+                //if (jumpCount <= 0)
+                //{
+                //    jumpCount = 1;
+                //}
+
+                readyToJump = false;
+
+                Jump();
+
+                jumpCount++;
+
+                // allows player to keep jump when the jump button is held down
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
         }
 
         // Start crouching
