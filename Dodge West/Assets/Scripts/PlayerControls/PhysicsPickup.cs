@@ -532,8 +532,8 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
-    public Vector3 loadDistanceModifier = new Vector3 (0, 0, 0);
-    public float largeLoadModifer = 1.5f;
+    //public Vector3 loadDistanceModifier = new Vector3 (0, 0, 0);
+    //public float largeLoadModifer = 1.5f;
     void SetLoadPosition(LoadDistance type)
     {
         //Vector3 ogPosition = loadPosition.transform.position;

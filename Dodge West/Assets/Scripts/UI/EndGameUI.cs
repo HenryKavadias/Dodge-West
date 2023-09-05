@@ -15,7 +15,7 @@ public class EndGameUI : MonoBehaviour
     public List<string> gameScenes = new List<string>();
 
     private float ignoreInputTime = 1.0f;
-    private bool inputEnabled;
+    private bool inputEnabled = false;
     private GameObject rootMenu = null;
 
     public GameObject eventSystem;  // Reference to event system
@@ -76,7 +76,7 @@ public class EndGameUI : MonoBehaviour
         }
 
         // Back button
-        if (eventSystem.GetComponent<InputSystemUIInputModule>().
+        if (inputEnabled && eventSystem.GetComponent<InputSystemUIInputModule>().
             cancel.action.triggered)
         {
             SelectMenu();
