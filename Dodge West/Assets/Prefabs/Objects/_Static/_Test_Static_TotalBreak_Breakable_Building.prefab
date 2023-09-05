@@ -10420,7 +10420,7 @@ GameObject:
   - component: {fileID: 3877706549795976420}
   - component: {fileID: 6783145946183976693}
   m_Layer: 6
-  m_Name: _Test_Static_Breakable_Building
+  m_Name: _Test_Static_TotalBreak_Breakable_Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10602,7 +10602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObjs: []
+  prefabObjs:
+  - {fileID: 6704892483781080500, guid: 305e5e5015675e1478f01f59cbfc0d75, type: 3}
 --- !u!1 &6729068643455873418
 GameObject:
   m_ObjectHideFlags: 0
