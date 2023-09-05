@@ -10414,7 +10414,6 @@ GameObject:
   - component: {fileID: 6704892483781080499}
   - component: {fileID: 6704892483781080498}
   - component: {fileID: 6704892483781080501}
-  - component: {fileID: 211310518974048739}
   - component: {fileID: 5021289377710006328}
   - component: {fileID: 8209586697070899619}
   - component: {fileID: 3877706549795976420}
@@ -10455,7 +10454,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6704892483781080500}
   serializedVersion: 4
-  m_Mass: 400
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -10497,26 +10496,6 @@ MonoBehaviour:
   heldVelocityThreshold: 0.5
   minIdleDamageVelocity: 30
   idleVelocityThreshold: 0.7
---- !u!114 &211310518974048739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6704892483781080500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64829a8454bc56947be1b73dcaa67327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  limitLayers: 0
-  useDefaultLayers: 1
-  limitedLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  minDamageVelocity: 12
-  velocityThreshold: 0.3
 --- !u!114 &5021289377710006328
 MonoBehaviour:
   m_ObjectHideFlags: 0
