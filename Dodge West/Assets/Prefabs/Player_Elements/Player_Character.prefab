@@ -773,7 +773,7 @@ MonoBehaviour:
   playerCollider: {fileID: 8241266964785621788}
   distanceOfCheck: -0.8
   groundCheckBoxSizeMultiplier: 2
-  maxSlopeAngle: 40
+  maxSlopeAngle: 50
   playerModel: {fileID: 4937961074184381710}
   orientation: {fileID: 4511801309809264556}
   state: 0
@@ -839,8 +839,6 @@ MonoBehaviour:
   loadableRestriction: 1
   loadItemLimit: 15
   loadMassLimit: 250
-  loadDistanceModifier: {x: 1, y: 0, z: 1}
-  largeLoadModifer: 1.5
 --- !u!114 &5637073744533230248
 MonoBehaviour:
   m_ObjectHideFlags: 0
