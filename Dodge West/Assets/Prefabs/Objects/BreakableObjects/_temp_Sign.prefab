@@ -504,7 +504,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -975,8 +974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  loadable: 1
-  loadDistance: 1
+  loadable: 0
+  loadDistance: 2
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
@@ -1073,10 +1072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7295154873178521885, guid: 43555aba72e9b104abd7073c78d813f6, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
   disableBeforeSpawn: 1
 --- !u!114 &4606699532641057221
 MonoBehaviour:
@@ -1091,7 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!1 &7295154873541221229
 GameObject:
