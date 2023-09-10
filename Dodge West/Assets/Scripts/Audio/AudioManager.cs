@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum SoundType
 {
-    Music,
-    SFX
+    SFX,
+    Music
 }
 
 [Serializable]
@@ -35,7 +35,9 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Debug.Log("[Singleton] Trying to instantiate a second " +
+                "instance of a singleton class (level data container).");
+            Destroy(gameObject); // removes the duplicate 
             return;
         }
 
@@ -55,6 +57,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // This needs to be placed on the audio source (object that triggers the sound)
     public void PlaySound(string soundName, SoundType soundType)
     {
         if (soundClips.TryGetValue(soundName, out AudioClip clip))
