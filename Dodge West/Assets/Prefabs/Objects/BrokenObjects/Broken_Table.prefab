@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 9146128838930095837}
   - component: {fileID: 2583610938596097249}
   - component: {fileID: 7673380630081789894}
+  - component: {fileID: 2396155689840478521}
   m_Layer: 7
   m_Name: Base2
   m_TagString: Untagged
@@ -624,7 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7673380630081789894
 MonoBehaviour:
@@ -638,10 +639,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2396155689840478521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247188084457985974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &2713869248775923682
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +778,7 @@ GameObject:
   - component: {fileID: 7344822676513807586}
   - component: {fileID: 7691755503933024367}
   - component: {fileID: 3851641125701044891}
+  - component: {fileID: 4216169164412701755}
   m_Layer: 7
   m_Name: Base1
   m_TagString: Untagged
@@ -949,7 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3851641125701044891
 MonoBehaviour:
@@ -963,10 +977,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4216169164412701755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924291045235406311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &6693930928438933930
 GameObject:
   m_ObjectHideFlags: 0

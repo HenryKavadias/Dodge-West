@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 8753844238145699308}
   - component: {fileID: 3106754480457017321}
   - component: {fileID: 9012941061854924087}
+  - component: {fileID: 8363050544474126290}
   m_Layer: 7
   m_Name: Static_Pillar
   m_TagString: Untagged
@@ -590,6 +591,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &8363050544474126290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972348787770236403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &8225397450855408429
 GameObject:
   m_ObjectHideFlags: 0

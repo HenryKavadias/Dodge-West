@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 1095887014252815582}
   - component: {fileID: 2125799324582249497}
   - component: {fileID: 3349649328268109020}
+  - component: {fileID: -8662828519204352393}
   m_Layer: 6
   m_Name: Static_CornerRoofSide
   m_TagString: Untagged
@@ -385,6 +386,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObjs:
   - {fileID: 6552160544136313060, guid: 6bf87c61b368c7345bca367ab353601e, type: 3}
+--- !u!114 &-8662828519204352393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500626121412611793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &6825336193730652134
 GameObject:
   m_ObjectHideFlags: 0

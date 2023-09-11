@@ -15,7 +15,7 @@ public class MusicContoller : MonoBehaviour
     // Gets music source, gets the audio source from it, and sets its volume
     void Start()
     {
-        objectMusic = GameObject.FindWithTag("GameMusic");
+        objectMusic = GameObject.FindWithTag("GameAudio");
 
         if (objectMusic)
         {

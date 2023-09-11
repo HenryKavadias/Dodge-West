@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 734374674676690752}
   - component: {fileID: 724455254386127985}
   - component: {fileID: 6204363063210052670}
+  - component: {fileID: 5635166034202486345}
   m_Layer: 7
   m_Name: BrownCube
   m_TagString: Untagged
@@ -214,6 +215,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &5635166034202486345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103975616646824698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &234540547118719304
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +247,7 @@ GameObject:
   - component: {fileID: 7525086349604422987}
   - component: {fileID: 5069151029048346715}
   - component: {fileID: 7026516125072497988}
+  - component: {fileID: 1288465362662568774}
   m_Layer: 7
   m_Name: BlueCube
   m_TagString: Untagged
@@ -428,6 +445,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &1288465362662568774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234540547118719304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &997549254028080757
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +583,7 @@ GameObject:
   - component: {fileID: 3271036284244278417}
   - component: {fileID: 1360599526751856984}
   - component: {fileID: 1056585265848055839}
+  - component: {fileID: 2916897370310315902}
   m_Layer: 7
   m_Name: YellowCube
   m_TagString: Untagged
@@ -748,6 +781,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &2916897370310315902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133590355182988998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1890560965426748296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1288,7 @@ GameObject:
   - component: {fileID: 7375384841400882246}
   - component: {fileID: 8826340259753318315}
   - component: {fileID: 8818930871565718662}
+  - component: {fileID: 1410430965840588083}
   m_Layer: 7
   m_Name: RedCube
   m_TagString: Untagged
@@ -1437,6 +1486,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &1410430965840588083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788751303460223025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8349796061061748990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1518,7 @@ GameObject:
   - component: {fileID: 7436154882979106291}
   - component: {fileID: 5691053367460583065}
   - component: {fileID: 7500589916163344873}
+  - component: {fileID: 3722752669520344743}
   m_Layer: 7
   m_Name: PurpleCube
   m_TagString: Untagged
@@ -1651,3 +1716,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &3722752669520344743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349796061061748990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage

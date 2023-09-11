@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -2310543883709689040}
   - component: {fileID: -6819305307829476244}
   - component: {fileID: 7321747539399405993}
+  - component: {fileID: -6687144981506300803}
   m_Layer: 7
   m_Name: Metal Barrel
   m_TagString: Untagged
@@ -81,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   loadable: 1
+  loadDistance: 1
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
@@ -120,6 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 12
   velocityThreshold: 0.3
 --- !u!114 &-1535586023403076829
@@ -152,7 +159,19 @@ MonoBehaviour:
   _initial: 80
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6687144981506300803}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MetalDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -193,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7321747539399405993
 MonoBehaviour:
@@ -207,11 +226,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 6704892483781080500, guid: 590aea10979cc1f49b01e3c38185fbc2, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
   disableBeforeSpawn: 1
+--- !u!114 &-6687144981506300803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896325637163721583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - MetalDamage
 --- !u!1 &7349023887406203537
 GameObject:
   m_ObjectHideFlags: 0

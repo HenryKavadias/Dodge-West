@@ -910,6 +910,7 @@ GameObject:
   - component: {fileID: 8209586697070899619}
   - component: {fileID: 3877706549795976420}
   - component: {fileID: 3685759813007888067}
+  - component: {fileID: -4927824708113340310}
   m_Layer: 7
   m_Name: Cart
   m_TagString: Untagged
@@ -1108,6 +1109,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObjs: []
   disableBeforeSpawn: 1
+--- !u!114 &-4927824708113340310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &6746966966526119081
 GameObject:
   m_ObjectHideFlags: 0

@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 1827787389802072992}
   - component: {fileID: 8402624804472147792}
   - component: {fileID: 2105455393627071798}
+  - component: {fileID: -188867575818245375}
   m_Layer: 6
   m_Name: Static_NarrowWall
   m_TagString: Untagged
@@ -733,6 +734,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObjs:
   - {fileID: 8708264691626006195, guid: 942f449c08b2f3c41a4be36d14399899, type: 3}
+--- !u!114 &-188867575818245375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316494591105962433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &9142246756739275853
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1215758719563855550}
   - component: {fileID: 8811390381384947435}
   - component: {fileID: -8556337730779266402}
+  - component: {fileID: -351437399001049267}
   m_Layer: 7
   m_Name: Wood Barrel_Dynamite
   m_TagString: Untagged
@@ -158,7 +159,19 @@ MonoBehaviour:
   _initial: 40
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -351437399001049267}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -217,6 +230,21 @@ MonoBehaviour:
   - {fileID: 6704892483781080500, guid: 7e1f79c1e68280744815b7dbc9adf3da, type: 3}
   - {fileID: 6704892483781080500, guid: 8dc79168dc9c27546befde3a0ec5dcd9, type: 3}
   disableBeforeSpawn: 1
+--- !u!114 &-351437399001049267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295154873178521885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &7295154873541221229
 GameObject:
   m_ObjectHideFlags: 0

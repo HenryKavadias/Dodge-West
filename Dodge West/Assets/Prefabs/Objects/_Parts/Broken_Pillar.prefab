@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 2297564743111292655}
   - component: {fileID: 7347339990131729157}
   - component: {fileID: 39557903341841412}
+  - component: {fileID: 7195108123365374512}
   m_Layer: 7
   m_Name: Part2
   m_TagString: Untagged
@@ -320,6 +321,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &7195108123365374512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570211880261001983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &1491766195670506052
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +353,7 @@ GameObject:
   - component: {fileID: 363372354824429390}
   - component: {fileID: 2964552091903365752}
   - component: {fileID: 7420536835502031569}
+  - component: {fileID: 598836846035790899}
   m_Layer: 7
   m_Name: Part4
   m_TagString: Untagged
@@ -534,6 +551,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &598836846035790899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491766195670506052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &2468883606718309357
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +689,7 @@ GameObject:
   - component: {fileID: 324044987659278913}
   - component: {fileID: 1630417235640092058}
   - component: {fileID: 2011907046000202914}
+  - component: {fileID: 4040704709078709899}
   m_Layer: 7
   m_Name: Part3
   m_TagString: Untagged
@@ -854,6 +887,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &4040704709078709899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930513077483805132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &4595956192569660600
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +919,7 @@ GameObject:
   - component: {fileID: 7269204391780964930}
   - component: {fileID: 2649298976941464500}
   - component: {fileID: 7484809096327866052}
+  - component: {fileID: 7920720405727508518}
   m_Layer: 7
   m_Name: Part5
   m_TagString: Untagged
@@ -1068,6 +1117,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &7920720405727508518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595956192569660600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &5200463920594811050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,6 +1361,7 @@ GameObject:
   - component: {fileID: 9132319739426900265}
   - component: {fileID: 524717092184604473}
   - component: {fileID: 6176824740452150207}
+  - component: {fileID: 7731233097225090410}
   m_Layer: 7
   m_Name: Part1
   m_TagString: Untagged
@@ -1494,6 +1559,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &7731233097225090410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955078335454456704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &6704892483781080500
 GameObject:
   m_ObjectHideFlags: 0

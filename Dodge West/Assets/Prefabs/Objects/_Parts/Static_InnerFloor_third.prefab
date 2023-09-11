@@ -573,6 +573,7 @@ GameObject:
   - component: {fileID: 461457677047894224}
   - component: {fileID: 8793729148553943695}
   - component: {fileID: 1184684276219662322}
+  - component: {fileID: 1166041890728753894}
   m_Layer: 6
   m_Name: Static_InnerFloor_third
   m_TagString: Untagged
@@ -733,6 +734,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObjs:
   - {fileID: 5222525761172442877, guid: 8cba2e131e926ac4dbaf95baacf48cf2, type: 3}
+--- !u!114 &1166041890728753894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217978856447315590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &7481250654903857199
 GameObject:
   m_ObjectHideFlags: 0

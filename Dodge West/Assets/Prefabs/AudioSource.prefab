@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1571577694694141435}
   m_Layer: 0
   m_Name: AudioSource
-  m_TagString: GameMusic
+  m_TagString: GameAudio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732689917233277447}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0c99f5d91386779478c352340f134681, type: 3}
@@ -146,33 +146,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - soundType: 0
-    name: PlayerDamage
+  - name: PlayerDamage
     clip: {fileID: 8300000, guid: 702d0cbb2f9389d4ba0c8a5244a13759, type: 3}
-  - soundType: 0
-    name: Death1
+  - name: Death1
     clip: {fileID: 8300000, guid: 3f5e720c8a652344c8d40a4a00931654, type: 3}
-  - soundType: 0
-    name: Death2
+  - name: Death2
     clip: {fileID: 8300000, guid: 8f8c4374d17f01140a30cb9a0579a6c4, type: 3}
-  - soundType: 0
-    name: GlassDamage
+  - name: GlassDamage
     clip: {fileID: 8300000, guid: 95d8306bfc001664fb53e07d40513d65, type: 3}
-  - soundType: 0
-    name: LoadItem
+  - name: LoadItem
     clip: {fileID: 8300000, guid: f6db62e90b4b1744cb004cba694b39b4, type: 3}
-  - soundType: 0
-    name: MetalDamage
+  - name: MetalDamage
     clip: {fileID: 8300000, guid: 9633c00a82ffd5a4c9c6b26b13de9271, type: 3}
-  - soundType: 0
-    name: LoadItem
-    clip: {fileID: 8300000, guid: f6db62e90b4b1744cb004cba694b39b4, type: 3}
-  - soundType: 0
-    name: ThrowItem
+  - name: ThrowItem
     clip: {fileID: 8300000, guid: 1dd364c4db9d43540b57637c38c96915, type: 3}
-  - soundType: 0
-    name: WoodDamage
+  - name: WoodDamage
     clip: {fileID: 8300000, guid: f51a8930a4fca7245bbfb1fa7b666560, type: 3}
+  musicVolume: 1
+  sfxVolume: 1
 --- !u!114 &4529128433478356733
 MonoBehaviour:
   m_ObjectHideFlags: 0

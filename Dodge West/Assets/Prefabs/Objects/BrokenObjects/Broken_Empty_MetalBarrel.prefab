@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 4206089393819656493}
   - component: {fileID: 8434565268741073100}
   - component: {fileID: 8940077224021514375}
+  - component: {fileID: 4594140160251348681}
   m_Layer: 7
   m_Name: Top
   m_TagString: Untagged
@@ -1056,10 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
 --- !u!114 &8940077224021514375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,8 +1071,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &4594140160251348681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387584874312404975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - MetalDamage
 --- !u!1 &3524816314749943968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,6 +3883,7 @@ GameObject:
   - component: {fileID: 6197968122077934125}
   - component: {fileID: 4138005815507299608}
   - component: {fileID: 4986455825443168620}
+  - component: {fileID: 1014107072669511435}
   m_Layer: 7
   m_Name: Bottom
   m_TagString: Untagged
@@ -4067,10 +4081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
 --- !u!114 &4986455825443168620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4084,5 +4095,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &1014107072669511435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100246414344885588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - MetalDamage

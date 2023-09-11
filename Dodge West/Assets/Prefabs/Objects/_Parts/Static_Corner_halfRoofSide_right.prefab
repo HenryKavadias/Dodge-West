@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 1095887014252815582}
   - component: {fileID: 2125799324582249497}
   - component: {fileID: 3349649328268109020}
+  - component: {fileID: -3997811668621534474}
   m_Layer: 6
   m_Name: Static_Corner_halfRoofSide_right
   m_TagString: Untagged
@@ -385,6 +386,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObjs:
   - {fileID: 1500626121412611793, guid: 716ea58471087814da629a5f3895b71d, type: 3}
+--- !u!114 &-3997811668621534474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500626121412611793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &4653799987506284011
 GameObject:
   m_ObjectHideFlags: 0

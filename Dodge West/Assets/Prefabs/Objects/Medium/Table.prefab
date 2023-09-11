@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 279694337523666}
   - component: {fileID: 3078282045622223358}
   - component: {fileID: 7097178410552325742}
+  - component: {fileID: 158812993959621431}
   m_Layer: 7
   m_Name: Table
   m_TagString: Untagged
@@ -81,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   loadable: 1
+  loadDistance: 1
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -120,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 279694337523666}
+  invincible: 1
+  invincibleTime: 0.2
 --- !u!114 &437499061178311022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  limitLayers: 0
+  useDefaultLayers: 1
+  limitedLayer:
+    serializedVersion: 2
+    m_Bits: 0
   minDamageVelocity: 15
   velocityThreshold: 0.4
 --- !u!114 &279694337523666
@@ -150,7 +159,19 @@ MonoBehaviour:
   _initial: 30
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 158812993959621431}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -191,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7097178410552325742
 MonoBehaviour:
@@ -205,11 +226,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 6704892483781080500, guid: b8c27f3027069224b863dc85f22a9527, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
   disableBeforeSpawn: 1
+--- !u!114 &158812993959621431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1001 &1069635118458825940
 PrefabInstance:
   m_ObjectHideFlags: 0

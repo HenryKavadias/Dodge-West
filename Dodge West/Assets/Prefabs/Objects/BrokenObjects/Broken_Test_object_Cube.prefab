@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 57499086354311346}
   - component: {fileID: 6579633396257243241}
   - component: {fileID: 5342270664782296147}
+  - component: {fileID: 1063031299078831323}
   m_Layer: 7
   m_Name: BrownCube (14)
   m_TagString: Untagged
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &5342270664782296147
 MonoBehaviour:
@@ -213,10 +214,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1063031299078831323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069734383687802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &34014619862994156
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +459,7 @@ GameObject:
   - component: {fileID: 7240795355795864131}
   - component: {fileID: 1950522265785111727}
   - component: {fileID: 1554284384385986617}
+  - component: {fileID: 6782720937028201540}
   m_Layer: 7
   m_Name: BrownCube
   m_TagString: Untagged
@@ -628,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1554284384385986617
 MonoBehaviour:
@@ -642,10 +656,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6782720937028201540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103975616646824698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &133398149150872260
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +901,7 @@ GameObject:
   - component: {fileID: 6714999732653768746}
   - component: {fileID: 6527551087972798403}
   - component: {fileID: 1584883357142584065}
+  - component: {fileID: 5135474357900807642}
   m_Layer: 7
   m_Name: RedCube (18)
   m_TagString: Untagged
@@ -1057,7 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1584883357142584065
 MonoBehaviour:
@@ -1071,10 +1098,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5135474357900807642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141167629029771588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &151271630305647127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1237,7 @@ GameObject:
   - component: {fileID: 8872092177006833742}
   - component: {fileID: 565473995203047355}
   - component: {fileID: 4472603804070360890}
+  - component: {fileID: 9068660975112504976}
   m_Layer: 7
   m_Name: PurpleCube (20)
   m_TagString: Untagged
@@ -1380,7 +1420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4472603804070360890
 MonoBehaviour:
@@ -1394,10 +1434,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &9068660975112504976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189757200266954033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &190469348446316674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1467,7 @@ GameObject:
   - component: {fileID: 2233067021160240370}
   - component: {fileID: 923380136834961445}
   - component: {fileID: 7903782325343517605}
+  - component: {fileID: 1472421882361144054}
   m_Layer: 7
   m_Name: BlueCube (9)
   m_TagString: Untagged
@@ -1597,7 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7903782325343517605
 MonoBehaviour:
@@ -1611,10 +1664,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1472421882361144054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190469348446316674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &196706638622520118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1803,7 @@ GameObject:
   - component: {fileID: 555501063342177995}
   - component: {fileID: 6316439278345991750}
   - component: {fileID: 6506760740266945487}
+  - component: {fileID: 9033919330859430811}
   m_Layer: 7
   m_Name: BlueCube
   m_TagString: Untagged
@@ -1920,7 +1986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6506760740266945487
 MonoBehaviour:
@@ -1934,10 +2000,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &9033919330859430811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234540547118719304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &235881509261071586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,6 +2245,7 @@ GameObject:
   - component: {fileID: 1500798086830462509}
   - component: {fileID: 2505132161037170859}
   - component: {fileID: 8494277235340795979}
+  - component: {fileID: 2659732014276332138}
   m_Layer: 7
   m_Name: RedCube (5)
   m_TagString: Untagged
@@ -2349,7 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8494277235340795979
 MonoBehaviour:
@@ -2363,10 +2442,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2659732014276332138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297317825367890458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &334047383234002310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2687,7 @@ GameObject:
   - component: {fileID: 8315008390026582196}
   - component: {fileID: 6229641225190116643}
   - component: {fileID: 7235014394773123970}
+  - component: {fileID: 2445241334589579770}
   m_Layer: 7
   m_Name: BrownCube (8)
   m_TagString: Untagged
@@ -2778,7 +2870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7235014394773123970
 MonoBehaviour:
@@ -2792,10 +2884,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2445241334589579770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386717555584802208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &424307572145856403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2917,7 @@ GameObject:
   - component: {fileID: 802380971701033880}
   - component: {fileID: 4097684087129737972}
   - component: {fileID: 6996059993555988958}
+  - component: {fileID: 5113867394867185853}
   m_Layer: 7
   m_Name: YellowCube (8)
   m_TagString: Untagged
@@ -2995,7 +3100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6996059993555988958
 MonoBehaviour:
@@ -3009,10 +3114,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5113867394867185853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424307572145856403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &460379972634444631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +3571,7 @@ GameObject:
   - component: {fileID: 6862085258471022944}
   - component: {fileID: 6651308238299739803}
   - component: {fileID: 4967833939383084154}
+  - component: {fileID: 8648969144920486136}
   m_Layer: 7
   m_Name: BlueCube (13)
   m_TagString: Untagged
@@ -3636,7 +3754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4967833939383084154
 MonoBehaviour:
@@ -3650,10 +3768,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8648969144920486136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616613170044875622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &627822401525941103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,6 +3801,7 @@ GameObject:
   - component: {fileID: 4410187986944422347}
   - component: {fileID: 5352742298409630562}
   - component: {fileID: 4203325057971130742}
+  - component: {fileID: 7791403065033622956}
   m_Layer: 7
   m_Name: YellowCube (22)
   m_TagString: Untagged
@@ -3853,7 +3984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4203325057971130742
 MonoBehaviour:
@@ -3867,10 +3998,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7791403065033622956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627822401525941103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &717876975569019199
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,6 +4031,7 @@ GameObject:
   - component: {fileID: 767501874585766497}
   - component: {fileID: 8813233689035200663}
   - component: {fileID: 4817840551922860236}
+  - component: {fileID: 8819179132758982992}
   m_Layer: 7
   m_Name: RedCube (6)
   m_TagString: Untagged
@@ -4070,7 +4214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4817840551922860236
 MonoBehaviour:
@@ -4084,10 +4228,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8819179132758982992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717876975569019199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &745711494576930458
 GameObject:
   m_ObjectHideFlags: 0
@@ -4211,6 +4367,7 @@ GameObject:
   - component: {fileID: 4360273859507279955}
   - component: {fileID: 8882431728401075305}
   - component: {fileID: 2577947626896619870}
+  - component: {fileID: 2019367116888443404}
   m_Layer: 7
   m_Name: PurpleCube (22)
   m_TagString: Untagged
@@ -4393,7 +4550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2577947626896619870
 MonoBehaviour:
@@ -4407,10 +4564,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2019367116888443404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831865153366049782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &834152496540616185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,6 +4597,7 @@ GameObject:
   - component: {fileID: 4947975240104686367}
   - component: {fileID: 4664135098720496286}
   - component: {fileID: 1079540704438632582}
+  - component: {fileID: 6063271979800880687}
   m_Layer: 7
   m_Name: RedCube (10)
   m_TagString: Untagged
@@ -4610,7 +4780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1079540704438632582
 MonoBehaviour:
@@ -4624,10 +4794,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6063271979800880687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834152496540616185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &859839995884230235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,6 +4827,7 @@ GameObject:
   - component: {fileID: 282683104063415136}
   - component: {fileID: 2983272149685651097}
   - component: {fileID: 3391183687089532538}
+  - component: {fileID: 1035264691977638969}
   m_Layer: 7
   m_Name: BrownCube (2)
   m_TagString: Untagged
@@ -4827,7 +5010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3391183687089532538
 MonoBehaviour:
@@ -4841,10 +5024,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1035264691977638969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859839995884230235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &968380398211746584
 GameObject:
   m_ObjectHideFlags: 0
@@ -5180,6 +5375,7 @@ GameObject:
   - component: {fileID: 8076635797895076784}
   - component: {fileID: 6600906450852359741}
   - component: {fileID: 8728580669431185808}
+  - component: {fileID: 6826831599703144439}
   m_Layer: 7
   m_Name: BlueCube (20)
   m_TagString: Untagged
@@ -5362,7 +5558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8728580669431185808
 MonoBehaviour:
@@ -5376,10 +5572,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6826831599703144439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044403871567684680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1044625544768478392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5821,6 +6029,7 @@ GameObject:
   - component: {fileID: 1945914153733976937}
   - component: {fileID: 6566814391826004929}
   - component: {fileID: 797906437252132125}
+  - component: {fileID: 7447759063904723076}
   m_Layer: 7
   m_Name: PurpleCube (18)
   m_TagString: Untagged
@@ -6003,7 +6212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &797906437252132125
 MonoBehaviour:
@@ -6017,10 +6226,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7447759063904723076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120349001500578500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1133590355182988998
 GameObject:
   m_ObjectHideFlags: 0
@@ -6038,6 +6259,7 @@ GameObject:
   - component: {fileID: 6947245885516825459}
   - component: {fileID: 4972436746031475456}
   - component: {fileID: 7515600119015425896}
+  - component: {fileID: 720154474261749730}
   m_Layer: 7
   m_Name: YellowCube
   m_TagString: Untagged
@@ -6220,7 +6442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7515600119015425896
 MonoBehaviour:
@@ -6234,10 +6456,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &720154474261749730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133590355182988998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1137015600097284577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6255,6 +6489,7 @@ GameObject:
   - component: {fileID: 8081375440766700719}
   - component: {fileID: 5659902050074767036}
   - component: {fileID: 1213574585329786726}
+  - component: {fileID: 8441765846388230599}
   m_Layer: 7
   m_Name: RedCube (15)
   m_TagString: Untagged
@@ -6437,7 +6672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1213574585329786726
 MonoBehaviour:
@@ -6451,10 +6686,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8441765846388230599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137015600097284577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1139740068105802411
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,6 +6825,7 @@ GameObject:
   - component: {fileID: 5422695906292314458}
   - component: {fileID: 3173288893346390495}
   - component: {fileID: 5211615878072436534}
+  - component: {fileID: 8985571187890667497}
   m_Layer: 7
   m_Name: PurpleCube (21)
   m_TagString: Untagged
@@ -6760,7 +7008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &5211615878072436534
 MonoBehaviour:
@@ -6774,10 +7022,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8985571187890667497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179182989464262354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1190676299643412399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6795,6 +7055,7 @@ GameObject:
   - component: {fileID: 7485382866740368934}
   - component: {fileID: 911747016570894230}
   - component: {fileID: 6581866217381948121}
+  - component: {fileID: 1917279162830238694}
   m_Layer: 7
   m_Name: BrownCube (13)
   m_TagString: Untagged
@@ -6977,7 +7238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6581866217381948121
 MonoBehaviour:
@@ -6991,10 +7252,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1917279162830238694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190676299643412399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1240527189982463781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,6 +7391,7 @@ GameObject:
   - component: {fileID: 5738513582209438638}
   - component: {fileID: 5134079367226701371}
   - component: {fileID: 8187130520688410154}
+  - component: {fileID: 3045288369245617314}
   m_Layer: 7
   m_Name: BrownCube (3)
   m_TagString: Untagged
@@ -7300,7 +7574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8187130520688410154
 MonoBehaviour:
@@ -7314,10 +7588,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3045288369245617314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246607954166592896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1267465450554519498
 GameObject:
   m_ObjectHideFlags: 0
@@ -7335,6 +7621,7 @@ GameObject:
   - component: {fileID: 636639509465163824}
   - component: {fileID: 4523832927215310875}
   - component: {fileID: 2302241805567273119}
+  - component: {fileID: 101512989162796535}
   m_Layer: 7
   m_Name: BrownCube (21)
   m_TagString: Untagged
@@ -7517,7 +7804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2302241805567273119
 MonoBehaviour:
@@ -7531,10 +7818,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &101512989162796535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267465450554519498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1297014217415244982
 GameObject:
   m_ObjectHideFlags: 0
@@ -7764,6 +8063,7 @@ GameObject:
   - component: {fileID: 2444370367905832605}
   - component: {fileID: 7819881804720195919}
   - component: {fileID: 2585211047063486807}
+  - component: {fileID: 163707383733517855}
   m_Layer: 7
   m_Name: BlueCube (18)
   m_TagString: Untagged
@@ -7946,7 +8246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2585211047063486807
 MonoBehaviour:
@@ -7960,10 +8260,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &163707383733517855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437896825657940117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1496891360590690535
 GameObject:
   m_ObjectHideFlags: 0
@@ -8299,6 +8611,7 @@ GameObject:
   - component: {fileID: 7216391285968917556}
   - component: {fileID: 9024873166564556167}
   - component: {fileID: 1029671167801398001}
+  - component: {fileID: 4223457140882771147}
   m_Layer: 7
   m_Name: BrownCube (1)
   m_TagString: Untagged
@@ -8481,7 +8794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1029671167801398001
 MonoBehaviour:
@@ -8495,10 +8808,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4223457140882771147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594169257426405245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1595550388022572958
 GameObject:
   m_ObjectHideFlags: 0
@@ -8728,6 +9053,7 @@ GameObject:
   - component: {fileID: 474877861571709359}
   - component: {fileID: 5359933102178400666}
   - component: {fileID: 2399592526268417415}
+  - component: {fileID: 2518956946295320585}
   m_Layer: 7
   m_Name: PurpleCube (2)
   m_TagString: Untagged
@@ -8910,7 +9236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2399592526268417415
 MonoBehaviour:
@@ -8924,10 +9250,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2518956946295320585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609272505384776517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1609329176142566457
 GameObject:
   m_ObjectHideFlags: 0
@@ -8945,6 +9283,7 @@ GameObject:
   - component: {fileID: 3757135426981146798}
   - component: {fileID: 5883486624949393541}
   - component: {fileID: 4924912981832711206}
+  - component: {fileID: 827534570754894271}
   m_Layer: 7
   m_Name: YellowCube (13)
   m_TagString: Untagged
@@ -9127,7 +9466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4924912981832711206
 MonoBehaviour:
@@ -9141,10 +9480,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &827534570754894271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609329176142566457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1628248799760319720
 GameObject:
   m_ObjectHideFlags: 0
@@ -9162,6 +9513,7 @@ GameObject:
   - component: {fileID: 4020082412949807798}
   - component: {fileID: 2453855854954687574}
   - component: {fileID: 4802935520407539736}
+  - component: {fileID: 4291909658889444720}
   m_Layer: 7
   m_Name: PurpleCube (5)
   m_TagString: Untagged
@@ -9344,7 +9696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4802935520407539736
 MonoBehaviour:
@@ -9358,10 +9710,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4291909658889444720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628248799760319720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1636176585241413694
 GameObject:
   m_ObjectHideFlags: 0
@@ -9379,6 +9743,7 @@ GameObject:
   - component: {fileID: 5569902237281471041}
   - component: {fileID: 1597823515896174482}
   - component: {fileID: 686375686788361919}
+  - component: {fileID: 8462769710036055031}
   m_Layer: 7
   m_Name: YellowCube (14)
   m_TagString: Untagged
@@ -9561,7 +9926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &686375686788361919
 MonoBehaviour:
@@ -9575,10 +9940,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8462769710036055031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636176585241413694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1640690950717710164
 GameObject:
   m_ObjectHideFlags: 0
@@ -9808,6 +10185,7 @@ GameObject:
   - component: {fileID: 8816549441331070726}
   - component: {fileID: 7321823988862661996}
   - component: {fileID: 2560898139654720778}
+  - component: {fileID: 2565125907674302586}
   m_Layer: 7
   m_Name: BlueCube (6)
   m_TagString: Untagged
@@ -9990,7 +10368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2560898139654720778
 MonoBehaviour:
@@ -10004,10 +10382,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2565125907674302586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736963129412643818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1742145427498534034
 GameObject:
   m_ObjectHideFlags: 0
@@ -10025,6 +10415,7 @@ GameObject:
   - component: {fileID: 8701887063395562819}
   - component: {fileID: 5269089116538280188}
   - component: {fileID: 1982830465090255763}
+  - component: {fileID: 5538521584872960359}
   m_Layer: 7
   m_Name: BrownCube (7)
   m_TagString: Untagged
@@ -10207,7 +10598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1982830465090255763
 MonoBehaviour:
@@ -10221,10 +10612,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5538521584872960359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742145427498534034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1745620655878052862
 GameObject:
   m_ObjectHideFlags: 0
@@ -10242,6 +10645,7 @@ GameObject:
   - component: {fileID: 8088745068336144451}
   - component: {fileID: 330894208156240637}
   - component: {fileID: 9583789748631640}
+  - component: {fileID: 730732381490102625}
   m_Layer: 7
   m_Name: RedCube (2)
   m_TagString: Untagged
@@ -10424,7 +10828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &9583789748631640
 MonoBehaviour:
@@ -10438,10 +10842,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &730732381490102625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745620655878052862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1748853979089225736
 GameObject:
   m_ObjectHideFlags: 0
@@ -10565,6 +10981,7 @@ GameObject:
   - component: {fileID: 3159710178511144952}
   - component: {fileID: 3199400969408010465}
   - component: {fileID: 7275996085337781379}
+  - component: {fileID: 5708625603091305122}
   m_Layer: 7
   m_Name: RedCube (20)
   m_TagString: Untagged
@@ -10747,7 +11164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7275996085337781379
 MonoBehaviour:
@@ -10761,10 +11178,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5708625603091305122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884723898957119731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1890560965426748296
 GameObject:
   m_ObjectHideFlags: 0
@@ -10888,6 +11317,7 @@ GameObject:
   - component: {fileID: 1904269901996517105}
   - component: {fileID: 997230468282092428}
   - component: {fileID: 4440592154449154466}
+  - component: {fileID: 7880300550269377682}
   m_Layer: 7
   m_Name: YellowCube (20)
   m_TagString: Untagged
@@ -11070,7 +11500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4440592154449154466
 MonoBehaviour:
@@ -11084,10 +11514,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7880300550269377682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935880700904828859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &1990633809735799785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11211,6 +11653,7 @@ GameObject:
   - component: {fileID: 2937213865722647689}
   - component: {fileID: 1807273741673015539}
   - component: {fileID: 4080082097285128906}
+  - component: {fileID: 3102996795845012883}
   m_Layer: 7
   m_Name: PurpleCube (16)
   m_TagString: Untagged
@@ -11393,7 +11836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4080082097285128906
 MonoBehaviour:
@@ -11407,10 +11850,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3102996795845012883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008013939023370784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2063551514049240266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11640,6 +12095,7 @@ GameObject:
   - component: {fileID: 2644920468233317418}
   - component: {fileID: 8733668105495253022}
   - component: {fileID: 8622174896485759233}
+  - component: {fileID: 8799422489278379075}
   m_Layer: 7
   m_Name: PurpleCube (8)
   m_TagString: Untagged
@@ -11822,7 +12278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8622174896485759233
 MonoBehaviour:
@@ -11836,10 +12292,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8799422489278379075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093808187354405447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2179555892937093347
 GameObject:
   m_ObjectHideFlags: 0
@@ -11963,6 +12431,7 @@ GameObject:
   - component: {fileID: 4077312775415136304}
   - component: {fileID: 634512730224600807}
   - component: {fileID: 8553430274839065826}
+  - component: {fileID: 9097042280721325464}
   m_Layer: 7
   m_Name: YellowCube (21)
   m_TagString: Untagged
@@ -12145,7 +12614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8553430274839065826
 MonoBehaviour:
@@ -12159,10 +12628,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &9097042280721325464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224672917773142296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2246513862319819208
 GameObject:
   m_ObjectHideFlags: 0
@@ -12180,6 +12661,7 @@ GameObject:
   - component: {fileID: 2327857772008964038}
   - component: {fileID: 470450053395985744}
   - component: {fileID: 7824600790046770541}
+  - component: {fileID: 7952124946972850882}
   m_Layer: 7
   m_Name: YellowCube (11)
   m_TagString: Untagged
@@ -12362,7 +12844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7824600790046770541
 MonoBehaviour:
@@ -12376,10 +12858,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7952124946972850882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246513862319819208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2290075903541014833
 GameObject:
   m_ObjectHideFlags: 0
@@ -12503,6 +12997,7 @@ GameObject:
   - component: {fileID: 4410790901108475366}
   - component: {fileID: 4951141034697065211}
   - component: {fileID: 7094427624331605579}
+  - component: {fileID: 8720520461836483777}
   m_Layer: 7
   m_Name: BlueCube (23)
   m_TagString: Untagged
@@ -12685,7 +13180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7094427624331605579
 MonoBehaviour:
@@ -12699,10 +13194,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8720520461836483777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328504044104324548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2333266130410421927
 GameObject:
   m_ObjectHideFlags: 0
@@ -12932,6 +13439,7 @@ GameObject:
   - component: {fileID: 7161855876549627476}
   - component: {fileID: 5575966811282026502}
   - component: {fileID: 7700490196166371945}
+  - component: {fileID: 3206867018044622984}
   m_Layer: 7
   m_Name: YellowCube (23)
   m_TagString: Untagged
@@ -13114,7 +13622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7700490196166371945
 MonoBehaviour:
@@ -13128,10 +13636,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3206867018044622984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2460170386701298336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2465181774953831446
 GameObject:
   m_ObjectHideFlags: 0
@@ -13149,6 +13669,7 @@ GameObject:
   - component: {fileID: 8505236815250532891}
   - component: {fileID: 5993277228327294179}
   - component: {fileID: 1839628458975856783}
+  - component: {fileID: 2721160965323043068}
   m_Layer: 7
   m_Name: BlueCube (15)
   m_TagString: Untagged
@@ -13331,7 +13852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1839628458975856783
 MonoBehaviour:
@@ -13345,10 +13866,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2721160965323043068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465181774953831446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2610211179618912765
 GameObject:
   m_ObjectHideFlags: 0
@@ -13472,6 +14005,7 @@ GameObject:
   - component: {fileID: 398418620984176048}
   - component: {fileID: 4384354185962111379}
   - component: {fileID: 2396326747848018894}
+  - component: {fileID: 6159612541770068459}
   m_Layer: 7
   m_Name: BrownCube (11)
   m_TagString: Untagged
@@ -13654,7 +14188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2396326747848018894
 MonoBehaviour:
@@ -13668,10 +14202,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6159612541770068459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704961523233246577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2783734133578294048
 GameObject:
   m_ObjectHideFlags: 0
@@ -13689,6 +14235,7 @@ GameObject:
   - component: {fileID: 5070686290161473696}
   - component: {fileID: 4957634234669233849}
   - component: {fileID: 7510196183934457756}
+  - component: {fileID: 5603675402834865492}
   m_Layer: 7
   m_Name: BrownCube (5)
   m_TagString: Untagged
@@ -13871,7 +14418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7510196183934457756
 MonoBehaviour:
@@ -13885,10 +14432,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5603675402834865492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783734133578294048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &2797593674178378924
 GameObject:
   m_ObjectHideFlags: 0
@@ -14224,6 +14783,7 @@ GameObject:
   - component: {fileID: 6222186273132058101}
   - component: {fileID: 3158560448081208648}
   - component: {fileID: 4509201229452524090}
+  - component: {fileID: 2744766497883533139}
   m_Layer: 7
   m_Name: YellowCube (12)
   m_TagString: Untagged
@@ -14406,7 +14966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4509201229452524090
 MonoBehaviour:
@@ -14420,10 +14980,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2744766497883533139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072492841665741118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &3103034947787339123
 GameObject:
   m_ObjectHideFlags: 0
@@ -14547,6 +15119,7 @@ GameObject:
   - component: {fileID: 8006176817969149347}
   - component: {fileID: 8368797658565632918}
   - component: {fileID: 4719282033074789920}
+  - component: {fileID: 9083715052089005082}
   m_Layer: 7
   m_Name: PurpleCube (13)
   m_TagString: Untagged
@@ -14729,7 +15302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4719282033074789920
 MonoBehaviour:
@@ -14743,10 +15316,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &9083715052089005082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125763775242696634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &3387298782597523026
 GameObject:
   m_ObjectHideFlags: 0
@@ -14976,6 +15561,7 @@ GameObject:
   - component: {fileID: 7969332765562155430}
   - component: {fileID: 6336309115756211222}
   - component: {fileID: 7460436690638404978}
+  - component: {fileID: 5421647059108317025}
   m_Layer: 7
   m_Name: RedCube (17)
   m_TagString: Untagged
@@ -15158,7 +15744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7460436690638404978
 MonoBehaviour:
@@ -15172,10 +15758,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5421647059108317025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601404267823341451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &3625795251690890939
 GameObject:
   m_ObjectHideFlags: 0
@@ -15193,6 +15791,7 @@ GameObject:
   - component: {fileID: 208514118092119430}
   - component: {fileID: 3528857799256790523}
   - component: {fileID: 7458753591003796804}
+  - component: {fileID: 5788376957422648584}
   m_Layer: 7
   m_Name: PurpleCube (17)
   m_TagString: Untagged
@@ -15375,7 +15974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7458753591003796804
 MonoBehaviour:
@@ -15389,10 +15988,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5788376957422648584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625795251690890939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &3639609548133231579
 GameObject:
   m_ObjectHideFlags: 0
@@ -15622,6 +16233,7 @@ GameObject:
   - component: {fileID: 2998393223800774314}
   - component: {fileID: 8705037816372743532}
   - component: {fileID: 1953950796146982434}
+  - component: {fileID: 1340844671854049190}
   m_Layer: 7
   m_Name: PurpleCube (7)
   m_TagString: Untagged
@@ -15804,7 +16416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1953950796146982434
 MonoBehaviour:
@@ -15818,10 +16430,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1340844671854049190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720364769213888319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &3764119284811368187
 GameObject:
   m_ObjectHideFlags: 0
@@ -15945,6 +16569,7 @@ GameObject:
   - component: {fileID: 8379798803418961743}
   - component: {fileID: 5833785263401923107}
   - component: {fileID: 8982844315554116666}
+  - component: {fileID: 1761456156963207595}
   m_Layer: 7
   m_Name: BrownCube (17)
   m_TagString: Untagged
@@ -16127,7 +16752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8982844315554116666
 MonoBehaviour:
@@ -16141,10 +16766,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1761456156963207595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804616934136881679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &3849164438193087538
 GameObject:
   m_ObjectHideFlags: 0
@@ -16586,6 +17223,7 @@ GameObject:
   - component: {fileID: 997788950444622708}
   - component: {fileID: 1195276148807162106}
   - component: {fileID: 6478462965800661908}
+  - component: {fileID: 1439126659639773390}
   m_Layer: 7
   m_Name: RedCube (11)
   m_TagString: Untagged
@@ -16768,7 +17406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6478462965800661908
 MonoBehaviour:
@@ -16782,10 +17420,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1439126659639773390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083730157596864210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4114171345360454217
 GameObject:
   m_ObjectHideFlags: 0
@@ -16803,6 +17453,7 @@ GameObject:
   - component: {fileID: 4713509859743894126}
   - component: {fileID: 5824445510375733762}
   - component: {fileID: 1474684230842797284}
+  - component: {fileID: 7003823964507172281}
   m_Layer: 7
   m_Name: RedCube (21)
   m_TagString: Untagged
@@ -16985,7 +17636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1474684230842797284
 MonoBehaviour:
@@ -16999,10 +17650,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7003823964507172281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114171345360454217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4182270520631835236
 GameObject:
   m_ObjectHideFlags: 0
@@ -17020,6 +17683,7 @@ GameObject:
   - component: {fileID: 2140593786970321491}
   - component: {fileID: 4843129768128059390}
   - component: {fileID: 882479875915701691}
+  - component: {fileID: 2391885369682598402}
   m_Layer: 7
   m_Name: PurpleCube (11)
   m_TagString: Untagged
@@ -17202,7 +17866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &882479875915701691
 MonoBehaviour:
@@ -17216,10 +17880,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2391885369682598402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182270520631835236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4187749884523593118
 GameObject:
   m_ObjectHideFlags: 0
@@ -17343,6 +18019,7 @@ GameObject:
   - component: {fileID: 1556970267445033890}
   - component: {fileID: 97649961156361142}
   - component: {fileID: 79579021206841816}
+  - component: {fileID: 1690250277954951237}
   m_Layer: 7
   m_Name: BlueCube (7)
   m_TagString: Untagged
@@ -17525,7 +18202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &79579021206841816
 MonoBehaviour:
@@ -17539,10 +18216,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1690250277954951237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204543492745039569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4256756577621601669
 GameObject:
   m_ObjectHideFlags: 0
@@ -17666,6 +18355,7 @@ GameObject:
   - component: {fileID: 3915238982928461377}
   - component: {fileID: 8914316555959375011}
   - component: {fileID: 7949238498497814945}
+  - component: {fileID: 1307489748752761738}
   m_Layer: 7
   m_Name: YellowCube (10)
   m_TagString: Untagged
@@ -17848,7 +18538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7949238498497814945
 MonoBehaviour:
@@ -17862,10 +18552,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1307489748752761738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293134093412457801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4311336883588004753
 GameObject:
   m_ObjectHideFlags: 0
@@ -17883,6 +18585,7 @@ GameObject:
   - component: {fileID: 7825462721368952003}
   - component: {fileID: 4836609193771602082}
   - component: {fileID: 1268371276982913552}
+  - component: {fileID: 2410360046984478568}
   m_Layer: 7
   m_Name: PurpleCube (23)
   m_TagString: Untagged
@@ -18065,7 +18768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1268371276982913552
 MonoBehaviour:
@@ -18079,10 +18782,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2410360046984478568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311336883588004753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4314833123074601834
 GameObject:
   m_ObjectHideFlags: 0
@@ -18100,6 +18815,7 @@ GameObject:
   - component: {fileID: 2525059375624643273}
   - component: {fileID: 7073930878569557423}
   - component: {fileID: 7724126640387939780}
+  - component: {fileID: 1008881144854653015}
   m_Layer: 7
   m_Name: BrownCube (18)
   m_TagString: Untagged
@@ -18282,7 +18998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7724126640387939780
 MonoBehaviour:
@@ -18296,10 +19012,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1008881144854653015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4314833123074601834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4389882782762083642
 GameObject:
   m_ObjectHideFlags: 0
@@ -18635,6 +19363,7 @@ GameObject:
   - component: {fileID: 4932107759858397903}
   - component: {fileID: 6886881367182770794}
   - component: {fileID: 3126709195781786139}
+  - component: {fileID: 8166818196521137655}
   m_Layer: 7
   m_Name: BrownCube (15)
   m_TagString: Untagged
@@ -18817,7 +19546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3126709195781786139
 MonoBehaviour:
@@ -18831,10 +19560,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8166818196521137655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4425781512561255708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4471730838575553958
 GameObject:
   m_ObjectHideFlags: 0
@@ -18958,6 +19699,7 @@ GameObject:
   - component: {fileID: 6073248197497936267}
   - component: {fileID: 8887063498705566271}
   - component: {fileID: 607927502820123472}
+  - component: {fileID: 9064575258282481650}
   m_Layer: 7
   m_Name: YellowCube (1)
   m_TagString: Untagged
@@ -19140,7 +19882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &607927502820123472
 MonoBehaviour:
@@ -19154,10 +19896,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &9064575258282481650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523541724492236188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4523626519470117501
 GameObject:
   m_ObjectHideFlags: 0
@@ -19175,6 +19929,7 @@ GameObject:
   - component: {fileID: 8492373265288238408}
   - component: {fileID: 1733160375027442271}
   - component: {fileID: 1076429286830819320}
+  - component: {fileID: 5921282812089645582}
   m_Layer: 7
   m_Name: YellowCube (19)
   m_TagString: Untagged
@@ -19357,7 +20112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1076429286830819320
 MonoBehaviour:
@@ -19371,10 +20126,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5921282812089645582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523626519470117501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4589580002393902380
 GameObject:
   m_ObjectHideFlags: 0
@@ -19392,6 +20159,7 @@ GameObject:
   - component: {fileID: 4639939045431144716}
   - component: {fileID: 3465781623848342827}
   - component: {fileID: 6662942123294291740}
+  - component: {fileID: 88532818767978793}
   m_Layer: 7
   m_Name: BrownCube (16)
   m_TagString: Untagged
@@ -19574,7 +20342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6662942123294291740
 MonoBehaviour:
@@ -19588,10 +20356,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &88532818767978793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589580002393902380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4642662850674352454
 GameObject:
   m_ObjectHideFlags: 0
@@ -19821,6 +20601,7 @@ GameObject:
   - component: {fileID: 5824159465672627193}
   - component: {fileID: 4195795845679187704}
   - component: {fileID: 3407591420112439004}
+  - component: {fileID: 6235793275122436287}
   m_Layer: 7
   m_Name: BlueCube (4)
   m_TagString: Untagged
@@ -20003,7 +20784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3407591420112439004
 MonoBehaviour:
@@ -20017,10 +20798,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6235793275122436287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697095924598048867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4758304598599395999
 GameObject:
   m_ObjectHideFlags: 0
@@ -20356,6 +21149,7 @@ GameObject:
   - component: {fileID: 8714270309979897020}
   - component: {fileID: 2156038683888979482}
   - component: {fileID: 84621677225184818}
+  - component: {fileID: 520113837348457924}
   m_Layer: 7
   m_Name: RedCube (14)
   m_TagString: Untagged
@@ -20538,7 +21332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &84621677225184818
 MonoBehaviour:
@@ -20552,10 +21346,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &520113837348457924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4877568069413631442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &4911720206450293760
 GameObject:
   m_ObjectHideFlags: 0
@@ -20679,6 +21485,7 @@ GameObject:
   - component: {fileID: 1639574735656542010}
   - component: {fileID: 5377394885125356321}
   - component: {fileID: 6427707647450292383}
+  - component: {fileID: 4847459461776495761}
   m_Layer: 7
   m_Name: RedCube (9)
   m_TagString: Untagged
@@ -20861,7 +21668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6427707647450292383
 MonoBehaviour:
@@ -20875,10 +21682,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4847459461776495761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987134246705618324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5048648712479640773
 GameObject:
   m_ObjectHideFlags: 0
@@ -20896,6 +21715,7 @@ GameObject:
   - component: {fileID: 7124907127065860477}
   - component: {fileID: 1297905015951414029}
   - component: {fileID: 2843232320541861401}
+  - component: {fileID: 6932994087204605769}
   m_Layer: 7
   m_Name: BlueCube (8)
   m_TagString: Untagged
@@ -21078,7 +21898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2843232320541861401
 MonoBehaviour:
@@ -21092,10 +21912,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6932994087204605769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048648712479640773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5053395819246768796
 GameObject:
   m_ObjectHideFlags: 0
@@ -21113,6 +21945,7 @@ GameObject:
   - component: {fileID: 3654670850225749382}
   - component: {fileID: 677438781320985130}
   - component: {fileID: 8138413087161332224}
+  - component: {fileID: 460328820714727221}
   m_Layer: 7
   m_Name: YellowCube (16)
   m_TagString: Untagged
@@ -21295,7 +22128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8138413087161332224
 MonoBehaviour:
@@ -21309,10 +22142,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &460328820714727221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053395819246768796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5096030443140176115
 GameObject:
   m_ObjectHideFlags: 0
@@ -21542,6 +22387,7 @@ GameObject:
   - component: {fileID: 8111795518129652959}
   - component: {fileID: 7463917351832404048}
   - component: {fileID: 5995829849980952190}
+  - component: {fileID: 6955040498915805530}
   m_Layer: 7
   m_Name: YellowCube (15)
   m_TagString: Untagged
@@ -21724,7 +22570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &5995829849980952190
 MonoBehaviour:
@@ -21738,10 +22584,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6955040498915805530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140063273401558280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5205311293760886201
 GameObject:
   m_ObjectHideFlags: 0
@@ -22077,6 +22935,7 @@ GameObject:
   - component: {fileID: 8323946271959894383}
   - component: {fileID: 5951964007448007714}
   - component: {fileID: 919537553398639182}
+  - component: {fileID: 5499028504440594463}
   m_Layer: 7
   m_Name: PurpleCube (12)
   m_TagString: Untagged
@@ -22259,7 +23118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &919537553398639182
 MonoBehaviour:
@@ -22273,10 +23132,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5499028504440594463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400419123925378365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5439389644415939083
 GameObject:
   m_ObjectHideFlags: 0
@@ -22294,6 +23165,7 @@ GameObject:
   - component: {fileID: 6145461511755328872}
   - component: {fileID: 7019741058269196811}
   - component: {fileID: 8974982360359915955}
+  - component: {fileID: 2925868706818359270}
   m_Layer: 7
   m_Name: BrownCube (22)
   m_TagString: Untagged
@@ -22476,7 +23348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8974982360359915955
 MonoBehaviour:
@@ -22490,10 +23362,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2925868706818359270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439389644415939083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5445798523758404281
 GameObject:
   m_ObjectHideFlags: 0
@@ -22511,6 +23395,7 @@ GameObject:
   - component: {fileID: 6476399961500136509}
   - component: {fileID: 4477682033719973515}
   - component: {fileID: 2478071658272164134}
+  - component: {fileID: 7003763423883977764}
   m_Layer: 7
   m_Name: PurpleCube (1)
   m_TagString: Untagged
@@ -22693,7 +23578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2478071658272164134
 MonoBehaviour:
@@ -22707,10 +23592,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7003763423883977764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445798523758404281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5450636236563916017
 GameObject:
   m_ObjectHideFlags: 0
@@ -22834,6 +23731,7 @@ GameObject:
   - component: {fileID: 6249152132828174794}
   - component: {fileID: 787744829473944194}
   - component: {fileID: 3730021692924013068}
+  - component: {fileID: 4035708996760018438}
   m_Layer: 7
   m_Name: YellowCube (17)
   m_TagString: Untagged
@@ -23016,7 +23914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3730021692924013068
 MonoBehaviour:
@@ -23030,10 +23928,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4035708996760018438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487308490190409915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5494602926363604914
 GameObject:
   m_ObjectHideFlags: 0
@@ -23051,6 +23961,7 @@ GameObject:
   - component: {fileID: 2259924383727732096}
   - component: {fileID: 3981616208007097793}
   - component: {fileID: 575345411421943072}
+  - component: {fileID: 2330442784761256050}
   m_Layer: 7
   m_Name: RedCube (3)
   m_TagString: Untagged
@@ -23233,7 +24144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &575345411421943072
 MonoBehaviour:
@@ -23247,10 +24158,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2330442784761256050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5494602926363604914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5529678213372102366
 GameObject:
   m_ObjectHideFlags: 0
@@ -23268,6 +24191,7 @@ GameObject:
   - component: {fileID: 5287121501718129983}
   - component: {fileID: 5896924410394140838}
   - component: {fileID: 4049696570082131839}
+  - component: {fileID: 7696497600411879063}
   m_Layer: 7
   m_Name: YellowCube (18)
   m_TagString: Untagged
@@ -23450,7 +24374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4049696570082131839
 MonoBehaviour:
@@ -23464,10 +24388,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7696497600411879063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529678213372102366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5546169819064706366
 GameObject:
   m_ObjectHideFlags: 0
@@ -23485,6 +24421,7 @@ GameObject:
   - component: {fileID: 8559595098160003368}
   - component: {fileID: 7041030831825183335}
   - component: {fileID: 3972459755111507436}
+  - component: {fileID: 8582615429770161900}
   m_Layer: 7
   m_Name: PurpleCube (9)
   m_TagString: Untagged
@@ -23667,7 +24604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3972459755111507436
 MonoBehaviour:
@@ -23681,10 +24618,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8582615429770161900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546169819064706366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5609486690245728115
 GameObject:
   m_ObjectHideFlags: 0
@@ -23914,6 +24863,7 @@ GameObject:
   - component: {fileID: 9025158356452543592}
   - component: {fileID: 5387600600062951652}
   - component: {fileID: 8448253693801765114}
+  - component: {fileID: 6078976818523094999}
   m_Layer: 7
   m_Name: BlueCube (19)
   m_TagString: Untagged
@@ -24096,7 +25046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8448253693801765114
 MonoBehaviour:
@@ -24110,10 +25060,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6078976818523094999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651317049709110897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5775972352031453313
 GameObject:
   m_ObjectHideFlags: 0
@@ -24343,6 +25305,7 @@ GameObject:
   - component: {fileID: 1775931089075143209}
   - component: {fileID: 5770346604766754546}
   - component: {fileID: 3055868370151644089}
+  - component: {fileID: 8759432165382747845}
   m_Layer: 7
   m_Name: PurpleCube (6)
   m_TagString: Untagged
@@ -24525,7 +25488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3055868370151644089
 MonoBehaviour:
@@ -24539,10 +25502,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8759432165382747845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883402004260963607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &5884344160561361754
 GameObject:
   m_ObjectHideFlags: 0
@@ -24666,6 +25641,7 @@ GameObject:
   - component: {fileID: 931634117257433539}
   - component: {fileID: 8171515149396134080}
   - component: {fileID: 4492077331928433416}
+  - component: {fileID: 8648148415919960351}
   m_Layer: 7
   m_Name: BrownCube (23)
   m_TagString: Untagged
@@ -24848,7 +25824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4492077331928433416
 MonoBehaviour:
@@ -24862,10 +25838,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8648148415919960351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5902999257503658293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6020515792806586680
 GameObject:
   m_ObjectHideFlags: 0
@@ -24989,6 +25977,7 @@ GameObject:
   - component: {fileID: 8754215186358476912}
   - component: {fileID: 8910271112467490203}
   - component: {fileID: 3396705564863826306}
+  - component: {fileID: 9068804017346594432}
   m_Layer: 7
   m_Name: BrownCube (4)
   m_TagString: Untagged
@@ -25171,7 +26160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3396705564863826306
 MonoBehaviour:
@@ -25185,10 +26174,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &9068804017346594432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027674690543315555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6040171971022102645
 GameObject:
   m_ObjectHideFlags: 0
@@ -25418,6 +26419,7 @@ GameObject:
   - component: {fileID: 2347026897656475194}
   - component: {fileID: 5047593388565010660}
   - component: {fileID: 2459937412819007051}
+  - component: {fileID: 6126082605751491062}
   m_Layer: 7
   m_Name: PurpleCube (15)
   m_TagString: Untagged
@@ -25600,7 +26602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2459937412819007051
 MonoBehaviour:
@@ -25614,10 +26616,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6126082605751491062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041647902467160010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6087005320677336222
 GameObject:
   m_ObjectHideFlags: 0
@@ -25847,6 +26861,7 @@ GameObject:
   - component: {fileID: 3105626610700768923}
   - component: {fileID: 1205411700275209399}
   - component: {fileID: 7768214387240880959}
+  - component: {fileID: 5554748381314443203}
   m_Layer: 7
   m_Name: BlueCube (11)
   m_TagString: Untagged
@@ -26029,7 +27044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7768214387240880959
 MonoBehaviour:
@@ -26043,10 +27058,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5554748381314443203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195267320594320044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6262037746323001531
 GameObject:
   m_ObjectHideFlags: 0
@@ -26170,6 +27197,7 @@ GameObject:
   - component: {fileID: 3301016075205586370}
   - component: {fileID: 813773675000634869}
   - component: {fileID: 6404645282598448528}
+  - component: {fileID: 1965306489951381514}
   m_Layer: 7
   m_Name: BlueCube (2)
   m_TagString: Untagged
@@ -26352,7 +27380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6404645282598448528
 MonoBehaviour:
@@ -26366,10 +27394,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1965306489951381514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281529237443185567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6316875204403511405
 GameObject:
   m_ObjectHideFlags: 0
@@ -26493,6 +27533,7 @@ GameObject:
   - component: {fileID: 4967550288579036680}
   - component: {fileID: 4700800645292208664}
   - component: {fileID: 2909899792345746867}
+  - component: {fileID: 2497333371447801180}
   m_Layer: 7
   m_Name: BlueCube (3)
   m_TagString: Untagged
@@ -26675,7 +27716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2909899792345746867
 MonoBehaviour:
@@ -26689,10 +27730,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2497333371447801180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358705982243609293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6400326614507294883
 GameObject:
   m_ObjectHideFlags: 0
@@ -26710,6 +27763,7 @@ GameObject:
   - component: {fileID: 6570155016164718314}
   - component: {fileID: 4292920381976765411}
   - component: {fileID: 311549229610186457}
+  - component: {fileID: 8222428993554781219}
   m_Layer: 7
   m_Name: BlueCube (17)
   m_TagString: Untagged
@@ -26892,7 +27946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &311549229610186457
 MonoBehaviour:
@@ -26906,10 +27960,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8222428993554781219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6400326614507294883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6401745312062089167
 GameObject:
   m_ObjectHideFlags: 0
@@ -26927,6 +27993,7 @@ GameObject:
   - component: {fileID: 6193691091141332537}
   - component: {fileID: 7380993882194886228}
   - component: {fileID: 1424754241565679848}
+  - component: {fileID: 5633645170130892424}
   m_Layer: 7
   m_Name: YellowCube (9)
   m_TagString: Untagged
@@ -27109,7 +28176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1424754241565679848
 MonoBehaviour:
@@ -27123,10 +28190,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5633645170130892424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401745312062089167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6522868713600128199
 GameObject:
   m_ObjectHideFlags: 0
@@ -27144,6 +28223,7 @@ GameObject:
   - component: {fileID: 3981618486380509382}
   - component: {fileID: 8933604853204447332}
   - component: {fileID: 2695696352737461615}
+  - component: {fileID: 6168346718935684257}
   m_Layer: 7
   m_Name: RedCube (22)
   m_TagString: Untagged
@@ -27326,7 +28406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2695696352737461615
 MonoBehaviour:
@@ -27340,10 +28420,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6168346718935684257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522868713600128199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6558669107426457213
 GameObject:
   m_ObjectHideFlags: 0
@@ -27361,6 +28453,7 @@ GameObject:
   - component: {fileID: 5714390058534567422}
   - component: {fileID: 1699011500873444840}
   - component: {fileID: 8181033395933666117}
+  - component: {fileID: 4484049968429818249}
   m_Layer: 7
   m_Name: BrownCube (10)
   m_TagString: Untagged
@@ -27543,7 +28636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8181033395933666117
 MonoBehaviour:
@@ -27557,10 +28650,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4484049968429818249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558669107426457213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6564973660548250039
 GameObject:
   m_ObjectHideFlags: 0
@@ -28173,6 +29278,7 @@ GameObject:
   - component: {fileID: 3367799044718719039}
   - component: {fileID: 4288748113346807972}
   - component: {fileID: 8882842743249108790}
+  - component: {fileID: 3963533919004646959}
   m_Layer: 7
   m_Name: RedCube (24)
   m_TagString: Untagged
@@ -28355,7 +29461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8882842743249108790
 MonoBehaviour:
@@ -28369,10 +29475,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3963533919004646959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731717228557691875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6755308559685598174
 GameObject:
   m_ObjectHideFlags: 0
@@ -28496,6 +29614,7 @@ GameObject:
   - component: {fileID: 8904441524821142295}
   - component: {fileID: 7682707714929698311}
   - component: {fileID: 2656162159995731409}
+  - component: {fileID: 7435807387423759331}
   m_Layer: 7
   m_Name: RedCube
   m_TagString: Untagged
@@ -28678,7 +29797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2656162159995731409
 MonoBehaviour:
@@ -28692,10 +29811,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7435807387423759331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788751303460223025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6791865277401242780
 GameObject:
   m_ObjectHideFlags: 0
@@ -28713,6 +29844,7 @@ GameObject:
   - component: {fileID: 6024186683933472373}
   - component: {fileID: 2056738144639501302}
   - component: {fileID: 652242958693525833}
+  - component: {fileID: 1928105200618856043}
   m_Layer: 7
   m_Name: RedCube (13)
   m_TagString: Untagged
@@ -28895,7 +30027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &652242958693525833
 MonoBehaviour:
@@ -28909,10 +30041,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1928105200618856043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791865277401242780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6798874894064797908
 GameObject:
   m_ObjectHideFlags: 0
@@ -29036,6 +30180,7 @@ GameObject:
   - component: {fileID: 1666315666214148342}
   - component: {fileID: 6054278147874463332}
   - component: {fileID: 8037467479375555705}
+  - component: {fileID: 2208423690219368768}
   m_Layer: 7
   m_Name: YellowCube (2)
   m_TagString: Untagged
@@ -29218,7 +30363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8037467479375555705
 MonoBehaviour:
@@ -29232,10 +30377,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2208423690219368768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877692396564870712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6921847217404725006
 GameObject:
   m_ObjectHideFlags: 0
@@ -29253,6 +30410,7 @@ GameObject:
   - component: {fileID: 411443498363220835}
   - component: {fileID: 4964214272997008194}
   - component: {fileID: 4763044226008172087}
+  - component: {fileID: 8944445861111470932}
   m_Layer: 7
   m_Name: RedCube (4)
   m_TagString: Untagged
@@ -29435,7 +30593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4763044226008172087
 MonoBehaviour:
@@ -29449,10 +30607,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8944445861111470932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921847217404725006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6923228262518193402
 GameObject:
   m_ObjectHideFlags: 0
@@ -29470,6 +30640,7 @@ GameObject:
   - component: {fileID: 5076598525008171506}
   - component: {fileID: 6013222562906929225}
   - component: {fileID: 1935856322889430137}
+  - component: {fileID: 2736649134548170972}
   m_Layer: 7
   m_Name: BlueCube (24)
   m_TagString: Untagged
@@ -29652,7 +30823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1935856322889430137
 MonoBehaviour:
@@ -29666,10 +30837,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2736649134548170972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923228262518193402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6951705222932718326
 GameObject:
   m_ObjectHideFlags: 0
@@ -29687,6 +30870,7 @@ GameObject:
   - component: {fileID: 2321199044289340747}
   - component: {fileID: 3558105957033882646}
   - component: {fileID: 4496738936883816263}
+  - component: {fileID: 5888752106570013722}
   m_Layer: 7
   m_Name: PurpleCube (3)
   m_TagString: Untagged
@@ -29869,7 +31053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4496738936883816263
 MonoBehaviour:
@@ -29883,10 +31067,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5888752106570013722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951705222932718326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6967209842295382346
 GameObject:
   m_ObjectHideFlags: 0
@@ -29904,6 +31100,7 @@ GameObject:
   - component: {fileID: 7578861400908124778}
   - component: {fileID: 8228014467381320612}
   - component: {fileID: 7643488010181119987}
+  - component: {fileID: 5753121777602332920}
   m_Layer: 7
   m_Name: BrownCube (20)
   m_TagString: Untagged
@@ -30086,7 +31283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7643488010181119987
 MonoBehaviour:
@@ -30100,10 +31297,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5753121777602332920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967209842295382346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7013149183175475569
 GameObject:
   m_ObjectHideFlags: 0
@@ -30121,6 +31330,7 @@ GameObject:
   - component: {fileID: 8403156506154066926}
   - component: {fileID: 4625311884452861547}
   - component: {fileID: 3223607210586593223}
+  - component: {fileID: 6320105211755159757}
   m_Layer: 7
   m_Name: BrownCube (12)
   m_TagString: Untagged
@@ -30303,7 +31513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3223607210586593223
 MonoBehaviour:
@@ -30317,10 +31527,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6320105211755159757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013149183175475569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7081770239551739453
 GameObject:
   m_ObjectHideFlags: 0
@@ -30550,6 +31772,7 @@ GameObject:
   - component: {fileID: 6764829057313024161}
   - component: {fileID: 5578721615844694206}
   - component: {fileID: 4937725091714649566}
+  - component: {fileID: 2605676886694015496}
   m_Layer: 7
   m_Name: YellowCube (4)
   m_TagString: Untagged
@@ -30732,7 +31955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4937725091714649566
 MonoBehaviour:
@@ -30746,10 +31969,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2605676886694015496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144815581940922446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7155008721656872766
 GameObject:
   m_ObjectHideFlags: 0
@@ -30979,6 +32214,7 @@ GameObject:
   - component: {fileID: 5310481332696904997}
   - component: {fileID: 6151237599039048315}
   - component: {fileID: 3361107128203067660}
+  - component: {fileID: 348177201338637092}
   m_Layer: 7
   m_Name: PurpleCube (4)
   m_TagString: Untagged
@@ -31161,7 +32397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3361107128203067660
 MonoBehaviour:
@@ -31175,10 +32411,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &348177201338637092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181661655358686292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7204417261242032104
 GameObject:
   m_ObjectHideFlags: 0
@@ -31620,6 +32868,7 @@ GameObject:
   - component: {fileID: 1575756569161194958}
   - component: {fileID: 5680749688467282051}
   - component: {fileID: 254609599870929543}
+  - component: {fileID: 3610242018523351510}
   m_Layer: 7
   m_Name: PurpleCube (14)
   m_TagString: Untagged
@@ -31802,7 +33051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &254609599870929543
 MonoBehaviour:
@@ -31816,10 +33065,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3610242018523351510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368407933319218525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7383744100842728314
 GameObject:
   m_ObjectHideFlags: 0
@@ -32155,6 +33416,7 @@ GameObject:
   - component: {fileID: 3891117027957450016}
   - component: {fileID: 5380034505569022818}
   - component: {fileID: 8776827791148056035}
+  - component: {fileID: 2566584820588918655}
   m_Layer: 7
   m_Name: RedCube (19)
   m_TagString: Untagged
@@ -32337,7 +33599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8776827791148056035
 MonoBehaviour:
@@ -32351,10 +33613,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &2566584820588918655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411362220811204965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7435153316443617296
 GameObject:
   m_ObjectHideFlags: 0
@@ -32584,6 +33858,7 @@ GameObject:
   - component: {fileID: 6725877463649916192}
   - component: {fileID: 6208154129217175435}
   - component: {fileID: 3134738400879985202}
+  - component: {fileID: 3486743540918706091}
   m_Layer: 7
   m_Name: YellowCube (7)
   m_TagString: Untagged
@@ -32766,7 +34041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3134738400879985202
 MonoBehaviour:
@@ -32780,10 +34055,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3486743540918706091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497446233208804397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7564189791996609372
 GameObject:
   m_ObjectHideFlags: 0
@@ -32907,6 +34194,7 @@ GameObject:
   - component: {fileID: 5232742713373171504}
   - component: {fileID: 1797665426380179093}
   - component: {fileID: 8628879845895833560}
+  - component: {fileID: 8365691033666542391}
   m_Layer: 7
   m_Name: RedCube (16)
   m_TagString: Untagged
@@ -33089,7 +34377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8628879845895833560
 MonoBehaviour:
@@ -33103,10 +34391,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8365691033666542391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663548951718439623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7747540217046425712
 GameObject:
   m_ObjectHideFlags: 0
@@ -33124,6 +34424,7 @@ GameObject:
   - component: {fileID: 4929392443899054376}
   - component: {fileID: 8327655558055562370}
   - component: {fileID: 3791732624214454089}
+  - component: {fileID: 4584383639488458828}
   m_Layer: 7
   m_Name: BlueCube (21)
   m_TagString: Untagged
@@ -33306,7 +34607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3791732624214454089
 MonoBehaviour:
@@ -33320,10 +34621,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4584383639488458828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747540217046425712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7764521746020098424
 GameObject:
   m_ObjectHideFlags: 0
@@ -33341,6 +34654,7 @@ GameObject:
   - component: {fileID: 8845589288435141367}
   - component: {fileID: 705764633321050956}
   - component: {fileID: 3194157966417031216}
+  - component: {fileID: 5980866938480665614}
   m_Layer: 7
   m_Name: BrownCube (9)
   m_TagString: Untagged
@@ -33523,7 +34837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3194157966417031216
 MonoBehaviour:
@@ -33537,10 +34851,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5980866938480665614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764521746020098424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7777519493867594554
 GameObject:
   m_ObjectHideFlags: 0
@@ -33558,6 +34884,7 @@ GameObject:
   - component: {fileID: 5414830864060089786}
   - component: {fileID: 592176954791669076}
   - component: {fileID: 7745251758962234352}
+  - component: {fileID: 229033513988134860}
   m_Layer: 7
   m_Name: RedCube (1)
   m_TagString: Untagged
@@ -33740,7 +35067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &7745251758962234352
 MonoBehaviour:
@@ -33754,10 +35081,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &229033513988134860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777519493867594554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7815804190396646707
 GameObject:
   m_ObjectHideFlags: 0
@@ -33881,6 +35220,7 @@ GameObject:
   - component: {fileID: 4001115817780000019}
   - component: {fileID: 5909233444869388199}
   - component: {fileID: 8774976644226029890}
+  - component: {fileID: 6814258529431551605}
   m_Layer: 7
   m_Name: PurpleCube (10)
   m_TagString: Untagged
@@ -34063,7 +35403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8774976644226029890
 MonoBehaviour:
@@ -34077,10 +35417,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6814258529431551605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893344790322375338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &7924639415514091242
 GameObject:
   m_ObjectHideFlags: 0
@@ -34310,6 +35662,7 @@ GameObject:
   - component: {fileID: 9186399601878954925}
   - component: {fileID: 3693907557564914469}
   - component: {fileID: 2522380132568109323}
+  - component: {fileID: 3067573461428448973}
   m_Layer: 7
   m_Name: BrownCube (19)
   m_TagString: Untagged
@@ -34492,7 +35845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2522380132568109323
 MonoBehaviour:
@@ -34506,10 +35859,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3067573461428448973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989948304916222420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8130338421207786520
 GameObject:
   m_ObjectHideFlags: 0
@@ -34739,6 +36104,7 @@ GameObject:
   - component: {fileID: 7964272298465013406}
   - component: {fileID: 7973936339134269623}
   - component: {fileID: 1389523043160737393}
+  - component: {fileID: 8476222606774580514}
   m_Layer: 7
   m_Name: YellowCube (6)
   m_TagString: Untagged
@@ -34921,7 +36287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1389523043160737393
 MonoBehaviour:
@@ -34935,10 +36301,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8476222606774580514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197068235331824926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8207627548309918901
 GameObject:
   m_ObjectHideFlags: 0
@@ -34956,6 +36334,7 @@ GameObject:
   - component: {fileID: 3942443773631527556}
   - component: {fileID: 4731537261110457988}
   - component: {fileID: 9100848966114010493}
+  - component: {fileID: 4076348852537783949}
   m_Layer: 7
   m_Name: PurpleCube (19)
   m_TagString: Untagged
@@ -35138,7 +36517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &9100848966114010493
 MonoBehaviour:
@@ -35152,10 +36531,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4076348852537783949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207627548309918901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8231424505781019320
 GameObject:
   m_ObjectHideFlags: 0
@@ -35173,6 +36564,7 @@ GameObject:
   - component: {fileID: 9219426779345608339}
   - component: {fileID: 1834777807631339754}
   - component: {fileID: 1836731506165468904}
+  - component: {fileID: 6815629135043488006}
   m_Layer: 7
   m_Name: RedCube (12)
   m_TagString: Untagged
@@ -35355,7 +36747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1836731506165468904
 MonoBehaviour:
@@ -35369,10 +36761,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6815629135043488006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231424505781019320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8236920965695599656
 GameObject:
   m_ObjectHideFlags: 0
@@ -35390,6 +36794,7 @@ GameObject:
   - component: {fileID: 1082509652281749499}
   - component: {fileID: 2210522979931059388}
   - component: {fileID: 1964326603667494023}
+  - component: {fileID: 6450514153430873386}
   m_Layer: 7
   m_Name: BlueCube (12)
   m_TagString: Untagged
@@ -35572,7 +36977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &1964326603667494023
 MonoBehaviour:
@@ -35586,10 +36991,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6450514153430873386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236920965695599656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8349796061061748990
 GameObject:
   m_ObjectHideFlags: 0
@@ -35607,6 +37024,7 @@ GameObject:
   - component: {fileID: 5535395932297612507}
   - component: {fileID: 6776750384216729289}
   - component: {fileID: 154821379084792601}
+  - component: {fileID: 7525060264916712924}
   m_Layer: 7
   m_Name: PurpleCube
   m_TagString: Untagged
@@ -35789,7 +37207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &154821379084792601
 MonoBehaviour:
@@ -35803,10 +37221,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7525060264916712924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349796061061748990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8404655210716915567
 GameObject:
   m_ObjectHideFlags: 0
@@ -36142,6 +37572,7 @@ GameObject:
   - component: {fileID: 2361150388872819155}
   - component: {fileID: 6782973828695765950}
   - component: {fileID: 8036613759577159976}
+  - component: {fileID: 4978831485973603490}
   m_Layer: 7
   m_Name: BlueCube (10)
   m_TagString: Untagged
@@ -36324,7 +37755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &8036613759577159976
 MonoBehaviour:
@@ -36338,10 +37769,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &4978831485973603490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525056516388597886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8538368390862824499
 GameObject:
   m_ObjectHideFlags: 0
@@ -36359,6 +37802,7 @@ GameObject:
   - component: {fileID: 2026979038202344512}
   - component: {fileID: 5064049195173494304}
   - component: {fileID: 966566554880433776}
+  - component: {fileID: 6799847697293396346}
   m_Layer: 7
   m_Name: BlueCube (22)
   m_TagString: Untagged
@@ -36541,7 +37985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &966566554880433776
 MonoBehaviour:
@@ -36555,10 +37999,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6799847697293396346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538368390862824499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8587350795486335676
 GameObject:
   m_ObjectHideFlags: 0
@@ -36682,6 +38138,7 @@ GameObject:
   - component: {fileID: 2790692590308822469}
   - component: {fileID: 251322259551700710}
   - component: {fileID: 482795392213961967}
+  - component: {fileID: 5641702135744589683}
   m_Layer: 7
   m_Name: PurpleCube (24)
   m_TagString: Untagged
@@ -36864,7 +38321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &482795392213961967
 MonoBehaviour:
@@ -36878,10 +38335,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5641702135744589683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657656967227404343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8665199665773506273
 GameObject:
   m_ObjectHideFlags: 0
@@ -36899,6 +38368,7 @@ GameObject:
   - component: {fileID: 2987748246239783124}
   - component: {fileID: 716481699383063439}
   - component: {fileID: 2794816449158487877}
+  - component: {fileID: 8175273134482581013}
   m_Layer: 7
   m_Name: BrownCube (6)
   m_TagString: Untagged
@@ -37081,7 +38551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2794816449158487877
 MonoBehaviour:
@@ -37095,10 +38565,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8175273134482581013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665199665773506273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8689706010892131224
 GameObject:
   m_ObjectHideFlags: 0
@@ -37116,6 +38598,7 @@ GameObject:
   - component: {fileID: 846467219366304628}
   - component: {fileID: 3994159377335186983}
   - component: {fileID: 6890100915000107578}
+  - component: {fileID: 3178880839932405507}
   m_Layer: 7
   m_Name: BlueCube (1)
   m_TagString: Untagged
@@ -37298,7 +38781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6890100915000107578
 MonoBehaviour:
@@ -37312,10 +38795,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3178880839932405507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689706010892131224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8696361817320580870
 GameObject:
   m_ObjectHideFlags: 0
@@ -37545,6 +39040,7 @@ GameObject:
   - component: {fileID: 5633257428138959662}
   - component: {fileID: 3057018311138547550}
   - component: {fileID: 3422996196344835818}
+  - component: {fileID: 5291412118103980938}
   m_Layer: 7
   m_Name: RedCube (8)
   m_TagString: Untagged
@@ -37727,7 +39223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3422996196344835818
 MonoBehaviour:
@@ -37741,10 +39237,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5291412118103980938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729619340544575313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8739252080731949652
 GameObject:
   m_ObjectHideFlags: 0
@@ -37762,6 +39270,7 @@ GameObject:
   - component: {fileID: 9008539021700621833}
   - component: {fileID: 832029918377027500}
   - component: {fileID: 3753724001377109298}
+  - component: {fileID: 903742748132628828}
   m_Layer: 7
   m_Name: YellowCube (5)
   m_TagString: Untagged
@@ -37944,7 +39453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3753724001377109298
 MonoBehaviour:
@@ -37958,10 +39467,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &903742748132628828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8739252080731949652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8777767998608614371
 GameObject:
   m_ObjectHideFlags: 0
@@ -38191,6 +39712,7 @@ GameObject:
   - component: {fileID: 8619485703140732509}
   - component: {fileID: 2194809459961049909}
   - component: {fileID: 4700651652835786681}
+  - component: {fileID: 3508663255289992753}
   m_Layer: 7
   m_Name: BlueCube (16)
   m_TagString: Untagged
@@ -38373,7 +39895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &4700651652835786681
 MonoBehaviour:
@@ -38387,10 +39909,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &3508663255289992753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799001257585822776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8807588878114555091
 GameObject:
   m_ObjectHideFlags: 0
@@ -38408,6 +39942,7 @@ GameObject:
   - component: {fileID: 8020387205833346861}
   - component: {fileID: 1765824658336219727}
   - component: {fileID: 6416699726217326540}
+  - component: {fileID: 5852034887507406769}
   m_Layer: 7
   m_Name: BlueCube (14)
   m_TagString: Untagged
@@ -38590,7 +40125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &6416699726217326540
 MonoBehaviour:
@@ -38604,10 +40139,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &5852034887507406769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807588878114555091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8808952337090185770
 GameObject:
   m_ObjectHideFlags: 0
@@ -38625,6 +40172,7 @@ GameObject:
   - component: {fileID: 9152059596761508471}
   - component: {fileID: 1000024834164442165}
   - component: {fileID: 2645274654402649787}
+  - component: {fileID: 8823518772518482521}
   m_Layer: 7
   m_Name: YellowCube (24)
   m_TagString: Untagged
@@ -38807,7 +40355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2645274654402649787
 MonoBehaviour:
@@ -38821,10 +40369,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &8823518772518482521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8808952337090185770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8811009124945629452
 GameObject:
   m_ObjectHideFlags: 0
@@ -38948,6 +40508,7 @@ GameObject:
   - component: {fileID: 8552563428230165709}
   - component: {fileID: 2768003584697288975}
   - component: {fileID: 3628562626797610337}
+  - component: {fileID: 6965422916334594733}
   m_Layer: 7
   m_Name: BrownCube (24)
   m_TagString: Untagged
@@ -39130,7 +40691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3628562626797610337
 MonoBehaviour:
@@ -39144,10 +40705,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &6965422916334594733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861696927669040816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8880829882075590715
 GameObject:
   m_ObjectHideFlags: 0
@@ -39271,6 +40844,7 @@ GameObject:
   - component: {fileID: 5862450508096632265}
   - component: {fileID: 7144276502618851520}
   - component: {fileID: 490660252731758539}
+  - component: {fileID: 487818336644438143}
   m_Layer: 7
   m_Name: YellowCube (3)
   m_TagString: Untagged
@@ -39453,7 +41027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &490660252731758539
 MonoBehaviour:
@@ -39467,10 +41041,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &487818336644438143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8885123839129607905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &8889515156043854612
 GameObject:
   m_ObjectHideFlags: 0
@@ -39700,6 +41286,7 @@ GameObject:
   - component: {fileID: 945130426811461212}
   - component: {fileID: 6613017679374724350}
   - component: {fileID: 3117687058894521510}
+  - component: {fileID: 7452554596493533231}
   m_Layer: 7
   m_Name: RedCube (23)
   m_TagString: Untagged
@@ -39882,7 +41469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3117687058894521510
 MonoBehaviour:
@@ -39896,10 +41483,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &7452554596493533231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995319809133403511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &9002241757988779803
 GameObject:
   m_ObjectHideFlags: 0
@@ -39917,6 +41516,7 @@ GameObject:
   - component: {fileID: 9049330454579334643}
   - component: {fileID: 835998468383400192}
   - component: {fileID: 3204018651203115348}
+  - component: {fileID: 1978728582285891100}
   m_Layer: 7
   m_Name: RedCube (7)
   m_TagString: Untagged
@@ -40099,7 +41699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &3204018651203115348
 MonoBehaviour:
@@ -40113,10 +41713,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &1978728582285891100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002241757988779803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &9012603562705991902
 GameObject:
   m_ObjectHideFlags: 0
@@ -40346,6 +41958,7 @@ GameObject:
   - component: {fileID: 4529865756404454590}
   - component: {fileID: 68910363492715615}
   - component: {fileID: 2116049685033501835}
+  - component: {fileID: 418810144987160548}
   m_Layer: 7
   m_Name: BlueCube (5)
   m_TagString: Untagged
@@ -40528,7 +42141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
 --- !u!114 &2116049685033501835
 MonoBehaviour:
@@ -40542,7 +42155,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
+--- !u!114 &418810144987160548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201271684524576297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage

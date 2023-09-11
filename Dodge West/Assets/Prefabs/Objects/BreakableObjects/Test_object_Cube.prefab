@@ -6740,6 +6740,7 @@ GameObject:
   - component: {fileID: 8388583631111265805}
   - component: {fileID: 8826420026307448370}
   - component: {fileID: 5675238633030053816}
+  - component: {fileID: 6550307805818861285}
   m_Layer: 7
   m_Name: Test_object_Cube
   m_TagString: Untagged
@@ -6921,10 +6922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 6704892483781080500, guid: f60fa9e3357d4ad4492dcb6a66f3c86d, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
   disableBeforeSpawn: 1
 --- !u!114 &5675238633030053816
 MonoBehaviour:
@@ -6939,8 +6937,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &6550307805818861285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - GlassDamage
 --- !u!1 &6738068925297375013
 GameObject:
   m_ObjectHideFlags: 0

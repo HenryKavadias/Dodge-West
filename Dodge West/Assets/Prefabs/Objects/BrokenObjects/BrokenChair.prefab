@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4464304464876083454}
   - component: {fileID: 8253109125547697076}
   - component: {fileID: 5048134525333701965}
+  - component: {fileID: 3397320651897745768}
   m_Layer: 7
   m_Name: Seat2
   m_TagString: Untagged
@@ -200,10 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
 --- !u!114 &5048134525333701965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +215,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &3397320651897745768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67045229290917566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &286739863707275413
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +459,7 @@ GameObject:
   - component: {fileID: 2458198144364728288}
   - component: {fileID: 6571884322926164932}
   - component: {fileID: 677891449989233279}
+  - component: {fileID: 2726545559043560219}
   m_Layer: 7
   m_Name: Seat1
   m_TagString: Untagged
@@ -629,10 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
 --- !u!114 &677891449989233279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,8 +657,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &2726545559043560219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050204130460296772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &2145776045436801386
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +796,7 @@ GameObject:
   - component: {fileID: 2661071483573777008}
   - component: {fileID: 5523469902561348104}
   - component: {fileID: 5310468004856917111}
+  - component: {fileID: 334737595694062741}
   m_Layer: 7
   m_Name: BackRest
   m_TagString: Untagged
@@ -951,10 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabObj: {fileID: 7614501053226499108, guid: f5ef1d6ad41310b49a424f6e97ae62f0, type: 3}
-  defaultRotation: 0
-  modifyRotationX: 0
-  modAmount: 90
+  prefabObjs: []
 --- !u!114 &5310468004856917111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,8 +992,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryOnStart: 0
-  destroyNow: 1
+  destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &334737595694062741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356202437841136679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &4783837562573875352
 GameObject:
   m_ObjectHideFlags: 0

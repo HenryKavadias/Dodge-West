@@ -11,7 +11,7 @@ public enum SoundType
 [Serializable]
 public class Sound
 {
-    public SoundType soundType;
+    //public SoundType soundType;
     public string name;
     public AudioClip clip;
 }
@@ -21,11 +21,13 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public List<Sound> sounds;
-    private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
-    private Dictionary<SoundType, AudioSource> audioSources = new Dictionary<SoundType, AudioSource>();
+    //private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
+    //private Dictionary<SoundType, AudioSource> audioSources = new Dictionary<SoundType, AudioSource>();
 
-    private float musicVolume = 1.0f;
-    private float sfxVolume = 1.0f;
+    [Range(0f, 1f)]
+    public float musicVolume = 1.0f;
+    [Range(0f, 1f)]
+    public float sfxVolume = 1.0f;
 
     private void Awake()
     {
@@ -42,46 +44,54 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
-        // Initialize audio sources
-        foreach (SoundType soundType in Enum.GetValues(typeof(SoundType)))
-        {
-            AudioSource source = gameObject.AddComponent<AudioSource>();
-            audioSources[soundType] = source;
-        }
-
-        // Populate sound clips dictionary for quick access
-        foreach (var sound in sounds)
-        {
-            soundClips[sound.name] = sound.clip;
-        }
     }
+
+    public List<Sound> GetSounds()
+    {
+        return sounds;
+    }
+
+    //void SetSources()
+    //{
+    //    // Initialize audio sources
+    //    foreach (SoundType soundType in Enum.GetValues(typeof(SoundType)))
+    //    {
+    //        AudioSource source = gameObject.AddComponent<AudioSource>();
+    //        audioSources[soundType] = source;
+    //    }
+
+    //    // Populate sound clips dictionary for quick access
+    //    foreach (var sound in sounds)
+    //    {
+    //        soundClips[sound.name] = sound.clip;
+    //    }
+    //}
 
     // This needs to be placed on the audio source (object that triggers the sound)
-    public void PlaySound(string soundName, SoundType soundType)
-    {
-        if (soundClips.TryGetValue(soundName, out AudioClip clip))
-        {
-            AudioSource source = audioSources[soundType];
-            source.clip = clip;
-            source.volume = (soundType == SoundType.Music) ? musicVolume : sfxVolume;
-            source.Play();
-        }
-        else
-        {
-            Debug.LogWarning("Sound not found: " + soundName);
-        }
-    }
+    //public void PlaySound(string soundName, SoundType soundType)
+    //{
+    //    if (soundClips.TryGetValue(soundName, out AudioClip clip))
+    //    {
+    //        AudioSource source = audioSources[soundType];
+    //        source.clip = clip;
+    //        source.volume = (soundType == SoundType.Music) ? musicVolume : sfxVolume;
+    //        source.Play();
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Sound not found: " + soundName);
+    //    }
+    //}
 
-    public void SetMusicVolume(float volume)
-    {
-        musicVolume = volume;
-        audioSources[SoundType.Music].volume = musicVolume;
-    }
+    //public void SetMusicVolume(float volume)
+    //{
+    //    musicVolume = volume;
+    //    audioSources[SoundType.Music].volume = musicVolume;
+    //}
 
-    public void SetSFXVolume(float volume)
-    {
-        sfxVolume = volume;
-        audioSources[SoundType.SFX].volume = sfxVolume;
-    }
+    //public void SetSFXVolume(float volume)
+    //{
+    //    sfxVolume = volume;
+    //    audioSources[SoundType.SFX].volume = sfxVolume;
+    //}
 }

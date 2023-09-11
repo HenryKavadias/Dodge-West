@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 8209586697070899619}
   - component: {fileID: 3877706549795976420}
   - component: {fileID: 6885669705433207749}
+  - component: {fileID: -1469315024271549355}
   m_Layer: 7
   m_Name: Large_Rock
   m_TagString: Untagged
@@ -322,3 +323,17 @@ MonoBehaviour:
   prefabObjs:
   - {fileID: 6704892483781080500, guid: 42b4a3e938edfb042937b768209404b9, type: 3}
   disableBeforeSpawn: 0
+--- !u!114 &-1469315024271549355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames: []

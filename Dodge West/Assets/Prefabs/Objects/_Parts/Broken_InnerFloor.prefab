@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 5424652545064252864}
   - component: {fileID: 583816124725826148}
   - component: {fileID: 1354167396075444414}
+  - component: {fileID: 9080834896566319993}
   m_Layer: 7
   m_Name: IF-1
   m_TagString: Untagged
@@ -546,6 +547,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &9080834896566319993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853910321107955132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &2318196795255005355
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +579,7 @@ GameObject:
   - component: {fileID: 1393878701651673725}
   - component: {fileID: 6136444328705958672}
   - component: {fileID: 2241628788533467573}
+  - component: {fileID: 5604492092448345844}
   m_Layer: 7
   m_Name: IF-2
   m_TagString: Untagged
@@ -760,6 +777,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &5604492092448345844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318196795255005355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &2786293903785852421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2000,7 @@ GameObject:
   - component: {fileID: 5397075336953628884}
   - component: {fileID: 7858249138397084574}
   - component: {fileID: 1920989220670009389}
+  - component: {fileID: 637968041585082956}
   m_Layer: 7
   m_Name: IF-4
   m_TagString: Untagged
@@ -2165,6 +2198,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &637968041585082956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499903938822200094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &8734238526197266224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2230,7 @@ GameObject:
   - component: {fileID: 6185550119505163312}
   - component: {fileID: 2171792445481337479}
   - component: {fileID: 1737235331389475347}
+  - component: {fileID: 7984888759958617365}
   m_Layer: 7
   m_Name: IF-3
   m_TagString: Untagged
@@ -2379,6 +2428,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+--- !u!114 &7984888759958617365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734238526197266224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &9174945141382671784
 GameObject:
   m_ObjectHideFlags: 0
