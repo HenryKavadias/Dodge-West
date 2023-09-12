@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 2297564743111292655}
   - component: {fileID: 7347339990131729157}
   - component: {fileID: 39557903341841412}
+  - component: {fileID: 1746085372804731969}
   m_Layer: 7
   m_Name: Part2
   m_TagString: Untagged
@@ -263,7 +264,19 @@ MonoBehaviour:
   _initial: 10
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1746085372804731969}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -319,6 +332,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &1746085372804731969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570211880261001983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &1491766195670506052
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +364,7 @@ GameObject:
   - component: {fileID: 363372354824429390}
   - component: {fileID: 2964552091903365752}
   - component: {fileID: 7420536835502031569}
+  - component: {fileID: 3064475219542675700}
   m_Layer: 7
   m_Name: Part4
   m_TagString: Untagged
@@ -477,7 +506,19 @@ MonoBehaviour:
   _initial: 10
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3064475219542675700}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -533,6 +574,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &3064475219542675700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491766195670506052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &2468883606718309357
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +711,7 @@ GameObject:
   - component: {fileID: 324044987659278913}
   - component: {fileID: 1630417235640092058}
   - component: {fileID: 2011907046000202914}
+  - component: {fileID: 5043720847823847931}
   m_Layer: 7
   m_Name: Part3
   m_TagString: Untagged
@@ -796,7 +853,19 @@ MonoBehaviour:
   _initial: 10
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5043720847823847931}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -852,6 +921,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &5043720847823847931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930513077483805132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &4595956192569660600
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +953,7 @@ GameObject:
   - component: {fileID: 7269204391780964930}
   - component: {fileID: 2649298976941464500}
   - component: {fileID: 7484809096327866052}
+  - component: {fileID: 7040008095283543492}
   m_Layer: 7
   m_Name: Part5
   m_TagString: Untagged
@@ -1010,7 +1095,19 @@ MonoBehaviour:
   _initial: 10
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7040008095283543492}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -1066,6 +1163,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &7040008095283543492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595956192569660600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &5200463920594811050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1405,7 @@ GameObject:
   - component: {fileID: 9132319739426900265}
   - component: {fileID: 524717092184604473}
   - component: {fileID: 6176824740452150207}
+  - component: {fileID: 1165734041052697117}
   m_Layer: 7
   m_Name: Part1
   m_TagString: Untagged
@@ -1434,7 +1547,19 @@ MonoBehaviour:
   _initial: 10
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1165734041052697117}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WoodDamage
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -1490,6 +1615,21 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
+--- !u!114 &1165734041052697117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955078335454456704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames:
+  - WoodDamage
 --- !u!1 &6704892483781080500
 GameObject:
   m_ObjectHideFlags: 0
