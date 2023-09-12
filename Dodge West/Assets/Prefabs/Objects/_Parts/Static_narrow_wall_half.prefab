@@ -223,7 +223,7 @@ MonoBehaviour:
   loadable: 1
   loadDistance: 0
   minDamageVelocity: 20
-  velocityThreshold: 0
+  velocityThreshold: 0.3
   minThrownDamageVelocity: 10
   thrownVelocityThreshold: 0.2
   minHeldDamageVelocity: 15
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe464bf6ec5b4594090f4fa0eb17b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initial: 100
+  _initial: 50
   onDamaged:
     m_PersistentCalls:
       m_Calls:
