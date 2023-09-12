@@ -5,12 +5,12 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public float pitchRange = 0.1f;
-    
+
     [Header("Must be accurate")]
     public List<string> soundNames = new List<string>();
-    
+
     private List<Sound> objSounds = new List<Sound>();
-    
+
     private AudioSource audioSource;
 
     [Range(0f, 1f)]
@@ -66,6 +66,8 @@ public class AudioController : MonoBehaviour
         if (!pass)
         { return; }
 
+        audioSource.Stop();
+
         AudioClip soundClip = objSounds[listCounter].clip;
 
         float lowPitch = 1f - pitchRange;
@@ -76,5 +78,11 @@ public class AudioController : MonoBehaviour
         audioSource.pitch = Random.Range(lowPitch, highPitch);
 
         audioSource.PlayOneShot(soundClip);
+    }
+
+    // unfinished
+    public void RandomizeSfx(params string[] clips)
+    {
+        int randomIndex = Random.Range(0, clips.Length);
     }
 }

@@ -614,8 +614,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae849978e9770f74685a0a2b42ae6fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectMusic: {fileID: 0}
-  musicVolume: 0.5
+  track: TitleTheme
+  startOfTrack: 24
+  endOfTrack: 112
+  initialDelay: 3
+  loopTrack: 1
+  defaultMusicVolume: 0.5
 --- !u!114 &5053013319475722537
 MonoBehaviour:
   m_ObjectHideFlags: 0

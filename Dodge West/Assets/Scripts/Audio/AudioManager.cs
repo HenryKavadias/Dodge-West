@@ -2,11 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SoundType
-{
-    SFX,
-    Music
-}
 
 [Serializable]
 public class Sound
@@ -21,13 +16,16 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public List<Sound> sounds;
-    //private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
-    //private Dictionary<SoundType, AudioSource> audioSources = new Dictionary<SoundType, AudioSource>();
+    public List<Sound> musicList;
+
+    private bool loopMusic = true;
 
     [Range(0f, 1f)]
     public float musicVolume = 1.0f;
     [Range(0f, 1f)]
     public float sfxVolume = 1.0f;
+
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -46,52 +44,78 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public List<Sound> GetSounds()
     {
         return sounds;
     }
 
-    //void SetSources()
-    //{
-    //    // Initialize audio sources
-    //    foreach (SoundType soundType in Enum.GetValues(typeof(SoundType)))
-    //    {
-    //        AudioSource source = gameObject.AddComponent<AudioSource>();
-    //        audioSources[soundType] = source;
-    //    }
+    // Make proper music fuctionality
+    private float startTime = 0f;
+    private float stopTime = 0f;
 
-    //    // Populate sound clips dictionary for quick access
-    //    foreach (var sound in sounds)
-    //    {
-    //        soundClips[sound.name] = sound.clip;
-    //    }
-    //}
+    public void BeginMusicTrack(
+        string name, float start = 0.0f, float stop = 0.0f, float delay = 0.0f, bool loop = true)
+    {
+        audioSource.Stop();
 
-    // This needs to be placed on the audio source (object that triggers the sound)
-    //public void PlaySound(string soundName, SoundType soundType)
-    //{
-    //    if (soundClips.TryGetValue(soundName, out AudioClip clip))
-    //    {
-    //        AudioSource source = audioSources[soundType];
-    //        source.clip = clip;
-    //        source.volume = (soundType == SoundType.Music) ? musicVolume : sfxVolume;
-    //        source.Play();
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Sound not found: " + soundName);
-    //    }
-    //}
+        // check if music is accessable
+        bool pass = false;
+        int listCounter = 0;
 
-    //public void SetMusicVolume(float volume)
-    //{
-    //    musicVolume = volume;
-    //    audioSources[SoundType.Music].volume = musicVolume;
-    //}
+        foreach (Sound music in musicList)
+        {
+            if (music.name == name)
+            {
+                pass = true;
+                break;
+            }
+            listCounter++;
+        }
 
-    //public void SetSFXVolume(float volume)
-    //{
-    //    sfxVolume = volume;
-    //    audioSources[SoundType.SFX].volume = sfxVolume;
-    //}
+        if (!pass)
+        { return; }
+
+        stopTime = stop;
+
+        AudioClip musicClip = musicList[listCounter].clip;
+
+        audioSource.volume = musicVolume;
+
+        audioSource.clip = musicClip;
+
+        if (start > 0f)
+        {
+            audioSource.time = start - delay;
+        }
+        startTime = start;
+
+        loopMusic = loop;
+
+        audioSource.Play();
+        audioSource.loop = true;
+    }
+
+    public void EndMusicTrack()
+    {
+        audioSource.Stop();
+    }
+
+    private void Update()
+    {
+        if (startTime > 0f && audioSource.time > stopTime)
+        {
+            audioSource.Stop();
+
+            if (loopMusic)
+            {
+                audioSource.time = startTime;
+                audioSource.Play();
+            }
+        }
+    }
 }

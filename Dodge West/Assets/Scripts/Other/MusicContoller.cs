@@ -5,12 +5,19 @@ using UnityEngine;
 // Controls the music for the scene
 public class MusicContoller : MonoBehaviour
 {
-    public GameObject objectMusic = null;
+    private GameObject objectMusic = null;
+
+    public string track = string.Empty;
+    public float startOfTrack = 0f;
+    public float endOfTrack = 0f;
+    public float initialDelay = 0f;
+    public bool loopTrack = true;
 
     [SerializeField]
     [Range(0f, 1f)]
-    private float musicVolume = 0.5f;
+    private float defaultMusicVolume = 0.5f;   // default volume
     private AudioSource audioSource;
+    private AudioManager audioManager;
     
     // Gets music source, gets the audio source from it, and sets its volume
     void Start()
@@ -21,9 +28,33 @@ public class MusicContoller : MonoBehaviour
         {
             audioSource = objectMusic.GetComponent<AudioSource>();
 
-            audioSource.volume = musicVolume;
+            audioManager = objectMusic.GetComponent<AudioManager>();
+            
+            if (audioManager != null ) 
+            {
+                audioSource.volume = audioManager.musicVolume;
+
+                if (track != string.Empty)
+                {
+                    audioManager.BeginMusicTrack(track, startOfTrack, endOfTrack, initialDelay, loopTrack);
+                }
+            }
+            else
+            {
+                audioSource.volume = defaultMusicVolume;
+            }
         }
     }
+
+    public void StopTrack()
+    {
+        if (audioManager != null)
+        {
+            audioManager.EndMusicTrack();
+        }
+    }
+
+    // Below is used for pause controls
 
     // Tracks pause state of music
     public bool isPaused { get; private set; }
