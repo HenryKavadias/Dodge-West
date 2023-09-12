@@ -42,12 +42,14 @@ public class AudioManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-    }
 
-    private void Start()
-    {
         audioSource = GetComponent<AudioSource>();
     }
+
+    //private void Start()
+    //{
+    //    audioSource = GetComponent<AudioSource>();
+    //}
 
     public List<Sound> GetSounds()
     {
@@ -57,6 +59,7 @@ public class AudioManager : MonoBehaviour
     // Make proper music fuctionality
     private float startTime = 0f;
     private float stopTime = 0f;
+    public string currentTrack { get; private set; } = string.Empty;
 
     public void BeginMusicTrack(
         string name, float start = 0.0f, float stop = 0.0f, float delay = 0.0f, bool loop = true)
@@ -79,6 +82,8 @@ public class AudioManager : MonoBehaviour
 
         if (!pass)
         { return; }
+
+        currentTrack = name;
 
         stopTime = stop;
 

@@ -18,7 +18,7 @@ public class MusicContoller : MonoBehaviour
     private float defaultMusicVolume = 0.5f;   // default volume
     private AudioSource audioSource;
     private AudioManager audioManager;
-    
+
     // Gets music source, gets the audio source from it, and sets its volume
     void Start()
     {
@@ -34,7 +34,7 @@ public class MusicContoller : MonoBehaviour
             {
                 audioSource.volume = audioManager.musicVolume;
 
-                if (track != string.Empty)
+                if (track != string.Empty && track != audioManager.currentTrack)
                 {
                     audioManager.BeginMusicTrack(track, startOfTrack, endOfTrack, initialDelay, loopTrack);
                 }

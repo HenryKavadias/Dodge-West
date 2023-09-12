@@ -900,6 +900,7 @@ GameObject:
   - component: {fileID: 243290080}
   - component: {fileID: 243290079}
   - component: {fileID: 243290078}
+  - component: {fileID: 243290083}
   - component: {fileID: 243290082}
   m_Layer: 5
   m_Name: Start-Screen
@@ -1022,6 +1023,24 @@ MonoBehaviour:
   - {fileID: 10218740}
   - {fileID: 465677260}
   eventSystem: {fileID: 183266301}
+--- !u!114 &243290083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243290077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae849978e9770f74685a0a2b42ae6fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: TitleTheme
+  startOfTrack: 24
+  endOfTrack: 112
+  initialDelay: 1
+  loopTrack: 1
+  defaultMusicVolume: 0.5
 --- !u!1 &251374144
 GameObject:
   m_ObjectHideFlags: 0
