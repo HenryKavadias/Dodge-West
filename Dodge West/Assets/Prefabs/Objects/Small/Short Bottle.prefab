@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5259536341542977192}
   - component: {fileID: -2084925741845113854}
   - component: {fileID: -8065930825520350708}
+  - component: {fileID: -2836636826072230351}
   m_Layer: 7
   m_Name: Short Bottle
   m_TagString: Untagged
@@ -266,6 +267,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &-2836636826072230351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367429127017579545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4841355307837882502
 GameObject:
   m_ObjectHideFlags: 0

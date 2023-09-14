@@ -6741,6 +6741,7 @@ GameObject:
   - component: {fileID: 8826420026307448370}
   - component: {fileID: 5675238633030053816}
   - component: {fileID: 6550307805818861285}
+  - component: {fileID: -1505959607887925798}
   m_Layer: 7
   m_Name: Test_object_Cube
   m_TagString: Untagged
@@ -6966,6 +6967,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &-1505959607887925798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6738068925297375013
 GameObject:
   m_ObjectHideFlags: 0

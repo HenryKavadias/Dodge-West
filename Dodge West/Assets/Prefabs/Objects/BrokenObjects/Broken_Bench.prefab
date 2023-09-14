@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 8040678387864717911}
   - component: {fileID: 8375723919433877025}
   - component: {fileID: 2835272684449388101}
+  - component: {fileID: 3293202499766905515}
   m_Layer: 0
   m_Name: BackHalf1
   m_TagString: Untagged
@@ -665,6 +666,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &3293202499766905515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247687595254222308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2310996151884196938
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +702,7 @@ GameObject:
   - component: {fileID: 2916075679412403915}
   - component: {fileID: 9174608172794420986}
   - component: {fileID: 9218961098886072127}
+  - component: {fileID: 8414686767523998958}
   m_Layer: 0
   m_Name: BackHalf2
   m_TagString: Untagged
@@ -910,6 +930,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &8414686767523998958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310996151884196938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2435826871877965402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1281,7 @@ GameObject:
   - component: {fileID: 819667103816455152}
   - component: {fileID: 6600291525452247127}
   - component: {fileID: 4339737505082627394}
+  - component: {fileID: 6815005793036814671}
   m_Layer: 0
   m_Name: SeatHalf2
   m_TagString: Untagged
@@ -1472,6 +1511,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &6815005793036814671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3889378755028717986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3993336863954343954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,6 +2542,7 @@ GameObject:
   - component: {fileID: 3949913303032653062}
   - component: {fileID: 5349109502859482426}
   - component: {fileID: 6637288842410598626}
+  - component: {fileID: 6162767742836095783}
   m_Layer: 0
   m_Name: SeatHalf1
   m_TagString: Untagged
@@ -2714,6 +2772,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &6162767742836095783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318394814272344061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8765750212258640387
 GameObject:
   m_ObjectHideFlags: 0

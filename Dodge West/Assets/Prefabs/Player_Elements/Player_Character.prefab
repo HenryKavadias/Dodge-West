@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 5633602710094098766}
   - component: {fileID: 5637073744533230248}
   - component: {fileID: -1755899104350236043}
+  - component: {fileID: 1598168328575553863}
   m_Layer: 0
   m_Name: Player_Character
   m_TagString: Player
@@ -895,6 +896,24 @@ MonoBehaviour:
   - LoadItem
   - ThrowItem
   - Death1
+--- !u!114 &1598168328575553863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937961074316158867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7559222232872553868
 GameObject:
   m_ObjectHideFlags: 0

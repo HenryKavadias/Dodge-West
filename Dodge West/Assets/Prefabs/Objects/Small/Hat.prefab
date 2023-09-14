@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: -2517158245021478130}
   - component: {fileID: -3167201410986019985}
   - component: {fileID: -6742411762650692332}
+  - component: {fileID: -6698227089089903238}
   m_Layer: 7
   m_Name: Hat
   m_TagString: Untagged
@@ -465,3 +466,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchRange: 0.1
   soundNames: []
+--- !u!114 &-6698227089089903238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080160808299737599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []

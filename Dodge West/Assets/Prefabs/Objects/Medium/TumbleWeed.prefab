@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 3877706549795976420}
   - component: {fileID: 6783145946183976693}
   - component: {fileID: -3362350293971495026}
+  - component: {fileID: -5548175745325607807}
   m_Layer: 7
   m_Name: TumbleWeed
   m_TagString: Untagged
@@ -285,6 +286,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchRange: 0.1
   soundNames: []
+--- !u!114 &-5548175745325607807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6533494195655807341
 PrefabInstance:
   m_ObjectHideFlags: 0

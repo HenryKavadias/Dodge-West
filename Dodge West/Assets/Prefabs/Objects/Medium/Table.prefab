@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3078282045622223358}
   - component: {fileID: 7097178410552325742}
   - component: {fileID: 158812993959621431}
+  - component: {fileID: -826623208993755728}
   m_Layer: 7
   m_Name: Table
   m_TagString: Untagged
@@ -243,6 +244,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &-826623208993755728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1069635118458825940
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: -5612044664535719442}
   - component: {fileID: -177919436316208602}
   - component: {fileID: 5451368026282445986}
+  - component: {fileID: -4505490812030311370}
   m_Layer: 7
   m_Name: Bench
   m_TagString: Untagged
@@ -880,6 +881,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &-4505490812030311370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9166887345245325095
 GameObject:
   m_ObjectHideFlags: 0

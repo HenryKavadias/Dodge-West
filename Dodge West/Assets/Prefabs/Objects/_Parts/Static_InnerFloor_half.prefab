@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 1415824508027970654}
   - component: {fileID: 8781815729651626275}
   - component: {fileID: -1061969534064957640}
+  - component: {fileID: -8581438695309012240}
   m_Layer: 6
   m_Name: Static_InnerFloor_half
   m_TagString: Untagged
@@ -286,6 +287,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &-8581438695309012240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974175502393700439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1552136898059993087
 GameObject:
   m_ObjectHideFlags: 0

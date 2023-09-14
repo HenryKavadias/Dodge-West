@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -6819305307829476244}
   - component: {fileID: 7321747539399405993}
   - component: {fileID: -6687144981506300803}
+  - component: {fileID: -4036093708773173599}
   m_Layer: 7
   m_Name: Metal Barrel
   m_TagString: Untagged
@@ -243,6 +244,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - MetalDamage
+--- !u!114 &-4036093708773173599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896325637163721583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7349023887406203537
 GameObject:
   m_ObjectHideFlags: 0

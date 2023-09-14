@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5444614527526871406}
   - component: {fileID: 5114174348563073808}
   - component: {fileID: -1635534686919498969}
+  - component: {fileID: -8983248550294560693}
   m_Layer: 6
   m_Name: Static_Segment
   m_TagString: Untagged
@@ -203,6 +204,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+--- !u!114 &-8983248550294560693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65405477575527868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1048951023475758282
 GameObject:
   m_ObjectHideFlags: 0

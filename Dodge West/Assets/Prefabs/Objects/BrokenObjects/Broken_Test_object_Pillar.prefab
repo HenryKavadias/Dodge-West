@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 724455254386127985}
   - component: {fileID: 6204363063210052670}
   - component: {fileID: 5635166034202486345}
+  - component: {fileID: 7426068823244021809}
   m_Layer: 7
   m_Name: BrownCube
   m_TagString: Untagged
@@ -242,6 +243,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &7426068823244021809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103975616646824698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &234540547118719304
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +279,7 @@ GameObject:
   - component: {fileID: 5069151029048346715}
   - component: {fileID: 7026516125072497988}
   - component: {fileID: 1288465362662568774}
+  - component: {fileID: 5566318810616192544}
   m_Layer: 7
   m_Name: BlueCube
   m_TagString: Untagged
@@ -484,6 +504,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &5566318810616192544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234540547118719304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &997549254028080757
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +646,7 @@ GameObject:
   - component: {fileID: 1360599526751856984}
   - component: {fileID: 1056585265848055839}
   - component: {fileID: 2916897370310315902}
+  - component: {fileID: 1175563830090831463}
   m_Layer: 7
   m_Name: YellowCube
   m_TagString: Untagged
@@ -832,6 +871,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &1175563830090831463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133590355182988998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1890560965426748296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1382,7 @@ GameObject:
   - component: {fileID: 8826340259753318315}
   - component: {fileID: 8818930871565718662}
   - component: {fileID: 1410430965840588083}
+  - component: {fileID: 5011983412988014459}
   m_Layer: 7
   m_Name: RedCube
   m_TagString: Untagged
@@ -1549,6 +1607,24 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &5011983412988014459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788751303460223025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8349796061061748990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1643,7 @@ GameObject:
   - component: {fileID: 5691053367460583065}
   - component: {fileID: 7500589916163344873}
   - component: {fileID: 3722752669520344743}
+  - component: {fileID: 4702382617886269559}
   m_Layer: 7
   m_Name: PurpleCube
   m_TagString: Untagged
@@ -1791,3 +1868,21 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+--- !u!114 &4702382617886269559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349796061061748990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd25f8e55150d94fb48f4090add65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 1
+  velocityThreshold: 0.1
+  enableLimit: 1
+  onCollision:
+    m_PersistentCalls:
+      m_Calls: []
