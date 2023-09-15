@@ -62,7 +62,11 @@ public class AudioManager : MonoBehaviour
     public string currentTrack { get; private set; } = string.Empty;
 
     public void BeginMusicTrack(
-        string name, float start = 0.0f, float stop = 0.0f, float delay = 0.0f, bool loop = true)
+        string name, 
+        float start = 0.0f, 
+        float stop = 0.0f, 
+        float delay = 0.0f, 
+        bool loop = true)
     {
         audioSource.Stop();
 

@@ -47,6 +47,7 @@ public class AudioController : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
+    [SerializeField]
     public void TriggerAudio(string soundName)
     {
         // check if sound is accessable to object
@@ -81,8 +82,40 @@ public class AudioController : MonoBehaviour
     }
 
     // unfinished
-    public void RandomizeSfx(params string[] clips)
+    public void RandomizeSfx()
     {
-        int randomIndex = Random.Range(0, clips.Length);
+        // Randomly pick a sound from the current list
+        int randomIndex = Random.Range(0, soundNames.Count);
+        string soundName = soundNames[randomIndex];
+
+        // check if sound is accessable to object
+        bool pass = false;
+        int listCounter = 0;
+
+        foreach (string sound in soundNames)
+        {
+            if (sound == soundName)
+            {
+                pass = true;
+                break;
+            }
+            listCounter++;
+        }
+
+        if (!pass)
+        { return; }
+
+        audioSource.Stop();
+
+        AudioClip soundClip = objSounds[listCounter].clip;
+
+        float lowPitch = 1f - pitchRange;
+        float highPitch = 1f + pitchRange;
+
+        audioSource.volume = volume;
+
+        audioSource.pitch = Random.Range(lowPitch, highPitch);
+
+        audioSource.PlayOneShot(soundClip);
     }
 }
