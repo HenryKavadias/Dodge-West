@@ -8,7 +8,11 @@ public class AudioController : MonoBehaviour
 
     [Header("Must be accurate")]
     public List<string> soundNames = new List<string>();
+    public List<string> triggerSoundNames = new List<string>();
 
+    //public bool playOnStart = false;
+
+    private List<Sound> objTriggerSounds = new List<Sound>();
     private List<Sound> objSounds = new List<Sound>();
 
     private AudioSource audioSource;
@@ -36,6 +40,14 @@ public class AudioController : MonoBehaviour
                         objSounds.Add(sound);
                     }
                 }
+
+                foreach (string wanted in triggerSoundNames)
+                {
+                    if (sound.name == wanted)
+                    {
+                        objTriggerSounds.Add(sound);
+                    }
+                }
             }
         }
 
@@ -45,9 +57,60 @@ public class AudioController : MonoBehaviour
         }
 
         audioSource = gameObject.GetComponent<AudioSource>();
+
+        //if (playOnStart)
+        //{
+        //    RandomSfxOnStart();
+        //}
     }
 
-    [SerializeField]
+    public void AssignStartSounds(List<string> sounds)
+    {
+        triggerSoundNames = sounds;
+
+        // Refresh
+        Start();
+
+        RandomSfxOnAssign();
+    }
+
+    public void RandomSfxOnAssign()
+    {
+        // Randomly pick a sound from the current list
+        int randomIndex = Random.Range(0, objTriggerSounds.Count);
+        string soundName = triggerSoundNames[randomIndex];
+
+        // check if sound is accessable to object
+        bool pass = false;
+        int listCounter = 0;
+
+        foreach (string sound in triggerSoundNames)
+        {
+            if (sound == soundName)
+            {
+                pass = true;
+                break;
+            }
+            listCounter++;
+        }
+
+        if (!pass)
+        { return; }
+
+        audioSource.Stop();
+
+        AudioClip soundClip = objTriggerSounds[listCounter].clip;
+
+        float lowPitch = 1f - pitchRange;
+        float highPitch = 1f + pitchRange;
+
+        audioSource.volume = volume;
+
+        audioSource.pitch = Random.Range(lowPitch, highPitch);
+
+        audioSource.PlayOneShot(soundClip);
+    }
+
     public void TriggerAudio(string soundName)
     {
         // check if sound is accessable to object
@@ -88,6 +151,8 @@ public class AudioController : MonoBehaviour
         int randomIndex = Random.Range(0, soundNames.Count);
         string soundName = soundNames[randomIndex];
 
+        //Debug.Log(soundName);
+
         // check if sound is accessable to object
         bool pass = false;
         int listCounter = 0;
@@ -106,7 +171,7 @@ public class AudioController : MonoBehaviour
         { return; }
 
         audioSource.Stop();
-
+        
         AudioClip soundClip = objSounds[listCounter].clip;
 
         float lowPitch = 1f - pitchRange;

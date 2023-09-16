@@ -293,8 +293,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -8097538052501621277}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &-8097538052501621277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +374,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+  - GlassBreak3
+  triggerSoundNames:
+  - GlassShatter1
+  - GlassShatter2
+  - GlassShatter3
+  - GlassBreak1
+  - GlassBreak2
 --- !u!114 &-3909973142621256763
 MonoBehaviour:
   m_ObjectHideFlags: 0

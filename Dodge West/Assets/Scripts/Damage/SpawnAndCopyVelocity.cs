@@ -19,6 +19,9 @@ public class SpawnAndCopyVelocity : Spawner
             }
         }
 
+        // only assign to first object
+        bool firstAssigned = false;
+
         foreach (GameObject obj in prefabObjs)
         {
             GameObject mainObject =
@@ -27,6 +30,27 @@ public class SpawnAndCopyVelocity : Spawner
                 Quaternion.Euler(transform.eulerAngles.x,
                 transform.eulerAngles.y,
                 transform.eulerAngles.z));
+
+            if (assignSounds)
+            {
+                if (!firstAssigned)
+                {
+                    if (mainObject.GetComponent<AudioController>() != null)
+                    {
+                        mainObject.GetComponent<AudioController>().AssignStartSounds(
+                        gameObject.GetComponent<AudioController>().triggerSoundNames);
+                    }
+                    else
+                    {
+                        mainObject.AddComponent<AudioController>();
+
+                        mainObject.GetComponent<AudioController>().AssignStartSounds(
+                        gameObject.GetComponent<AudioController>().triggerSoundNames);
+                    }
+
+                    firstAssigned = true;
+                }
+            }
 
             // Copy the velocity and angular velocity on each fragment of the broken object
             if (mainObject != null && rb != null)
@@ -64,6 +88,22 @@ public class SpawnAndCopyVelocity : Spawner
             Quaternion.Euler(transform.eulerAngles.x,
             transform.eulerAngles.y,
             transform.eulerAngles.z));
+
+        if (assignSounds)
+        {
+            if (mainObject.GetComponent<AudioController>() != null)
+            {
+                mainObject.GetComponent<AudioController>().AssignStartSounds(
+                gameObject.GetComponent<AudioController>().triggerSoundNames);
+            }
+            else
+            {
+                mainObject.AddComponent<AudioController>();
+
+                mainObject.GetComponent<AudioController>().AssignStartSounds(
+                gameObject.GetComponent<AudioController>().triggerSoundNames);
+            }
+        }
 
         // Copy the velocity and angular velocity on each fragment of the broken object
         if (mainObject != null && rb != null)

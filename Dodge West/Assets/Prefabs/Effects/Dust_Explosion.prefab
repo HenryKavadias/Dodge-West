@@ -9785,6 +9785,7 @@ GameObject:
   - component: {fileID: 2895644948965882496}
   - component: {fileID: 6589802158846803482}
   - component: {fileID: 3491850307335933564}
+  - component: {fileID: 6480137823462120670}
   m_Layer: 0
   m_Name: Dust_Explosion
   m_TagString: Untagged
@@ -14677,3 +14678,18 @@ MonoBehaviour:
   destoryOnStart: 1
   destroyInstantly: 0
   destroyDelay: 1.5
+--- !u!114 &6480137823462120670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7614501053226499108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.1
+  soundNames: []
+  startSoundNames: []
