@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 0
   playerRender: {fileID: 8117071654721732356}
   usingCharacterModels: 1
 --- !u!114 &4709297059433045634
@@ -896,6 +897,9 @@ MonoBehaviour:
   - LoadItem
   - ThrowItem
   - Death1
+  triggerSoundNames:
+  - Death1
+  - Death2
 --- !u!114 &1598168328575553863
 MonoBehaviour:
   m_ObjectHideFlags: 0

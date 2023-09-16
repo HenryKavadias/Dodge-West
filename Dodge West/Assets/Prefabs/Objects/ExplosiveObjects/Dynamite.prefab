@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &-714295369662524531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +361,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchRange: 0.1
-  soundNames: []
+  soundNames:
+  - ClothThud1
+  - ClothThud2
+  - ClothThud3
+  triggerSoundNames:
+  - SmallExplosion
 --- !u!114 &2448287110301232419
 MonoBehaviour:
   m_ObjectHideFlags: 0

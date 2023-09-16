@@ -163,8 +163,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5635166034202486345}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &5635166034202486345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +244,7 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+  triggerSoundNames: []
 --- !u!114 &7426068823244021809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,8 +426,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1288465362662568774}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -489,6 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &1288465362662568774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +507,7 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+  triggerSoundNames: []
 --- !u!114 &5566318810616192544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,8 +795,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2916897370310315902}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -856,6 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &2916897370310315902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +876,7 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+  triggerSoundNames: []
 --- !u!114 &1175563830090831463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,8 +1533,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1410430965840588083}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1592,6 +1598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &1410430965840588083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,6 +1614,7 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+  triggerSoundNames: []
 --- !u!114 &5011983412988014459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,8 +1796,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3722752669520344743}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1853,6 +1861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &3722752669520344743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1868,6 +1877,7 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - GlassDamage
+  triggerSoundNames: []
 --- !u!114 &4702382617886269559
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1021,8 +1021,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4594140160251348681}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1071,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &8940077224021514375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,6 +1102,11 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - MetalDamage
+  - MetalBarrel
+  - MetalHit1
+  - MetalHit2
+  triggerSoundNames:
+  - MetalCrunch
 --- !u!114 &120684615670420218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4076,8 +4082,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1014107072669511435}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4126,6 +4132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &4986455825443168620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4156,6 +4163,11 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - MetalDamage
+  - MetalBarrel
+  - MetalHit1
+  - MetalHit2
+  triggerSoundNames:
+  - MetalCrunch
 --- !u!114 &7331482742022888067
 MonoBehaviour:
   m_ObjectHideFlags: 0

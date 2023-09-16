@@ -375,8 +375,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2266172732079119230}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &9052100696385307359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +456,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &5214836108907312303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,8 +1386,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8023452602350504320}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1428,6 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &5840581652379934106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,6 +1467,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &8141428485471185229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,8 +1870,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 940357953341779343}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1904,6 +1920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &1144258276579684862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,6 +1951,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &7861041757203237913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,8 +2139,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8071552483483580593}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2165,6 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &685167295294243046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,6 +2220,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &6409179921289030332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2539,8 +2571,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1861638558412766562}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2589,6 +2621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &8715552725110076383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2619,6 +2652,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &9014305402021183363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2907,8 +2947,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5448757891238777844}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2957,6 +2997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &2258456781031723161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2987,6 +3028,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &1362997137883602900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3382,8 +3430,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4067930368691955409}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3432,6 +3480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &8126891898875425989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,6 +3511,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &1921078998493030536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3644,8 +3700,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2160563573618701246}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3694,6 +3750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &4164811717833334890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3724,6 +3781,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &6313023346581412239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,8 +3970,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 324720351051858933}
         m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
-        m_MethodName: TriggerAudio
-        m_Mode: 5
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3956,6 +4020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &9038739482123315098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3986,6 +4051,13 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - WoodDamage
+  - WoodCrate
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodBoard
+  - WoodBarrel
+  - WoodBox
 --- !u!114 &7174753610987118900
 MonoBehaviour:
   m_ObjectHideFlags: 0

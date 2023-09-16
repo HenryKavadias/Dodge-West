@@ -396,7 +396,19 @@ MonoBehaviour:
   _initial: 15
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6742411762650692332}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -452,6 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
+  assignSounds: 1
 --- !u!114 &-6742411762650692332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +478,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchRange: 0.1
-  soundNames: []
+  soundNames:
+  - ClothThud1
+  - ClothThud2
+  - ClothThud3
+  triggerSoundNames:
+  - ClothRip1
+  - ClothRip2
+  - ClothRip3
 --- !u!114 &-6698227089089903238
 MonoBehaviour:
   m_ObjectHideFlags: 0
