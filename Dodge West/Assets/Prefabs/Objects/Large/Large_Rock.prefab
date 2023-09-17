@@ -266,7 +266,19 @@ MonoBehaviour:
   _initial: 150
   onDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1469315024271549355}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: RandomizeSfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -323,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabObjs:
   - {fileID: 6704892483781080500, guid: 42b4a3e938edfb042937b768209404b9, type: 3}
+  assignSounds: 1
   disableBeforeSpawn: 0
 --- !u!114 &-1469315024271549355
 MonoBehaviour:
@@ -337,7 +350,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitchRange: 0.1
-  soundNames: []
+  soundNames:
+  - RockImpact1
+  - RockImpact2
+  - RockImpact3
+  - RockImpact4
+  - RockImpact5
+  - RockImpact6
+  - RockImpact7
+  - RockImpact8
+  triggerSoundNames:
+  - RockSmash1
+  - RockSmash2
 --- !u!114 &460162270949725637
 MonoBehaviour:
   m_ObjectHideFlags: 0

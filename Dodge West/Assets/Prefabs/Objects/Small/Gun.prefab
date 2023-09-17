@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs: []
-  assignSounds: 0
+  assignSounds: 1
 --- !u!114 &-6494509249144607727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,8 +542,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchRange: 0.1
   soundNames:
-  - WoodDamage
-  triggerSoundNames: []
+  - WoodSnap1
+  - WoodSnap2
+  triggerSoundNames:
+  - WoodCrate
 --- !u!114 &4238787202560599607
 MonoBehaviour:
   m_ObjectHideFlags: 0
