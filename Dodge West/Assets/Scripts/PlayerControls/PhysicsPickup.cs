@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 // Manages the players ability to pickup objects in the game
 // (Objects are picked up with physics)
@@ -76,7 +77,6 @@ public class PhysicsPickup : MonoBehaviour
 
     // Holds a reference for the object currently being highlighted
     private GameObject currentHighlight = null;
-
 
     public bool enableHighlight = true;
     // Highlights pickup able objects using an outline script attached to the pickup able objects
@@ -393,6 +393,8 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    public UnityEvent throwEffect;
+
     void ThrowObject(bool current = false)
     {
         if (current)
@@ -407,6 +409,8 @@ public class PhysicsPickup : MonoBehaviour
 
             // Restore to original material state
             RestoreToOriginalMaterials();
+
+            throwEffect?.Invoke();
 
             currentObject = null;
         }
@@ -444,6 +448,8 @@ public class PhysicsPickup : MonoBehaviour
 
             // Update UI 
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI();
+
+            throwEffect?.Invoke();
         }
     }
 
@@ -567,6 +573,8 @@ public class PhysicsPickup : MonoBehaviour
         }
     }
 
+    public UnityEvent loadEffect;
+
     void LoadItem(GameObject item, bool held = false)
     {
         if (held)
@@ -588,6 +596,8 @@ public class PhysicsPickup : MonoBehaviour
             // Update UI
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
 
+            loadEffect?.Invoke();
+
             currentObject = null;
         }
         else
@@ -602,6 +612,8 @@ public class PhysicsPickup : MonoBehaviour
             {
                 UpdateVisualLoad();
             }
+
+            loadEffect?.Invoke();
 
             // Update UI
             gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);

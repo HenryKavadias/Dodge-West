@@ -856,6 +856,21 @@ MonoBehaviour:
   enableThrowPowerWithCap: 1
   minThrowPower: 100
   enableHighlight: 1
+  throwEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1755899104350236043}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ThrowItem
+          m_BoolArgument: 0
+        m_CallState: 2
   loadPositionSmall: {fileID: 8748609288643772216}
   loadPositionMid: {fileID: 3631170247341034220}
   loadPositionFar: {fileID: 7559222232872553868}
@@ -866,6 +881,21 @@ MonoBehaviour:
   loadableRestriction: 1
   loadItemLimit: 15
   loadMassLimit: 250
+  loadEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1755899104350236043}
+        m_TargetAssemblyTypeName: AudioController, Assembly-CSharp
+        m_MethodName: TriggerAudio
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LoadItem
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5637073744533230248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,10 +923,8 @@ MonoBehaviour:
   pitchRange: 0.1
   soundNames:
   - PlayerDamage
-  - Death2
-  - LoadItem
   - ThrowItem
-  - Death1
+  - LoadItem
   triggerSoundNames:
   - Death1
   - Death2
