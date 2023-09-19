@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.4
+      scalar: 0.5
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 35
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
+      scalar: 0.3
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -668,7 +668,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.5
+    radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -751,7 +751,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.5
+      value: 1.8
       mode: 0
       spread: 0
       speed:
@@ -4835,8 +4835,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4996f9be664c89c498ea4a86f527fb46, type: 2}
-  - {fileID: 2100000, guid: 32068fd8e79b2fd45a513142abca0c90, type: 2}
+  - {fileID: 2100000, guid: bca56ebcfd530e34e9e6000d0f03ffc2, type: 2}
+  - {fileID: 2100000, guid: bca56ebcfd530e34e9e6000d0f03ffc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5174,8 +5174,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
-      minScalar: 0.5
+      scalar: 3
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5555,7 +5555,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.5
+    radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -5638,7 +5638,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.5
+      value: 1.9
       mode: 0
       spread: 0
       speed:
@@ -9784,10 +9784,10 @@ GameObject:
   - component: {fileID: 3478236364924334889}
   - component: {fileID: 2895644948965882496}
   - component: {fileID: 6589802158846803482}
-  - component: {fileID: 3491850307335933564}
-  - component: {fileID: 6480137823462120670}
+  - component: {fileID: 6470908935945754744}
+  - component: {fileID: 6456237704110528093}
   m_Layer: 0
-  m_Name: Dust_Explosion
+  m_Name: KillPlayers_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9803,7 +9803,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8824114093688289022}
   - {fileID: 57959752482703551}
@@ -10064,8 +10064,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 4
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10445,7 +10445,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.5
+    radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -14612,7 +14612,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 32068fd8e79b2fd45a513142abca0c90, type: 2}
+  - {fileID: 2100000, guid: bca56ebcfd530e34e9e6000d0f03ffc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14663,7 +14663,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3491850307335933564
+--- !u!114 &6470908935945754744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14677,8 +14677,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destoryOnStart: 1
   destroyInstantly: 0
-  destroyDelay: 1.5
---- !u!114 &6480137823462120670
+  destroyDelay: 3
+--- !u!114 &6456237704110528093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14687,9 +14687,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7614501053226499108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b7fcf84b92838408a19dc7b7b85a89, type: 3}
+  m_Script: {fileID: 11500000, guid: a2dea39be556d9644a9394937545f8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchRange: 0.1
-  soundNames: []
-  triggerSoundNames: []
+  killOnStart: 1
