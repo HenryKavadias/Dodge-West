@@ -19,6 +19,7 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private LayerMask pickupMask;  // Layer(s) players can pickup objects on
     private Camera playerCamera;                    // Reference to player camera
     [SerializeField] private Transform pickupTarget;// Point where the picked up object will travel to
+    [SerializeField] private Transform largePickupTarget;
     [Space]
     [SerializeField] private float pickupRange;     // Distance that players can pick up an object
 
@@ -813,6 +814,9 @@ public class PhysicsPickup : MonoBehaviour
         Color color = mat.color;
         color.a = transparencyRatio;
         mat.color = color;
+
+        // Reduce metallic value
+        mat.SetFloat("_Metallic", 0.0f);
     }
 
     // Restores object materials to their previous states
@@ -870,16 +874,33 @@ public class PhysicsPickup : MonoBehaviour
         // Makes current object travel to the pick up point of the player
         if (currentObject)
         {
-            Vector3 directionToPoint = pickupTarget.position - currentObject.position;
-            // Not sure how to do it with the selected objects center of mass
-            //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
-            float distanceToPoint = directionToPoint.magnitude;
-
-            currentObject.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
-
-            if (currentObject.velocity.magnitude > maxObjectSpeed)
+            if (largePickupTarget != null && currentObject.GetComponent<VelocityDamager>().loadDistance == LoadDistance.Far)
             {
-                currentObject.velocity = Vector3.ClampMagnitude(currentObject.velocity, maxObjectSpeed);
+                Vector3 directionToPoint = largePickupTarget.position - currentObject.position;
+                // Not sure how to do it with the selected objects center of mass
+                //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
+                float distanceToPoint = directionToPoint.magnitude;
+
+                currentObject.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
+
+                if (currentObject.velocity.magnitude > maxObjectSpeed)
+                {
+                    currentObject.velocity = Vector3.ClampMagnitude(currentObject.velocity, maxObjectSpeed);
+                }
+            }
+            else
+            {
+                Vector3 directionToPoint = pickupTarget.position - currentObject.position;
+                // Not sure how to do it with the selected objects center of mass
+                //Vector3 directionToPoint = pickupTarget.position - currentObject.GetComponent<Rigidbody>().centerOfMass;
+                float distanceToPoint = directionToPoint.magnitude;
+
+                currentObject.velocity = directionToPoint * distanceToPoint * objectTrackingSpeedModifier;
+
+                if (currentObject.velocity.magnitude > maxObjectSpeed)
+                {
+                    currentObject.velocity = Vector3.ClampMagnitude(currentObject.velocity, maxObjectSpeed);
+                }
             }
 
             //Mathf.Clamp()
