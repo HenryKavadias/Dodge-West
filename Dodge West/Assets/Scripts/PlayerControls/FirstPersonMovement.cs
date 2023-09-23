@@ -294,6 +294,7 @@ public class FirstPersonMovement : MonoBehaviour
         // Start crouching
         if (crouching)
         {
+            // Needs to be reworked, currently low priority
             // Modify character model (NOTE: may get swapped with an animation)
             transform.localScale = new Vector3(
                 transform.localScale.x, 
