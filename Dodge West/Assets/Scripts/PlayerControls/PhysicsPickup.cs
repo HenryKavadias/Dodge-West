@@ -595,7 +595,8 @@ public class PhysicsPickup : MonoBehaviour
             }
 
             // Update UI
-            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(
+                true, item.GetComponent<VelocityDamager>().objIcon);
 
             loadEffect?.Invoke();
 
@@ -617,7 +618,8 @@ public class PhysicsPickup : MonoBehaviour
             loadEffect?.Invoke();
 
             // Update UI
-            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(true);
+            gameObject.GetComponent<CameraManager>().UpdateInventoryUI(
+                true, item.GetComponent<VelocityDamager>().objIcon);
         }
     }
 

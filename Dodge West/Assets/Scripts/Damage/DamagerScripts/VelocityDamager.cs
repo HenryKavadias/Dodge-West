@@ -22,7 +22,9 @@ public enum LoadDistance
 public class VelocityDamager : Damager
 {
     public bool loadable = true; // yet to be used
-    
+
+    public GameObject objIcon = null;
+
     // Where they will be positioned if loaded
     public LoadDistance loadDistance = LoadDistance.Mid;
 
