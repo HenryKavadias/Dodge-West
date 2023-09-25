@@ -45,6 +45,10 @@ public class LevelSelectScreenUI : MonoBehaviour
         {
             dataContainer = data.GetComponent<LevelDataContainer>();
         }
+        else
+        {
+            Debug.Log("Error, data container is missing!!!");
+        }
 
         if (autoSelectOnLoad)
         {
