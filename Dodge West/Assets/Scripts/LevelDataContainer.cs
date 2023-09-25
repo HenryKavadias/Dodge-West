@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 // - Records the level scene selected by the player that will be loaded 
 public class LevelDataContainer : MonoBehaviour
 {
+    public bool skipSelect { get; private set; } = false;
     public string selectedLevel { get; private set; } = string.Empty;
 
     // The scene AFTER level select scene. Previous scene must tell this
@@ -15,6 +16,16 @@ public class LevelDataContainer : MonoBehaviour
     public string nextScene { get; private set; } = string.Empty;
 
     public List<string> previousScenes { get; private set; }
+
+    public void SelectSkip()
+    {
+        if (!skipSelect)
+        {
+            skipSelect = true;
+            return;
+        }
+        skipSelect = false;
+    }
 
     // Add player to player list
     void AddScene(string scene)

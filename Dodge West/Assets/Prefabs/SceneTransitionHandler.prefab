@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2341079266701502422}
   m_Layer: 0
   m_Name: SceneTransitionHandler
-  m_TagString: Untagged
+  m_TagString: SceneTransitioner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,7 +244,7 @@ Transform:
   - {fileID: 2154417273573071915}
   - {fileID: 217147793685500360}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2341079266701502422
 MonoBehaviour:
@@ -263,7 +263,6 @@ MonoBehaviour:
   transitionCanvas: {fileID: 4903360001805572318}
   canvasSortOrder: 1
   nextScene: Start-Scene
-  timeLeft: 5
   loadingScreen: {fileID: 8972506518470602107}
   slider: {fileID: 1108531663671966694}
   progressText: {fileID: 792015618812101550}
@@ -524,7 +523,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -590,7 +588,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4903360001805572318
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +646,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -715,7 +711,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5593687357625886601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1012,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

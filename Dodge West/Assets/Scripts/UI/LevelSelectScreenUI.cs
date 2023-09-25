@@ -10,6 +10,10 @@ public class LevelSelectScreenUI : MonoBehaviour
 {
     public GameObject transitionHandler;    // Reference for scene transition handler
 
+    // For Pax build
+    public bool autoSelectOnLoad = false;
+    public GameObject Cover = null;
+
     // Scene names the player can go to (MUST be accurate)
     [SerializeField]
     private string previousScene = "Start-Scene";
@@ -40,6 +44,29 @@ public class LevelSelectScreenUI : MonoBehaviour
         if (data)
         {
             dataContainer = data.GetComponent<LevelDataContainer>();
+        }
+
+        if (autoSelectOnLoad)
+        {
+            if (Cover != null)
+            {
+                Cover.SetActive(true);
+            }
+
+            if (dataContainer.skipSelect)
+            {
+                dataContainer.SelectSkip();
+                BackToPreviousScene();
+            }
+            else
+            {
+                int randomIndex = Random.Range(0, levelSceneNames.Length);
+                string sceneName = levelSceneNames[randomIndex];
+
+                dataContainer.SelectSkip();
+
+                StoreLevelData(sceneName);
+            }
         }
     }
 
@@ -114,7 +141,7 @@ public class LevelSelectScreenUI : MonoBehaviour
     // Note: add for escape button
     public void BackToPreviousScene()
     {
-        if (!inputEnabled) { return; }
+        if (!inputEnabled && !autoSelectOnLoad) { return; }
 
         if (dataContainer && dataContainer.previousScenes.Any())
         {
