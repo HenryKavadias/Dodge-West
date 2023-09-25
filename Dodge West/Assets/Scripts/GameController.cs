@@ -346,6 +346,7 @@ public class GameController : MonoBehaviour
                 AddPlayer(player);
             }
 
+            //dataContainer = GameObject.FindGameObjectWithTag("DataContainer");
             dataContainer = GameData.GameDataInstance.gameObject;
             if (dataContainer != null && dataContainer.GetComponent<GameData>().GetPlayerCount() <= 0)
             {

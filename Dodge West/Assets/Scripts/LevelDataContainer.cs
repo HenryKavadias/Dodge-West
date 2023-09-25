@@ -99,32 +99,32 @@ public class LevelDataContainer : MonoBehaviour
     }
 
     // Reference to the LevelDataContainer (only one LevelDataContainer may be active at a time)
-    public static LevelDataContainer LvlInstance {  get; private set; }
+    //public static LevelDataContainer LvlInstance {  get; private set; }
 
-    private void Awake()
-    {
-        // Create instance of LevelDataContainer, store it in static variable,
-        // assign object to don't destroy on load instance (destory self if another already exists)
-        if (LvlInstance != null)
-        {
-            Debug.Log("[Singleton] Trying to instantiate a second " +
-                "instance of a singleton class (level data container).");
-            DestroySelf(); // removes the duplicate 
-        }
-        else
-        {
-            selectedLevel = string.Empty;
+    //private void Awake()
+    //{
+    //    // Create instance of LevelDataContainer, store it in static variable,
+    //    // assign object to don't destroy on load instance (destory self if another already exists)
+    //    if (LvlInstance != null)
+    //    {
+    //        Debug.Log("[Singleton] Trying to instantiate a second " +
+    //            "instance of a singleton class (level data container).");
+    //        DestroySelf(); // removes the duplicate 
+    //    }
+    //    else
+    //    {
+    //        selectedLevel = string.Empty;
 
-            GameData gameData = GetComponent<GameData>();
-            if (gameData != null)
-            {
-                gameData.SetGameDataInstance();
-            }
+    //        GameData gameData = GetComponent<GameData>();
+    //        if (gameData != null)
+    //        {
+    //            gameData.SetGameDataInstance();
+    //        }
 
-            LvlInstance = this;
-            DontDestroyOnLoad(LvlInstance);
-        }
-    }
+    //        LvlInstance = this;
+    //        DontDestroyOnLoad(LvlInstance);
+    //    }
+    //}
 
     public void ResetSceneVariables()
     {
