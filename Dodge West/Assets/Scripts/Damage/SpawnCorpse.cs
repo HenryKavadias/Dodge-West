@@ -10,6 +10,8 @@ public class SpawnCorpse : Spawner
 
     public bool usingCharacterModels = false;
 
+    public Transform bodyRotation = null;
+
     private void Start()
     {
         if (usingCharacterModels)
@@ -50,10 +52,22 @@ public class SpawnCorpse : Spawner
             }
         }
 
-        GameObject body = Instantiate(prefab, transform.position,
+        GameObject body = null;
+
+        if (bodyRotation != null)
+        {
+            body = Instantiate(prefab, transform.position,
+            Quaternion.Euler(bodyRotation.eulerAngles.x,
+            bodyRotation.eulerAngles.y,
+            bodyRotation.eulerAngles.z));
+        }
+        else
+        {
+            body = Instantiate(prefab, transform.position,
             Quaternion.Euler(transform.eulerAngles.x,
             transform.eulerAngles.y,
             transform.eulerAngles.z));
+        }
 
         var rb = GetComponent<Rigidbody>();
 
@@ -64,7 +78,7 @@ public class SpawnCorpse : Spawner
 
         if (foundMat != null)
         {
-            // NOTE: outline script doesn't work, use 2 seperate corpse prefabs
+            // NOTE: toggle off the inactive model
             if (usingCharacterModels)
             {
                 //Debug.Log(gameObject.GetComponent<PlayerInputHandler>().modelSelected);
