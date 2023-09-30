@@ -651,10 +651,12 @@ public class PhysicsPickup : MonoBehaviour
         currentLoad = 0;
     }
 
+    public UnityEvent burdenEffect;
+
     // Checks if player can load an object into their inventory
     bool LoadLimitCheck(float objMass = 0)
     {
-        if (massLimitEnabled || itemLimitEnabled)
+        if (massLimitEnabled && itemLimitEnabled)
         {
             // Both limitations
             if (currentLoad + objMass <= loadMassLimit &&
@@ -684,6 +686,11 @@ public class PhysicsPickup : MonoBehaviour
             }
 
             Debug.Log("Too heavy, can't load more.");
+        }
+
+        if (massLimitEnabled || itemLimitEnabled)
+        {
+            burdenEffect?.Invoke();
         }
 
         return false;

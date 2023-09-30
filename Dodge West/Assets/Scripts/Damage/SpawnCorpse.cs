@@ -12,6 +12,9 @@ public class SpawnCorpse : Spawner
 
     public Transform bodyRotation = null;
 
+    public GameObject playerHat = null;
+    public Transform playerHatSpawn = null;
+
     private void Start()
     {
         if (usingCharacterModels)
@@ -75,6 +78,30 @@ public class SpawnCorpse : Spawner
 
         objRb.velocity = rb.velocity;
         objRb.angularVelocity = rb.angularVelocity;
+
+        if (playerHat != null && playerHatSpawn != null)
+        {
+            GameObject hat = null;
+
+            if (bodyRotation != null)
+            {
+                hat = Instantiate(playerHat, playerHatSpawn.position,
+                    Quaternion.Euler(bodyRotation.eulerAngles.x,
+                    bodyRotation.eulerAngles.y,
+                    bodyRotation.eulerAngles.z));
+            }
+            else
+            {
+                hat = Instantiate(playerHat, playerHatSpawn.position,
+                    Quaternion.Euler(transform.eulerAngles.x,
+                    transform.eulerAngles.y,
+                    transform.eulerAngles.z));
+            }
+            
+            var hatRb = hat.gameObject.GetComponent<Rigidbody>();
+            hatRb.velocity = rb.velocity;
+            hatRb.angularVelocity = rb.angularVelocity;
+        }
 
         if (foundMat != null)
         {
