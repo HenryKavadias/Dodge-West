@@ -58,6 +58,7 @@ public class Timeout : MonoBehaviour
                     ResetTimer();
                     if (startSceneName != string.Empty)
                     {
+                        // This gets rid of player configuration manager if it exists
                         gameObject.GetComponent<SceneTransition>().LoadNextScene(startSceneName);
                     }
                 }
