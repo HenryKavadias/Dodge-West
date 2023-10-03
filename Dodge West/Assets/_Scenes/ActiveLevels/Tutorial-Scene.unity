@@ -2552,7 +2552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.216, y: 0.338}
+  m_AnchoredPosition: {x: -0.129, y: 0.33}
   m_SizeDelta: {x: 0.2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193180587
@@ -5131,7 +5131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.78119874, y: -0.4649}
+  m_AnchoredPosition: {x: -0.788, y: -0.523}
   m_SizeDelta: {x: 0.2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385044085
@@ -5394,7 +5394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4570410361741921896, guid: 1b2548ae58ae57d499bf4bb78cfb1cbf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 269
+      value: 327.22
       objectReference: {fileID: 0}
     - target: {fileID: 4570410361741921896, guid: 1b2548ae58ae57d499bf4bb78cfb1cbf, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5402,10 +5402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969134990262138890, guid: 1b2548ae58ae57d499bf4bb78cfb1cbf, type: 3}
       propertyPath: m_text
-      value: 'Grab - X  Left bumper and Left trigger
+      value: 'Grab - X  Right bumper and (when holding nothing) Right trigger
 
 
-        Drop - X
+        Drop
+        - X
 
 '
       objectReference: {fileID: 0}
@@ -5739,7 +5740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.142, y: 0.223}
+  m_AnchoredPosition: {x: 0.1383, y: 0.221}
   m_SizeDelta: {x: 0.12, y: 0.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439992060
@@ -5762,7 +5763,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a1d4f4e47c9c6540a07ee14cf39d673, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10470120762b82641823bc3b04278317, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7456,12 +7457,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969134990262138890, guid: 1b2548ae58ae57d499bf4bb78cfb1cbf, type: 3}
       propertyPath: m_text
-      value: 'Jump - A
+      value: 'Jump - A (double)
 
         Dash (directional) - B
 
-        Crouch - Right stick
-        press
+        Crouch -
+        Right stick press (toggle)
 
         Sprint - Left stick (Hold)'
       objectReference: {fileID: 0}
@@ -9161,7 +9162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a1d4f4e47c9c6540a07ee14cf39d673, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10470120762b82641823bc3b04278317, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16549,7 +16550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.948, y: 0.094}
+  m_AnchoredPosition: {x: -0.983, y: 0.162}
   m_SizeDelta: {x: 0.2, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826472898
@@ -18788,11 +18789,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4969134990262138890, guid: 1b2548ae58ae57d499bf4bb78cfb1cbf, type: 3}
       propertyPath: m_text
-      value: 'Throw - Right bumper and Right trigger
+      value: 'Throw -  Right trigger
 
 
-        Load Item - Left bumper
-        and Left trigger'
+        Load Item - Left bumper and Left trigger'
       objectReference: {fileID: 0}
     - target: {fileID: 7295154873178521885, guid: 1b2548ae58ae57d499bf4bb78cfb1cbf, type: 3}
       propertyPath: m_Name

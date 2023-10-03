@@ -156,7 +156,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6704892483781080500}
   serializedVersion: 4
-  m_Mass: 300
+  m_Mass: 200
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f42954f12fee934085e2de383e8ae1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 12
   loadable: 0
   objIcon: {fileID: 0}
   loadDistance: 2
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe464bf6ec5b4594090f4fa0eb17b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initial: 150
+  _initial: 90
   onDamaged:
     m_PersistentCalls:
       m_Calls:

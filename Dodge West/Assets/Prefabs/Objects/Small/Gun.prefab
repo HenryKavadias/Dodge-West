@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 6704892483781080499}
   - component: {fileID: 378243212623978268}
   - component: {fileID: 6704892483781080498}
+  - component: {fileID: -464082067442777858}
   - component: {fileID: 6704892483781080501}
   - component: {fileID: 8220398388535711940}
   - component: {fileID: 211310518974048739}
@@ -368,6 +369,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-464082067442777858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704892483781080500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae73fb8639c078942859fa82b0e33caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectCollider: {fileID: 378243212623978268}
 --- !u!114 &6704892483781080501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,10 +394,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f42954f12fee934085e2de383e8ae1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 5
   loadable: 1
   objIcon: {fileID: 3195996567255764507, guid: 1117b89269d29d84799a47f76c11485d, type: 3}
   loadDistance: 0
+  throwTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -464082067442777858}
+        m_TargetAssemblyTypeName: ToggleSelectCollider, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10

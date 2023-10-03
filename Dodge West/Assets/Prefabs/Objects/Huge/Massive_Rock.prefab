@@ -146,7 +146,7 @@ Transform:
   m_Children:
   - {fileID: 6704892483733251756}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6704892483781080498
 Rigidbody:
@@ -191,14 +191,14 @@ MonoBehaviour:
   loadable: 0
   objIcon: {fileID: 0}
   loadDistance: 1
-  minDamageVelocity: 20
+  minDamageVelocity: 10
   velocityThreshold: 0
-  minThrownDamageVelocity: 10
+  minThrownDamageVelocity: 8
   thrownVelocityThreshold: 0.2
-  minHeldDamageVelocity: 15
+  minHeldDamageVelocity: 12
   heldVelocityThreshold: 0.5
-  minIdleDamageVelocity: 30
-  idleVelocityThreshold: 0.7
+  minIdleDamageVelocity: 15
+  idleVelocityThreshold: 0.6
 --- !u!114 &8220398388535711940
 MonoBehaviour:
   m_ObjectHideFlags: 0

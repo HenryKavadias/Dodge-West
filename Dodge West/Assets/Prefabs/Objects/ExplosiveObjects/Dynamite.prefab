@@ -216,6 +216,9 @@ MonoBehaviour:
   loadable: 1
   objIcon: {fileID: 3195996567255764507, guid: 3630d598bb1085141a48ffb71cc5d72b, type: 3}
   loadDistance: 0
+  throwTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -254,14 +257,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64829a8454bc56947be1b73dcaa67327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   limitLayers: 0
   useDefaultLayers: 1
   limitedLayer:
     serializedVersion: 2
     m_Bits: 0
-  minDamageVelocity: 12
-  velocityThreshold: 0.3
+  minDamageVelocity: 6
+  velocityThreshold: 0.12
 --- !u!114 &5021289377710006328
 MonoBehaviour:
   m_ObjectHideFlags: 0

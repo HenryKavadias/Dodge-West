@@ -596,6 +596,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ResetGame",
+                    "type": "Button",
+                    "id": "24e0530e-9e82-413a-ab7d-24b7f904aea9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -904,6 +913,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77a37926-3c8d-4892-a9ff-121678bb9164",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ResetGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 
 public class Timeout : MonoBehaviour
 {
     public bool inputTimeout = false;
+    public bool buttonReset = false;
     public float timeoutTrigger = 60f;
     public string startSceneName = string.Empty;
 
@@ -32,6 +34,25 @@ public class Timeout : MonoBehaviour
         }
     }
 
+    private void ResetGame()
+    {
+        GameObject gameObject = GameObject.FindGameObjectWithTag("SceneTransitioner");
+        if (gameObject != null)
+        {
+            if (GameData.GameDataInstance != null)
+            {
+                GameData.GameDataInstance.DestroySelf();
+            }
+
+            ResetTimer();
+            if (startSceneName != string.Empty)
+            {
+                // This gets rid of player configuration manager if it exists
+                gameObject.GetComponent<SceneTransition>().LoadNextScene(startSceneName);
+            }
+        }
+    }
+
     private void Update()
     {
         if (inputTimeout)
@@ -47,22 +68,14 @@ public class Timeout : MonoBehaviour
             }
             else
             {
-                GameObject gameObject = GameObject.FindGameObjectWithTag("SceneTransitioner");
-                if (gameObject != null)
-                {
-                    if (GameData.GameDataInstance != null)
-                    {
-                        GameData.GameDataInstance.DestroySelf();
-                    }
-
-                    ResetTimer();
-                    if (startSceneName != string.Empty)
-                    {
-                        // This gets rid of player configuration manager if it exists
-                        gameObject.GetComponent<SceneTransition>().LoadNextScene(startSceneName);
-                    }
-                }
+                ResetGame();
             }
+        }
+
+        if (buttonReset && GetComponent<InputSystemUIInputModule>() != null 
+            && GetComponent<InputSystemUIInputModule>().cancel.action.triggered)
+        {
+            ResetGame();
         }
     }
 

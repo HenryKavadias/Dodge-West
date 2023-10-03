@@ -460,12 +460,14 @@ public class PhysicsPickup : MonoBehaviour
 
     public GameObject preLoadedObject = null;
 
-    public bool visualLoad = true;
+    public bool visualLoad = false;
 
     void SetPreLoadedItem()
     {
         if (preLoadedObject)
         {
+            visualLoad = true;
+
             GameObject item = Instantiate(preLoadedObject);
 
             LoadItem(item);

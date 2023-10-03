@@ -152,15 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b435c73f760627246a5c6decacb880a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsCount: 50
-  maxRadius: 10
+  pointsCount: 40
+  maxRadius: 15
   speed: 100
   startWidth: 5
   applyDynamicForce: 0
-  forceModifier: 40
-  damage: 10
+  forceModifier: 50
+  damage: 12
   waveActive: 0
   disableOverlapForce: 0
+  damageDropOff: 1
   minForce: 50
 --- !u!114 &598335424433240449
 MonoBehaviour:

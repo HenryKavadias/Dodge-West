@@ -152,15 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b435c73f760627246a5c6decacb880a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsCount: 25
-  maxRadius: 3
-  speed: 100
+  pointsCount: 20
+  maxRadius: 5
+  speed: 80
   startWidth: 1
   applyDynamicForce: 0
-  forceModifier: 10
-  damage: 5
-  waveActive: 1
+  forceModifier: 25
+  damage: 8
+  waveActive: 0
   disableOverlapForce: 0
+  damageDropOff: 1
   minForce: 50
 --- !u!114 &598335424433240449
 MonoBehaviour:
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchRange: 0.1
   soundNames: []
-  startSoundNames: []
+  triggerSoundNames: []
 --- !u!1001 &7029423914851761278
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Pickupable object states. Used to control the
 // sensitivity to damage that the object has
@@ -56,11 +57,14 @@ public class VelocityDamager : Damager
         }
     }
 
+    public UnityEvent throwTrigger = null;
     // Set object to picked up/held state and set holder
     public void Pickup(GameObject holder)
     {
         currentHolder = holder;
         state = ObjectState.Held;
+
+        throwTrigger?.Invoke();
     }
 
     // Set object to a thrown or idle state depending if the object was "thrown" or "dropped"
@@ -76,6 +80,8 @@ public class VelocityDamager : Damager
         {
             state = ObjectState.Idle;
         }
+
+        throwTrigger?.Invoke();
     }
 
     // Check if object is held

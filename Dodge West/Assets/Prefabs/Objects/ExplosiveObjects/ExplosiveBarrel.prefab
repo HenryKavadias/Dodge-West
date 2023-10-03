@@ -193,8 +193,8 @@ MonoBehaviour:
   limitedLayer:
     serializedVersion: 2
     m_Bits: 0
-  minDamageVelocity: 12
-  velocityThreshold: 0.3
+  minDamageVelocity: 6
+  velocityThreshold: 0.12
 --- !u!114 &6704892483781080501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +211,9 @@ MonoBehaviour:
   loadable: 1
   objIcon: {fileID: 3195996567255764507, guid: c7a2576f7f35c5447bd89040fb5e6acd, type: 3}
   loadDistance: 1
+  throwTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   minDamageVelocity: 20
   velocityThreshold: 0.2
   minThrownDamageVelocity: 10

@@ -17,6 +17,8 @@ public class BlastWave : MonoBehaviour
 
     public bool disableOverlapForce = false;
 
+    public bool damageDropOff = true;
+
     [SerializeField] private float minForce = 40f;
 
     // Renderer for blast wave
@@ -120,9 +122,17 @@ public class BlastWave : MonoBehaviour
                 //Debug.Log("No damage");
                 continue;
             }
-            //Debug.Log("Explosion damage");
-            float modDamage = damage / currentRadius;
-            damaged.Damage(modDamage);
+
+            // If damage value with drop off as radius of explosion gets larger
+            if (damageDropOff)
+            {
+                damaged.Damage(damage / currentRadius);
+            }
+            else
+            {
+                damaged.Damage(damage);
+            }
+
         }
     }
 
