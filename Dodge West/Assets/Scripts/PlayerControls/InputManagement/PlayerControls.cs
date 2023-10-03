@@ -627,6 +627,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MusicOff"",
+                    ""type"": ""Button"",
+                    ""id"": ""43349417-e215-4271-adf2-b1cd779df63a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -948,6 +957,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ResetGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""556eccd6-4740-4fe0-9f86-5c8b5d6f9405"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""MusicOff"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1003,6 +1023,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_ResetGame = m_UI.FindAction("ResetGame", throwIfNotFound: true);
+        m_UI_MusicOff = m_UI.FindAction("MusicOff", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1189,6 +1210,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_ResetGame;
+    private readonly InputAction m_UI_MusicOff;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
@@ -1200,6 +1222,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Point => m_Wrapper.m_UI_Point;
         public InputAction @Click => m_Wrapper.m_UI_Click;
         public InputAction @ResetGame => m_Wrapper.m_UI_ResetGame;
+        public InputAction @MusicOff => m_Wrapper.m_UI_MusicOff;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1230,6 +1253,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ResetGame.started += instance.OnResetGame;
             @ResetGame.performed += instance.OnResetGame;
             @ResetGame.canceled += instance.OnResetGame;
+            @MusicOff.started += instance.OnMusicOff;
+            @MusicOff.performed += instance.OnMusicOff;
+            @MusicOff.canceled += instance.OnMusicOff;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1255,6 +1281,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ResetGame.started -= instance.OnResetGame;
             @ResetGame.performed -= instance.OnResetGame;
             @ResetGame.canceled -= instance.OnResetGame;
+            @MusicOff.started -= instance.OnMusicOff;
+            @MusicOff.performed -= instance.OnMusicOff;
+            @MusicOff.canceled -= instance.OnMusicOff;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1312,5 +1341,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnResetGame(InputAction.CallbackContext context);
+        void OnMusicOff(InputAction.CallbackContext context);
     }
 }

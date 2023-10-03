@@ -15,6 +15,9 @@ public class MuteManager : MonoBehaviour
     private InputSystemUIInputModule iSUIIMMuteControl; // Reference to component that holds the controls for the mute button
     private AudioSource audioSource;    // Reference to audio sources
 
+    private float defaultVolume = 0.5f;
+    private bool musicOn = true;
+
     // Get mute state on start
     void Start()
     {
@@ -27,6 +30,11 @@ public class MuteManager : MonoBehaviour
             Pause();
             AudioListener.volume = 0;
         }
+
+        if (audioSource != null)
+        {
+            defaultVolume = audioSource.volume;
+        }
     }
 
     private void Update()
@@ -37,6 +45,19 @@ public class MuteManager : MonoBehaviour
         if (iSUIIMMuteControl.cancel.action.triggered)
         {
             MutePressed();
+        }
+        else if (iSUIIMMuteControl.submit.action.triggered)
+        {
+            if (musicOn)
+            {
+                audioSource.volume = 0;
+                musicOn = false;
+            }
+            else
+            {
+                audioSource.volume = defaultVolume;
+                musicOn = true;
+            }
         }
     }
 

@@ -605,6 +605,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MusicOff",
+                    "type": "Button",
+                    "id": "43349417-e215-4271-adf2-b1cd779df63a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -924,6 +933,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "ResetGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "556eccd6-4740-4fe0-9f86-5c8b5d6f9405",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MusicOff",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
