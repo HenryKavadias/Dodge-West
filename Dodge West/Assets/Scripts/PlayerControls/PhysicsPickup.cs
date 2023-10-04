@@ -29,7 +29,6 @@ public class PhysicsPickup : MonoBehaviour
 
     // Controls the force applied to the an object when thrown
     [SerializeField] private float flatThrowPowerPerUnit = 20f; // Power per units of object mass
-    [SerializeField] private bool enableThrowPowerWithCap = true;
     [SerializeField] private float minThrowPower = 100f;
 
     private Rigidbody currentObject;    // Reference to current picked up object
@@ -152,7 +151,7 @@ public class PhysicsPickup : MonoBehaviour
     }
 
     // Used to balance object throw power
-    float DynamicForceToObject(float objMass)
+    float DynamicForceToObject(float objMass, bool loaded = false)
     {
         // Throw power ideal guide:
 
@@ -176,24 +175,24 @@ public class PhysicsPickup : MonoBehaviour
         // Cap the force power for objects lighter than 1 mass
         if (objMass < 1)
         {
-            result = minThrowPower * objMass;
+            result = (minThrowPower + GetComponent<Rigidbody>().velocity.magnitude) * 
+                objMass;
             return result;
         }
 
         // Calculates the throw force value for current object
-        if (enableThrowPowerWithCap)
-        {
-            // 80ppu to 1ppu with a flat value
-            float powerPerUnits = 107.38f * Mathf.Pow(objMass, -0.98f);
 
-            result = (powerPerUnits + flatThrowPowerPerUnit) * objMass;
+        // 80ppu to 1ppu with a flat value
+        float powerPerUnits = 107.38f * Mathf.Pow(objMass, -0.98f);
+
+        if (loaded)
+        {
+            result = (powerPerUnits + flatThrowPowerPerUnit +
+                GetComponent<Rigidbody>().velocity.magnitude) * objMass;
         }
         else
         {
-            // 100ppu to 20ppu without a flat value
-            float powerPerUnits = 89.206f * Mathf.Pow(objMass, -0.362f);
-
-            result = powerPerUnits * objMass;
+            result = (powerPerUnits + flatThrowPowerPerUnit) * objMass;
         }
 
         return result;
@@ -432,7 +431,8 @@ public class PhysicsPickup : MonoBehaviour
 
             thrownObj.SetActive(true);
             thrownObj.GetComponent<Rigidbody>().AddForce(pickupTarget.forward *
-                DynamicForceToObject(thrownObj.GetComponent<Rigidbody>().mass), ForceMode.Impulse);
+                DynamicForceToObject(thrownObj.GetComponent<Rigidbody>().mass, true), 
+                ForceMode.Impulse);
 
             ToggleCollider(thrownObj.transform, true);
             thrownObj.transform.parent = null;

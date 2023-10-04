@@ -977,7 +977,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   loadable: 0
+  objIcon: {fileID: 0}
   loadDistance: 2
+  throwTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   minDamageVelocity: 20
   velocityThreshold: 0.4
   minThrownDamageVelocity: 10
