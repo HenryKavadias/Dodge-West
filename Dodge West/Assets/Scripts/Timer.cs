@@ -20,11 +20,24 @@ public class Timer : MonoBehaviour
     public float timerWidth = 200f;
     public float messageWidth = 600f;
 
+    public bool enableImage = true;
+
+    public GameObject controlsImage = null;
+
     private RainingObjects rainingObjects = null;
 
     private void Awake()
     {
         rainingObjects = GetComponent<RainingObjects>();
+
+        if (enableImage && controlsImage != null)
+        {
+            controlsImage.SetActive(true);
+        }
+        else if (controlsImage != null)
+        {
+            controlsImage.SetActive(false);
+        }
     }
 
     public void TriggerStartDelay()
@@ -75,6 +88,11 @@ public class Timer : MonoBehaviour
 
                 // Ensure player controls are re-enabled
                 gameObject.GetComponent<GameController>().TogglePlayerControls(true);
+
+                if (controlsImage != null)
+                {
+                    controlsImage.SetActive(false);
+                }
 
                 Invoke(nameof(BeginRainCountDown), 1.5f);
             }
