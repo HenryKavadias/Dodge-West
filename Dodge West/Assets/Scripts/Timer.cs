@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// Timer script mostly used for UI purposes
 public class Timer : MonoBehaviour
 {
     public float startGameTime = 3f;
@@ -27,6 +28,7 @@ public class Timer : MonoBehaviour
         rainingObjects = GetComponent<RainingObjects>();
     }
 
+    // Start the countdown with an intial delay
     public void TriggerStartDelay()
     {
         
@@ -40,6 +42,7 @@ public class Timer : MonoBehaviour
         }
     }
 
+    // Starts the rain objects count down
     public void BeginRainCountDown()
     {
         if (rainingObjects)
@@ -48,6 +51,7 @@ public class Timer : MonoBehaviour
         }
     }
 
+    // Set the timer and start it.
     public void SetAndStart(float time = 60f, bool start = false)
     {
         timeLeft = time;
@@ -56,7 +60,7 @@ public class Timer : MonoBehaviour
         timerBase.sizeDelta = new Vector2(timerWidth, timerBase.sizeDelta.y);
     }
 
-    // Update is called once per frame
+    // Timer tracking run in update
     void Update()
     {
         if (timerOn)
@@ -92,6 +96,7 @@ public class Timer : MonoBehaviour
         }
     }
 
+    // Updates the UI of the timer
     void UpdateTimer(float time)
     {
         time += 1;

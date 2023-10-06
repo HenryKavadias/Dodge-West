@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Rains objects from the sky after a timer delay
 public class RainingObjects : MonoBehaviour
 {
     [SerializeField]
@@ -49,15 +50,7 @@ public class RainingObjects : MonoBehaviour
 
     private System.Random random = new System.Random();
 
-    //private void Start()
-    //{
-    //    if (timer != null)
-    //    {
-    //        timer.SetAndStart(startTimer, true);
-    //    }
-    //    Invoke(nameof(ResetSpawnerAllowance), startTimer);
-    //}
-
+    // Starts the intial countdown until objects will start raining
     public void BeginCountDown()
     {
         if(timer != null)
@@ -67,8 +60,10 @@ public class RainingObjects : MonoBehaviour
         Invoke(nameof(ResetSpawnerAllowance), startTimer);
     }
 
+    // Spawns objects in a random object in a given list in a random area inside a box area
     private void SpawnCycle(List<GameObject> objectList)
     {
+        // Spawns 1 object in the centre of the box area. Overrides normal spawn
         if (megaBomb != null && enableMegaBomb && spawnCycleCount >= megaBombTrigger)
         {
             Instantiate(
@@ -82,6 +77,8 @@ public class RainingObjects : MonoBehaviour
             return;
         }
         
+        // Spawns the set number of objects randomly in the space of a in a box area.
+        // The object spawned is randomly selected from the given list
         for (int i = 0; i < (numberOfSpawnsPerUpdate + spawnIncrease); i++)
         {
             int randomiseObject = random.Next(0, objectList.Count);
@@ -100,15 +97,19 @@ public class RainingObjects : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // There are 3 types of spawns:
+    // - Standard: spawns a set number of objects from the standard list after a delay. The amount increases over time
+    // - Rapid: same as standard, but disables the delay for a time frame and uses the rapid spawn list of objects
+    // - Mega Bomb: spawns one type of object until the game is over. Usually a bomb the kills all the players.
+    // 
+    // Standard is the normal spawn cycle used. After every few spawns the Rapid spawn will trigger.
+    // After a set number of standard spawns the Mega bomb spawn will start and remain that way until the end of the game.
     void Update()
     {
         if (spawnZoneReference &&
             standardObjects.Count > 0 &&
             allowSpawning)
         {
-            //SpawnCycle(standardObjects);
-
             if (startRapidSpawn)
             {
                 startRapidSpawn = false;
@@ -189,6 +190,7 @@ public class RainingObjects : MonoBehaviour
         triggerRapidSpawn = false;
     }
 
+    // Draws the wire frame of the spawn area in the editor
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Re-enables the assigned object after a delay
 public class EnableObject : MonoBehaviour
 {
     public GameObject obj = null;

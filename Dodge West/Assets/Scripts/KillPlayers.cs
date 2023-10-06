@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Deals enough damage to all the players in the scene to kill them
 public class KillPlayers : MonoBehaviour
 {
     public bool killOnStart = true;

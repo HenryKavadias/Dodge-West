@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.UI;
 
+// Resets the game back to the "Start Scene" after a period of no player input or if a specific input is triggered
 public class Timeout : MonoBehaviour
 {
     public bool inputTimeout = false;
@@ -34,6 +35,7 @@ public class Timeout : MonoBehaviour
         }
     }
 
+    // Triggers a scene transition and removes all Do not destory on load objects that don't need to persist
     private void ResetGame()
     {
         GameObject gameObject = GameObject.FindGameObjectWithTag("SceneTransitioner");

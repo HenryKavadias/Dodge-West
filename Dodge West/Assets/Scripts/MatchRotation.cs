@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Used to match the rotation of the players camera
+// with their character models head. Camped between two limits 
 public class MatchRotation : MonoBehaviour
 {
     public Transform matchObject = null;
@@ -26,23 +28,6 @@ public class MatchRotation : MonoBehaviour
                 xRotation,
                 lowerRotationCap,
                 upperRotationCap);
-
-            //if (xAngle >= 0 && xAngle <= lowerRotationCap)
-            //{
-            //    xRotation = Mathf.Clamp(
-            //    matchObject.eulerAngles.x,
-            //    0f,
-            //    lowerRotationCap);
-            //}
-            //else if (xAngle >= (360f - upperRotationCap) && xAngle <= 360f)
-            //{
-            //    xRotation = Mathf.Clamp(
-            //    matchObject.eulerAngles.x,
-            //    (360f - upperRotationCap),
-            //    360f);
-            //}
-
-            //Debug.Log(matchObject.eulerAngles.x);
 
             gameObject.transform.rotation = 
                 Quaternion.Euler(

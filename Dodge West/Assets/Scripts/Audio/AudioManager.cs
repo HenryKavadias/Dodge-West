@@ -11,6 +11,7 @@ public class Sound
     public AudioClip clip;
 }
 
+// Holds and managers all the sounds and music tracks in the game
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -56,11 +57,12 @@ public class AudioManager : MonoBehaviour
         return sounds;
     }
 
-    // Make proper music fuctionality
     private float startTime = 0f;
     private float stopTime = 0f;
     public string currentTrack { get; private set; } = string.Empty;
 
+    // Starts a music track at a specific start point with a delay and
+    // end point in the track. Also controls if the track loops
     public void BeginMusicTrack(
         string name, 
         float start = 0.0f, 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls the force and damage of explosive objects
 public class BlastWave : MonoBehaviour
 {
     public int pointsCount = 100;   // Number of points drawn for the blast wave radius
@@ -15,16 +16,12 @@ public class BlastWave : MonoBehaviour
 
     public bool waveActive = true;
 
-    public bool disableOverlapForce = false;
-
     public bool damageDropOff = true;
 
     [SerializeField] private float minForce = 40f;
 
     // Renderer for blast wave
     private LineRenderer lineRenderer;
-
-    private List<Collider> previousCollisions = new List<Collider>();
 
     // Get the renderer and set the total number of draw points for it (needs one more than point count)
     private void Awake()
@@ -45,37 +42,12 @@ public class BlastWave : MonoBehaviour
     // Apply damage and force to all objects hit by the blast wave
     private void Damage(float currentRadius)
     {
+        // Get list of objects the explosion volume has hit 
         Collider[] hittingObjects = Physics.OverlapSphere(transform.position, currentRadius);
-
-        //if (hittingObjects.Length > 0)
-        //{
-        //    Debug.Log("Hit Stuff");
-        //}
 
         for (int i = 0; i < hittingObjects.Length; i++)
         {
-            if (disableOverlapForce)
-            {
-                bool cancel = false;
-                foreach (Collider col in previousCollisions)
-                {
-                    if (col == hittingObjects[i])
-                    {
-                        cancel = true;
-                        break;
-                    }
-                }
-
-                if (cancel)
-                {
-                    continue;
-                }
-                else
-                {
-                    previousCollisions.Add(hittingObjects[i]);
-                }
-            }
-
+            // Don't interact with trigger colliders
             if (hittingObjects[i].isTrigger)
             {
                 //Debug.Log("Trigger Collider");
@@ -83,8 +55,6 @@ public class BlastWave : MonoBehaviour
             }
             
             // Need to get the parent object with the rigid body.
-            // (may need to rework some pickup able objects to only have one physics collider)
-            //GameObject cObject = hittingObjects[i].transform.parent.gameObject;
 
             Transform objTransform = FindRidgidBody(hittingObjects[i].transform);
 
@@ -106,20 +76,19 @@ public class BlastWave : MonoBehaviour
 
             if (applyDynamicForce)
             {
+                // Force applied based on object mass, very processor intensive
                 rb.AddForce(direction * DynamicForce(rb.mass), ForceMode.Impulse);
             }
             else
             {
                 rb.AddForce(direction * (minForce + forceModifier), ForceMode.Impulse);
             }
-            //Debug.Log("Force applied");
 
             // Check if damageable then apply (fix this)
             Damageable damaged = objTransform.gameObject.GetComponent<Damageable>();
 
             if (!damaged)
             {
-                //Debug.Log("No damage");
                 continue;
             }
 
@@ -136,6 +105,7 @@ public class BlastWave : MonoBehaviour
         }
     }
 
+    // Search though an object to find its Rigidbody component in its object hierarchy
     private Transform FindRidgidBody(Transform transform)
     {
         Rigidbody currentObject = transform.gameObject.GetComponent<Rigidbody>();
@@ -223,13 +193,4 @@ public class BlastWave : MonoBehaviour
 
         lineRenderer.widthMultiplier = Mathf.Lerp(0f, startWidth, 1f - currentRadius / maxRadius);
     }
-
-    //// test controls
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.A))
-    //    {
-    //        StartCoroutine(TriggerBlast());
-    //    }
-    //}
 }

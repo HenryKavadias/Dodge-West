@@ -46,6 +46,7 @@ public class MusicContoller : MonoBehaviour
         }
     }
 
+    // Stops the current music track
     public void StopTrack()
     {
         if (audioManager != null)

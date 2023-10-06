@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Gets the list of sounds from the audio manager based on given string names
 public class AudioController : MonoBehaviour
 {
     public float pitchRange = 0.1f;
@@ -64,6 +65,7 @@ public class AudioController : MonoBehaviour
         //}
     }
 
+    // Assigns sounds to the triggerSounds list
     public void AssignStartSounds(List<string> sounds)
     {
         triggerSoundNames = sounds;
@@ -74,6 +76,7 @@ public class AudioController : MonoBehaviour
         RandomSfxOnAssign();
     }
 
+    // Plays a random sound in the trigger sounds list 
     public void RandomSfxOnAssign()
     {
         // Randomly pick a sound from the current list
@@ -111,6 +114,7 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(soundClip);
     }
 
+    // Trigger a specific sound in the sounds list
     public void TriggerAudio(string soundName)
     {
         // check if sound is accessable to object
@@ -144,7 +148,7 @@ public class AudioController : MonoBehaviour
         audioSource.PlayOneShot(soundClip);
     }
 
-    // unfinished
+    // Trigger random sound effect from sounds list
     public void RandomizeSfx()
     {
         // Randomly pick a sound from the current list

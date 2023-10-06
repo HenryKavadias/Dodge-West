@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Triggers a function (unity event) when this object collides with something else
 public class TriggeredOnCollision : MonoBehaviour
 {
     public float minVelocity = 1.0f;

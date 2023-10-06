@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Toggles the enabled state of the assigned collider.
+// Used to turn off the select collider (trigger volume) for an object when it's pickedup
+
+// (This is used to prevent the players "preloaded object" from intially inhibiting their movement)
 public class ToggleSelectCollider : MonoBehaviour
 {
     public Collider selectCollider = null;
@@ -17,10 +21,4 @@ public class ToggleSelectCollider : MonoBehaviour
             selectCollider.enabled = true;
         }
     }
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    Toggle();
-    //}
 }

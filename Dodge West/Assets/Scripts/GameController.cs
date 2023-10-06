@@ -113,6 +113,7 @@ public class GameController : MonoBehaviour
                 }
             }
 
+            // Controls the end game scenario
             if (activePlayers == 1)
             {
                 DisableAllPlayerUI();
