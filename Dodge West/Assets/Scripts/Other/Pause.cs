@@ -16,17 +16,30 @@ public class Pause : MonoBehaviour
 
     public GameObject eventSystem;  // Reference to event system
 
+    public bool inTutorial { private get; set; } = false;
+
     public bool isPaused { get; private set; } = false;
+
+    private float ignoreInputTime = 1.5f;
+    private bool inputEnabled = false;
 
     void Update()
     {
-        // Allows for unpausing with the cancel button
-        // when character controls are disabled
-        if (isPaused && 
-            eventSystem.GetComponent<InputSystemUIInputModule>().
-            cancel.action.triggered)
+        if (Time.time > ignoreInputTime)
         {
-            TogglePauseState();
+            inputEnabled = true;
+        }
+
+        if (inputEnabled && !inTutorial)
+        {
+            // Allows for unpausing with the cancel button
+            // when character controls are disabled
+            if (isPaused &&
+                eventSystem.GetComponent<InputSystemUIInputModule>().
+                cancel.action.triggered)
+            {
+                TogglePauseState();
+            }
         }
     }
 

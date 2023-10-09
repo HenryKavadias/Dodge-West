@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour
     // Variables for the game controller
     public bool startUpDelay = true;
 
+    public bool startTutorialForSinglePlayer = false;
+    public TutorialSequence tutorialSequence = null;
+
     public string nextScene = "EndGame-Scene";
 
     // Tracks the current game mode
@@ -63,6 +66,11 @@ public class GameController : MonoBehaviour
     public int LivePlayerCount()
     {
         return livePlayers.Count;
+    }
+
+    public GameObject GetLivePlayer(int index)
+    { 
+        return livePlayers[index]; 
     }
 
     // Switches the players controls on and off
@@ -321,6 +329,12 @@ public class GameController : MonoBehaviour
             player.GetComponent<LifeCounter>().SetLives(defaultLifes);
 
             AddPlayer(player);
+
+            // Start Tutorial
+            if (startTutorialForSinglePlayer && tutorialSequence != null)
+            {
+                tutorialSequence.enabled = true;
+            }
         }
         else if (PlayerConfigurationManager.Instance)
         {
