@@ -36,7 +36,7 @@ public class ReSpawner : MonoBehaviour
     {
         // Disable player controls and UI temperarily, also empty their objects
         gameObject.GetComponent<PhysicsPickup>().DropObject();
-        gameObject.GetComponent<CameraManager>().DisableUI();
+        gameObject.GetComponent<CameraManager>().TriggerDownedUI();
         // Disables player controls. It's important to disable the First Person Movement
         // script because features in it frequently turn on and off the UseGravity variable
         // attached to the Rigidbody. Gravity for this object needs to remain off while the

@@ -21,6 +21,7 @@ public class PlayerUIManager : MonoBehaviour
     public TextMeshProUGUI playerLivesText;
     public GameObject crosshair;
     public GameObject deathMessage;
+    public GameObject downedMessage;
 
     public GameObject damageIndicatorUI;
     public Animator damageIndicatorAnimator;
@@ -239,6 +240,32 @@ public class PlayerUIManager : MonoBehaviour
 
         deathMessage.SetActive(true);
 
+        downedMessage.SetActive(false);
+
+        lifeListHolder.gameObject.SetActive(false);
+        inventoryObjectListHolder.gameObject.SetActive(false);
+        playerColourBanner.SetActive(false);
+    }
+
+    // Disable all UI elements, but the UI Spawner message
+    public void TriggerDowned()
+    {
+        healthImage.enabled = false;
+        playerNumberText.enabled = false;
+        playerHealthText.enabled = false;
+        playerLivesText.enabled = false;
+
+        crosshair.SetActive(false);
+
+        deathMessage.SetActive(false);
+
+        downedMessage.SetActive(true);
+
+        if (plusUIRef.activeSelf)
+        {
+            plusUIRef.SetActive(false);
+        }
+
         lifeListHolder.gameObject.SetActive(false);
         inventoryObjectListHolder.gameObject.SetActive(false);
         playerColourBanner.SetActive(false);
@@ -268,6 +295,8 @@ public class PlayerUIManager : MonoBehaviour
 
         deathMessage.SetActive(false);
 
+        downedMessage.SetActive(false);
+
         lifeListHolder.gameObject.SetActive(true);
         inventoryObjectListHolder.gameObject.SetActive(true);
         playerColourBanner.SetActive(true);
@@ -284,6 +313,8 @@ public class PlayerUIManager : MonoBehaviour
         crosshair.SetActive(false);
 
         deathMessage.SetActive(false);
+
+        downedMessage.SetActive(false);
 
         if (plusUIRef.activeSelf)
         {

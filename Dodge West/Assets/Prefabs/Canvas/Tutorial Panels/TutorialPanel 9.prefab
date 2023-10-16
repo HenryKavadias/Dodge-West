@@ -278,9 +278,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Items highlighted in GREEN can be grabbed or stored, items highlighted
-    in RED can only be grabbed. Most items in the level will fall into one of these
-    two categories, but there are some items that are too heavy to carry. '
+  m_text: "Items highlighted in <color=green>GREEN</color> can be <color=orange>grabbed
+    or stored,</color> items highlighted in <color=red>RED</color> can only be <color=orange>grabbed.</color>
+    \n\nMost items in the level will fall into one of these two categories, but there
+    are some items that are too heavy to carry. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}

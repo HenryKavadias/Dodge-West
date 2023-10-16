@@ -232,6 +232,11 @@ public class CameraManager : MonoBehaviour
         currentUI.GetComponent<PlayerUIManager>().DisablePlayerUI();
     }
 
+    public void TriggerDownedUI()
+    {
+        currentUI.GetComponent<PlayerUIManager>().TriggerDowned();
+    }
+
     public void EnableUI()
     {
         currentUI.GetComponent<PlayerUIManager>().TriggerResurrection();

@@ -361,7 +361,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 100
+          m_FloatArgument: 125
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -799,6 +799,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 43d70b2c-30fb-4ff4-a753-0da607e882d3
     m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24e0530e-9e82-413a-ab7d-24b7f904aea9
+    m_ActionName: UI/ResetGame[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -924,7 +928,6 @@ MonoBehaviour:
   objectTrackingSpeedModifier: 40
   maxObjectSpeed: 80
   flatThrowPowerPerUnit: 25
-  enableThrowPowerWithCap: 1
   minThrowPower: 100
   enableHighlight: 1
   throwEffect:
