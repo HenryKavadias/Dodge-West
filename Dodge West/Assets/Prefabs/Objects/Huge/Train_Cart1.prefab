@@ -225,7 +225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   loadable: 0
+  objIcon: {fileID: 0}
   loadDistance: 1
+  throwTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   minDamageVelocity: 20
   velocityThreshold: 0
   minThrownDamageVelocity: 10
@@ -370,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabObjs:
-  - {fileID: 6704892483781080500, guid: 9896ae34605a7cd45be4aede1c8359c7, type: 3}
+  - {fileID: 6704892483781080500, guid: c1e8ab455643ab64894eff3a2b0ddd9d, type: 3}
   assignSounds: 1
   disableBeforeSpawn: 0
 --- !u!114 &3748990945330257965
