@@ -228,9 +228,9 @@ GameObject:
   - component: {fileID: 180477793362330881}
   - component: {fileID: 8818952990194242175}
   - component: {fileID: 442706093102097774}
-  - component: {fileID: 8849570109455504722}
   - component: {fileID: 7847598119957405834}
   - component: {fileID: 7310093695907445583}
+  - component: {fileID: -102255276014617201}
   m_Layer: 6
   m_Name: TrainCart 1
   m_TagString: Untagged
@@ -393,7 +393,7 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8849570109455504722}
+      - m_Target: {fileID: -102255276014617201}
         m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
         m_MethodName: Spawn
         m_Mode: 2
@@ -432,21 +432,6 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
---- !u!114 &8849570109455504722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4865233274797952917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabObjs:
-  - {fileID: 7614501053226499108, guid: a93b5ff5cb3a0494c9ec0c0e4e0e8f31, type: 3}
-  assignSounds: 1
 --- !u!114 &7847598119957405834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,3 +471,19 @@ MonoBehaviour:
   onCollision:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-102255276014617201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4865233274797952917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabObjs:
+  - {fileID: 5222525761172442877, guid: 84d7e11140da2ef4d9c74fd6ad9725a3, type: 3}
+  assignSounds: 1
+  disableBeforeSpawn: 0

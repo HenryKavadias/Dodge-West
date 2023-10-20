@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 8558952796058959999}
   - component: {fileID: 1019390925308073729}
   - component: {fileID: 8242259638613663760}
-  - component: {fileID: 1047456902991679532}
   - component: {fileID: 1778615403158611444}
   - component: {fileID: 1239623340104728113}
+  - component: {fileID: -7131184601668474978}
   m_Layer: 6
   m_Name: TrainFront
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Children:
   - {fileID: 7539369929414245003}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5803382343974253365
 Rigidbody:
@@ -180,7 +180,7 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1047456902991679532}
+      - m_Target: {fileID: -7131184601668474978}
         m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
         m_MethodName: Spawn
         m_Mode: 2
@@ -219,21 +219,6 @@ MonoBehaviour:
   destoryOnStart: 0
   destroyInstantly: 1
   destroyDelay: 1
---- !u!114 &1047456902991679532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017890652168981227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccb99312d6e5ed46a2522986e26fa63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabObjs:
-  - {fileID: 7614501053226499108, guid: a93b5ff5cb3a0494c9ec0c0e4e0e8f31, type: 3}
-  assignSounds: 1
 --- !u!114 &1778615403158611444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +258,22 @@ MonoBehaviour:
   onCollision:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-7131184601668474978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017890652168981227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a80ffe51fb28644b9debb1cc9b5c409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabObjs:
+  - {fileID: 5222525761172442877, guid: 43f5f2a05b5e3fb4bad9483d3908f568, type: 3}
+  assignSounds: 1
+  disableBeforeSpawn: 0
 --- !u!1 &5110614429298343302
 GameObject:
   m_ObjectHideFlags: 0
