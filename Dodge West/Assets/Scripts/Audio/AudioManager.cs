@@ -28,6 +28,12 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    // Updates the volume for the music audio source
+    public void UpdateMusicVolume(float Music)
+    {
+        audioSource.volume = Music;
+    }
+
     private void Awake()
     {
         if (instance == null)
