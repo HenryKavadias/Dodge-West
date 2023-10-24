@@ -10618,24 +10618,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
       propertyPath: objectSpawnCap
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
       propertyPath: rapidSpawnDuration
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
-      propertyPath: numberOfSpawnsPerUpdate
+      propertyPath: spawnIncreaseTrigger
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
+      propertyPath: numberOfSpawnsPerUpdate
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
       propertyPath: rapidObjects.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
       propertyPath: rapidSpawnTrackerTrigger
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
+      propertyPath: rapidObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 6704892483781080500, guid: fdbe3c3f48482ee45a473ffdace25705, type: 3}
+    - target: {fileID: 5053013319475722537, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
+      propertyPath: rapidObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 6704892483781080500, guid: 7e8ddb88a4f11b144ac2aabb11ebbda2, type: 3}
     - target: {fileID: 6389944677278448595, guid: 93edc6841e806b94b8342fcbaff10ac2, type: 3}
       propertyPath: m_IsActive
       value: 0

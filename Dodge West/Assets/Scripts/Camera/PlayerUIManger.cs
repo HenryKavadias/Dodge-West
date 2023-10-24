@@ -52,8 +52,11 @@ public class PlayerUIManager : MonoBehaviour
             if (mirror)
             {
                 elementHolder.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+
+                // All the elements that can't be mirrored
                 playerNumberText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
                 deathMessage.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
+                downedMessage.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
                 playerHealthText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
                 playerLivesText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
             }
@@ -62,6 +65,7 @@ public class PlayerUIManager : MonoBehaviour
                 elementHolder.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
                 playerNumberText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
                 deathMessage.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                downedMessage.GetComponent<RectTransform>().localScale = new Vector3(-1f, 1f, 1f);
                 playerHealthText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
                 playerLivesText.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
             }
